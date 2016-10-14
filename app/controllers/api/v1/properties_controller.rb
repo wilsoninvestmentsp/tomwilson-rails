@@ -17,6 +17,7 @@ module Api
   			@properties = Property.where(q)
   			.page(params[:page])
   			.per((params[:limit] || 100).to_i)
+        .order("RAND()")
   			.order("FIELD(status,'for_sale','coming_soon','reserved','sale_pending','sold','not_active')")
 
   			respond_with @properties,
