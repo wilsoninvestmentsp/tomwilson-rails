@@ -20,14 +20,14 @@ module Api
         .order("FIELD(status, 'for_sale','coming_soon','reserved','sale_pending','sold','not_active'), CASE WHEN status = 'for_sale' THEN RAND() ELSE 1 END")
 
         respond_with @properties,
-  			meta: {
-  				current_page: @properties.current_page,
-  				next_page: @properties.next_page,
-  				prev_page: @properties.prev_page,
-  				total_pages: @properties.total_pages,
-  				total_count: @properties.total_count,
-  				limit: (params[:limit] || 100).to_i
-  			}
+        meta: {
+          current_page: @properties.current_page,
+          next_page: @properties.next_page,
+          prev_page: @properties.prev_page,
+          total_pages: @properties.total_pages,
+          total_count: @properties.total_count,
+          limit: (params[:limit] || 100).to_i
+        }
 
   		end
   		# :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
