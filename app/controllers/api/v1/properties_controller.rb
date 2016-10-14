@@ -17,10 +17,9 @@ module Api
   			@properties = Property.where(q)
   			.page(params[:page])
   			.per((params[:limit] || 100).to_i)
-        .order("RAND()")
-  			.order("FIELD(status,'for_sale','coming_soon','reserved','sale_pending','sold','not_active')")
+        .order("FIELD(status, 'for_sale','coming_soon','reserved','sale_pending','sold','not_active'), CASE WHEN status = 'for_sale' THEN RAND() ELSE 1 END")
 
-  			respond_with @properties,
+        respond_with @properties,
   			meta: {
   				current_page: @properties.current_page,
   				next_page: @properties.next_page,
