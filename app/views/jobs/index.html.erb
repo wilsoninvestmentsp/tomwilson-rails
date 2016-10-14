@@ -1,0 +1,55 @@
+<!-- <div ng:controller="JobsCtrl">
+	<button
+		type="button"
+		class="btn btn-success btn-lg"
+		ng:click="syncSpreadsheet()"
+		ng:if="!jobs.loading"
+	>Sync Master Spreadsheet</button>
+	<button
+		type="button"
+		class="btn btn-warning btn-lg"
+		ng:if="jobs.loading"
+		ng:disabled="true"
+	>Syncing...</button>
+</div> -->
+
+<ol class="breadcrumb">
+  <li><%= link_to 'Home',root_url %></li>
+  <li class="active">Import</li>
+</ol>
+
+<h1>Import</h1>
+
+<hr>
+
+<!-- Begin Row :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->
+<!-- :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->
+<div class="row">
+
+	<!-- Begin Col :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->
+	<div class="col-sm-6">
+	
+		<!-- End Row :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->
+		<%= form_tag import_properties_path, multipart: true do %>
+		<!-- Begin Form Group  :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->
+		<div class="form-group">
+
+			<%= file_field_tag :file,class: 'form-control' %>
+
+		</div>
+		<!-- End Form Group  :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->
+
+		<!-- Begin Form Group  :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->
+		<div class="form-group">
+
+			<%= submit_tag "Import",class: 'btn btn-default' %>
+
+		</div>
+		<!-- End Form Group  :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->
+		<% end %>
+	
+	</div>
+	<!-- End Col :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->
+
+</div>
+<!-- :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->

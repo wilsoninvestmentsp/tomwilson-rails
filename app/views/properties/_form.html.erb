@@ -1,0 +1,338 @@
+<div ng:controller="PropertyFormCtrl">
+<%= form_for(@property) do |f| %>
+  
+  <% if @property.errors.any? %>
+    <uib-alert type="danger">
+      <ul>
+        <% @property.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </uib-alert>
+  <% end %>
+
+  <!-- Begin Form Group  :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->
+  <div class="form-group">
+  
+    <%= f.submit 'Save',class: 'btn btn-success' %>
+  
+  </div>
+  <!-- End Form Group  :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->
+
+  <div class="row">
+
+    <div class="col-md-6">
+      
+      <h3>Info</h3>
+      <hr>
+
+      <div class="form-group">
+        <%= f.label :building_type %>
+        <%= f.select :building_type,@building_type_options,{},class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :status %>
+        <%= f.select :status,@status_options,{},class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :image %><br>
+        <%= image_tag @property.image.thumb.url,class: 'img-thumbnail' %><br><br>
+        <%= f.file_field :image,class: 'form-control',placeholder: 'Main Image' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :title %>
+        <p class="text-muted small">An <b>optional</b> title for a property. If this field is empty the address will be used as the title.</p>
+        <%= f.text_field :title,class: 'form-control',placeholder:'' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :highlight %>
+        <p class="text-muted small">This text will show up in the <span class="text-danger">Red</span> "highlight" bar. If this field is left empty, the bar will not show up.</p>
+        <%= f.text_field :highlight,class: 'form-control',placeholder:'' %>
+      </div>
+      <div class="form-group">
+
+        <%= f.label :address %>
+        <p class="text-muted small">An address with street, city, state and zip is required.</p>
+        <div class="input-group">
+          
+          <input
+            type="text"
+            ng:model="address"
+            class="form-control"
+            placeholder="Paste a full address here"
+            ng:paste="updateAddressPaste($event)"
+          />
+          <span class="input-group-btn">
+            <button
+              class="btn btn-default"
+              type="button"
+              ng:click="updateAddress(address)"
+              <% if @property.raw_address.present? %>
+              ng:init="address = '<%= @property.raw_address %> <%= @property.zip %>'"
+              <% end %>
+            >Set</button>
+          </span>
+
+        </div>
+
+      </div>
+      <div class="form-group" ng:init="property.address = '<%= @property.address %>'">
+        <table class="address-table">
+          <tr>
+            <td class="text-default">Street:<td><td class="text-primary">{{property.address}}</td>
+          </tr>
+          <tr>
+            <td class="text-default">City:<td><td class="text-primary">{{property.city}}, {{property.state}}</td>
+          </tr>
+          <tr>
+            <td class="text-default">Zip:<td><td class="text-primary">{{property.zip}}</td>
+          </tr>
+        </table>
+        <%= f.hidden_field :address,'ng:model' => 'property.address' %>
+      </div>
+      <div class="form-group" ng:init="property.city = '<%= @property.city %>'">
+        <%= f.hidden_field :city,'ng:model' => 'property.city' %>
+      </div>
+      <div class="form-group" ng:init="property.state = '<%= @property.state %>'">
+        <%= f.hidden_field :state,'ng:model' => 'property.state' %>
+      </div>
+      <div class="form-group" ng:init="property.zip = '<%= @property.zip %>'">
+        <%= f.hidden_field :zip,'ng:model' => 'property.zip' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :featured %>
+        <p class="text-muted small">This is the order in which the 6 "Additional Properties" on the homepage will show up. The property will only show up on the homepage if this field is <b>not</b> empty. (Range: 1-6)</p>
+        <%= f.number_field :featured,class: 'form-control',placeholder:'',min: 1,max: 6 %>
+      </div>
+
+      <h3>Specs</h3>
+      <hr>
+
+      <div class="form-group">
+        <%= f.label :year_built %>
+        <%= f.number_field :year_built,class: 'form-control',placeholder: '' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :square_ft %>
+        <%= f.number_field :square_ft,class: 'form-control',placeholder: '' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :bedrooms %>
+        <%= f.number_field :bedrooms,value: (number_with_precision(f.object.bedrooms, :precision => 1) || 0),class: 'form-control',placeholder: '' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :bathrooms %>
+        <%= f.number_field :bathrooms,value: (number_with_precision(f.object.bedrooms, :precision => 1) || 0),class: 'form-control',placeholder: '' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :garages %>
+        <%= f.number_field :garages,value: (number_with_precision(f.object.bedrooms, :precision => 1) || 0),class: 'form-control',placeholder: '' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :carports %>
+        <%= f.number_field :carports,value: (number_with_precision(f.object.bedrooms, :precision => 1) || 0),class: 'form-control',placeholder: '' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :leased %>
+        <%= f.select :leased,@leased_options,{},class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :offer_price %><br>
+        <div class="input-group">
+          <div class="input-group-addon">$</div>
+          <%= f.number_field :offer_price,value: (number_with_precision(f.object.offer_price, :precision => 2) || 0),class: 'form-control',placeholder:'' %>
+        </div>
+        <%= f.text_field :offer_price_label,class: 'form-control',placeholder:'' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :rent %><br>
+        <div class="input-group">
+          <div class="input-group-addon">$</div>
+          <%= f.number_field :rent,value: (number_with_precision(f.object.rent, :precision => 2) || 0),class: 'form-control',placeholder:'' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :cash_flow %><br>
+        <div class="input-group">
+          <div class="input-group-addon">$</div>
+          <%= f.number_field :cash_flow,value: (number_with_precision(f.object.cash_flow, :precision => 2) || 0),class: 'form-control',placeholder:'' %>
+        </div>
+      </div>
+
+      <a name="links"></a>
+      <h3>Links</h3>
+      <hr>
+
+      <!-- Begin Form Group  :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->
+      <div class="form-group" ng:init="links = <%= @property.links.to_json %>">
+
+        <table class="table table-condensed table-striped">
+          
+          <tr>
+            <td>Title</td>
+            <td colspan="2">Link</td>
+          </tr>
+
+          <tr ng:repeat="link in links">
+            <td class="vmiddle">{{link.title}}</td>
+            <td class="vmiddle"><a href="{{link.link}}" target="_blank">{{link.link}}</a></td>
+            <td class="vmiddle" align="right">
+              
+              <button type="button" class="btn btn-danger btn-sm" ng:show="!saving[link.id]" ng:click="deleteLink(link,$index)"><%= icon 'remove' %></button>
+              <button type="button" class="btn btn-danger btn-sm" ng:if="saving[link.id]" ng:disabled="true">...</button>
+
+            </td>
+          </tr>
+
+          <tr>
+            <td class="vmiddle">
+
+              <input type="text" class="form-control" ng:model="newLink.title" onenter="createLink(newLink)" placeholder="Title" />
+              <input type="hidden" ng:model="newLink.property_id" ng:init="newLink.property_id = <%= @property.id %>" />
+
+            </td>
+            <td class="vmiddle">
+
+              <input type="text" class="form-control" ng:model="newLink.link" onenter="createLink(newLink)" placeholder="Link" />
+
+            </td>
+            <td class="vmiddle" align="right">
+              
+              <button type="button" class="btn btn-default btn-sm" ng:show="!saving.new" ng:click="createLink(newLink)"><%= icon 'plus' %></button>
+              <button type="button" class="btn btn-default btn-sm" ng:if="saving.new" ng:disabled="true">...</button>
+
+            </td>
+          </tr>
+
+        </table>
+      
+      </div>
+      <!-- End Form Group  :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->
+
+      <a name="chart"></a>
+      <h3>Chart</h3>
+      <hr>
+
+      <!-- Begin Form Group  :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->
+      <div class="form-group">
+
+        <% if @property.chart.present? %>
+        <span ng:init="chart = <%= @property.chart.to_json %>"></span>
+        <span ng:init="setChart(chart)"></span>
+        
+        <div google-chart chart="myChartObject" style="height:400px; width:100%;"></div>
+        <% end %>
+      
+      </div>
+      <!-- End Form Group  :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->
+
+      <div class="form-group">
+        <%= f.label :property_management_fee %><br>
+        <div class="input-group">
+          <div class="input-group-addon">$</div>
+          <%= f.number_field :property_management_fee,value: (number_with_precision(f.object.property_management_fee, :precision => 2) || 0),class: 'form-control',placeholder:'' %>
+          <div class="input-group-addon">Yearly</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :mortgage_payment %><br>
+        <div class="input-group">
+          <div class="input-group-addon">$</div>
+          <%= f.number_field :mortgage_payment,value: (number_with_precision(f.object.mortgage_payment, :precision => 2) || 0),class: 'form-control',placeholder:'' %>
+          <div class="input-group-addon">Monthly</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :hoa_fee %><br>
+        <div class="input-group">
+          <div class="input-group-addon">$</div>
+          <%= f.number_field :hoa_fee,value: (number_with_precision(f.object.hoa_fee, :precision => 2) || 0),class: 'form-control',placeholder:'' %>
+          <div class="input-group-addon">Monthly</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :property_tax %><br>
+        <div class="input-group">
+          <div class="input-group-addon">$</div>
+          <%= f.number_field :property_tax,value: (number_with_precision(f.object.property_tax, :precision => 2) || 0),class: 'form-control',placeholder:'' %>
+          <div class="input-group-addon">Yearly</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :hazard_insurance %><br>
+        <div class="input-group">
+          <div class="input-group-addon">$</div>
+          <%= f.number_field :hazard_insurance,value: (number_with_precision(f.object.hazard_insurance, :precision => 2) || 0),class: 'form-control',placeholder:'' %>
+          <div class="input-group-addon">Yearly</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-md-6">
+
+      <h3>Description</h3>
+      <hr>
+      <%= f.text_area :description %>
+      <script type="text/javascript">
+        $(document).ready(function(){
+
+          setTimeout(function(){
+            
+            tinyMCE.remove();
+            tinyMCE.init({
+              selector: '#property_description',
+              min_height: 500
+            });
+
+          },100);
+
+        });
+      </script>
+
+    </div>
+
+  </div>
+
+  <% if action_name != 'new' %>
+  
+    <% @slides = @property.images.map { |item| item.to_json } %>
+    <% @ids = @property.images.map { |item| item.id } %>
+    <div ng:init="images = [<%= @slides.join(',') %>]"></div>
+    <div ng:init="image_ids = <%= @ids %>"></div>
+
+    <a name="images"></a>
+    <h3>Images</h3>
+    <hr>
+    <div align="center">
+      <a ng:repeat="image in images" href="#" ng:click="removeImage(image)"><img ng:src="{{image.image.thumb.url}}" class="img-thumbnail" /></a>
+      <img ng:src="<%= asset_path 'loader-thumb.png' %>" class="img-thumbnail" ng:if="img_loading" />
+    </div>
+
+    <div class="form-group">
+
+      <button type="button" class="btn btn-default form-control" ng-file-select ng-file-change="upload($files,<%= @property.id %>)">Add Photo</button>
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Image Url"
+        ng:model="imageUrl"
+      />
+
+      <button type="button" class="btn btn-default" ng:click="uploadUrl(<%= @property.id %>,imageUrl)" ng:disabled="img_loading">Upload</button>
+
+    </div>
+
+  <% end %>
+
+  <div class="form-group top-50">
+    <%= link_to 'Delete Property',@property, method: :delete, data: { confirm: 'Are you sure you wish to delete this property? This CANNOT be undone.' },class: 'btn btn-danger form-control' %>
+  </div>
+
+<% end %>
+</div>

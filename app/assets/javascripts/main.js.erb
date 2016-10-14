@@ -1,0 +1,42 @@
+var App = angular.module('App',[
+	'ngRoute',
+	// 'ngResource',
+	'ngSanitize',
+	'ui.bootstrap',
+	'angularFileUpload',
+	'googlechart'
+	// ,
+	// 'googlechart-docs'
+]);
+App.value('$anchorScroll',angular.noop);
+$(document).on('ready page:load', function(arguments) {
+  angular.bootstrap(document.body, ['App'])
+});
+App.config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider){
+
+	html5Mode: true;
+
+	$routeProvider
+	/* MARKER */  	
+	.when('/',{
+
+		// templateUrl : '/angularjs/templates/ticket.html',
+		// controller: TicketCtrl
+
+	})
+
+	// .otherwise({
+		
+	// 	redirectTo: '/ticket'
+
+	// });
+	
+}]);
+
+function JP(data){
+
+	<% if !Rails.env.production? %>
+	console.log(data);
+	<% end %>
+
+}

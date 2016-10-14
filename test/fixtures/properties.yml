@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  address: MyString
+  year_built: 1
+  square_ft: 1
+  offer_price: 9.99
+  rent: 9.99
+  status: MyString
+  leased: false
+  bedrooms: 1
+  bathrooms: 1
+  garages: 1
+  carports: 1
+  monthly_return: 9.99
+
+two:
+  address: MyString
+  year_built: 1
+  square_ft: 1
+  offer_price: 9.99
+  rent: 9.99
+  status: MyString
+  leased: false
+  bedrooms: 1
+  bathrooms: 1
+  garages: 1
+  carports: 1
+  monthly_return: 9.99

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>
+      Name: <%= @inquiry[:name] %><br>
+      Email: <%= @inquiry[:email] %><br>
+      Phone: <%= @inquiry[:phone] %><br>
+      Newsletter: <%= @inquiry[:newsletter] ? 'Yes' : 'No' %>
+    </p>
+    <p>
+      Property: <%= @inquiry[:property][:raw_title] %>
+    </p>
+    <p>
+      <%= @inquiry[:description] %>
+    </p>
+  </body>
+</html>

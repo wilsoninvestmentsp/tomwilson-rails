@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wilson Investment Properties, Inc</title>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+	<a name="top"></a>
+	
+	<div class="gold_bar"></div>
+
+	<%= render 'layouts/header' %>
+
+	<div class="container">
+
+		<div class="social-links">
+
+			<a href="https://www.facebook.com/WilsonInvestmentProperties" target="_blank" class="btn btn-social-icon btn-facebook">
+			  <span class="fa fa-facebook"></span>
+			</a>
+			<a href="https://twitter.com/wilsoninvestprp" target="_blank" class="btn btn-social-icon btn-twitter">
+			  <span class="fa fa-twitter"></span>
+			</a>
+			<a href="https://www.linkedin.com/company/wilson-investment-properties" target="_blank" class="btn btn-social-icon btn-linkedin">
+			  <span class="fa fa-linkedin"></span>
+			</a>
+
+		</div>
+
+		<% flash.each do |alert| %>
+			<uib-alert type="<%= alert.first %>"><%= alert.last %></uib-alert>
+		<% end %>
+
+		<%= yield %>
+
+	</div>
+
+	<%= render 'layouts/footer' %>
+
+</body>
+</html>

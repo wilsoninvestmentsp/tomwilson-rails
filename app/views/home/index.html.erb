@@ -1,0 +1,332 @@
+<div class="top-label" align="center">
+	<h1 class="">Western Crossing Shopping Center</br><small>Amarillo, TX</small></h1>
+	<%= link_to 'Invest $50k &bull; get $110k! 14% Avg Annual &bull; 8% Preferred Return &bull; 8.25 CAP'.html_safe,property_path('western-crossing-shopping-center'),class: 'wipalert' %>
+</div>
+
+<p>&nbsp;</p>
+
+<div class="row">
+
+	<div class="col-md-6">
+
+		<!-- <h4>Highlights:</h4> -->
+		<ul>
+			<li><h4>$20.2M Class-A single-story retail building</h4></li>
+			<li><h4>98% Occupied</h4></li>
+			<li><h4>Economic center of Texas & Oklahoma panhandles & Eastern New Mexico</h4></li>
+			<li><h4>2.9% unemployment, the lowest in Texas</h4></li>
+		</ul>
+
+		<p>&nbsp;</p>
+
+		<div align="center">
+			<%= link_to 'Learn More',property_path('western-crossing-shopping-center'),class: 'btn btn-primary btn-lg' %>
+		</div>
+
+	</div>
+
+	<div class="col-md-6">
+
+		<div class="embed-responsive embed-responsive-16by9" >
+			<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/QRQin1k560k?showinfo=0"></iframe>
+		</div>
+
+	</div>
+
+</div>
+
+<% if false %>
+<p>&nbsp;</p>
+<hr>
+<p>&nbsp;</p>
+
+<div class="" align="center">
+	<h1 class="">Joshua Crossing Fourplexes</br><small>Dallas / Ft. Worth, TX</small></h1>
+	<%= link_to '24 Fourplexes &bull; New Construction Special'.html_safe,property_path('joshua-crossing-fourplexes'),class: 'wipalert' %>
+</div>
+
+<p>&nbsp;</p>
+
+<div class="row">
+
+	<div class="col-md-6">
+
+		<div class="thumbnail">
+
+			<img src="http://res.cloudinary.com/wambl/image/upload/v1467761350/djb7scnzc977lmfkzrgw.jpg" />
+
+		</div>
+
+	</div>
+
+	<div class="col-md-6">
+
+		<!-- <h4>Highlights:</h4> -->
+		<ul>
+			<li><h4>All units 3br, 2ba, + carports</h4></li>
+			<li><h4>4508 sq.ft (1127 sq.ft each unit)</h4></li>
+			<li><h4>$499K each fourplex</h4></li>
+			<li><h4>$5,000/month rent (4 X $1,250)</h4></li>
+		</ul>
+
+		<p>&nbsp;</p>
+
+		<div align="center">
+			<%= link_to 'Learn More',property_path('joshua-crossing-fourplexes'),class: 'btn btn-primary btn-lg' %>
+		</div>
+
+	</div>
+
+</div>
+<% end %>
+
+	<hr>
+
+	<div ng:controller="TestimoniesCtrl" class="testimonies" align="center">
+
+		<div ng:repeat="testimony in testimonies" ng:if="$index == selectedTestimony">
+
+			<h1>"{{testimony.quote}}"<br><small>- {{testimony.author}}</small></h1>
+
+		</div>
+
+		<% if current_user %>
+
+		<table class="table table-condensed table-striped">
+			
+			<tr>
+				<td><strong>Quote</strong></td>
+				<td><strong>Author</strong></td>
+				<td align="center"><strong>Order</strong></td>
+				<td align="right">
+
+					<button type="button" class="btn btn-default btn-sm" ng:click="saveOrder()" ng:disabled="saving.order">{{saving.order || 'Save Order'}}</button>
+
+				</td>
+			</tr>
+			
+			
+			<tr ng:repeat="testimony in testimonies">
+				
+				<td class="vmiddle" ng:show="!testimony.edit">{{testimony.quote}}</td>
+				<td class="vmiddle" ng:show="!testimony.edit">{{testimony.author}}</td>
+				<td class="vmiddle" align="center" ng:show="!testimony.edit">
+					<div><a href="" ng:click="moveTestimony(testimony,$index,$index-1)"><%= icon 'chevron-up' %></a></div>
+					<div><a href="" ng:click="moveTestimony(testimony,$index,$index+1)"><%= icon 'chevron-down' %></a></div>
+				</td>
+				<td ng:show="!testimony.edit" align="right">
+					
+					<button type="button" class="btn btn-warning btn-sm" ng:click="testimony.edit = true">Edit</button>
+					<button type="button" class="btn btn-danger btn-sm" ng:click="deleteTestimony(testimony,$index)">Delete</button>
+
+				</td>
+
+				<td class="vmiddle" ng:show="testimony.edit">
+
+					<input type="text" class="form-control" ng:model="testimony.quote" placeholder="" />
+
+				</td>
+				<td class="vmiddle" ng:show="testimony.edit">
+
+					<input type="text" class="form-control" ng:model="testimony.author" placeholder="" />
+
+				</td>
+				<td class="vmiddle" align="center" ng:show="testimony.edit">
+					
+					<div><a href="" ng:click="moveTestimony(testimony,$index,$index-1)"><%= icon 'chevron-up' %></a></div>
+					<div><a href="" ng:click="moveTestimony(testimony,$index,$index+1)"><%= icon 'chevron-down' %></a></div>
+
+				</td>
+				<td ng:show="testimony.edit" align="right">
+					
+					<button type="button" class="btn btn-default btn-sm" ng:click="testimony.edit = null">Cancel</button>
+					<button type="button" class="btn btn-success btn-sm" ng:click="saveTestimony(testimony)" ng:disabled="saving[testimony.id]">{{saving[testimony.id] || 'Save'}}</button>
+
+				</td>
+
+			</tr>
+
+			<tr>
+
+				<td class="vmiddle">
+
+					<input type="text" class="form-control" ng:model="newTestimony.quote" placeholder="Quote" />
+
+				</td>
+				<td class="vmiddle">
+
+					<input type="text" class="form-control" ng:model="newTestimony.author" placeholder="Author" />
+
+				</td>
+				<td class="vmiddle" align="center"></td>
+				<td align="right">
+					
+					<button type="button" class="btn btn-default btn-sm" ng:click="createTestimony(newTestimony)" ng:show="!saving.new"><%= icon 'plus' %></button>
+					<button type="button" class="btn btn-default btn-sm" ng:show="saving.new" ng:disabled="true">{{saving.new}}</button>
+
+				</td>
+
+			</tr>
+			
+		</table>
+
+		<% end %>
+
+	</div>
+
+	<hr>
+
+	<div align="center"><h2 class="allerdisplay">Additional Properties</h2></div>
+
+	<% if !current_user %>
+	<div class="row">
+
+		<% Property.where(featured: [1,2,3],active: true).order(:featured).each do |property| %>
+
+			<div class="col-md-4">
+
+				<%= link_to property_path(property),class: 'thumbnail' do %>
+
+					<%= image_tag property.image.url %>
+					<div class="caption">
+						<h5><%= property.raw_title %></h5>
+						<div class="row">
+							<div class="col-lg-3">
+								<h5>
+									<span class="text-success">$<%= number_with_precision(property.offer_price,precision: 2,delimiter: ',') %></span>
+								</h5>
+							</div>
+							<div class="col-lg-9">
+								<h5>
+									<span class="text-success"><%= property.offer_price_label %>&nbsp;</span>
+								</h5>
+							</div>
+						</div>
+					</div>
+
+				<% end %>
+
+			</div>
+
+		<% end %>
+
+	</div>
+
+	<div class="row">
+
+		<% Property.where(featured: [4,5,6],active: true).order(:featured).each do |property| %>
+
+			<div class="col-md-4">
+
+				<%= link_to property_path(property),class: 'thumbnail' do %>
+
+					<%= image_tag property.image.url %>
+					<div class="caption">
+						<h5><%= property.raw_title %></h5>
+						<div class="row">
+							<div class="col-lg-3">
+								<h5>
+									<span class="text-success">$<%= number_with_precision(property.offer_price,precision: 2,delimiter: ',') %></span>
+								</h5>
+							</div>
+							<div class="col-lg-9">
+								<h5>
+									<span class="text-success"><%= property.offer_price_label %>&nbsp;</span>
+								</h5>
+							</div>
+						</div>
+					</div>
+
+				<% end %>
+
+			</div>
+
+		<% end %>
+
+	</div>
+	<% else %>
+
+		<div ng:controller="FeaturedCtrl">
+		
+		<% @properties = Property.where(featured: [1,2,3,4,5,6],active: true).order(:featured).map { |property| PropertySerializer.new(property,root: false) } %>
+		<span ng:init="properties = <%= @properties.to_json %>"></span>
+		<div class="row">
+
+			<div class="col-md-4" ng:repeat="property in properties.slice(0,3)">
+
+				<a href="<%= properties_path %>/{{property.slug}}" class="thumbnail">
+
+					<img ng:src="{{property.image.image.url}}" />
+					<div class="caption">
+						<h5>{{property.raw_title}}</h5>
+						<div class="row">
+							<div class="col-lg-3">
+								<h5>
+									<span class="text-success">${{property.raw_offer_price}}</span>
+								</h5>
+							</div>
+							<div class="col-lg-9">
+								<h5>
+									<span class="text-success">{{property.offer_price_label}}&nbsp;</span>
+								</h5>
+							</div>
+						</div>
+					</div>
+
+				</a>
+
+				<div class="well" align="center" ng:if="mode.edit">
+					<button class="btn btn-default btn-sm" ng:click="moveProperty(property,$index,$index-1)"><%= icon 'chevron-left' %></button>
+					<button class="btn btn-default btn-sm" ng:click="moveProperty(property,$index,$index+1)"><%= icon 'chevron-right' %></button>
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="row">
+
+			<div class="col-md-4" ng:repeat="property in properties.slice(3,6)">
+
+				<a href="<%= properties_path %>/{{property.slug}}" class="thumbnail">
+
+					<img ng:src="{{property.image.image.url}}" />
+					<div class="caption">
+						<h5>{{property.raw_title}}</h5>
+						<div class="row">
+							<div class="col-lg-3">
+								<h5>
+									<span class="text-success">${{property.raw_offer_price}}</span>
+								</h5>
+							</div>
+							<div class="col-lg-9">
+								<h5>
+									<span class="text-success">{{property.offer_price_label}}&nbsp;</span>
+								</h5>
+							</div>
+						</div>
+					</div>
+
+				</a>
+
+				<div class="well" align="center" ng:if="mode.edit">
+					<button class="btn btn-default btn-sm" ng:click="moveProperty(property,($index+3),($index+3)-1)"><%= icon 'chevron-left' %></button>
+					<button class="btn btn-default btn-sm" ng:click="moveProperty(property,($index+3),($index+3)+1)"><%= icon 'chevron-right' %></button>
+				</div>
+
+			</div>
+
+		</div>
+
+		<ul class="pager">
+		  <li ng:show="!mode.edit"><a href="" ng:click="mode = {edit: true}">Re-Order</a></li>
+		  <li ng:show="mode.edit && !loading && changed"><a href="" ng:click="saveOrder()">Save</a></li>
+		  <li ng:show="loading"><a href="" ng:click="">Saving...</a></li>
+		  <li ng:show="!changed && mode.edit"><a href="" ng:click="mode = {}">Cancel</a></li>
+		</ul>
+
+		</div>
+
+	<% end %>
+
+	<div align=""><%= link_to 'View More Offers',properties_path,class: 'btn btn-lg btn-primary' %></div>

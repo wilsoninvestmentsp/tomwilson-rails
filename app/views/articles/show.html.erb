@@ -1,0 +1,16 @@
+<ol class="breadcrumb">
+  <li><%= link_to 'Home',root_url %></li>
+  <li><%= link_to 'Articles',articles_url %>
+  <li class="active"><%= @article[:body]['article']['title'] %></li>
+  <% if current_user %>
+  	<li><%= link_to 'Edit',"https://tomwilsonproperties.zendesk.com/hc/admin/articles/#{@article[:body]['article']['id']}/edit",target: '_blank' %></li>
+  <% end %>
+</ol>
+
+<div>
+  <h1><%= @article[:body]['article']['title'] %></h1>
+</div>
+
+<hr>
+
+<%= @article[:body]['article']['body'].html_safe %>

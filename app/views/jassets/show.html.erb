@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @jasset.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @jasset.description %>
+</p>
+
+<p>
+  <strong>Link name:</strong>
+  <%= @jasset.link_name %>
+</p>
+
+<p>
+  <strong>Link uri:</strong>
+  <%= @jasset.link_uri %>
+</p>
+
+<p>
+  <strong>Sort:</strong>
+  <%= @jasset.sort %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @jasset.image %>
+</p>
+
+<%= link_to 'Edit', edit_jasset_path(@jasset) %> |
+<%= link_to 'Back', jassets_path %>
