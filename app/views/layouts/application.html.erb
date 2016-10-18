@@ -22,9 +22,9 @@
           low: asset_path('bg-header-corporate-low.jpg')
       },
       {
-          main: asset_path('bg-header-small-house-1.png'),
-          small: asset_path('bg-header-small-house-1.png'),
-          low: asset_path('bg-header-small-house-1.png')
+          main: asset_path('bg-header-small-home.jpeg'),
+          small: asset_path('bg-header-small-home.jpeg'),
+          low: asset_path('bg-header-small-home-low.jpeg')
       }
   ]
   image = images[Random.rand(0...(images.count-1))]
@@ -33,6 +33,7 @@
   .jumbotron.home,
   .jumbotron.blue {
   	background-image: url(<%= image[:low] %>);
+  	background-position: center center;
   }
   </style>
   <script type="text/javascript">
