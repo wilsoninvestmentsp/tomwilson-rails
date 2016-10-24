@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
     
-    require '/LIBS/gentools' if Rails.env.development?
+    # require '/LIBS/gentools' if Rails.env.development?
 
     # Prevent CSRF attacks by raising an exception.
   	# For APIs, you may want to use :null_session instead.
