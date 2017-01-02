@@ -183,7 +183,7 @@
 	<% if !current_user %>
 	<div class="row">
 
-		<% Property.where(featured: [1,2,3],active: true).order(:featured).each do |property| %>
+		<% Property.where(featured: [1,2,3], status: 'for_sale', active: true).order(:featured).each do |property| %>
 
 			<div class="col-md-4">
 
@@ -216,7 +216,7 @@
 
 	<div class="row">
 
-		<% Property.where(featured: [4,5,6],active: true).order(:featured).each do |property| %>
+		<% Property.where(featured: [4,5,6], status: 'for_sale', active: true).order(:featured).each do |property| %>
 
 			<div class="col-md-4">
 
@@ -250,7 +250,7 @@
 
 		<div ng:controller="FeaturedCtrl">
 		
-		<% @properties = Property.where(featured: [1,2,3,4,5,6],active: true).order(:featured).map { |property| PropertySerializer.new(property,root: false) } %>
+		<% @properties = Property.where(featured: [1,2,3,4,5,6], status: 'for_sale', active: true).order(:featured).map { |property| PropertySerializer.new(property,root: false) } %>
 		<span ng:init="properties = <%= @properties.to_json %>"></span>
 		<div class="row">
 
