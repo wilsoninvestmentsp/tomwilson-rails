@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add New Property - TomWilsonProperties</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="bootstrap-3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-select-1.12.1/bootstrap-select.min.css">
+  <link rel="stylesheet" href="css/bootstrap-slider/bootstrap-slider.min.css">
+  <link rel="stylesheet" href="css/fixed-header-menu.css">
+  <link rel="stylesheet" href="css/add-edit-property_wizard.css">
+  <link rel="stylesheet" href="css/footer.css">
+</head>
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><img src="images/logo.png" class="img-responsive"></a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Properties <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">All Properties</a></li>
+              <li><a href="#">Rental Homes &amp; 2-4's</a></li>
+              <li><a href="#">Multi-Family &amp; Commercial</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Investor Education <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">FAQ's</a></li>
+              <li><a href="#">Financing Investment</a></li>
+              <li><a href="#">Property Management</a></li>
+              <li><a href="#">Resources</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Events</a>
+          </li>
+          <li>
+            <a href="#">Radio Show</a>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About Us <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Our Team</a></li>
+              <li><a href="#">Our Process</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div id="wrapper">
+  	<!-- <section class="slide-show-header">
+      <div id="header-carousel" class="carousel slide carousel-fade first-container" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+          <div class="item first active">
+          </div>
+          <div class="item second">
+          </div>
+          <div class="item third">
+          </div>
+        </div>
+      </div>
+    </section> -->
+  	<section class="main-body without-title">
+  		<div class="container">
+  			<div class="row">
+  				<div class="col-xs-12">
+            <div class="box-shadow">
+              <!-- <div class="blue-bg">
+                <div class="col-md-9 col-sm-12 col-xs-12">
+                  <form class="form-horizontal advance-search">
+                    <div class="form-group">
+                      <div class="col-sm-4 first">
+                        <select class="selectpicker" data-live-search="true">
+                          <option data-icon="glyphicon-map-marker" data-tokens="">1 Location</option>
+                          <option data-icon="glyphicon-map-marker" data-tokens="">2 Location</option>
+                          <option data-icon="glyphicon-map-marker" data-tokens="">3 Location</option>
+                        </select>
+                      </div>
+                      <div class="col-sm-4">
+                        <select class="selectpicker" data-live-search="true">
+                          <option data-icon="glyphicon-resize-full" data-tokens="">1 Area</option>
+                          <option data-icon="glyphicon-resize-full" data-tokens="">2 Area</option>
+                          <option data-icon="glyphicon-resize-full" data-tokens="">3 Area</option>
+                        </select>
+                      </div>
+                      <div class="col-sm-4 text-center">
+                      <input id="price-filter" type="text" class="span2" value="" data-slider-min="10" data-slider-max="100000" data-slider-step="5" data-slider-value="[30000,70000]">
+                      <label class="price-hint">Price: $0 - $100000</label>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="col-md-3 hidden-sm hidden-xs social-icons">
+                  <a href="" class="meetup"><img src="images/meetup.svg" align="MeetUp" class="img-responsive"></a>
+                  <a href="" class="icons"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                  <a href="" class="icons"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                  <a href="" class="icons"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                </div>
+              </div> -->
+              <ol class="breadcrumb">
+                <li><a href="http://www.tomwilsonproperties.com/">Home</a></li>
+                <li><a href="">Properties</a></li>
+                <li class="active">New</li>
+              </ol>
+            </div>
+  				</div>
+  			</div>
+        <div class="row add-edit-property">
+          <div class="col-xs-12 text-center">
+            <h1>Add Property</h1>
+          </div>
+          <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12">
+            <div class="stepwizard">
+              <div class="stepwizard-row setup-panel">
+                <div class="stepwizard-step">
+                  <a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
+                  <p>Info</p>
+                </div>
+                <div class="stepwizard-step">
+                  <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+                  <p>Description</p>
+                </div>
+                <div class="stepwizard-step">
+                  <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+                  <p>Specs</p>
+                </div>
+                <div class="stepwizard-step">
+                  <a href="#step-4" type="button" class="btn btn-default btn-circle" disabled="disabled">4</a>
+                  <p>Chart</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <form role="form">
+            <div class="row setup-content" id="step-1">
+              <div class="col-xs-12">
+                <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12">
+                  <h3>Information</h3>
+                  <div class="form-group">
+                    <label class="control-label">Building Type</label>
+                    <select class="selectpicker">
+                      <option>Select One</option>
+                      <option>Single Family</option>
+                      <option>Duplex</option>
+                      <option>Fourplex</option>
+                      <option>Multifamily</option>
+                      <option>Commercial</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Status</label>
+                    <select class="selectpicker">
+                      <option>Select One</option>
+                      <option>Coming Soon</option>
+                      <option>For Sale</option>
+                      <option>Reserved</option>
+                      <option>Sale Pending</option>
+                      <option>Sold</option>
+                      <option>Not Active</option>
+                    </select>
+                  </div>
+                  <div class="form-group upload-image">
+                    <label class="control-label">Image</label>
+                    <ul class="list-unstyled">
+                      <li>
+                        <label class="btn btn-default"><i class="fa fa-picture-o" aria-hidden="true"></i> Choose File <input type="file" style="display:none;"></label>
+                      </li>
+                      <li>
+                        <img src="images/house-blank.png" alt="" class="img-responsive">
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label" for="Title">Title</label>
+                    <p class="text-muted small">An <b>optional</b> title for a property. If this field is empty the address will be used as the title.</p>
+                    <input type="text" required="required" class="form-control" placeholder="" id="Title">
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label" for="Highlight">Highlight</label>
+                    <p class="text-muted small">This text will show up in the <span class="text-danger">Red</span> "highlight" bar. If this field is left empty, the bar will not show up.</p>
+                    <input type="text" required="required" class="form-control" placeholder="" id="Highlight">
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label" for="Address">Address</label>
+                    <p class="text-muted small">An address with street, city, state and zip is required.</p>
+                    <div class="input-group">
+                      <input type="text" required="required" class="form-control" placeholder="" id="Address">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" ng:click="updateAddress(address)">Set</button>
+                      </span>
+                    </div>
+                    <ul class="list-unstyled">
+                      <li>Street: Your Street Text Here...</li>
+                      <li>City: Your City Text Here...,</li>
+                      <li>Zip: Your Zipcode Here...</li>
+                    </ul>
+                  </div>
+                  <button class="btn blue-btn pull-right nextBtn" type="button">Next <i class="fa fa-angle-right fa-next" aria-hidden="true"></i></button>
+                </div>
+              </div>
+            </div>
+            <div class="row setup-content" id="step-2">
+              <div class="col-xs-12">
+                <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12">
+                  <h3>Description</h3>
+                  <div><img src="images/editor-screen.png" alt="" class="img-responsive"></div>
+                  <button class="btn blue-btn pull-left prevBtn" type="button"><i class="fa fa-angle-left" aria-hidden="true"></i> Previous</button>
+                  <button class="btn blue-btn pull-right nextBtn" type="button">Next <i class="fa fa-angle-right fa-next" aria-hidden="true"></i></button>
+                </div>
+              </div>
+            </div>
+            <div class="row setup-content" id="step-3">
+              <div class="col-xs-12">
+                <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12">
+                  <h3>Specification</h3>
+                  <div class="form-group">
+                    <div class="col-xs-6 no-pad-left">
+                      <label class="control-label" for="YearBuilt">Year built</label>
+                      <input type="number" value="0" required="required" class="form-control" placeholder="" id="YearBuilt">
+                    </div>
+                    <div class="col-xs-6 no-pad-right">
+                      <label class="control-label" for="LotSize">Lot Size</label>
+                      <input type="number" value="0" required="required" class="form-control" placeholder="" id="LotSize">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-xs-6 no-pad-left">
+                      <label class="control-label" for="SquareFt">Square ft</label>
+                      <input type="number" value="0" required="required" class="form-control" placeholder="" id="SquareFt">
+                    </div>
+                    <div class="col-xs-6 no-pad-right">
+                      <label class="control-label" for="Bedrooms">Bedrooms</label>
+                      <input type="number" value="0" required="required" class="form-control" placeholder="" id="Bedrooms">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-xs-6 no-pad-left">
+                      <label class="control-label" for="Bathroom">Bathroom</label>
+                      <input type="number" value="0" required="required" class="form-control" placeholder="" id="Bathroom">
+                    </div>
+                    <div class="col-xs-6 no-pad-right">
+                      <label class="control-label" for="Garages">Garages</label>
+                      <input type="number" value="0" required="required" class="form-control" placeholder="" id="Garages">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-xs-6 no-pad-left">
+                      <label class="control-label" for="OfferPrice">Offer Price</label>
+                      <div class="input-group">
+                        <div class="input-group-addon">$</div>
+                        <input value="0" class="form-control" placeholder="" type="number" name="" id="OfferPrice">
+                      </div>
+                    </div>
+                    <div class="col-xs-6 no-pad-right">
+                      <label class="control-label" for="OfferPriceTitle">Offer Price Title</label>
+                      <input type="text" required="required" class="form-control" placeholder="" id="OfferPriceTitle">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-xs-6 no-pad-left">
+                      <label class="control-label" for="Rent">Rent</label>
+                      <input type="number" value="0" required="required" class="form-control" placeholder="" id="Rent">
+                    </div>
+                    <div class="col-xs-6 no-pad-right">
+                      <label class="control-label" for="CashFlow">Cash Flow</label>
+                      <input type="number" value="0" required="required" class="form-control" placeholder="" id="CashFlow">
+                    </div>
+                  </div>
+                  <button class="btn blue-btn pull-left prevBtn" type="button"><i class="fa fa-angle-left" aria-hidden="true"></i> Previous</button>
+                  <button class="btn blue-btn pull-right nextBtn" type="button">Next <i class="fa fa-angle-right fa-next" aria-hidden="true"></i></button>
+                </div>
+              </div>
+            </div>
+            <div class="row setup-content" id="step-4">
+              <div class="col-xs-12">
+                <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12">
+                  <h3>Chart</h3>
+                  <div class="form-group">
+                    <div class="col-xs-6 no-pad-left">
+                      <label class="control-label" for="PropertyManagementFee">Property Management Fee</label>
+                      <div class="input-group">
+                        <div class="input-group-addon">$</div>
+                        <input value="0" class="form-control" placeholder="" type="number" name="" id="PropertyManagementFee">
+                        <div class="input-group-addon">Yearly</div>
+                      </div>
+                    </div>
+                    <div class="col-xs-6 no-pad-left">
+                      <label class="control-label" for="MortgagePayment">Mortgage Payment</label>
+                      <div class="input-group">
+                        <div class="input-group-addon">$</div>
+                        <input value="0" class="form-control" placeholder="" type="number" name="" id="MortgagePayment">
+                        <div class="input-group-addon">Monthly</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-xs-6 no-pad-left">
+                      <label class="control-label" for="HoaFee">Hoa Fee</label>
+                      <div class="input-group">
+                        <div class="input-group-addon">$</div>
+                        <input value="0" class="form-control" placeholder="" type="number" name="" id="HoaFee">
+                        <div class="input-group-addon">Monthly</div>
+                      </div>
+                    </div>
+                    <div class="col-xs-6 no-pad-left">
+                      <label class="control-label" for="PropertyTax">Property Tax</label>
+                      <div class="input-group">
+                        <div class="input-group-addon">$</div>
+                        <input value="0" class="form-control" placeholder="" type="number" name="" id="PropertyTax">
+                        <div class="input-group-addon">Yearly</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-xs-6 no-pad-left">
+                      <label class="control-label" for="HazardInsurance">Hazard Insurance</label>
+                      <div class="input-group">
+                        <div class="input-group-addon">$</div>
+                        <input value="0" class="form-control" placeholder="" type="number" name="" id="HazardInsurance">
+                        <div class="input-group-addon">Yearly</div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="btn blue-btn pull-right" type="button">Submit Property <i class="fa fa-angle-right fa-next" aria-hidden="true"></i></button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+  		</div>
+  	</section>
+  	<footer class="footer">
+  		<div class="container">
+  			<div class="row">
+  				<div class="col-sm-6 col-xs-12">
+  					<address>
+  						<h5>&copy; Wilson Investment Properties, Inc. 2016</h5>
+  					14435 Big Basin Way, Ste 240<br>
+  					Saratoga, CA 95070<br>
+  					408-867-1867<br>
+  				</address>
+            <!-- <div class="social-links">
+            <a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            <a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+            </div> -->
+  			</div>
+  				<div class="col-sm-6 col-xs-12 social-links text-right">
+  					<a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            <a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+  				</div>
+  				<!-- <div class="col-xs-4">
+            <div class="deals-form-box">
+            <h5>Get access to exclusive deals and news</h5>
+            <form class="form-horizontal">
+              <div class="form-group">
+                <div class="col-sm-6 col-xs-12 pad-right">
+                  <input type="text" class="form-control" id="email" placeholder="First Name" autofocus="true">
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                  <input type="text" class="form-control" id="email" placeholder="Last Name">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-8 col-xs-12 pad-right">
+                  <input type="email" class="form-control" id="email" placeholder="Email ID">
+                </div>
+                <div class="col-sm-4 col-xs-12">
+                  <button type="submit" class="btn">Submit</button>
+                </div>
+              </div>   
+            </form>
+            </div>
+  				</div> -->
+  			</div>
+  		</div>
+  	</footer>
+  </div>
+  <div id="newsletter">
+    <div id="newsletter-form" style="display:none" class="panel panel-default">
+      <form method="post" action="" class="form panel-body" role="form">
+        <div class="form-group"><h5>Get Access to Exclusive Deals and News</h5></div>
+        <div class="form-group">
+          <input class="form-control" name="name" placeholder="Your Name" type="text" autofocus="true">
+        </div>
+        <div class="form-group">
+          <input class="form-control" name="email" placeholder="Email ID" type="email">
+        </div>
+        <button class="btn border-btn" type="submit">Sign Up</button>
+      </form>
+    </div>
+    <div id="newsletter-tab"><i class="fa fa-envelope" aria-hidden="true"></i> Newsletter</div>
+  </div>
+  <div class="scroll-top-wrapper"><span class="scroll-top-inner"><i class="fa fa-angle-up"></i></span></div>
+<script src="bootstrap-3.3.7/js/1.11.1-jquery.min.js"></script>
+<script src="bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="js/bootstrap-select-1.12.1/bootstrap-select.min.js"></script>
+<script src="js/bootstrap-slider/bootstrap-slider.min.js"></script>
+<script src="js/newsletter-form.js"></script>
+<script>
+$(document).ready(function () {
+
+    var navListItems=$('div.setup-panel div a'),
+        allWells=$('.setup-content'),
+        allPrevBtn=$('.prevBtn');
+        allNextBtn=$('.nextBtn');
+
+    allWells.hide();
+
+    navListItems.click(function(e){
+      e.preventDefault();
+      var $target=$($(this).attr('href')),
+          $item=$(this);
+
+      if(!$item.hasClass('disabled')){
+        navListItems.removeClass('btn-primary').addClass('btn-default');
+        $item.addClass('btn-primary');
+        allWells.hide();
+        $target.show();
+        $target.find('input:eq(0)').focus();
+      }
+    });
+
+    allNextBtn.click(function(){
+        var curStep = $(this).closest(".setup-content"),
+            curStepBtn = curStep.attr("id"),
+            nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+            curInputs = curStep.find("input[type='text'],input[type='url']"),
+            isValid = true;
+
+        $(".form-group").removeClass("has-error");
+        for(var i=0; i<curInputs.length; i++){
+            if (!curInputs[i].validity.valid){
+                isValid = false;
+                $(curInputs[i]).closest(".form-group").addClass("has-error");
+            }
+        }
+
+        if (isValid)
+            nextStepWizard.removeAttr('disabled').trigger('click');
+    });
+
+    $('div.setup-panel div a.btn-primary').trigger('click');
+});
+$(document).ready(function(){
+    $("#property-images-slider").owlCarousel({autoPlay:6000,items:1,itemsDesktop:[1199,1],itemsTablet:[991,1],itemsMobile:[767,1],transitionStyle:"fade"});
+    $('#rootwizard').bootstrapWizard({'tabClass': 'nav nav-tabs'});
+  });
+$(function(){
+	$(document).on('scroll',function(){
+		if($(window).scrollTop()>200){
+  			$('.scroll-top-wrapper').addClass('show');
+		}else{
+  			$('.scroll-top-wrapper').removeClass('show');
+		}
+	});
+	$('.scroll-top-wrapper').on('click',scrollToTop);
+});
+function scrollToTop(){
+	verticalOffset=typeof(verticalOffset)!='undefined'?verticalOffset:0;
+	element=$('body');
+	offset=element.offset();
+	offsetTop=offset.top;
+	$('html,body').animate({scrollTop:offsetTop},500,'linear');
+}
+$('.selectpicker').selectpicker();
+$("#price-filter").slider({tooltip:'always', id: "price-filter"});
+$('[data-toggle="tooltip"]').tooltip();
+</script>
+</body>
+</html>
