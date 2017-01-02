@@ -30,7 +30,8 @@ App.controller('PropertyCtrl',['$scope','$http',function($scope,$http){
 
 		scope.myChartObject.options = {
 			title: 'Monthly Estimated Income & Expenses\nRent: $'+data.rent,
-			pieSliceText: 'value'
+			pieSliceText: 'value',
+			is3D: true
 		};
 	
 	};

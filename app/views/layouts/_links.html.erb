@@ -38,8 +38,12 @@
       <li><%= link_to 'Our Team',users_path %></li>
       <li role="separator" class="divider"></li>
       <li><%= link_to 'Our Process',our_difference_path %></li>
-      <% if current_user %>
-        <li role="separator" class="divider"></li>
+    </ul>
+  </li>
+  <% if current_user %>
+    <li>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin<span class="caret"></span></a>
+      <ul class="dropdown-menu">
         <li><%= link_to 'Import',import_path %></li>
         <li role="separator" class="divider"></li>
         <li><%= link_to 'My Account',edit_user_path(current_user) %></li>
@@ -49,7 +53,7 @@
         lpath = logout_path + "?redirect_uri=#{luri}"
         %>
         <li><%= link_to 'Logout',lpath %></li>
-      <% end %>
-    </ul>
-  </li>
+      </ul>
+    </li>
+  <% end %>
 </ul>

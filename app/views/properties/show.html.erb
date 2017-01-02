@@ -131,12 +131,14 @@
             <td class="vmiddle" colspan="2"><%= number_with_precision(@property.garages,precision: 1,delimiter: ',') %></td>
           </tr>
           <% end %>
-          <% if @property.carports.present? && @property.carports > 0 %>
-          <tr>
+          <%# if @property.carports.present? && @property.carports > 0 %>
+          <!-- <tr>
             <td class="vmiddle"><h5>Carports:</h5></td>
-            <td class="vmiddle" colspan="2"><%= number_with_precision(@property.carports,precision: 1,delimiter: ',') %></td>
-          </tr>
-          <% end %>
+            <td class="vmiddle" colspan="2">
+              <%#= number_with_precision(@property.carports,precision: 1,delimiter: ',') %>
+            </td>
+          </tr -->
+          <%# end %>
           <% if @property.school_district.present? && false %>
           <tr>
             <td class="vmiddle no-wrap" colspan="3"><%= link_to "School District: #{@property.raw_school_district}","http://www.greatschools.org/search/search.page?q=#{@property.raw_school_district}&state=#{@property.state}",target: '_blank' %></td>

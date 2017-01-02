@@ -28,7 +28,7 @@ class PropertiesController < ApplicationController
   # POST /properties
   # POST /properties.json
   def create
-    @property = Property.new(property_params)
+    @property = Property.new(property_params.merge!({active: true}))
 
     respond_to do |format|
       if @property.save
@@ -127,7 +127,7 @@ class PropertiesController < ApplicationController
         :bedrooms,
         :bathrooms,
         :garages,
-        :carports,
+        # :carports,
         :monthly_return,
         :images,
         :city,

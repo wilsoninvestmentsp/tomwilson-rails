@@ -88,16 +88,16 @@
             <td class="text-default">Zip:<td><td class="text-primary">{{property.zip}}</td>
           </tr>
         </table>
-        <%= f.hidden_field :address,'ng:model' => 'property.address' %>
+        <%= f.hidden_field :address,'ng:model' => 'property.address', value: '{{property.address}}' %>
       </div>
       <div class="form-group" ng:init="property.city = '<%= @property.city %>'">
-        <%= f.hidden_field :city,'ng:model' => 'property.city' %>
+        <%= f.hidden_field :city,'ng:model' => 'property.city', value: '{{property.city}}' %>
       </div>
       <div class="form-group" ng:init="property.state = '<%= @property.state %>'">
-        <%= f.hidden_field :state,'ng:model' => 'property.state' %>
+        <%= f.hidden_field :state,'ng:model' => 'property.state', value: '{{property.state}}' %>
       </div>
       <div class="form-group" ng:init="property.zip = '<%= @property.zip %>'">
-        <%= f.hidden_field :zip,'ng:model' => 'property.zip' %>
+        <%= f.hidden_field :zip,'ng:model' => 'property.zip', value: '{{property.zip}}' %>
       </div>
       <div class="form-group">
         <%= f.label :featured %>
@@ -111,6 +111,10 @@
       <div class="form-group">
         <%= f.label :year_built %>
         <%= f.number_field :year_built,class: 'form-control',placeholder: '' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :lot_size, 'Lot Size' %>
+        <%= f.number_field :lot_size, class: 'form-control' %>
       </div>
       <div class="form-group">
         <%= f.label :square_ft %>
@@ -128,10 +132,10 @@
         <%= f.label :garages %>
         <%= f.number_field :garages,value: (number_with_precision(f.object.bedrooms, :precision => 1) || 0),class: 'form-control',placeholder: '' %>
       </div>
-      <div class="form-group">
-        <%= f.label :carports %>
-        <%= f.number_field :carports,value: (number_with_precision(f.object.bedrooms, :precision => 1) || 0),class: 'form-control',placeholder: '' %>
-      </div>
+      <!-- <div class="form-group"> -->
+        <%#= f.label :carports %>
+        <%#= f.number_field :carports,value: (number_with_precision(f.object.bedrooms, :precision => 1) || 0),class: 'form-control',placeholder: '' %>
+      <!-- </div> -->
       <div class="form-group">
         <%= f.label :leased %>
         <%= f.select :leased,@leased_options,{},class: 'form-control' %>
@@ -158,57 +162,57 @@
           <%= f.number_field :cash_flow,value: (number_with_precision(f.object.cash_flow, :precision => 2) || 0),class: 'form-control',placeholder:'' %>
         </div>
       </div>
+        <% if action_name != 'new' %> 
+          <a name="links"></a>
+          <h3>Links</h3>
+          <hr>
 
-      <a name="links"></a>
-      <h3>Links</h3>
-      <hr>
+          <!-- Begin Form Group  :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->
+          <div class="form-group" ng:init="links = <%= @property.links.to_json %>">
 
-      <!-- Begin Form Group  :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->
-      <div class="form-group" ng:init="links = <%= @property.links.to_json %>">
+            <table class="table table-condensed table-striped">
+              
+              <tr>
+                <td>Title</td>
+                <td colspan="2">Link</td>
+              </tr>
 
-        <table class="table table-condensed table-striped">
+              <tr ng:repeat="link in links">
+                <td class="vmiddle">{{link.title}}</td>
+                <td class="vmiddle"><a href="{{link.link}}" target="_blank">{{link.link}}</a></td>
+                <td class="vmiddle" align="right">
+                  
+                  <button type="button" class="btn btn-danger btn-sm" ng:show="!saving[link.id]" ng:click="deleteLink(link,$index)"><%= icon 'remove' %></button>
+                  <button type="button" class="btn btn-danger btn-sm" ng:if="saving[link.id]" ng:disabled="true">...</button>
+
+                </td>
+              </tr>
+
+              <tr>
+                <td class="vmiddle">
+
+                  <input type="text" class="form-control" ng:model="newLink.title" onenter="createLink(newLink)" placeholder="Title" />
+                  <input type="hidden" ng:model="newLink.property_id" ng:init="newLink.property_id = <%= @property.id %>" />
+
+                </td>
+                <td class="vmiddle">
+
+                  <input type="text" class="form-control" ng:model="newLink.link" onenter="createLink(newLink)" placeholder="Link" />
+
+                </td>
+                <td class="vmiddle" align="right">
+                  
+                  <button type="button" class="btn btn-default btn-sm" ng:show="!saving.new" ng:click="createLink(newLink)"><%= icon 'plus' %></button>
+                  <button type="button" class="btn btn-default btn-sm" ng:if="saving.new" ng:disabled="true">...</button>
+
+                </td>
+              </tr>
+
+            </table>
           
-          <tr>
-            <td>Title</td>
-            <td colspan="2">Link</td>
-          </tr>
-
-          <tr ng:repeat="link in links">
-            <td class="vmiddle">{{link.title}}</td>
-            <td class="vmiddle"><a href="{{link.link}}" target="_blank">{{link.link}}</a></td>
-            <td class="vmiddle" align="right">
-              
-              <button type="button" class="btn btn-danger btn-sm" ng:show="!saving[link.id]" ng:click="deleteLink(link,$index)"><%= icon 'remove' %></button>
-              <button type="button" class="btn btn-danger btn-sm" ng:if="saving[link.id]" ng:disabled="true">...</button>
-
-            </td>
-          </tr>
-
-          <tr>
-            <td class="vmiddle">
-
-              <input type="text" class="form-control" ng:model="newLink.title" onenter="createLink(newLink)" placeholder="Title" />
-              <input type="hidden" ng:model="newLink.property_id" ng:init="newLink.property_id = <%= @property.id %>" />
-
-            </td>
-            <td class="vmiddle">
-
-              <input type="text" class="form-control" ng:model="newLink.link" onenter="createLink(newLink)" placeholder="Link" />
-
-            </td>
-            <td class="vmiddle" align="right">
-              
-              <button type="button" class="btn btn-default btn-sm" ng:show="!saving.new" ng:click="createLink(newLink)"><%= icon 'plus' %></button>
-              <button type="button" class="btn btn-default btn-sm" ng:if="saving.new" ng:disabled="true">...</button>
-
-            </td>
-          </tr>
-
-        </table>
-      
-      </div>
+          </div>
       <!-- End Form Group  :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->
-
+      <% end %>
       <a name="chart"></a>
       <h3>Chart</h3>
       <hr>
