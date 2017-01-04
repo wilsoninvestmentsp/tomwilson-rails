@@ -61,7 +61,6 @@
                 <div class="img-box">
                   <%= link_to property_path(property) do %>	
                   <%= image_tag property.image.url, class: 'img-responsive'%>
-
                   <% end %>
                 </div>
                 <h4><%= link_to property.raw_title,  property_path(property) %></h4>
@@ -78,24 +77,20 @@
           <span ng:init="properties = <%= @properties.to_json %>"></span>
           <div class="row">
             <div class="col-sm-4 col-xs-12 mar-btm-30" ng:repeat="property in properties">
-
               <div class="propery-box">
                 <div class="img-box">
                   <a href="<%= properties_path %>/{{property.slug}}">
                     <img ng:src="{{property.image.image.url}}" class="img-responsive" alt="">
                   </a></div>
-
                   <h4>{{property.raw_title}}</h4>
                   <ul class="info">
                     <li class="price">${{property.raw_offer_price}}</li>
                     <li class="person">{{property.raw_building_type}}</li>
                   </ul>
-
                   <div class="well" align="center" ng:if="mode.edit">
                     <button class="btn btn-default btn-sm" ng:click="moveProperty(property,$index,$index-1)"><%= icon 'chevron-left' %></button>
                     <button class="btn btn-default btn-sm" ng:click="moveProperty(property,$index,$index+1)"><%= icon 'chevron-right' %></button>
                   </div>
-
                 </div>
               </div>
             </div>
@@ -105,125 +100,95 @@
               <li ng:show="loading"><a href="" ng:click="">Saving...</a></li>
               <li ng:show="!changed && mode.edit"><a href="" ng:click="mode = {}">Cancel</a></li>
             </ul>
-
             <% end %>
           </div>
-
           <div class="text-center">
             <%= link_to properties_path, class: 'btn border-btn btn-lg' do %><i class="fa fa-th" aria-hidden="true"></i>View More Offers<% end %>
-
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="feedback-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 text-center">
-          <div id="testimonials-slider" class="owl-carousel owl-theme">
-            <% @testimonies.each do |testimony| %>
-            <div class = "item">
-              <p class="comment"><%= testimony.quote %></p>
-              <p class="user">- <%= testimony.author %></p>
-            </div>
-            <% end %>
-
-          </div>
-
-        </div>
-
-
-      </div>
-    </div>
-  </section>
-
-  <% if current_user %>
-  <section class="white-bg feedback-table-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="table-responsive">
-            <div ng:controller="TestimoniesCtrl">
-              <table class="table table-condensed table-striped">
-                <tr>
-                  <td><strong>Quote</strong></td>
-                  <td><strong>Author</strong></td>
-                  <td align="center"><strong>Order</strong></td>
-                  <td align="right">
-
-                    <button type="button" class="btn btn-default btn-sm" ng:click="saveOrder()" ng:disabled="saving.order">{{saving.order || 'Save Order'}}</button>
-
-                  </td>
-                </tr>
-
-
-                <tr ng:repeat="testimony in testimonies">
-
-                  <td class="vmiddle" ng:show="!testimony.edit">{{testimony.quote}}</td>
-                  <td class="vmiddle" ng:show="!testimony.edit">{{testimony.author}}</td>
-                  <td class="vmiddle" align="center" ng:show="!testimony.edit">
-                    <div><a href="" ng:click="moveTestimony(testimony,$index,$index-1)"><%= icon 'chevron-up' %></a></div>
-                    <div><a href="" ng:click="moveTestimony(testimony,$index,$index+1)"><%= icon 'chevron-down' %></a></div>
-                  </td>
-                  <td ng:show="!testimony.edit" align="right">
-
-                    <button type="button" class="btn btn-warning btn-sm" ng:click="testimony.edit = true">Edit</button>
-                    <button type="button" class="btn btn-danger btn-sm" ng:click="deleteTestimony(testimony,$index)">Delete</button>
-
-                  </td>
-
-                  <td class="vmiddle" ng:show="testimony.edit">
-
-                    <input type="text" class="form-control" ng:model="testimony.quote" placeholder="" />
-
-                  </td>
-                  <td class="vmiddle" ng:show="testimony.edit">
-
-                    <input type="text" class="form-control" ng:model="testimony.author" placeholder="" />
-
-                  </td>
-                  <td class="vmiddle" align="center" ng:show="testimony.edit">
-
-                    <div><a href="" ng:click="moveTestimony(testimony,$index,$index-1)"><%= icon 'chevron-up' %></a></div>
-                    <div><a href="" ng:click="moveTestimony(testimony,$index,$index+1)"><%= icon 'chevron-down' %></a></div>
-
-                  </td>
-                  <td ng:show="testimony.edit" align="right">
-
-                    <button type="button" class="btn btn-default btn-sm" ng:click="testimony.edit = null">Cancel</button>
-                    <button type="button" class="btn btn-success btn-sm" ng:click="saveTestimony(testimony)" ng:disabled="saving[testimony.id]">{{saving[testimony.id] || 'Save'}}</button>
-
-                  </td>
-
-                </tr>
-                <tr>
-
-                  <td class="vmiddle">
-
-                    <input type="text" class="form-control" ng:model="newTestimony.quote" placeholder="Quote" />
-
-                  </td>
-                  <td class="vmiddle">
-
-                    <input type="text" class="form-control" ng:model="newTestimony.author" placeholder="Author" />
-
-                  </td>
-                  <td class="vmiddle" align="center"></td>
-                  <td align="right">
-
-                    <button type="button" class="btn btn-default btn-sm" ng:click="createTestimony(newTestimony)" ng:show="!saving.new"><%= icon 'plus' %></button>
-                    <button type="button" class="btn btn-default btn-sm" ng:show="saving.new" ng:disabled="true">{{saving.new}}</button>
-                  </td>
-                </tr>
-              </table>
+  <% if !current_user %>
+    <section class="feedback-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <div id="testimonials-slider" class="owl-carousel owl-theme">
+              <% @testimonies.each do |testimony| %>
+              <div class = "item">
+                <p class="comment"><%= testimony.quote %></p>
+                <p class="user">- <%= testimony.author %></p>
+              </div>
+              <% end %>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  <% else %>
+    <section class="white-bg feedback-table-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="table-responsive">
+              <div ng:controller="TestimoniesCtrl">
+                <table class="table table-condensed table-striped">
+                  <tr>
+                    <td><strong>Quote</strong></td>
+                    <td><strong>Author</strong></td>
+                    <td align="center"><strong>Order</strong></td>
+                    <td align="right">
+                      <button type="button" class="btn btn-default btn-sm" ng:click="saveOrder()" ng:disabled="saving.order">{{saving.order || 'Save Order'}}</button>
+                    </td>
+                  </tr>
+                  <tr ng:repeat="testimony in testimonies">
+                    <td class="vmiddle" ng:show="!testimony.edit">{{testimony.quote}}</td>
+                    <td class="vmiddle" ng:show="!testimony.edit">{{testimony.author}}</td>
+                    <td class="vmiddle" align="center" ng:show="!testimony.edit">
+                      <div><a href="" ng:click="moveTestimony(testimony,$index,$index-1)"><%= icon 'chevron-up' %></a></div>
+                      <div><a href="" ng:click="moveTestimony(testimony,$index,$index+1)"><%= icon 'chevron-down' %></a></div>
+                    </td>
+                    <td ng:show="!testimony.edit" align="right">
+                      <button type="button" class="btn btn-warning btn-sm" ng:click="testimony.edit = true">Edit</button>
+                      <button type="button" class="btn btn-danger btn-sm" ng:click="deleteTestimony(testimony,$index)">Delete</button>
+                    </td>
+                    <td class="vmiddle" ng:show="testimony.edit">
+                      <input type="text" class="form-control" ng:model="testimony.quote" placeholder="" />
+                    </td>
+                    <td class="vmiddle" ng:show="testimony.edit">
+                      <input type="text" class="form-control" ng:model="testimony.author" placeholder="" />
+                    </td>
+                    <td class="vmiddle" align="center" ng:show="testimony.edit">
+                      <div><a href="" ng:click="moveTestimony(testimony,$index,$index-1)"><%= icon 'chevron-up' %></a></div>
+                      <div><a href="" ng:click="moveTestimony(testimony,$index,$index+1)"><%= icon 'chevron-down' %></a></div>
+                    </td>
+                    <td ng:show="testimony.edit" align="right">
+                      <button type="button" class="btn btn-default btn-sm" ng:click="testimony.edit = null">Cancel</button>
+                      <button type="button" class="btn btn-success btn-sm" ng:click="saveTestimony(testimony)" ng:disabled="saving[testimony.id]">{{saving[testimony.id] || 'Save'}}</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="vmiddle">
+                      <input type="text" class="form-control" ng:model="newTestimony.quote" placeholder="Quote" />
+                    </td>
+                    <td class="vmiddle">
+                      <input type="text" class="form-control" ng:model="newTestimony.author" placeholder="Author" />
+                    </td>
+                    <td class="vmiddle" align="center"></td>
+                    <td align="right">
+                      <button type="button" class="btn btn-default btn-sm" ng:click="createTestimony(newTestimony)" ng:show="!saving.new"><%= icon 'plus' %></button>
+                      <button type="button" class="btn btn-default btn-sm" ng:show="saving.new" ng:disabled="true">{{saving.new}}</button>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   <% end %>
 
   <%= javascript_include_tag 'owl.carousel.min.js' %>
@@ -236,7 +201,6 @@
     });
 
     $(function(){
-      /* Video Background Script */
       $('#background-video').YTPlayer({
         fitToBackground:true,
         videoId:'XzeIGPJjb24',
@@ -246,8 +210,6 @@
       var videoCallbackEvents=function(){
         var player=$('#background-video').data('ytPlayer').player;
         player.addEventListener('onStateChange', function(event){
-          console.log("Player State Change", event);
-          // OnStateChange Data
           if(event.data===0){console.log('video ended');}
           else if(event.data===2){console.log('paused');}
         });
