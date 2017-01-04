@@ -1,0 +1,84 @@
+/* Background Video CSS */ 
+.background-video{background-position:top center;background-repeat:no-repeat;bottom:0;left:0;overflow:hidden;position:fixed;right:0;top:0;z-index:-1}
+.background-video:before{content:"";position:absolute;top:0;left:0;background:rgba(0,0,0,.5);z-index:99;width:100%;height:100%}
+video,source{bottom:0;left:0;min-height:100%;min-width:100%;position:absolute}
+.loaded .ytplayer-container{display:block}
+.loaded .placeholder-image{opacity:0}
+.ytplayer-container{bottom:0;height:100%;left:0;min-width:100%;overflow:hidden;position:absolute;right:0;top:0;z-index:3}
+.placeholder-image{height:100%;left:0;min-height:100%;min-width:100%;position:fixed;top:0;z-index:1}
+.ytplayer-shield{height:100%;left:0;position:absolute;top:0;width:100%;z-index:2}
+.ytplayer-player{position:absolute}
+
+/* Common */
+.ds-tbl{display:table;height:100%}
+.ds-tbl-cel{display:table-cell;height:100%;vertical-align:middle}
+.mar-btm-30{margin-bottom:30px}
+
+/* Index Page CSS */
+.first-section{height:500px}
+.first-section .box-content{padding:30px;color:#fff;border-radius:10px;width:80%;margin:0 10%;text-shadow:2px 2px 4px #000}
+.first-section .box-content h1{margin-top:0;font-size:36px;font-family:'AllerDisplay'}
+.first-section .box-content p{color:#ffdf90;font-size:20px;font-family:'AllerRG'}
+
+.border-btn{border:solid 1px #407cbb;font-family:'AllerRG';background:transparent;color:#407cbb}
+.border-btn:hover{color:#fff;background:#407cbb}
+.border-btn .fa{margin-right:6px}
+
+.white-bg{background:#fff}
+.content-section{color:#525252;padding:50px 0;font-family:'AllerRG'}
+.content-section h2{margin-top:0;margin-bottom:15px;font-family:'AllerDisplay';font-size:32px;line-height:1;color:#407cbb}
+.content-section h4{margin-top:0;margin-bottom:15px;font-size:20px;line-height:1;font-weight:bold;color:#aaa}
+.content-section ul{font-family:'AllerRG';font-size:16px;padding:0 0 0 15px;margin:-5px 0 0 15px}
+.content-section video, iframe{display:block;width:100%;height:285px}
+.content-section .opportunities-content{margin-top:50px}
+.content-section .opportunities-content .btn{margin-left:5px;margin-top:15px}
+.content-section .opportunities-content .btn:first-of-type{margin-left:15px}
+
+.property-section{background:#eee;padding:50px 0;font-family:'AllerRG';-webkit-box-shadow:0 0 4px 1px #ccc;-moz-box-shadow:0 0 4px 1px #ccc;-ms-box-shadow:0 0 4px 1px #ccc;-o-box-shadow:0 0 4px 1px #ccc;box-shadow:0 0 4px 1px #ccc}
+.property-section .feature-property-listing{padding-left:0;padding-right:0}
+.property-section h3{margin-top:0;margin-bottom:15px;font-size:32px;line-height:1;color:#525252}
+.property-section .carousel-space-setting{margin-left:-15px;margin-right:-15px}
+.property-section .item{padding:0 15px}
+.property-section .propery-box{background:#fff;-webkit-box-shadow: 0 0 4px#999;-moz-box-shadow: 0 0 4px #999;-ms-box-shadow: 0 0 4px #999;-o-box-shadow: 0 0 4px #999;box-shadow: 0 0 4px #999;cursor:pointer}
+.property-section .propery-box a{display:block;text-decoration:none}
+.property-section .propery-box .img-box img{display:inline-block;transition:all .2s ease-in-out;-webkit-transition:all .2s ease-in-out;-moz-transition:all .2s ease-in-out;-ms-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out}
+.property-section .propery-box:hover .img-box img{transform:scale(1.1);-webkit-transform:scale(1.1);-moz-transform:scale(1.1);-ms-transform:scale(1.1);-o-transform:scale(1.1)}
+.property-section .propery-box:hover h4{color:#407cbb}
+.property-section .propery-box .img-box{overflow:hidden}
+.property-section .propery-box h4{font-size:16px;color:#333;height:40px;padding:0 15px;margin-top:20px;margin-bottom:10px}
+.property-section .propery-box .info{margin:0;padding:0;list-style:none;display:table;width:100%}
+.property-section .propery-box .info li{float:left;width:50%;padding:0 0 10px 0}
+.property-section .propery-box .info li.price{color:#FF8F00;text-align:left;padding-left:15px}
+.property-section .propery-box .info li.person{color:#407cbb;text-align:right;padding-right:15px}
+.property-section .btn{margin-top:15px}
+.property-section .well{margin-bottom:0}
+
+.feedback-section{padding:50px 0;font-family:'AllerRG';text-shadow:2px 2px 4px #000;margin-bottom:60px}
+.feedback-section .comment{font-size:26px;padding-top:0;margin-top:0;color:#ffdf90}
+.feedback-section .user{font-size:16px;color:#ddd}
+.feedback-section .table{background:#fff;text-shadow:none;-webkit-text-shadow:none;-moz-text-shadow:none;-ms-text-shadow:none;-o-text-shadow:none}
+.feedback-table-section{padding:50px 0;margin-bottom:60px}
+
+@media(max-width:479px){
+.border-btn{padding:8px;font-size:13px}
+.border-btn .fa{margin-right:4px}
+.first-section .box-content{width:100%;margin:0}
+.first-section .box-content h1{font-size:24px}
+.first-section .box-content p,.content-section h4{font-size:16px}
+.content-section h2,.property-section h3{font-size:22px}
+.content-section ul{font-size:14px}
+.feedback-section .comment{font-size:18px}
+}
+@media(min-width:480px) and (max-width:767px){
+.border-btn{padding:8px 14px;font-size:16px}
+.first-section .box-content{width:90%;margin:0 5%}
+.first-section .box-content h1{font-size:28px}
+.first-section .box-content p,.content-section h4{font-size:18px}
+.content-section h2,.property-section h3{font-size:26px}
+.feedback-section .comment{font-size:20px}
+}
+@media(max-width:767px){
+.content-section ul{margin-top:15px}
+.carousel-space-setting{margin:0}
+.property-section .item{padding:0 7.5px}
+}

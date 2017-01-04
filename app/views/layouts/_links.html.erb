@@ -2,30 +2,18 @@
   <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Properties<span class="caret"></span></a>
     <ul class="dropdown-menu">
-      
       <li><%= link_to 'All Properties',properties_path %></li>
-      <li role="separator" class="divider"></li>
       <li><%= link_to 'Rental Homes & 2-4\'s',properties_path(building_type: 'single_family,duplex,fourplex') %></li>
-      
       <li><%= link_to 'Multi-Family & Commercial',properties_path(building_type: 'multifamily,commercial') %></li>
-
     </ul>
   </li>
   <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Investor Education<span class="caret"></span></a>
     <ul class="dropdown-menu">
-      
       <li><%= link_to 'Financing Investments',financing_investments_path %></li>
-      
-      <li role="separator" class="divider"></li>
       <li><%= link_to 'Property Management',property_management_path %></li>
-      
-      <li role="separator" class="divider"></li>
       <li><%= link_to 'FAQ\'s',faq_path %></li>
-
-      <li role="separator" class="divider"></li>
       <li><%= link_to 'Resources',jassets_path %></li>
-
     </ul>
   </li>
   <li><a href="/events">Events</a></li>
@@ -34,26 +22,22 @@
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About Us<span class="caret"></span></a>
     <ul class="dropdown-menu">
       <li><%= link_to 'Contact Us',contact_us_path %></li>
-      <li role="separator" class="divider"></li>
       <li><%= link_to 'Our Team',users_path %></li>
-      <li role="separator" class="divider"></li>
       <li><%= link_to 'Our Process',our_difference_path %></li>
     </ul>
   </li>
   <% if current_user %>
-    <li>
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin<span class="caret"></span></a>
-      <ul class="dropdown-menu">
-        <li><%= link_to 'Import',import_path %></li>
-        <li role="separator" class="divider"></li>
-        <li><%= link_to 'My Account',edit_user_path(current_user) %></li>
-        <li role="separator" class="divider"></li>
-        <%
-        luri = CGI.escape "#{request.protocol}#{request.host_with_port}#{request.fullpath}"
-        lpath = logout_path + "?redirect_uri=#{luri}"
-        %>
-        <li><%= link_to 'Logout',lpath %></li>
-      </ul>
-    </li>
+  <li>
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin<span class="caret"></span></a>
+    <ul class="dropdown-menu">
+      <li><%= link_to 'Import',import_path %></li>
+      <li><%= link_to 'My Account',edit_user_path(current_user) %></li>
+      <%
+      luri = CGI.escape "#{request.protocol}#{request.host_with_port}#{request.fullpath}"
+      lpath = logout_path + "?redirect_uri=#{luri}"
+      %>
+      <li><%= link_to 'Logout',lpath %></li>
+    </ul>
+  </li>
   <% end %>
 </ul>

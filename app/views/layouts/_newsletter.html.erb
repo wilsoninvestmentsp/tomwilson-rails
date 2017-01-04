@@ -1,0 +1,24 @@
+<div id="newsletter" ng:controller="MailChimpCtrl">
+  <div id="newsletter-form" style="display:none" class="panel panel-default">
+    <form name="signup_form" ng:submit="submitForm()" novalidate class="form panel-body">
+      <div class="form-group"><h5>Get Access to Exclusive Deals and News</h5></div>
+      <div class="form-group">
+        <div class="col-sm-6 col-xs-12 no-pad-left">
+          <i class="fa fa-user input-icons" aria-hidden="true"></i>
+          <input type="text" ng:model="signup.merge_fields.FNAME" class="form-control" placeholder="First Name" required>
+        </div>
+        <div class="col-sm-6 col-xs-12 no-pad-left-right">
+          <i class="fa fa-user input-icons" aria-hidden="true"></i>
+          <input type="text" ng:model="signup.merge_fields.LNAME" class="form-control" placeholder="Last Name" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <i class="fa fa-envelope" aria-hidden="true"></i>
+        <input type="email" ng:model="signup.merge_fields.EMAIL" class="form-control" placeholder="Email ID" ng:change="signup.email_address = signup.merge_fields.EMAIL" required>
+      </div>
+      <button type="submit" class="btn border-btn" ng:if="!loading"><i class="fa fa-check-square-o" aria-hidden="true"></i> Sign Up</button>
+      <button type="submit" class="btn border-btn" disabled="disabled" ng:if="loading"><i class="fa fa-check-square-o" aria-hidden="true"></i> Submitting...</button>
+    </form>
+  </div>
+  <div id="newsletter-tab"><i class="fa fa-envelope" aria-hidden="true"></i> Newsletter</div>
+</div>

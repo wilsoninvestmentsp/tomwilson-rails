@@ -10,6 +10,15 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
+ *= require bootstrap.scss
+ *= require bootstrap-social.css
+ *= require bootstrapz.scss.erb
+ *= require quicksearch.scss
+ *= require testimonies.scss
+ *= require bootstrap-slider
+ *= require bootstrap-select
+ *= require fixed-header-menu.css
+ *= require footer.css
+ *= require font-awesome
  */
