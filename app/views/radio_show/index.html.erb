@@ -1,118 +1,83 @@
-<div ng:controller="RadioShowCtrl">
-
-	<ol class="breadcrumb">
-	  <li><%= link_to 'Home',root_url %></li>
-	  <li class="active">Radio Show</li>
-	</ol>
-
-	<div class="panel panel-default">
-	  <div class="panel-body">
-	    	
-	    <div class="row">
-	    	<div class="col-md-2">
-	    		<%= image_tag 'tw-radio-show.png',height: 130 %>
-	    	</div>
-	    	<div class="col-md-10">
-	    		<h2 class="top-zero">Radio Show<%= image_tag 'tw-radio-station-60.png',height: 50 %></h2>
-	    		<div ng:if="!mode.edit">
-	    			<p><%= @content.body.html_safe if @content.body.present? %></p>
-	    		</div>
-
-	    		<!-- :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->
-	    		<!-- :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->
-	    		<% if current_user %>
-	    			
-	    			<div ng:show="mode.edit">
-	    			<%= form_tag radio_show_path,method: :put do |f| %>
-	    				
-	    				<%= text_area_tag :content,@content.body %>
-	    				<script type="text/javascript">
-	    				  $(document).ready(function(){
-
-	    				    setTimeout(function(){
-	    				      
-	    				      tinyMCE.remove();
-	    				      tinyMCE.init({
-	    				        selector: '#content',
-	    				        min_height: 100
-	    				      });
-
-	    				    },100);
-
-	    				  });
-	    				</script>
-
-	    				<div class="form-group top-20">
-	    				<%= button_tag 'Cancel',type: 'button',class: 'btn btn-danger','ng:click' => 'mode = {}' %>
-	    				<%= submit_tag 'Save',class: 'btn btn-success' %>
-	    				</div>
-
-	    			<% end %>
-	    			</div>
-
-	    			<nav>
-	    			  <ul class="pager">
-	    			    <li ng:show="!mode.edit"><a href="" ng:click="mode = {edit: true}">Edit</a></li>
-	    			  </ul>
-	    			</nav>
-
-	    		<% end %>
-	    		<!-- :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->
-	    		<!-- :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->
-
-	    	</div>
-	    </div>
-
-	  </div>
-	</div>
-
-	<h3 class="text-muted" ng:if="loading">Loading...</h3>
-	<h3 class="text-muted" ng:if="!loading && videos.length == 0">No episodes found</h3>
-
-	<div class="list-group">
-
-		<div class="list-group-item" ng:repeat="video in videos">
-
-			<!-- Begin Row :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->
-			<!-- :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->
-			<div class="row">
-			
-				<!-- Begin Col :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->
-				<div class="col-sm-2">
-				
-					<img ng:src="{{video.snippet.thumbnails.high.url}}" class="img-thumbnail" />
-				
+<%= stylesheet_link_tag 'common-pages' %>
+<%= render 'layouts/jumbtron' %>
+<section class="main-body without-search-feature">
+	<div class="container ng:controller="RadioShowCtrl"">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="box-shadow">
+					<ol class="breadcrumb">
+						<li><%= link_to 'Home',root_url %></li>
+						<li class="active">Radio Show</li>
+					</ol>
 				</div>
-				<!-- End Col :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->
-
-				<!-- Begin Col :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->
-				<div class="col-sm-10">
-				
-					<h4>{{video.snippet.title}}<br><small>{{video.snippet.description}}</small></h4>
-					<a href="" ng:click="getVideo($index)" ng:if="!video.loading && !video.more && video.snippet.description">More</a>
-					<a href="" ng:disabled="true" ng:if="video.loading">Loading...</a>
-					<span ng:if="!video.more && video.snippet.description">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
-					<a href="" ng:click="openVideo(video.id.videoId)">Play Now</a>
-				
-				</div>
-				<!-- End Col :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->
-			
 			</div>
-			<!-- :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->
-			<!-- End Row :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->
-
 		</div>
-
+		<div class="panel panel-default mar-top-30">
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-2">
+						<%= image_tag 'tw-radio-show.png',height: 130 %>
+					</div>
+					<div class="col-md-10">
+						<h2 class="top-zero">Radio Show<%= image_tag 'tw-radio-station-60.png',height: 50 %></h2>
+						<div ng:if="!mode.edit">
+							<p><%= @content.body.html_safe if @content.body.present? %></p>
+						</div>
+						<% if current_user %>
+						<div ng:show="mode.edit">
+							<%= form_tag radio_show_path,method: :put do |f| %>
+							<%= text_area_tag :content,@content.body %>
+							<script type="text/javascript">
+								$(document).ready(function(){
+									setTimeout(function(){
+										tinyMCE.remove();
+										tinyMCE.init({
+											selector: '#content',
+											min_height: 100
+										});
+									},100);
+								});
+							</script>
+							<div class="form-group mar-top-15">
+								<%= button_tag 'Cancel',type: 'button',class: 'btn btn-danger','ng:click' => 'mode = {}' %>
+								<%= submit_tag 'Save',class: 'btn btn-success' %>
+							</div>
+							<% end %>
+						</div>
+						<nav>
+							<ul class="pager">
+								<li ng:show="!mode.edit"><a href="" ng:click="mode = {edit: true}">Edit</a></li>
+							</ul>
+						</nav>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+		<h3 class="text-muted" ng:if="loading">Loading...</h3>
+		<h3 class="text-muted" ng:if="!loading && videos.length == 0">No episodes found</h3>
+		<div class="list-group">
+			<div class="list-group-item" ng:repeat="video in videos">
+				<div class="row">
+					<div class="col-sm-2">
+						<img ng:src="{{video.snippet.thumbnails.high.url}}" class="img-thumbnail" alt="">
+					</div>
+					<div class="col-sm-10">
+						<h4>{{video.snippet.title}}<br><small>{{video.snippet.description}}</small></h4>
+						<a href="" ng:click="getVideo($index)" ng:if="!video.loading && !video.more && video.snippet.description">More</a>
+						<a href="" ng:disabled="true" ng:if="video.loading">Loading...</a>
+						<span ng:if="!video.more && video.snippet.description">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
+						<a href="" ng:click="openVideo(video.id.videoId)">Play Now</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div align="center">
+			<nav>
+				<ul class="pager">
+					<li ng:show="nextPage"><a href="" ng:click="getVideos()" ng:disabled="video.loading">Load More</a></li>
+				</ul>
+			</nav>
+		</div>
 	</div>
-
-	<div align="center">
-
-		<nav>
-		  <ul class="pager">
-		    <li ng:show="nextPage"><a href="" ng:click="getVideos()" ng:disabled="video.loading">Load More</a></li>
-		  </ul>
-		</nav>
-
-	</div>
-
-</div>
+</section>

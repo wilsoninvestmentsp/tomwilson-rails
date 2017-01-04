@@ -3,233 +3,118 @@
 <head>
   <title>Wilson Investment Properties, Inc</title>
   <link rel="shortcut icon" href="<%= asset_path "favicon-#{Rails.env}.png" %>" />
-  
+
   <%
   images = [
-      {
-          main: asset_path('bg-header-apartments.jpg'),
-          small: asset_path('bg-header-apartments.jpg'),
-          low: asset_path('bg-header-apartments-low.jpg')
-      },
-      {
-          main: asset_path('bg-header-building.jpg'),
-          small: asset_path('bg-header-building.jpg'),
-          low: asset_path('bg-header-building-low.jpg')
-      },
-      {
-          main: asset_path('bg-header-corporate.jpg'),
-          small: asset_path('bg-header-corporate.jpg'),
-          low: asset_path('bg-header-corporate-low.jpg')
-      },
-      {
-          main: asset_path('bg-header-small-house.jpg'),
-          small: asset_path('bg-header-small-house.jpg'),
-          low: asset_path('bg-header-small-house-low.jpg')
-      }
+    {
+      main: asset_path('bg-header-apartments.jpg'),
+      small: asset_path('bg-header-apartments.jpg'),
+      low: asset_path('bg-header-apartments-low.jpg')
+    },
+    {
+      main: asset_path('bg-header-building.jpg'),
+      small: asset_path('bg-header-building.jpg'),
+      low: asset_path('bg-header-building-low.jpg')
+    },
+    {
+      main: asset_path('bg-header-corporate.jpg'),
+      small: asset_path('bg-header-corporate.jpg'),
+      low: asset_path('bg-header-corporate-low.jpg')
+    },
+    {
+      main: asset_path('bg-header-small-house.jpg'),
+      small: asset_path('bg-header-small-house.jpg'),
+      low: asset_path('bg-header-small-house-low.jpg')
+    }
   ]
   image = images[Random.rand(0...(images.count-1))]
   %>
   <style type="text/css">
-  .jumbotron.home,
-  .jumbotron.blue {
-  	background-image: url(<%= image[:low] %>);
-  	background-position: center center !important;
-  }
+    .jumbotron.home,
+    .jumbotron.blue {
+      background-image: url(<%= image[:low] %>);
+      background-position: center center !important;
+    }
   </style>
   <script type="text/javascript">
-  <% images.each_with_index do |img,i| %>
 
-  	var img_<%= i %> = new Image();
-  	img_<%= i %>.src = '<%= img[:main] %>';
+    <% images.each_with_index do |img,i| %>
 
-  <% end %>
-  var images = <%= images.shuffle.to_json.html_safe %>;
-  var selectedBG = 0;
-  var bgTime = 7000;
-  setTimeout(function(){
+    var img_<%= i %> = new Image();
+    img_<%= i %>.src = '<%= img[:main] %>';
 
-  	setInterval(function(){
+    <% end %>
+    var images = <%= images.shuffle.to_json.html_safe %>;
+    var selectedBG = 0;
+    var bgTime = 7000;
+    setTimeout(function(){
 
-  		var i = (images.length-1) - selectedBG;
-  		
-  		$('.jumbotron.home').css('background-image','url('+images[i].main+')');
-  		$('.jumbotron.blue').css('background-image','url('+images[i].small+')');
+      setInterval(function(){
 
-  		selectedBG++;
+        var i = (images.length-1) - selectedBG;
 
-  		if (selectedBG >= images.length){ selectedBG = 0 }
-  		
-  	},bgTime);
+        $('.jumbotron.home').css('background-image','url('+images[i].main+')');
+        $('.jumbotron.blue').css('background-image','url('+images[i].small+')');
 
-  },bgTime);
+        selectedBG++;
+
+        if (selectedBG >= images.length){ selectedBG = 0 }
+
+      },bgTime);
+
+    },bgTime);
   </script>
 
   <%
   preload = []
   images.each do |image|
 
-  	preload << image[:main]
-  	preload << image[:small]
+    preload << image[:main]
+    preload << image[:small]
 
   end
   %>
   <style type="text/css">
-  body:after{
+    body:after{
       position:absolute; width:0; height:0; overflow:hidden; z-index:-1;
       content: <%= preload.map { |image| "url(#{image})" }.join(' ') %>;
-  }
+    }
   </style>
-  
+
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <style>
-  .topfix .jumbotron.home {
+    .topfix .jumbotron.home {
       background-image: url('<%= image[:main] %>');
-  }
-  .topfix .jumbotron.blue {
+    }
+    .topfix .jumbotron.blue {
       background-image: url('<%= image[:small] %>');
-  }
+    }
   </style>
 </head>
 <body ng:controller="MainCtrl">
-	
-	<% if Rails.env.production? %>
-	<div id="placeholder"></div>
-	<!-- Google Tag Manager -->
-	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-M29TXX"
-	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-	'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-	})(window,document,'script','dataLayer','GTM-M29TXX');</script>
-	<!-- End Google Tag Manager -->
-	<% end %>
-	
-	<a name="top"></a>
 
-	<% flash.each do |alert| %>
-		<div class="top-alert bg-<%= alert.first %>">
-			<div class="container"><%= alert.last %></div>
-		</div>
-	<% end %>
-	
-	<!-- <div class="gold_bar"></div> -->
+  <% if Rails.env.production? %>
+  <div id="placeholder"></div>
+  <!-- Google Tag Manager -->
+  <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-M29TXX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-M29TXX');</script>
+  <!-- End Google Tag Manager -->
+  <% end %>
 
-	<% if current_page?(root_path) %>
-	    <%= render 'layouts/header_home' %>
-	<% else %>
-	    <%= render 'layouts/header' %>
-	<% end %>
-	
-	<div class="barcontainer">
-
-		<div class="container">
-
-			<div class="row">
-
-				<div class="col-xs-4">
-					
-					<div class="social-links">
-
-						<a href="https://www.facebook.com/WilsonInvestmentProperties" target="_blank" class="btn btn-social-icon btn-facebook">
-						  <span class="fa fa-facebook"></span>
-						</a>
-						<a href="https://twitter.com/wilsoninvestprp" target="_blank" class="btn btn-social-icon btn-twitter">
-						  <span class="fa fa-twitter"></span>
-						</a>
-						<a href="https://www.linkedin.com/company/wilson-investment-properties" target="_blank" class="btn btn-social-icon btn-linkedin">
-						  <span class="fa fa-linkedin"></span>
-						</a>
-						<a href="http://www.meetup.com/Wilson-Investment-Properties-Inc/" target="_blank" class="btn btn-social-icon btn-meetup"></a>
-
-					</div>
-
-				</div>
-
-				<div class="col-xs-8" align="right">
-					
-					<div class="property-search-container">
-					<input
-						type="text"
-						class="form-control property-search"
-						ng:model="params.q"
-						ng:change="searchChanged(params.q)"
-						placeholder="Search Properties"
-						onstop="searchProperties(params.q)"
-					/>
-					<!-- <div class="property-search-tip">HELLO!</div> -->
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>
-
-	</div>
-	<div class="container">
-
-		<div ng:show="!params.q"><%= yield %></div>
-
-		<div ng:show="params.q">
-
-			<div>
-			  <h1>Search</h1>
-			</div>
-
-			<hr>
-
-			<div class="list-group">
-
-			  <h3 class="text-muted" ng:if="container.loading">Loading...</h3>
-			  <h3 class="text-muted" ng:if="!container.loading && container.properties.length == 0">No properties found</h3>
-
-			  <a
-			    href="<%= properties_path %>/{{property.slug}}"
-			    class="list-group-item"
-			    ng:repeat="property in container.properties"
-			  >
-
-			    <div class="row">
-
-			      <div class="col-lg-3 col-md-3">
-			          
-			          <img ng:src="{{property.image.image.url}}" class="img-thumbnail" />
-
-			      </div>
-
-			      <div class="col-lg-9 col-md-9">
-			        
-			        <h2>{{property.raw_title}}<br><small ng:if="property.title">{{property.city.capitalize()}}, {{property.state.toUpperCase()}}</small></h2>
-
-			        <h4>
-			          <span class="label label-warning">{{property.raw_status}}</span> <span class="label label-success">${{property.raw_offer_price}} <span ng:if="property.offer_price_label">{{property.offer_price_label}}</span></span>
-			        </h4>
-
-			        <ul class="property-info">
-			          <li><span class="">{{property.raw_building_type}}</span></li>
-			          <li ng:if="property.cash_flow > 0">Cash Flow: <span class="green">${{property.raw_cash_flow}}</span></li>
-			          <li ng:if="property.rent > 0">Rent: <span class="green">${{property.raw_rent}}</span></li>
-			          <li ng:if="property.bedrooms > 0">BD: <span class="blue">{{property.bedrooms}}</span></li>
-			          <li ng:if="property.bathrooms > 0">BA: <span class="blue">{{property.bathrooms}}</span></li>
-			          <li ng:if="property.garages > 0">GA: <span class="blue">{{property.garages}}</span></li>
-			        </ul>
-
-			      </div>
-
-			    </div>
-
-			  </a>
-
-			</div>
-
-		</div>
-
-	</div>
-
-	<%= render 'layouts/footer' %>
-
+  <% flash.each do |alert| %>
+  <div class="top-alert bg-<%= alert.first %>">
+    <div class="container"><%= alert.last %></div>
+  </div>
+  <% end %>
+  <%= render 'layouts/header' %>
+    <%= yield %>
+  <%= render 'layouts/footer' %>
 </body>
 </html>

@@ -1,334 +1,256 @@
-<div class="top-label" align="center">
-	<h2 style="text-align: center; font-size: 40px;">Multi-Family and Commercial Syndications</h2>
-	<p style="text-align: center;"><strong><span style="font-size: 14pt;">High Quality, Investment Opportunities</span></strong></p>
+<%= stylesheet_link_tag 'index' %>
+<%= stylesheet_link_tag 'owl.carousel.css' %>
+<div id="background-video" class="background-video"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 first-section ds-tbl text-center">
+      <div class="ds-tbl-cel">
+        <div class="box-content">
+          <h1>Your Best Direct Source for Quality Investments</h1>
+          <p>We have the experience to bring you the most productive, highest quality, income producing properties in the country</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<p>&nbsp;</p>
-<div class="row">
-	<center>
-		<table style="width: 800px;">
-			<tbody>
-			<tr style="height: 24.8125px;">
-			<td style="width: 341px; height: 24.8125px; text-align: left;">
-					<ul style="margin-top: 18px;">
-					 	<li>Better access to value deals</li>
-					 	<li>Purchase shares in a larger property than an investor could on his or her own</li>
-					 	<li>Liability risk is limited to original investment amount</li>
-					 	<li>Easier to achieve a diversified portfolio with distributed risks</li>
-					 	<li>Does not require day-to-day management of oversight by the investor</li>
-					</ul>
-				&nbsp;
-			</td>
-			<td style="width: 341px; height: 24.8125px; text-align: left;">
-				<ul>
-					<li>Professional asset and property management</li>
-					<li>Potential lower insurance costs (master insurance policies)</li>
-					<li>No dealing with complex issues, such as tenant improvements.</li>
-					<li>Invest in a higher quality property than an individual investor could on his or her own.</li>
-				</ul>
-				&nbsp;
-			</td>
-			</tr>
-			</tbody>
-			</table>
-		<center>
-		<p style="text-align: center;"><a href="tel:4088671867">Call: 408-867-1867</a></p>
-		<p style="text-align: center;"><a href="http://www.tomwilsonproperties.com/contact-us">Contact Us Online</a></p>
-
-</div>
-
-<% if false %>
-<p>&nbsp;</p>
-<hr>
-<p>&nbsp;</p>
-
-<div class="" align="center">
-	<h1 class="">Joshua Crossing Fourplexes</br><small>Dallas / Ft. Worth, TX</small></h1>
-	<%= link_to '24 Fourplexes &bull; New Construction Special'.html_safe,property_path('joshua-crossing-fourplexes'),class: 'wipalert' %>
-</div>
-
-<p>&nbsp;</p>
-
-<div class="row">
-
-	<div class="col-md-6">
-
-		<div class="thumbnail">
+<section class="white-bg content-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h2 class="text-center">Multi-Family and Commercial Syndications</h2>
+        <h4 class="text-center">High Quality, Investment Opportunities</h4>
+        <div class="row opportunities-content">
+          <div class="col-sm-5 col-xs-12">
+            <iframe width="1366" height="768" src="https://www.youtube.com/embed/XFPLSUZBCB8" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <div class="col-sm-7 col-xs-12">
+            <ul>
+              <li>Better access to value deals</li>
+              <li>Purchase shares in a larger property than an investor could on his or her own</li>
+              <li>Liability risk is limited to original investment amount</li>
+              <li>Easier to achieve a diversified portfolio with distributed risks</li>
+              <li>Does not require day-to-day management of oversight by the investor</li>
+              <li>Better access to value deals</li>
+              <li>Purchase shares in a larger property than an investor could on his or her own</li>
+              <li>Liability risk is limited to original investment amount</li>
+              <li>Easier to achieve a diversified portfolio with distributed risks</li>
+              <li>Does not require day-to-day management of oversight by the investor</li>
+            </ul>
+            <div class="text-left"> <a href="tel:4088671867" class="btn border-btn btn-lg"><i class="fa fa-phone" aria-hidden="true"></i> Call: <%= PHONE_NUMBER %></a> <a href="http://www.tomwilsonproperties.com/contact-us" class="btn border-btn btn-lg"><i class="fa fa-envelope" aria-hidden="true"></i> Contact Us</a> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="property-section">
+  <% @properties = Property.where(featured: [1,2,3,4,5,6], status: 'for_sale').order(:featured).map { |property| PropertySerializer.new(property,root: false) } %>
+  <span ng:init="properties = <%= @properties.to_json %>"></span>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div ng:controller="FeaturedCtrl">
+          <h3 class="text-center">Featured Properties</h3>
+          <% if !current_user %>
+          <div id="featured-properties-slider" class="owl-carousel owl-theme">
+            <% Property.where(featured: [1,2,3], status: 'for_sale').order(:featured).each do |property| %>
+            <div class="item">
+              <div class="propery-box">
+                <div class="img-box">
+                  <%= link_to property_path(property) do %>	
+                  <%= image_tag property.image.url, class: 'img-responsive'%>
+
+                  <% end %>
+                </div>
+                <h4><%= link_to property.raw_title,  property_path(property) %></h4>
+                <ul class="info">
+                  <li class="price">$<%= number_with_precision(property.offer_price,precision: 2,delimiter: ',') %></li>
+                  <li class="person"><%= property.raw_building_type %></li>
+                </ul>
+              </div>
+            </div>
+            <% end %>
+          </div>
+          <% else %>
+          <% @properties = Property.where(featured: [1,2,3,4,5,6], status: 'for_sale').order(:featured).map { |property| PropertySerializer.new(property,root: false) } %>
+          <span ng:init="properties = <%= @properties.to_json %>"></span>
+          <div class="row">
+            <div class="col-sm-4 col-xs-12 mar-btm-30" ng:repeat="property in properties">
+
+              <div class="propery-box">
+                <div class="img-box">
+                  <a href="<%= properties_path %>/{{property.slug}}">
+                    <img ng:src="{{property.image.image.url}}" class="img-responsive" alt="">
+                  </a></div>
+
+                  <h4>{{property.raw_title}}</h4>
+                  <ul class="info">
+                    <li class="price">${{property.raw_offer_price}}</li>
+                    <li class="person">{{property.raw_building_type}}</li>
+                  </ul>
+
+                  <div class="well" align="center" ng:if="mode.edit">
+                    <button class="btn btn-default btn-sm" ng:click="moveProperty(property,$index,$index-1)"><%= icon 'chevron-left' %></button>
+                    <button class="btn btn-default btn-sm" ng:click="moveProperty(property,$index,$index+1)"><%= icon 'chevron-right' %></button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <ul class="pager">
+              <li ng:show="!mode.edit"><a href="" ng:click="mode = {edit: true}">Re-Order</a></li>
+              <li ng:show="mode.edit && !loading && changed"><a href="" ng:click="saveOrder()">Save</a></li>
+              <li ng:show="loading"><a href="" ng:click="">Saving...</a></li>
+              <li ng:show="!changed && mode.edit"><a href="" ng:click="mode = {}">Cancel</a></li>
+            </ul>
+
+            <% end %>
+          </div>
+
+          <div class="text-center">
+            <%= link_to properties_path, class: 'btn border-btn btn-lg' do %><i class="fa fa-th" aria-hidden="true"></i>View More Offers<% end %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-			<img src="http://res.cloudinary.com/wambl/image/upload/v1467761350/djb7scnzc977lmfkzrgw.jpg" />
-
-		</div>
+  <section class="feedback-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 text-center">
+          <div id="testimonials-slider" class="owl-carousel owl-theme">
+            <% @testimonies.each do |testimony| %>
+            <div class = "item">
+              <p class="comment"><%= testimony.quote %></p>
+              <p class="user">- <%= testimony.author %></p>
+            </div>
+            <% end %>
 
-	</div>
+          </div>
 
-	<div class="col-md-6">
+        </div>
 
-		<!-- <h4>Highlights:</h4> -->
-		<ul>
-			<li><h4>All units 3br, 2ba, + carports</h4></li>
-			<li><h4>4508 sq.ft (1127 sq.ft each unit)</h4></li>
-			<li><h4>$499K each fourplex</h4></li>
-			<li><h4>$5,000/month rent (4 X $1,250)</h4></li>
-		</ul>
 
-		<p>&nbsp;</p>
+      </div>
+    </div>
+  </section>
 
-		<div align="center">
-			<%= link_to 'Learn More',property_path('joshua-crossing-fourplexes'),class: 'btn btn-primary btn-lg' %>
-		</div>
-
-	</div>
-
-</div>
-<% end %>
-
-	<hr>
-
-	<div ng:controller="TestimoniesCtrl" class="testimonies" align="center">
-
-		<div ng:repeat="testimony in testimonies" ng:if="$index == selectedTestimony">
-
-			<h1>"{{testimony.quote}}"<br><small>- {{testimony.author}}</small></h1>
-
-		</div>
-
-		<% if current_user %>
-
-		<table class="table table-condensed table-striped">
-			
-			<tr>
-				<td><strong>Quote</strong></td>
-				<td><strong>Author</strong></td>
-				<td align="center"><strong>Order</strong></td>
-				<td align="right">
-
-					<button type="button" class="btn btn-default btn-sm" ng:click="saveOrder()" ng:disabled="saving.order">{{saving.order || 'Save Order'}}</button>
-
-				</td>
-			</tr>
-			
-			
-			<tr ng:repeat="testimony in testimonies">
-				
-				<td class="vmiddle" ng:show="!testimony.edit">{{testimony.quote}}</td>
-				<td class="vmiddle" ng:show="!testimony.edit">{{testimony.author}}</td>
-				<td class="vmiddle" align="center" ng:show="!testimony.edit">
-					<div><a href="" ng:click="moveTestimony(testimony,$index,$index-1)"><%= icon 'chevron-up' %></a></div>
-					<div><a href="" ng:click="moveTestimony(testimony,$index,$index+1)"><%= icon 'chevron-down' %></a></div>
-				</td>
-				<td ng:show="!testimony.edit" align="right">
-					
-					<button type="button" class="btn btn-warning btn-sm" ng:click="testimony.edit = true">Edit</button>
-					<button type="button" class="btn btn-danger btn-sm" ng:click="deleteTestimony(testimony,$index)">Delete</button>
-
-				</td>
-
-				<td class="vmiddle" ng:show="testimony.edit">
-
-					<input type="text" class="form-control" ng:model="testimony.quote" placeholder="" />
-
-				</td>
-				<td class="vmiddle" ng:show="testimony.edit">
-
-					<input type="text" class="form-control" ng:model="testimony.author" placeholder="" />
-
-				</td>
-				<td class="vmiddle" align="center" ng:show="testimony.edit">
-					
-					<div><a href="" ng:click="moveTestimony(testimony,$index,$index-1)"><%= icon 'chevron-up' %></a></div>
-					<div><a href="" ng:click="moveTestimony(testimony,$index,$index+1)"><%= icon 'chevron-down' %></a></div>
-
-				</td>
-				<td ng:show="testimony.edit" align="right">
-					
-					<button type="button" class="btn btn-default btn-sm" ng:click="testimony.edit = null">Cancel</button>
-					<button type="button" class="btn btn-success btn-sm" ng:click="saveTestimony(testimony)" ng:disabled="saving[testimony.id]">{{saving[testimony.id] || 'Save'}}</button>
-
-				</td>
-
-			</tr>
-
-			<tr>
-
-				<td class="vmiddle">
-
-					<input type="text" class="form-control" ng:model="newTestimony.quote" placeholder="Quote" />
-
-				</td>
-				<td class="vmiddle">
-
-					<input type="text" class="form-control" ng:model="newTestimony.author" placeholder="Author" />
-
-				</td>
-				<td class="vmiddle" align="center"></td>
-				<td align="right">
-					
-					<button type="button" class="btn btn-default btn-sm" ng:click="createTestimony(newTestimony)" ng:show="!saving.new"><%= icon 'plus' %></button>
-					<button type="button" class="btn btn-default btn-sm" ng:show="saving.new" ng:disabled="true">{{saving.new}}</button>
-
-				</td>
-
-			</tr>
-			
-		</table>
-
-		<% end %>
-
-	</div>
-
-	<hr>
-
-	<div align="center"><h2 class="allerdisplay">Additional Properties</h2></div>
-
-	<% if !current_user %>
-	<div class="row">
-
-		<% Property.where(featured: [1,2,3], status: 'for_sale', active: true).order(:featured).each do |property| %>
-
-			<div class="col-md-4">
-
-				<%= link_to property_path(property),class: 'thumbnail' do %>
-
-					<%= image_tag property.image.url %>
-					<div class="caption">
-						<h5><%= property.raw_title %></h5>
-						<div class="row">
-							<div class="col-lg-3">
-								<h5>
-									<span class="text-success">$<%= number_with_precision(property.offer_price,precision: 2,delimiter: ',') %></span>
-								</h5>
-							</div>
-							<div class="col-lg-9">
-								<h5>
-									<span class="text-success"><%= property.offer_price_label %>&nbsp;</span>
-								</h5>
-							</div>
-						</div>
-					</div>
-
-				<% end %>
-
-			</div>
-
-		<% end %>
-
-	</div>
-
-	<div class="row">
-
-		<% Property.where(featured: [4,5,6], status: 'for_sale', active: true).order(:featured).each do |property| %>
-
-			<div class="col-md-4">
-
-				<%= link_to property_path(property),class: 'thumbnail' do %>
-
-					<%= image_tag property.image.url %>
-					<div class="caption">
-						<h5><%= property.raw_title %></h5>
-						<div class="row">
-							<div class="col-lg-3">
-								<h5>
-									<span class="text-success">$<%= number_with_precision(property.offer_price,precision: 2,delimiter: ',') %></span>
-								</h5>
-							</div>
-							<div class="col-lg-9">
-								<h5>
-									<span class="text-success"><%= property.offer_price_label %>&nbsp;</span>
-								</h5>
-							</div>
-						</div>
-					</div>
-
-				<% end %>
-
-			</div>
-
-		<% end %>
-
-	</div>
-	<% else %>
-
-		<div ng:controller="FeaturedCtrl">
-		
-		<% @properties = Property.where(featured: [1,2,3,4,5,6], status: 'for_sale', active: true).order(:featured).map { |property| PropertySerializer.new(property,root: false) } %>
-		<span ng:init="properties = <%= @properties.to_json %>"></span>
-		<div class="row">
-
-			<div class="col-md-4" ng:repeat="property in properties.slice(0,3)">
-
-				<a href="<%= properties_path %>/{{property.slug}}" class="thumbnail">
-
-					<img ng:src="{{property.image.image.url}}" />
-					<div class="caption">
-						<h5>{{property.raw_title}}</h5>
-						<div class="row">
-							<div class="col-lg-3">
-								<h5>
-									<span class="text-success">${{property.raw_offer_price}}</span>
-								</h5>
-							</div>
-							<div class="col-lg-9">
-								<h5>
-									<span class="text-success">{{property.offer_price_label}}&nbsp;</span>
-								</h5>
-							</div>
-						</div>
-					</div>
-
-				</a>
-
-				<div class="well" align="center" ng:if="mode.edit">
-					<button class="btn btn-default btn-sm" ng:click="moveProperty(property,$index,$index-1)"><%= icon 'chevron-left' %></button>
-					<button class="btn btn-default btn-sm" ng:click="moveProperty(property,$index,$index+1)"><%= icon 'chevron-right' %></button>
-				</div>
-
-			</div>
-
-		</div>
-
-		<div class="row">
-
-			<div class="col-md-4" ng:repeat="property in properties.slice(3,6)">
-
-				<a href="<%= properties_path %>/{{property.slug}}" class="thumbnail">
-
-					<img ng:src="{{property.image.image.url}}" />
-					<div class="caption">
-						<h5>{{property.raw_title}}</h5>
-						<div class="row">
-							<div class="col-lg-3">
-								<h5>
-									<span class="text-success">${{property.raw_offer_price}}</span>
-								</h5>
-							</div>
-							<div class="col-lg-9">
-								<h5>
-									<span class="text-success">{{property.offer_price_label}}&nbsp;</span>
-								</h5>
-							</div>
-						</div>
-					</div>
-
-				</a>
-
-				<div class="well" align="center" ng:if="mode.edit">
-					<button class="btn btn-default btn-sm" ng:click="moveProperty(property,($index+3),($index+3)-1)"><%= icon 'chevron-left' %></button>
-					<button class="btn btn-default btn-sm" ng:click="moveProperty(property,($index+3),($index+3)+1)"><%= icon 'chevron-right' %></button>
-				</div>
-
-			</div>
-
-		</div>
-
-		<ul class="pager">
-		  <li ng:show="!mode.edit"><a href="" ng:click="mode = {edit: true}">Re-Order</a></li>
-		  <li ng:show="mode.edit && !loading && changed"><a href="" ng:click="saveOrder()">Save</a></li>
-		  <li ng:show="loading"><a href="" ng:click="">Saving...</a></li>
-		  <li ng:show="!changed && mode.edit"><a href="" ng:click="mode = {}">Cancel</a></li>
-		</ul>
-
-		</div>
-
-	<% end %>
-
-	<div align=""><%= link_to 'View More Offers',properties_path,class: 'btn btn-lg btn-primary' %></div>
+  <% if current_user %>
+  <section class="white-bg feedback-table-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="table-responsive">
+            <div ng:controller="TestimoniesCtrl">
+              <table class="table table-condensed table-striped">
+                <tr>
+                  <td><strong>Quote</strong></td>
+                  <td><strong>Author</strong></td>
+                  <td align="center"><strong>Order</strong></td>
+                  <td align="right">
+
+                    <button type="button" class="btn btn-default btn-sm" ng:click="saveOrder()" ng:disabled="saving.order">{{saving.order || 'Save Order'}}</button>
+
+                  </td>
+                </tr>
+
+
+                <tr ng:repeat="testimony in testimonies">
+
+                  <td class="vmiddle" ng:show="!testimony.edit">{{testimony.quote}}</td>
+                  <td class="vmiddle" ng:show="!testimony.edit">{{testimony.author}}</td>
+                  <td class="vmiddle" align="center" ng:show="!testimony.edit">
+                    <div><a href="" ng:click="moveTestimony(testimony,$index,$index-1)"><%= icon 'chevron-up' %></a></div>
+                    <div><a href="" ng:click="moveTestimony(testimony,$index,$index+1)"><%= icon 'chevron-down' %></a></div>
+                  </td>
+                  <td ng:show="!testimony.edit" align="right">
+
+                    <button type="button" class="btn btn-warning btn-sm" ng:click="testimony.edit = true">Edit</button>
+                    <button type="button" class="btn btn-danger btn-sm" ng:click="deleteTestimony(testimony,$index)">Delete</button>
+
+                  </td>
+
+                  <td class="vmiddle" ng:show="testimony.edit">
+
+                    <input type="text" class="form-control" ng:model="testimony.quote" placeholder="" />
+
+                  </td>
+                  <td class="vmiddle" ng:show="testimony.edit">
+
+                    <input type="text" class="form-control" ng:model="testimony.author" placeholder="" />
+
+                  </td>
+                  <td class="vmiddle" align="center" ng:show="testimony.edit">
+
+                    <div><a href="" ng:click="moveTestimony(testimony,$index,$index-1)"><%= icon 'chevron-up' %></a></div>
+                    <div><a href="" ng:click="moveTestimony(testimony,$index,$index+1)"><%= icon 'chevron-down' %></a></div>
+
+                  </td>
+                  <td ng:show="testimony.edit" align="right">
+
+                    <button type="button" class="btn btn-default btn-sm" ng:click="testimony.edit = null">Cancel</button>
+                    <button type="button" class="btn btn-success btn-sm" ng:click="saveTestimony(testimony)" ng:disabled="saving[testimony.id]">{{saving[testimony.id] || 'Save'}}</button>
+
+                  </td>
+
+                </tr>
+                <tr>
+
+                  <td class="vmiddle">
+
+                    <input type="text" class="form-control" ng:model="newTestimony.quote" placeholder="Quote" />
+
+                  </td>
+                  <td class="vmiddle">
+
+                    <input type="text" class="form-control" ng:model="newTestimony.author" placeholder="Author" />
+
+                  </td>
+                  <td class="vmiddle" align="center"></td>
+                  <td align="right">
+
+                    <button type="button" class="btn btn-default btn-sm" ng:click="createTestimony(newTestimony)" ng:show="!saving.new"><%= icon 'plus' %></button>
+                    <button type="button" class="btn btn-default btn-sm" ng:show="saving.new" ng:disabled="true">{{saving.new}}</button>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <% end %>
+
+  <%= javascript_include_tag 'owl.carousel.min.js' %>
+  <%= javascript_include_tag 'jquery.youtubebackground.js' %>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $("#featured-properties-slider").owlCarousel({autoPlay:6000,items:4 ,itemsDesktop:[1199,3],itemsDesktopSmall:[991,3],itemsTablet:[767,2],itemsMobile:[479,1],transitionStyle:"fade"});
+      $("#testimonials-slider").owlCarousel({autoPlay:6000,items:1,itemsDesktop:[1199,1],itemsDesktopSmall:[991,1],itemsTablet:[767,1],itemsMobile:[479,1],transitionStyle:"fade"});
+    });
+
+    $(function(){
+      /* Video Background Script */
+      $('#background-video').YTPlayer({
+        fitToBackground:true,
+        videoId:'XzeIGPJjb24',
+        pauseOnScroll:true,
+        callback:function(){videoCallbackEvents()}
+      });
+      var videoCallbackEvents=function(){
+        var player=$('#background-video').data('ytPlayer').player;
+        player.addEventListener('onStateChange', function(event){
+          console.log("Player State Change", event);
+          // OnStateChange Data
+          if(event.data===0){console.log('video ended');}
+          else if(event.data===2){console.log('paused');}
+        });
+      }
+    });
+  </script>
