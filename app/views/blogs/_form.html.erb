@@ -1,0 +1,36 @@
+<%= stylesheet_link_tag 'admin-pages' %>
+<section class="slide-show-header">
+  <%= render 'layouts/jumbtron' %>
+</section>
+<section class="main-body without-search-feature">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="box-shadow">
+          <ol class="breadcrumb">
+          <li><%= link_to 'Home', root_url %></li>
+            <li><%= link_to 'Blogs', blogs_path %></li>
+            <% if current_user && action_name != 'new' %>
+            <li><%= link_to @blog.title, blog_path(@blog) %></li>
+            <% end %>
+            <li class="active"><%= yield :blog_action %></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div class="fixed-admin-body">
+      <div class="col-xs-12">
+        <h1><i class="fa fa-plus" aria-hidden="true"></i> <%= yield :blog_action %></h1>
+        <%= form_for @blog do |f| %>
+        <%= render partial: 'blog_fields', locals: {f: f} %>
+        <div class="row form-row">
+          <div class="col-xs-12">
+            <%= f.button type: :submit, class: 'btn blue-btn btn-lg mar-btm-30' do %>Submit Blog <i class="fa fa-angle-right fa-next" aria-hidden="true"></i>
+            <% end %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

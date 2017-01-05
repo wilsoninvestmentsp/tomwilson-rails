@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'contact-us',to: 'contact#index',as: 'contact_us'
 
   resources :articles
+  resources :blogs
 
   get 'api/v1/map.png',to: 'map#index',as: 'map'
   get 'api/v1/map.js',to: 'map#js',as: 'js'

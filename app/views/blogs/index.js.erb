@@ -1,0 +1,7 @@
+<% if params[:page].present? %>
+  $('#blog-listing').append("<%= escape_javascript(render partial: 'blogs', locals: { blogs: @blogs } ) %>");
+  $('.pagination').replaceWith('<%= escape_javascript will_paginate(@blogs) %>');
+  <% if @blogs.current_page == @blogs.total_pages %>
+    $('#more_blogs').hide();
+  <% end %>
+<% end %>

@@ -1,0 +1,19 @@
+<% if blogs.present? %>
+<% blogs.each do |blog| %>
+<article class="col-md-4 col-sm-6 col-xs-12">
+  <div class="listing-box">
+    <div class="img-box">
+      <a href="">
+        <%= image_tag blog.image.thumb.url, alt: '', class: 'img-responsive' %>
+      </a>
+    </div>
+    <h3><a href=""><%= link_to blog.title.truncate(80), blog_path(blog) %></a></h3>
+    <p><%= blog.summary %></p>
+    <ul class="status-dtls">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i> <%= blog.blog_time %></li>
+      <li class="text-right"><%= link_to blog_path(blog) do %>Read More <i class="fa fa-angle-right" aria-hidden="true"></i><% end %></li>
+    </ul>
+  </div>
+</article>
+<% end %>
+<% end %>
