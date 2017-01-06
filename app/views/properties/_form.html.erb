@@ -23,6 +23,15 @@
       <div class="col-xs-12">
         <h1><%= yield(:page_title) %></h1>
         <%= form_for @property, html: { class: 'add-property-form' } do |f| %>
+         <% if @property.errors.any? %>
+			    <uib-alert type="danger">
+			      <ul>
+			        <% @property.errors.full_messages.each do |message| %>
+			          <li><%= message %></li>
+			        <% end %>
+			      </ul>
+			    </uib-alert>
+				<% end %>
         <div class="row">
           <div class="col-md-6 col-sm-12 col-xs-12 left-col">
             <h3>Information</h3>
@@ -114,7 +123,7 @@
                 <div class="col-xs-6 no-pad-right">
                   <%= f.label :lot_size, 'Lot Size', class: 'control-label' %>
                   <%= f.number_field :lot_size, class: 'form-control' %>
-                </div> 
+                </div>
               </div>
               <div class="form-group">
                 <div class="col-xs-6 no-pad-left">
@@ -223,66 +232,75 @@
               </div>
             </div>
           </div>
-          <div class="row form-row">
-            <div class="col-xs-12">
-              <%= button_tag(type: 'submit', class: 'btn blue-btn btn-lg') do %> Submit Property <i class="fa fa-angle-right fa-next" aria-hidden="true"></i>
-              <% end %>
-            </div>
-          </div>
           <% if action_name != 'new' %>
           <% @slides = @property.images.map { |item| item.to_json } %>
           <% @ids = @property.images.map { |item| item.id } %>
           <div ng:init="images = [<%= @slides.join(',') %>]"></div>
           <div ng:init="image_ids = <%= @ids %>"></div>
-          <a name="images"></a>
-          <h3>Images</h3>
-          <hr>
-          <div align="center">
-            <a ng:repeat="image in images" href="#" ng:click="removeImage(image)"><img ng:src="{{image.image.thumb.url}}" class="img-thumbnail"></a>
-            <img ng:src="<%= asset_path 'loader-thumb.png' %>" class="img-thumbnail" ng:if="img_loading" alt="">
-          </div>
-          <div class="form-group">
-            <button type="button" class="btn btn-default form-control" ng-file-select ng-file-change="upload($files,<%= @property.id %>)">Add Photo</button>
-            <input type="text" class="form-control" placeholder="Image Url" ng:model="imageUrl">
-            <button type="button" class="btn btn-default" ng:click="uploadUrl(<%= @property.id %>,imageUrl)" ng:disabled="img_loading">Upload</button>
-          </div>
-          <div class="form-group top-50">
-            <%= link_to 'Delete Property',@property, method: :delete, data: { confirm: 'Are you sure you wish to delete this property? This CANNOT be undone.' },class: 'btn btn-danger form-control' %>
-          </div>
-          <a name="links"></a>
-          <h3>Links</h3>
-          <hr>
-          <div class="form-group" ng:init="links = <%= @property.links.to_json %>">
-            <table class="table table-condensed table-striped">
-              <tr>
-                <td>Title</td>
-                <td colspan="2">Link</td>
-              </tr>
-              <tr ng:repeat="link in links">
-                <td class="vmiddle">{{link.title}}</td>
-                <td class="vmiddle"><a href="{{link.link}}" target="_blank">{{link.link}}</a></td>
-                <td class="vmiddle" align="right">
-                  <button type="button" class="btn btn-danger btn-sm" ng:show="!saving[link.id]" ng:click="deleteLink(link,$index)"><%= icon 'remove' %></button>
-                  <button type="button" class="btn btn-danger btn-sm" ng:if="saving[link.id]" ng:disabled="true">...</button>
-                </td>
-              </tr>
-              <tr>
-                <td class="vmiddle">
-                  <input type="text" class="form-control" ng:model="newLink.title" onenter="createLink(newLink)" placeholder="Title">
-                  <input type="hidden" ng:model="newLink.property_id" ng:init="newLink.property_id = <%= @property.id %>" >
-                </td>
-                <td class="vmiddle">
-                  <input type="text" class="form-control" ng:model="newLink.link" onenter="createLink(newLink)" placeholder="Link">
-                </td>
-                <td class="vmiddle" align="right">
-                  <button type="button" class="btn btn-default btn-sm" ng:show="!saving.new" ng:click="createLink(newLink)"><%= icon 'plus' %></button>
-                  <button type="button" class="btn btn-default btn-sm" ng:if="saving.new" ng:disabled="true">...</button>
-                </td>
-              </tr>
-            </table>
-          </div>
+          <div class="row">
+          	<div class="col-xs-12">
+          		<h3>Images</h3>
+	          <div align="center">
+	            <a ng:repeat="image in images" href="#" ng:click="removeImage(image)"><img ng:src="{{image.image.thumb.url}}" class="img-thumbnail"></a>
+	            <img ng:src="<%= asset_path 'loader-thumb.png' %>" class="img-thumbnail" ng:if="img_loading" alt="">
+	          </div>
+	          <div class="form-group mar-top-15">
+	            <div class="row">
+	            	<div class="col-sm-4 col-xs-12"><button type="button" class="btn btn-default form-control" ng-file-select ng-file-change="upload($files,<%= @property.id %>)">Add Photo</button></div>
+	            	<div class="col-sm-4 col-xs-12"><input type="text" class="form-control" placeholder="Image Url" ng:model="imageUrl"></div>
+	            	<div class="col-sm-4 col-xs-12"><button type="button" class="btn btn-default" ng:click="uploadUrl(<%= @property.id %>,imageUrl)" ng:disabled="img_loading">Upload</button></div>
+	            </div>
+	          </div>
+	        </div>
+	       </div>
+	       <div class="row">
+	       	<div class="col-xs-12">
+	          <h3>Links</h3>
+	          <div class="form-group" ng:init="links = <%= @property.links.to_json %>">
+	            <div class="table-responsive">
+	            	<table class="table table-condensed table-striped">
+	              <tr>
+	                <td>Title</td>
+	                <td colspan="2">Link</td>
+	              </tr>
+	              <tr ng:repeat="link in links">
+	                <td class="vmiddle">{{link.title}}</td>
+	                <td class="vmiddle"><a href="{{link.link}}" target="_blank">{{link.link}}</a></td>
+	                <td class="vmiddle" align="right">
+	                  <button type="button" class="btn btn-danger btn-sm" ng:show="!saving[link.id]" ng:click="deleteLink(link,$index)"><%= icon 'remove' %></button>
+	                  <button type="button" class="btn btn-danger btn-sm" ng:if="saving[link.id]" ng:disabled="true">...</button>
+	                </td>
+	              </tr>
+	              <tr>
+	                <td class="vmiddle">
+	                  <input type="text" class="form-control" ng:model="newLink.title" onenter="createLink(newLink)" placeholder="Title">
+	                  <input type="hidden" ng:model="newLink.property_id" ng:init="newLink.property_id = <%= @property.id %>" >
+	                </td>
+	                <td class="vmiddle">
+	                  <input type="text" class="form-control" ng:model="newLink.link" onenter="createLink(newLink)" placeholder="Link">
+	                </td>
+	                <td class="vmiddle" align="right">
+	                  <button type="button" class="btn btn-default btn-sm" ng:show="!saving.new" ng:click="createLink(newLink)"><%= icon 'plus' %></button>
+	                  <button type="button" class="btn btn-default btn-sm" ng:if="saving.new" ng:disabled="true">...</button>
+	                </td>
+	              </tr>
+	            </table>
+	          	</div>
+	          </div>
+	        </div>
+	       </div>
           <% end %>
           <% end %>
+          <div class="row mar-btm-30">
+            <div class="col-xs-12">
+              <%= button_tag(type: 'submit', class: 'btn blue-btn btn-lg') do %>
+                Submit Property <i class="fa fa-angle-right fa-next" aria-hidden="true"></i>
+              <% end %>
+              <% unless @property.new_record? %>
+                <%= link_to 'Delete Property', @property, method: :delete, data: { confirm: 'Are you sure you wish to delete this property? This CANNOT be undone.' },class: 'btn btn-danger btn-lg' %>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
     </div>

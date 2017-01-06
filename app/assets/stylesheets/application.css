@@ -23,3 +23,14 @@
  *= require font-awesome
  *= require content-pages
  */
+
+.flash-message-container{
+	 position: absolute;
+   z-index: 1080;
+   width: 100%;
+   top: 0;
+   padding: 0 !important;
+}
+.alert{
+	border-radius: 0 !important;
+}

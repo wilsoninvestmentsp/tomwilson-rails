@@ -6,7 +6,7 @@ App.controller('MainCtrl',['$scope','$http','$interval',function($scope,$http,$i
 
 	// Begin changeBackground =====================================
 	scope.setBackground = function(){
-		
+
 		// angular.forEach(images,function(val,key){
 
 		// 	var i = Math.floor(Math.random() * (images.length-1)) + 0
@@ -16,7 +16,7 @@ App.controller('MainCtrl',['$scope','$http','$interval',function($scope,$http,$i
 		// });
 
 		// scope.setRotation();
-	
+
 	};
 	// End changeBackground =======================================
 	// scope.setBackground();
@@ -47,7 +47,7 @@ App.controller('MainCtrl',['$scope','$http','$interval',function($scope,$http,$i
 		});
 
 	}
-	
+
 	if (scope.params.q){ scope.searchProperties(scope.params.q); }
 
 	scope.searchChanged = function(q){
@@ -57,13 +57,11 @@ App.controller('MainCtrl',['$scope','$http','$interval',function($scope,$http,$i
 		if (!q){ delete scope.container.properties; }
 
 	}
-	
+
 	Turbolinks.enableProgressBar(true);
 
 	setTimeout(function(){
-
-		$('.top-alert').slideUp(300);
-
+		$('.flash-message-container').slideUp(300);
 	},4000);
 
 }]);

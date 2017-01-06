@@ -107,12 +107,8 @@
   })(window,document,'script','dataLayer','GTM-M29TXX');</script>
   <!-- End Google Tag Manager -->
   <% end %>
+<%= render 'shared/flash_messages'%>
 
-  <% flash.each do |alert| %>
-  <div class="top-alert bg-<%= alert.first %>">
-    <div class="container"><%= alert.last %></div>
-  </div>
-  <% end %>
   <%= render 'layouts/header' %>
     <%= yield %>
   <%= render 'layouts/footer' %>
