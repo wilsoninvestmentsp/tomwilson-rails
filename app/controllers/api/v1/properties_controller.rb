@@ -4,20 +4,20 @@ module Api
 
   		respond_to :json
 
-  		before_action :set_property,except: [:index,:order]
+  		before_action :set_property,except: [:index,:order,:filter_properties]
 
   		# GET
   		# :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
   		# :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
   		def index
-
         params[:active] = 'true'
   			q = QueryTools.query params
 
   			@properties = Property.where(q)
   			.page(params[:page])
   			.per((params[:limit] || 100).to_i)
-        .order("FIELD(status, 'for_sale','coming_soon','reserved','sale_pending','sold','not_active'), CASE WHEN status = 'for_sale' THEN RAND() ELSE 1 END")
+
+        filter_properties
 
         respond_with @properties,
         meta: {
@@ -32,7 +32,16 @@ module Api
   		end
   		# :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
   		# :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
-
+      def filter_properties
+        if params[:offer_price].present?
+          offer_price = params[:offer_price].split(',')
+          min_price = offer_price.first
+          max_price = offer_price.last
+          @properties = Property.where(offer_price: min_price..max_price).page(params[:page])
+        .per((params[:limit] || 100).to_i).order('offer_price asc')
+        end
+        @properties = @properties.order("offer_price #{params[:order]}") if params[:order].present?
+      end
 
   		# SHOW
   		# :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
@@ -44,7 +53,6 @@ module Api
   		end
   		# :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
   		# :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
-
 
       # ORDER
       # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
@@ -73,7 +81,6 @@ module Api
       end
       # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
       # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
-
 
   		private
       # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
