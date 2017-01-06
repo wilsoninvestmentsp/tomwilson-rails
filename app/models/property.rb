@@ -10,33 +10,21 @@ class Property < ActiveRecord::Base
 
 	validates_presence_of :building_type,:address,:city,:state,:zip
 	validates_uniqueness_of :address,scope: [:city,:state,:zip]
-	
+	scope :by_featured, -> (featured_arr) { where(:featured => featured_arr) }
+	scope :active, -> { where(:active => true) }
+	scope :not_sold, -> { where.not(:status => 'sold') }
+
 	def slug_candidates
-	  [
-	    :title,
-	    [:address, :city, :state]
-	  ]
+	  [ :title, [:address, :city, :state] ]
 	end
 
 	def raw_title
-
-		if self.title.present?
-
-			self.title
-
-		else
-
-			raw_address
-
-		end
-
+		self.title.present? ? self.title : raw_address
 	end
 
 	def raw_address
-
 		return "#{self.address.cap_each}, #{self.city.cap_each}, #{self.state.upcase}" if self.address.present? && self.city.present? && self.state.present?
 		return nil
-
 	end
 
 	def raw_offer_price
@@ -124,7 +112,7 @@ class Property < ActiveRecord::Base
 				value: value,
 				raw_value: helper.number_with_precision(value,precision: 0,delimiter: ',')
 			}
-			
+
 			return {
 				rent: self.raw_rent,
 				chart: final
@@ -140,7 +128,7 @@ class Property < ActiveRecord::Base
 
 	# Begin import :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
 	def self.import file
-		
+
 		accepted_fields = [
 			'address',
 			'city',
@@ -180,7 +168,7 @@ class Property < ActiveRecord::Base
 				errors << row.headers.unshift('error')
 
 			end
-			
+
 			if row['ignore'] == 'header'
 
 				errors << row.fields.unshift('')
@@ -254,7 +242,7 @@ class Property < ActiveRecord::Base
 				end
 
 			else
-				
+
 				if !property.update(data)
 
 					errors << row.fields.unshift((property.errors.to_a.unshift('update')).to_s)
@@ -269,7 +257,7 @@ class Property < ActiveRecord::Base
 		# JP e
 
 		csv_string = CSV.generate do |csv|
-		  
+
 		  errors.each_with_index do |item,i|
 
 		  	# csv << item.headers if i == 0
@@ -280,7 +268,7 @@ class Property < ActiveRecord::Base
 		end
 
 		return csv_string
-	
+
 	end
 	# End import :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
 
