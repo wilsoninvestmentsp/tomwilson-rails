@@ -6,13 +6,13 @@
           <h5>&copy; Wilson Investment Properties, Inc. 2016</h5>
           14435 Big Basin Way, Ste 240<br>
           Saratoga, CA 95070<br>
-          408-867-1867<br>
+          <%= PHONE_NUMBER %><br>
         </address>
       </div>
       <div class="col-sm-6 col-xs-12 social-links text-right">
-        <a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a>
-        <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
-        <a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+        <a href="https://www.facebook.com/WilsonInvestmentProperties"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+        <a href="https://twitter.com/wilsoninvestprp"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+        <a href="https://www.linkedin.com/company/wilson-investment-properties"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
       </div>
     </div>
   </div>
@@ -23,10 +23,19 @@
 <div class="scroll-top-wrapper"><span class="scroll-top-inner"><i class="fa fa-angle-up"></i></span></div>
 
 <script>
-  $("#newsletter-tab").on('click', function() {
-    $("#newsletter-form").toggle("slide");
+  $(document).on('ready', function(){
+    setTimeout(function(){
+        $('#newsletter-form').show('500');
+    }, 1000);
+    setTimeout(function(){
+        $('#newsletter-form').hide('500');
+    }, 6000);
   });
+
   $(function(){
+    $("#newsletter-tab").click(function() {
+      $("#newsletter-form").toggle("slide");
+    });
     $(document).on('scroll',function(){
       if($(window).scrollTop()>200){
         $('.scroll-top-wrapper').addClass('show');

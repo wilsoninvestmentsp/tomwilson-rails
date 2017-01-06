@@ -1,0 +1,6 @@
+pagination:
+  blogs:
+    per_page: 9
+truncate:
+  blog:
+    title: 80
