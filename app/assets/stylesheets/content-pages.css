@@ -7,6 +7,7 @@
 .blue-btn, .blue-btn:focus{border:solid 1px #407cbb;font-family:'AllerRG';background:#407cbb;color:#fff;box-shadow:none !important}
 .blue-btn:hover{color:#fff;background:#444;border-color:#444}
 .mar-top-30{margin-top:30px}
+
 /* Body Section CSS */
 .main-body.without-search-feature{font-family:'AllerRG';margin-top:0;margin-bottom:125px}
 .main-body.without-title{margin-top:-70px;margin-bottom:225px}

@@ -1,4 +1,4 @@
-/* Background Video CSS */ 
+/* Background Video CSS */
 .background-video{background-position:top center;background-repeat:no-repeat;bottom:0;left:0;overflow:hidden;position:fixed;right:0;top:0;z-index:-1}
 .background-video:before{content:"";position:absolute;top:0;left:0;background:rgba(0,0,0,.5);z-index:99;width:100%;height:100%}
 video,source{bottom:0;left:0;min-height:100%;min-width:100%;position:absolute}
@@ -56,6 +56,9 @@ video,source{bottom:0;left:0;min-height:100%;min-width:100%;position:absolute}
 .property-section .propery-box .info li.person{color:#407cbb;text-align:right;padding-right:15px}
 .property-section .btn{margin-top:15px}
 .property-section .well{margin-bottom:0}
+
+.magazine-section{padding:50px 0 100px 0;font-family:'AllerRG'}
+.magazine-section h3{margin-top:0;margin-bottom:50px;font-size:32px;line-height:1;color:#525252}
 
 .feedback-section{padding:50px 0;font-family:'AllerRG';text-shadow:2px 2px 4px #000;margin-bottom:60px}
 .feedback-section .comment{font-size:26px;padding-top:0;margin-top:0;color:#ffdf90}
