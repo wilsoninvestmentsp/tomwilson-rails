@@ -12,6 +12,7 @@ video,source{bottom:0;left:0;min-height:100%;min-width:100%;position:absolute}
 /* Common */
 .ds-tbl{display:table;height:100%}
 .ds-tbl-cel{display:table-cell;height:100%;vertical-align:middle}
+.mar-top-30{margin-top:30px}
 .mar-btm-30{margin-bottom:30px}
 
 /* Index Page CSS */
@@ -29,10 +30,13 @@ video,source{bottom:0;left:0;min-height:100%;min-width:100%;position:absolute}
 .content-section h2{margin-top:0;margin-bottom:15px;font-family:'AllerDisplay';font-size:32px;line-height:1;color:#407cbb}
 .content-section h4{margin-top:0;margin-bottom:15px;font-size:20px;line-height:1;font-weight:bold;color:#aaa}
 .content-section ul{font-family:'AllerRG';font-size:16px;padding:0 0 0 15px;margin:-5px 0 0 15px}
-.content-section video, iframe{display:block;width:100%;height:285px}
+.content-section video, iframe{display:block;width:100%;height:300px}
 .content-section .opportunities-content{margin-top:50px}
 .content-section .opportunities-content .btn{margin-left:5px;margin-top:15px}
 .content-section .opportunities-content .btn:first-of-type{margin-left:15px}
+.content-section .bullet-text{font-size:18px}
+.content-section .bullet-text span{position:relative;padding-left:20px;padding-right:12px}
+.content-section .bullet-text span:before{content:"";width:8px;height:8px;position:absolute;top:6px;left:0;border-radius:50%;background:#407cbb}
 
 .property-section{background:#eee;padding:50px 0;font-family:'AllerRG';-webkit-box-shadow:0 0 4px 1px #ccc;-moz-box-shadow:0 0 4px 1px #ccc;-ms-box-shadow:0 0 4px 1px #ccc;-o-box-shadow:0 0 4px 1px #ccc;box-shadow:0 0 4px 1px #ccc}
 .property-section .feature-property-listing{padding-left:0;padding-right:0}
