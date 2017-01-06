@@ -204,7 +204,7 @@
     $(function(){
       $('#background-video').YTPlayer({
         fitToBackground:true,
-        videoId:'DtTmHGFUE98',
+        videoId: "<%= ENV['HOMEPAGE_VIDEO_ID'] %>",
         pauseOnScroll:true,
         callback:function(){videoCallbackEvents()}
       });

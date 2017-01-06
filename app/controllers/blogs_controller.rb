@@ -11,10 +11,9 @@ class BlogsController < ApplicationController
   end
 
   def create
-    date_today = Date.today()
-    @blog = Blog.new(blog_params.merge!({date: date_today}))
+    @blog = Blog.new(blog_params.merge!({date: Date.today()}))
     if @blog.save
-      redirect_to @blog, flash: {success: "#{@blog.title} was successfully created!"}
+      redirect_to @blog, flash: {success: "'#{@blog.title}' was successfully created!"}
     else
       render :new
     end
@@ -29,7 +28,7 @@ class BlogsController < ApplicationController
 
   def update
     if @blog.update(blog_params)
-      redirect_to @blog, flash: {success: "#{@blog.title} was successfully updated!"}
+      redirect_to @blog, flash: {success: "'#{@blog.title}' was successfully updated!"}
     else
       render :edit
     end
@@ -37,7 +36,7 @@ class BlogsController < ApplicationController
 
   def destroy
     @blog.destroy
-    redirect_to blogs_path, flash: {danger: "#{@blog.title} was successfully deleted."}
+    redirect_to blogs_path, flash: {danger: "'#{@blog.title}' was successfully deleted."}
   end
 
   private
