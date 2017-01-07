@@ -12,60 +12,60 @@
                 <form class="form-horizontal advance-search">
                   <div class="form-group">
                     <div class="col-sm-4 first">
-                     <%= select_tag :property_id, options_for_select(@cities.all.map{ |p| [p.city, p.city]}),{include_blank: 'Select City', class: "selectpicker", "data-live-search": true} %>
-                   </div>
-                   <div class="col-sm-4 text-center">
-                    <input id="price-filter" type="text" class="span2" value="" data-slider-min="10000" data-slider-max="400000" data-slider-step="10000" data-slider-value="[10000,400000]" ng:model="params.offer_price">
-                    <label class="price-hint">Price: $0 - $400000</label>
+                      <span ng:init="cities = <%= @cities.to_json %>"></span>
+                      <select ng:model="params.city" class="selectpicker" data-live-search="true" ng:options="val.city as val.city for (key,val) in cities" ng:change="getProperties()"><option value="">Default</option>
+                      </select>
+                    </div>
+                    <div class="col-sm-4 text-center">
+                      <input id="price-filter" type="text" class="span2" value="" data-slider-min="10000" data-slider-max="400000" data-slider-step="10000" data-slider-value="[10000,400000]" ng:model="params.offer_price">
+                      <label class="price-hint">Price: $0 - $400000</label>
+                    </div>
                   </div>
-                </div>
-              </form>
+                </form>
+              </div>
+              <div class="col-md-3 hidden-sm hidden-xs social-icons">
+                <a href="http://www.meetup.com/Wilson-Investment-Properties-Inc/" class="meetup"><%= image_tag 'meetup.svg', align: 'MeetUp', class: 'img-responsive' %></a>
+                <a href="https://www.linkedin.com/company/wilson-investment-properties" class="icons"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                <a href="https://twitter.com/wilsoninvestprp" class="icons"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <a href="https://www.facebook.com/WilsonInvestmentProperties" class="icons"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+              </div>
             </div>
-            <div class="col-md-3 hidden-sm hidden-xs social-icons">
-              <a href="http://www.meetup.com/Wilson-Investment-Properties-Inc/" class="meetup"><%= image_tag 'meetup.svg', align: 'MeetUp', class: 'img-responsive' %></a>
-              <a href="https://www.linkedin.com/company/wilson-investment-properties" class="icons"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-              <a href="https://twitter.com/wilsoninvestprp" class="icons"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-              <a href="https://www.facebook.com/WilsonInvestmentProperties" class="icons"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            <ol class="breadcrumb">
+              <li><%= link_to 'Home', root_url %></li>
+              <li class="active">Properties</li>
+              <% if current_user %>
+              <li><%= link_to 'New',new_property_path %></li>
+              <% end %>
+            </ol>
+          </div>
+          <div class="list-selection">
+            <ul class="list-unstyled">
+              <li ng:repeat="(key, val) in separate_building_types" ng:model="params.building_type" ng:click="filterPropertiesByBuildingType(val)">
+                <a href="" ng:click="setActive(val)" ng:class="{active : activeMenu === val}">{{ val.label }}</a>
+              </li>
+            </ul>
+            <ul class="list-unstyled">
+              <div class="sort-option">
+                <h5>Sort By Price: </h5>
+                <select ng:model="params.order" ng:options="key as val.label for (key,val) in sort_offer_price" ng:change="getProperties()">
+                  <option value="">Default</option>
+                </select>
+              </div>
             </div>
           </div>
-          <ol class="breadcrumb">
-            <li><%= link_to 'Home', root_url %></li>
-            <li class="active">Properties</li>
-            <% if current_user %>
-            <li><%= link_to 'New',new_property_path %></li>
-            <% end %>
-          </ol>
         </div>
-        <div class="list-selection">
-          <ul class="list-unstyled">
-            <li ng:repeat="(key, val) in separate_building_types" ng:model="params.building_type" ng:click="filterPropertiesByBuildingType(val)" ng-class="{sel: $index == selected}"><a href="">{{ val.label }}</a>
-            </li>
-          </ul>
-          <ul class="list-unstyled">
-            <div class="sort-option">
-              <h5>Sort By Price: </h5>
-              <select ng:model="params.order" ng:options="key as val.label for (key,val) in sort_offer_price" ng:change="getProperties()">
-                <option value="">Default</option>
-              </select>
-            </div>
+        <div class="row property-listing", id="property-listing">
+          <%= render partial: 'properties' %>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <a href="javascript:;" class="btn btn-lg border-btn space-setting" ng:click="loadMore()"><i class="fa fa-th" aria-hidden="true"></i> View More Offers</a>
           </div>
         </div>
       </div>
-      <div class="row property-listing", id="property-listing">
-        <%= render partial: 'properties' %>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 text-center">
-          <a href="javascript:;" class="btn btn-lg border-btn space-setting" ng:click="loadMore()"><i class="fa fa-th" aria-hidden="true"></i> View More Offers</a>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
+    </section>
+  </div>
 
-<%= javascript_include_tag 'property-listing' %>
-
-<script type>
-  $('.selectpicker').selectpicker();
-  $('[data-toggle="tooltip"]').tooltip();
-</script>
+  <%= javascript_include_tag 'property-listing' %>
+  <%= javascript_include_tag 'angular-bootstrap-select.min' %>

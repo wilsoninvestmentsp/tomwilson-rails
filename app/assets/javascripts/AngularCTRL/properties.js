@@ -1,7 +1,6 @@
 App.controller('PropertiesCtrl',['$scope','$http',function($scope,$http){
 
 	var scope = $scope;
-	scope.limit = 16;
 	scope.properties = [];
 	scope.params = toParams(window.location.search);
 	scope.meta = {};
@@ -51,7 +50,13 @@ App.controller('PropertiesCtrl',['$scope','$http',function($scope,$http){
 			value: 'desc'
 		}
 	}
+	
+	scope.activeMenu = scope.separate_building_types['all'];
 
+	scope.setActive = function(building_type) {
+    scope.activeMenu = building_type
+ 	}
+	
 	scope.getProperties = function(){
 
 		scope.loading = true;
@@ -87,34 +92,18 @@ App.controller('PropertiesCtrl',['$scope','$http',function($scope,$http){
 	scope.getProperties();
 
 	scope.filterPropertiesByBuildingType = function(query){
-
 		scope.loading = true
 		delete scope.params.q;
 
-		if(query){
-			query_string = '?building_type='+query.value	
-			var url = '/api/v1/properties.json'+query_string;
-		}
-		else
-		{
-			var url = '/api/v1/properties.json'+paramsString(scope.params);
-		}
-
+		scope.params['building_type'] = query.value
+		var url = '/api/v1/properties.json'+paramsString(scope.params);
 		scope.getfilteredProperties(url);
 	}
 
-	scope.filterPropertiesByCity = function (query){
-		if(query){
-			query_string = '?city='+query
-			var url = '/api/v1/properties.json'+query_string;
-		}
-
-		scope.getfilteredProperties(url);
-
-	}
-
+	
 	scope.getfilteredProperties = function (url){
 		$http({
+			method: 'GET',
 			url: url
 		}).then(function successCallback(response){
 			scope.properties = response.data.properties;
