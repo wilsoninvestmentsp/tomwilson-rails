@@ -159,26 +159,22 @@ class Property < ActiveRecord::Base
 		e = []
 
 		i = 0
-		CSV.foreach file.path,headers: true do |row|
+		CSV.foreach(file.path, headers: true) do |row|
 
 			newRow = row.clone
 
 			if i == 0
-
 				# newRow.headers.unshift 'error'
 				errors << row.headers.unshift('error')
-
 			end
 
 			if row['ignore'] == 'header'
-
 				errors << row.fields.unshift('')
-
 			end
 
 			i+=1
 
-			next if row['ignore'].present?
+			#next if row['ignore'].present?
 
 			data = row.clone.to_hash.slice(
 				'id',
@@ -207,65 +203,51 @@ class Property < ActiveRecord::Base
 				'hazard_insurance'
 			)
 
-			next if !row['id'].present?
+			if !row['id'].present?
+			  new_address = data['address'].clone
+  			if new_address.present?
+  				new_address.strip!
+  				number = new_address.match /[-\d\/]+/i
+  				new_address.gsub! /[-\d]+/i,''
+  				new_address = "#{number} #{new_address}"
+  				new_address.gsub! /\(.+\)/i,''
+  				new_address.strip!
+  				new_address.chomp! '/'
+  				new_address.strip!
+  			end
 
-			new_address = data['address'].clone
-			if new_address.present?
-
-				new_address.strip!
-				number = new_address.match /[-\d\/]+/i
-				new_address.gsub! /[-\d]+/i,''
-				new_address = "#{number} #{new_address}"
-				new_address.gsub! /\(.+\)/i,''
-				new_address.strip!
-				new_address.chomp! '/'
-				new_address.strip!
-
-			end
-
-			data['address'] = new_address
-			data['building_type'] = data['building_type'].parameterize.underscore if data['building_type'].present?
-			data['status'] = data['status'].parameterize.underscore if data['status'].present?
-			data['active'] = ['y','yes'].include?(data['active'].strip.downcase) if data['active'].present?
-			data['offer_price'] = data['offer_price'].to_f * 1000 if data['offer_price'].present?
-			data['leased'] = data['leased'].parameterize.underscore if data['leased'].present?
+  			data['address'] = new_address
+  			data['building_type'] = data['building_type'].parameterize.underscore if data['building_type'].present?
+  			data['status'] = data['status'].parameterize.underscore if data['status'].present?
+  			data['active'] = ['y','yes'].include?(data['active'].strip.downcase) if data['active'].present?
+  			data['offer_price'] = data['offer_price'].to_f * 1000 if data['offer_price'].present?
+  			data['leased'] = data['leased'].parameterize.underscore if data['leased'].present?
 
 			# property = Property.find_by(address: data['address'],city: data['city'],state: data['state'],zip: data['zip']) || new(data)
 			property = Property.find_by_id(data['id']) || new(data)
 
-			if property.new_record?
-
-				if !property.save
-
-					errors << row.fields.unshift((property.errors.to_a.unshift('create')).to_s)
-					# e << property.errors.to_a.unshift('create') << property.address
-
-				end
-
-			else
-
-				if !property.update(data)
-
-					errors << row.fields.unshift((property.errors.to_a.unshift('update')).to_s)
-					# e << property.errors.to_a.unshift('update') << property.address
-
-				end
-
-			end
+  			if property.new_record?
+  				if !property.save
+  					errors << row.fields.unshift((property.errors.to_a.unshift('create')).to_s)
+  					# e << property.errors.to_a.unshift('create') << property.address
+  				end
+  			else
+  				if !property.update(data)
+  					errors << row.fields.unshift((property.errors.to_a.unshift('update')).to_s)
+  					# e << property.errors.to_a.unshift('update') << property.address
+  				end
+  			end
 
 		end
+end
 
 		# JP e
 
 		csv_string = CSV.generate do |csv|
-
 		  errors.each_with_index do |item,i|
-
 		  	# csv << item.headers if i == 0
 		  	csv << item
-
 		  end
-
 		end
 
 		return csv_string
