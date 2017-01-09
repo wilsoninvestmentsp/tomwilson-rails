@@ -5,28 +5,31 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="box-shadow">
-        <ol class="breadcrumb">
-              <li><%= link_to 'Home', root_url %></li>
-              <li class="active">Our Blogs</li>
-            </ol>
+          <ol class="breadcrumb">
+            <li><%= link_to 'Home', root_url %></li>
+            <li class="active">Our Blogs</li>
+          </ol>
         </div>
       </div>
     </div>
     <div class="row content-section">
       <div class="col-xs-12">
         <h1>Our Blogs</h1>
-          <div class="row blog-listing" id="blog-listing">
-            <%= render partial: 'blogs', locals: {blogs: @blogs} %>
-          </div>
-      </div>
-    </div>
-    <% if will_paginate %>
-      <div class="row">
-        <div class="col-xs-12 text-center">
-          <a href="javascript:;" id="more_blogs", class="btn btn-lg border-btn space-setting"><i class="fa fa-th" aria-hidden="true"></i> View More Blogs</a>
+        <div class="row blog-listing" id="blog-listing">
+          <%= render partial: 'blogs', locals: {blogs: @blogs} %>
         </div>
       </div>
-      <%= will_paginate @blogs %>
+    </div>
+    <% if Blog.count > 1 %>
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        <% if @blogs.current_page < @blogs.num_pages %>
+          <%= link_to blogs_path(page: params.fetch(:page, 2)), id: 'more_blogs', class: 'btn btn-lg border-btn space-setting', remote: true do %><i class="fa fa-th" aria-hidden="true"></i> View More Blogs
+          <% end %>
+        <%  end %>
+      </div>
+    </div>
+    <%= paginate @blogs %>
     <% end %>
   </div>
 </section>

@@ -1,23 +1,26 @@
 module Api
   module V1
-  	class PropertiesController < ApplicationController
+    class PropertiesController < ApplicationController
 
-  		respond_to :json
+      respond_to :json
+      before_action :set_property,except: [:index,:order,:filter_properties]
 
-  		before_action :set_property,except: [:index,:order]
-
-  		# GET
-  		# :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
-  		# :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
-  		def index
-
+      def index
         params[:active] = 'true'
-  			q = QueryTools.query params
 
-  			@properties = Property.where(q)
-  			.page(params[:page])
-  			.per((params[:limit] || 100).to_i)
-        .order("FIELD(status, 'for_sale','coming_soon','reserved','sale_pending','sold','not_active'), CASE WHEN status = 'for_sale' THEN RAND() ELSE 1 END")
+        if params[:offer_price].present?
+          offer_price = params[:offer_price]
+          params.delete :offer_price
+        end
+
+        q = QueryTools.query params
+
+        @properties = Property.where(q)
+        .page(params[:page])
+        .per((params[:limit] || 100).to_i)
+
+        filter_by_offer_price(offer_price) if offer_price.present?
+        @properties = @properties.order(offer_price: params[:order]) if params[:order].present?
 
         respond_with @properties,
         meta: {
@@ -29,61 +32,40 @@ module Api
           limit: (params[:limit] || 100).to_i
         }
 
-  		end
-  		# :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
-  		# :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
+      end
 
+      def filter_by_offer_price(offer_price)
+        offer_price = offer_price.split(',')
+        min_price = offer_price.first.to_i
+        max_price = offer_price.last.to_i 
+        offer_price = Range.new(min_price, max_price)
+        @properties = @properties.where(offer_price: min_price..max_price)
+      end
 
-  		# SHOW
-  		# :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
-  		# :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
-  		def show
+      def show
+        respond_with @property
+      end
 
-  			respond_with @property
-
-  		end
-  		# :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
-  		# :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
-
-
-      # ORDER
-      # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
-      # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
       def order
-
         properties = params.require(:properties)
-
         order = {}
         properties.each_with_index do |id,i|
-
           order.merge! id => {featured: i+1}
-
         end
 
         if Property.update(order.keys,order.values)
-
           render json: nil,status: :ok
-
         else
-
           render json: nil,status: :unprocessable_entity
-
         end
-
       end
-      # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
-      # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
 
+      private
 
-  		private
-      # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
-      # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
-  		def set_property
-  		  @property = Property.friendly.find(params[:id])
-  		end
-      # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
-      # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
+      def set_property
+        @property = Property.friendly.find(params[:id])
+      end
 
-  	end
+    end
   end
 end

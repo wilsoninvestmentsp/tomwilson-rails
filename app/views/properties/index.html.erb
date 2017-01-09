@@ -1,130 +1,71 @@
 <%= stylesheet_link_tag 'property-listing' %>
 <%= render 'layouts/jumbtron' %>
-<div ng:controller="PropertiesCtrl">
+<div ng:controller="PropertiesCtrl", id="PropertiesCtrl">
   <section class="main-body">
-
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <h1>Properties</h1>
-         <div class="box-shadow">
-              <div class="blue-bg">
-                <div class="col-md-9 col-sm-12 col-xs-12">
-                  <form class="form-horizontal advance-search">
-                    <div class="form-group">
-                      <div class="col-sm-4 first">
-                        <select class="selectpicker" data-live-search="true">
-                          <option data-icon="glyphicon-map-marker" data-tokens="">1 Location</option>
-                          <option data-icon="glyphicon-map-marker" data-tokens="">2 Location</option>
-                          <option data-icon="glyphicon-map-marker" data-tokens="">3 Location</option>
-                        </select>
-                      </div>
-                      <div class="col-sm-4">
-                        <select class="selectpicker" data-live-search="true">
-                          <option data-icon="glyphicon-resize-full" data-tokens="">1 Area</option>
-                          <option data-icon="glyphicon-resize-full" data-tokens="">2 Area</option>
-                          <option data-icon="glyphicon-resize-full" data-tokens="">3 Area</option>
-                        </select>
-                      </div>
-                      <div class="col-sm-4 text-center">
-                      <input id="price-filter" type="text" class="span2" value="" data-slider-min="10" data-slider-max="100000" data-slider-step="5" data-slider-value="[30000,70000]">
-                      <label class="price-hint">Price: $0 - $100000</label>
-                      </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <h1>Properties</h1>
+          <div class="box-shadow">
+            <div class="blue-bg">
+              <div class="col-md-9 col-sm-12 col-xs-12">
+                <form class="form-horizontal advance-search">
+                  <div class="form-group">
+                    <div class="col-sm-4 first">
+                      <span ng:init="cities = <%= @cities.to_json %>"></span>
+                      <select ng:model="params.city" class="selectpicker" data-live-search="true" ng:options="val.city as val.city for (key,val) in cities" ng:change="getProperties()"><option value="">Default</option>
+                      </select>
                     </div>
-                  </form>
-                </div>
-                <div class="col-md-3 hidden-sm hidden-xs social-icons">
-                  <a href="" class="meetup"><%= image_tag 'meetup.svg', align: 'MeetUp', class: 'img-responsive' %></a>
-                  <a href="" class="icons"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                  <a href="" class="icons"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                  <a href="" class="icons"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                </div>
+                    <div class="col-sm-4 text-center">
+                      <input id="price-filter" type="text" class="span2" value="" data-slider-min="10000" data-slider-max="400000" data-slider-step="10000" data-slider-value="[10000,400000]" ng:model="params.offer_price">
+                      <label class="price-hint">Price: $0 - $400000</label>
+                    </div>
+                  </div>
+                </form>
               </div>
-              <ol class="breadcrumb">
-                <li><%= link_to 'Home', root_url %></li>
-                <li class="active">Properties</li>
-                  <% if current_user %>
-                    <li><%= link_to 'New',new_property_path, method: :get %></li>
-                  <% end %>
-              </ol>
+              <div class="col-md-3 hidden-sm hidden-xs social-icons">
+                <a href="http://www.meetup.com/Wilson-Investment-Properties-Inc/" class="meetup"><%= image_tag 'meetup.svg', align: 'MeetUp', class: 'img-responsive' %></a>
+                <a href="https://www.linkedin.com/company/wilson-investment-properties" class="icons"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                <a href="https://twitter.com/wilsoninvestprp" class="icons"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <a href="https://www.facebook.com/WilsonInvestmentProperties" class="icons"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+              </div>
+            </div>
+            <ol class="breadcrumb">
+              <li><%= link_to 'Home', root_url %></li>
+              <li class="active">Properties</li>
+              <% if current_user %>
+              <li><%= link_to 'New',new_property_path %></li>
+              <% end %>
+            </ol>
           </div>
-           <div class="list-selection">
-
-              <ul class="list-unstyled">
-
-              <ng:repeat ng:repeat="(key,val) in building_types_array" ng:model="params.building_type" ng:click="getProperties()">
-                                <a href="">{{value.label}}</a></li>
-
-              <form class="form-inline">
-                <div class="form-group">
-                  <select
-                  class="form-control"
-                  ng:model="params.building_type"
-                  ng:options="key as val.label for (key,val) in building_types"
-                  ng:change="getProperties()"
-                  >
-                  <option value="">All Properties</option>
-                  </select>
-                </div>
-              </form>
-           </ul>
+          <div class="list-selection">
+            <ul class="list-unstyled">
+              <li ng:repeat="(key, val) in separate_building_types" ng:model="params.building_type" ng:click="filterPropertiesByBuildingType(val)">
+                <a href="" ng:click="setActive(val)" ng:class="{active : activeMenu === val}">{{ val.label }}</a>
+              </li>
+            </ul>
+            <ul class="list-unstyled">
               <div class="sort-option">
-                <h5>Sort By: </h5>
-                <select class="selectpicker">
-                  <option data-icon="glyphicon-sort-by-alphabet" data-tokens="">Ascending</option>
-                  <option data-icon="glyphicon-sort-by-alphabet-alt" data-tokens="">Descending</option>
+                <h5>Sort By Price: </h5>
+                <select ng:model="params.order" ng:options="key as val.label for (key,val) in sort_offer_price" ng:change="getProperties()">
+                  <option value="">Default</option>
                 </select>
               </div>
             </div>
-      </div>
-    </div>
-
-<!--
-<select
-            class="form-control"
-            ng:model="params.building_type"
-            ng:options="key as val.label for (key,val) in building_types"
-            ng:change="getProperties()"
-          >
-            <option value="">All Properties</option>
-          </select> -->
-
-      <div class="row property-listing">
-          <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12" ng:repeat="property in properties">
-            <div class="listing-box">
-              <div class="img-box">
-                <a href="<%= properties_path %>/{{property.slug}}"><img ng:src="{{property.image.image.url}}" class="img-responsive" /></a>
-              </div>
-              <h3><a href="<%= properties_path %>/{{property.slug}}">{{property.raw_title}}</a></h3>
-              <ul class="labels">
-                <li class="price">${{property.raw_offer_price}}
-                <span ng:if="property.offer_price_label"> / {{property.offer_price_label}}</span></li>
-                <li class="person">{{property.raw_building_type}}</li>
-              </ul>
-              <ul class="price-flow">
-                <li>Cash Flow: <span class="blue-text">${{property.raw_cash_flow}}</span></li>
-                <li>Rent: <span class="blue-text">${{property.raw_rent}}</span></li>
-              </ul>
-              <ul class="numbers-details">
-                <li><span data-toggle="tooltip" data-placement="top" title="Bedroom"><i class="fa fa-bed" aria-hidden="true"></i>{{property.bedrooms}}</span></li>
-                <li><span data-toggle="tooltip" data-placement="top" title="Bathroom"><i class="fa fa-bath" aria-hidden="true"></i>{{property.bathrooms}}</span></li>
-                <li><span data-toggle="tooltip" data-placement="top" title="Garage"><i class="fa fa-car" aria-hidden="true"></i>{{property.garages}}</span></li>
-              </ul>
-              <span class="status-tag yellow">{{property.raw_status}}</span>
-            </div>
           </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 text-center">
-          <a href="javascript:;" class="btn btn-lg border-btn space-setting"><i class="fa fa-th" aria-hidden="true"></i> View More Offers</a>
+        </div>
+        <div class="row property-listing", id="property-listing">
+          <%= render partial: 'properties' %>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <a href="javascript:;" class="btn btn-lg border-btn space-setting" ng:click="loadMore()"><i class="fa fa-th" aria-hidden="true"></i> View More Offers</a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-</div>
+    </section>
+  </div>
 
-<script type="text/javascript">
-  $("#price-filter").slider({tooltip:'always', id: "price-filter"});
-  $('.selectpicker').selectpicker();
-  $('[data-toggle="tooltip"]').tooltip();
-</script>
+  <%= javascript_include_tag 'property-listing' %>
+  <%= javascript_include_tag 'angular-bootstrap-select.min' %>

@@ -1,12 +1,13 @@
 class PropertiesController < ApplicationController
   
-  before_action :authorize,except: [:index,:show]
+  before_action :authorize,except: [:index,:show, :filter_properties]
   before_action :set_property, only: [:show, :edit, :update, :destroy]
   before_action :set_status_options
 
   # GET /properties
   # GET /properties.json
   def index
+     @cities ||= Property.select(:city).uniq!
     # @properties = Property.where active: true
   end
 
@@ -80,6 +81,7 @@ class PropertiesController < ApplicationController
     def set_property
       @property = Property.where(slug: params[:id],active: true).first
     end
+    
     def set_status_options
       # @status_options = [
       #   ['Select One',nil],

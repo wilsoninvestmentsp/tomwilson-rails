@@ -13,7 +13,7 @@ class Property < ActiveRecord::Base
 	scope :by_featured, -> (featured_arr) { where(:featured => featured_arr) }
 	scope :active, -> { where(:active => true) }
 	scope :not_sold, -> { where.not(:status => 'sold') }
-	scope :by_status, -> (status) { where.not(:status => status) }
+	scope :by_status, -> (status) { where(:status => status) }
 
 	def slug_candidates
 	  [ :title, [:address, :city, :state] ]

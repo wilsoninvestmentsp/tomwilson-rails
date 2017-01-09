@@ -10,7 +10,7 @@
   <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Investor Education<span class="caret"></span></a>
     <ul class="dropdown-menu">
-    	<li><%= link_to 'FAQ\'s', faq_path %></li>
+      <li><%= link_to 'FAQ\'s', faq_path %></li>
       <li><%= link_to 'Financing Investments', financing_investments_path %></li>
       <li><%= link_to 'Property Management', property_management_path %></li>
       <li><%= link_to 'Resources', jassets_path %></li>
@@ -22,12 +22,12 @@
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog<span class="caret"></span></a>
       <ul class="dropdown-menu">
-        <li><%= link_to 'All Blogs', blogs_path %></li>
-        <li><%= link_to 'New Blog', new_blog_path %></li>
+        <li><%= link_to 'All Blogs', blogs_path, method: :get %></li>
+        <li><%= link_to 'New Blog', new_blog_path, method: :get %></li>
       </ul>
     </li>
   <% else %>
-    <li><a href="/blogs">Blog</a></li>
+    <li><a href="/blogs" method="get">Blog</a></li>
   <% end %>
   <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About Us<span class="caret"></span></a>

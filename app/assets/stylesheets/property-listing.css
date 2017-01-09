@@ -51,10 +51,15 @@ box-shadow: 0 0 4px #999;display:table;width:100%}
 .list-selection .sort-option h5{margin:0 5px 0 0;display:inline;line-height:46px;font-size:12px;color:#999}
 
 .list-selection .sort-option .bootstrap-select > .dropdown-toggle{background:transparent;color:#444;border-radius:0;border:none;border-bottom:solid 1px #fff;padding-left:0}
-.list-selection .sort-option .open > .dropdown-toggle.btn-default:focus, .list-selection .sort-option .open > .dropdown-toggle.btn-default:hover{color:#444;background-color:transparent;border-color:#fff;box-shadow:none;outline:none}
-.list-selection .sort-option .btn-group.open .dropdown-toggle, .list-selection .sort-option .btn:active, .list-selection .btn:focus, .list-selection .btn:active:focus{box-shadow:none;outline:none !important}
+.list-selection .sort-option .open > .dropdown-toggle.btn-default:focus,
+.list-selection .sort-option .open > .dropdown-toggle.btn-default:hover{color:#444;background-color:transparent;border-color:#fff;box-shadow:none;outline:none}
+.list-selection .sort-option .btn-group.open .dropdown-toggle,
+.list-selection .sort-option .btn:active,
+.list-selection .btn:focus,
+.list-selection .btn:active:focus{box-shadow:none;outline:none !important}
 .list-selection .open > .dropdown-menu{margin-top:5px !important}
-.list-selection .open > .dropdown-menu > li.selected > a{background-color:#337ab7;color:#fff}
+.list-selection .open > .dropdown-menu > li.selected > a{padding:3px 20px !important;background-color:#337ab7 !important;color:#fff !important;display:inline-block !important;width:100% !important}
+.list-selection .open > .dropdown-menu > ul > li{display:inline-block !important;width:100% !important}
 
 .property-listing .listing-box{display:table;position:relative;width:100%;background:#fff;-webkit-box-shadow:0 0 4px#999;-moz-box-shadow:0 0 4px #999;-ms-box-shadow:0 0 4px #999;-o-box-shadow:0 0 4px #999;box-shadow:0 0 4px #999;margin-bottom:30px;cursor:pointer}
 .property-listing .listing-box:hover{-webkit-box-shadow:0 0 4px#454545;-moz-box-shadow:0 0 4px #454545;-ms-box-shadow:0 0 4px #454545;-o-box-shadow:0 0 4px #454545;box-shadow:0 0 4px #454545}
