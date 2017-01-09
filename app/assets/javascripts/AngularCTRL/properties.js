@@ -95,6 +95,7 @@ App.controller('PropertiesCtrl',['$scope','$http',function($scope,$http){
 	scope.filterPropertiesByBuildingType = function(query){
 		scope.loading = true
 		delete scope.params.q;
+		delete scope.params.page;
 
 		scope.params['building_type'] = query.value
 		var url = '/api/v1/properties.json'+paramsString(scope.params);

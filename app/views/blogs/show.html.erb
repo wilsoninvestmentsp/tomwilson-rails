@@ -52,7 +52,7 @@
                   <%= image_tag blog.image.thumb.url, alt: '', class: 'img-responsive' %>
                 </div>
                 <h3><%= link_to blog.title.truncate(Settings.truncate.blog.title), blog_path(blog), method: :get %></h3>
-                <p><%= blog.summary %></p>
+                <p><%= blog.summary.truncate(380) %></p>
                 <ul class="status-dtls">
                   <li><i class="fa fa-calendar" aria-hidden="true"></i> <%= blog.blog_time %></li>
                   <li class="text-right"><%= link_to blog_path(blog) do %>Read More <i class="fa fa-angle-right" aria-hidden="true"></i><% end %></li>

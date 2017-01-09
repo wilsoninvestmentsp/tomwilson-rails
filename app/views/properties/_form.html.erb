@@ -246,7 +246,7 @@
   	          </div>
   	          <div class="form-group mar-top-15">
   	            <div class="row">
-  	            	<div class="col-sm-4 col-xs-12"><button type="button" class="btn btn-default form-control" ng-file-select ng-file-change="upload($files,<%= @property.id %>)">Add Photo</button></div>
+  	            	<div class="col-sm-4 col-xs-12"><button type="button" class="btn btn-default form-control" ng-file-select ng-file-change="upload($files,<%= @property.id %>)" multiple="multiple">Add Photo</button></div>
   	            	<div class="col-sm-4 col-xs-12"><input type="text" class="form-control" placeholder="Image Url" ng:model="imageUrl"></div>
   	            	<div class="col-sm-4 col-xs-12"><button type="button" class="btn btn-default" ng:click="uploadUrl(<%= @property.id %>,imageUrl)" ng:disabled="img_loading">Upload</button></div>
   	            </div>

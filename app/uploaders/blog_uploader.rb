@@ -9,6 +9,6 @@ class BlogUploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    '/custom/house-blank.png'
+    '/custom/no-image.png'
   end
 end
