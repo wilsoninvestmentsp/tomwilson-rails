@@ -3,13 +3,9 @@
   <article class="col-md-4 col-sm-6 col-xs-12">
     <div class="listing-box">
       <div class="img-box">
-        <% if blog.image.present? %>
-          <a href="">
-            <%= image_tag blog.image.thumb.url, alt: '', class: 'img-responsive' %>
-          </a>
-        <% else %>
-          No Image Available
-        <% end %>
+        <a href="">
+          <%= image_tag blog.image.thumb.url, alt: '', class: 'img-responsive' %>
+        </a>
       </div>
       <h3><a href=""><%= link_to blog.title.truncate(80), blog_path(blog), method: :get %></a></h3>
       <p><%= blog.summary %></p>

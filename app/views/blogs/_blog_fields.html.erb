@@ -7,7 +7,7 @@
     </div>
     <div class="form-group">
       <%= f.label :summary, class: 'control-label' %>
-      <%= f.text_area :summary, class: 'form-control', placeholder: '' %>
+      <%= f.text_area :summary, class: 'form-control', placeholder: '', rows: 4 %>
       <p class="text-muted small">Summary will show as text on Blog Listing page.</p>
     </div>
     <div class="form-group">
@@ -15,7 +15,7 @@
       <%= f.label :image, class: 'btn btn-default' do %><i class="fa fa-picture-o" aria-hidden="true"></i> Choose File
       <%= f.file_field :image, style: "display:none;" %>
       <% end %>
-      <%= image_tag @blog.image.thumb.url, class: 'img-responsive mar-top-15' %>
+      <%= image_tag @blog.image.thumb.url, class: 'img-responsive mar-top-15 preview-img' %>
       <p class="text-muted small">Featured Image for Blog</p>
     </div>
   </div>

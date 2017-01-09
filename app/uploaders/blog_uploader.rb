@@ -7,4 +7,8 @@ class BlogUploader < CarrierWave::Uploader::Base
   version :thumb do
     process resize_to_fill: [768]
   end
+
+  def default_url
+    '/custom/house-blank.png'
+  end
 end

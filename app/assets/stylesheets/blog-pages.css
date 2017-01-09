@@ -8,12 +8,12 @@
 .blue-btn:hover{color:#fff;background:#444;border-color:#444}
 
 .mar-top-15{margin-top:15px}
-
+.mar-top-40{margin-top:40px}
 .blog-img-header{margin-top:44px;overflow:hidden}
 .blog-img-header img{background-position:50%}
 
 .latest-blogs-section{background:#f5f5f5;padding:50px 0;margin-bottom:65px;font-family:'AllerRG';-webkit-box-shadow: 0 0 4px 1px #ccc;-moz-box-shadow: 0 0 4px 1px #ccc;-ms-box-shadow: 0 0 4px 1px #ccc;-o-box-shadow: 0 0 4px 1px #ccc;box-shadow: 0 0 4px 1px #ccc}
-.latest-blogs-section h2{margin-top:0;margin-bottom:15px;font-size:32px;line-height:1;color:#525252}
+.latest-blogs-section h2{margin-top:0;margin-bottom:60px;font-size:32px;line-height:1;color:#525252}
 .latest-blogs-section .item{padding:0 15px}
 .latest-blogs-section .blog-listing{padding-left:0;padding-right:0}
 .latest-blogs-section .blog-listing .listing-box{margin-bottom:0}
@@ -51,7 +51,7 @@ box-shadow: 0 0 4px #999;display:table;width:100%}
 .blog-listing .listing-box h3{font-size:16px;height:40px;border-bottom:solid 1px #ddd;padding-left:15px;padding-right:15px}
 .blog-listing .listing-box p{color:#888;padding-left:15px;padding-right:15px}
 .blog-listing .listing-box a{text-decoration:none;color:#525252;display:block;position:relative;word-break:break-all;}
-.blog-listing .listing-box .status-dtls{position:absolute;bottom:0;padding:10px 0 10px 15px;border-top:solid 1px #ddd;display:table}
+.blog-listing .listing-box .status-dtls{position:absolute;bottom:0;padding:10px 0 10px 15px;border-top:solid 1px #ddd;display:table;margin-bottom:0}
 .blog-listing .listing-box .status-dtls li{width:1%}
 .blog-listing .listing-box .status-dtls a{color:#ef5350}
 .blog-listing .listing-box:hover .status-dtls a{color:#0288D1}
