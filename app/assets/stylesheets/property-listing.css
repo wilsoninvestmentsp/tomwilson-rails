@@ -9,7 +9,7 @@
 .inner-pages-header img{width:100%}
 
 /* Body Section CSS */
-.main-body{font-family:'AllerRG';margin-top:-140px;margin-bottom:165px}
+.main-body{font-family:'AllerRG';margin-top:-136px;margin-bottom:65px}
 .main-body h1{font-size:36px;color:#525252;font-family:'AllerDisplay';margin-top:0;color:#fff;margin-bottom:30px;color:#eee;text-shadow:2px 2px 4px #000}
 .box-shadow{-webkit-box-shadow: 0 0 4px#999;
 -moz-box-shadow: 0 0 4px #999;
@@ -58,7 +58,9 @@ box-shadow: 0 0 4px #999;display:table;width:100%}
 .list-selection .btn:focus,
 .list-selection .btn:active:focus{box-shadow:none;outline:none !important}
 .list-selection .open > .dropdown-menu{margin-top:5px !important}
-.list-selection .open > .dropdown-menu > li.selected > a{padding:3px 20px !important;background-color:#337ab7 !important;color:#fff !important;display:inline-block !important;width:100% !important}
+.list-selection .open > .dropdown-menu > li.selected > a,
+.list-selection .open > .dropdown-menu > li > a{padding:3px 20px !important;display:inline-block !important;width:100% !important}
+.list-selection .open > .dropdown-menu > li.selected > a{background-color:#337ab7 !important;color:#fff !important}
 .list-selection .open > .dropdown-menu > ul > li{display:inline-block !important;width:100% !important}
 
 .property-listing .listing-box{display:table;position:relative;width:100%;background:#fff;-webkit-box-shadow:0 0 4px#999;-moz-box-shadow:0 0 4px #999;-ms-box-shadow:0 0 4px #999;-o-box-shadow:0 0 4px #999;box-shadow:0 0 4px #999;margin-bottom:30px;cursor:pointer}

@@ -17,7 +17,7 @@ module Api
 
         @properties = Property.where(q)
         .page(params[:page])
-        .per((params[:limit] || 100).to_i)
+        .per(Settings.pagination.properties.per_page)
 
         filter_by_offer_price(offer_price) if offer_price.present?
         @properties = @properties.order(offer_price: params[:order]) if params[:order].present?
