@@ -2,8 +2,10 @@
 
 .add-property-form .form-row{margin-bottom:30px}
 .add-property-form{color:#525252;position:relative}
+/*
 .add-property-form .vright-bdr:before{content:"";position:absolute;border-right:solid 1px #ddd;height:100%;top:0;right:-1.5px}
 .add-property-form .vleft-bdr:before{content:"";position:absolute;border-left:solid 1px #ddd;height:100%;top:0;left:.5px}
+*/
 /*.add-property-form .vright-bdr.inner:before{content:"";position:absolute;border-right:solid 1px #ddd;height:100%;top:73.2px;right:.5px}*/
 .add-property-form .left-col{padding-right:30px}
 .add-property-form .right-col{padding-left:30px}
@@ -27,8 +29,11 @@
 .add-property-form .upload-image .list-unstyled li .fa{margin-right:6px}
 .add-property-form .upload-image .list-unstyled li .btn.btn-default{width:100%;padding:0 12px;height:75px;line-height:75px}
 .add-property-form .upload-image .list-unstyled li img{border-radius:4px}
-.add-property-form .blue-btn{margin-top:15px}
-.add-property-form .blue-btn .fa{margin-right:0;margin-left:6px}
+.add-property-form table tr td{word-break:break-all}
+.blue-btn .fa{margin-right:0;margin-left:6px}
+.btn-danger{font-family:'AllerRG';box-shadow:none !important;margin-left:10px}
+.mar-top-15{margin-top:15px}
+.mar-btm-30{margin-bottom:30px}
 
 @media(max-width:479px){
 	.col-xxs-12{width:100%}

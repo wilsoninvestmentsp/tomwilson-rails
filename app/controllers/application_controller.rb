@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    
+
     # require '/LIBS/gentools' if Rails.env.development?
 
     # Prevent CSRF attacks by raising an exception.
@@ -41,7 +41,7 @@ class ApplicationController < ActionController::Base
     private
 
     def use_turbolinks?
-      
+
       !(controller_name == 'properties' && ['edit','new'].include?(action_name))
 
     end

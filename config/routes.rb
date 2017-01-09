@@ -27,9 +27,6 @@ Rails.application.routes.draw do
   link = 'Property Management'
   get link.parameterize, to: 'articles#property_management', as: link.parameterize.underscore
 
-  link = 'Resources'
-  get link.parameterize, to: 'articles#show',id: 221935908,as: link.parameterize.underscore
-
   link = 'Market & City Reports'
   get link.parameterize, to: 'articles#market_and_city_reports', as: link.parameterize.underscore
   # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
