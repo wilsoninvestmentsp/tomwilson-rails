@@ -36,7 +36,6 @@ body{background:#f5f5f5}
 .fixed-admin-body .no-pad-left{padding-left:0}
 .fixed-admin-body .no-pad-right{padding-right:0}
 .fixed-admin-body .preview-img{width:60%}
-}
  
 @media(max-width:479px){
   .fixed-admin-body h1{font-size:18px}
