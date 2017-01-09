@@ -1,6 +1,6 @@
 class PropertiesController < ApplicationController
   
-  before_action :authorize,except: [:index,:show, :filter_properties]
+  before_action :authorize,except: [:index,:show]
   before_action :set_property, only: [:show, :edit, :update, :destroy]
   before_action :set_status_options
 

@@ -3,7 +3,7 @@ module Api
     class PropertiesController < ApplicationController
 
       respond_to :json
-      before_action :set_property,except: [:index,:order,:filter_properties]
+      before_action :set_property,except: [:index,:order]
 
       def index
         params[:active] = 'true'
