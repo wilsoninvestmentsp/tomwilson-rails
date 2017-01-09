@@ -1,6 +1,8 @@
 pagination:
   blogs:
     per_page: 9
+  properties:
+    per_page: 16
 truncate:
   blog:
     title: 80

@@ -62,6 +62,7 @@ App.controller('PropertiesCtrl',['$scope','$http',function($scope,$http){
 		scope.loading = true;
 
 		delete scope.params.q;
+		delete scope.params.page;
 
 		angular.forEach(scope.params,function(val,key){
 
@@ -94,6 +95,7 @@ App.controller('PropertiesCtrl',['$scope','$http',function($scope,$http){
 	scope.filterPropertiesByBuildingType = function(query){
 		scope.loading = true
 		delete scope.params.q;
+		delete scope.params.page;
 
 		scope.params['building_type'] = query.value
 		var url = '/api/v1/properties.json'+paramsString(scope.params);
@@ -114,19 +116,23 @@ App.controller('PropertiesCtrl',['$scope','$http',function($scope,$http){
 		});
 	},
 
+	
 	scope.toPage = function(page){
-
+		
 		scope.params.page = page;
-		scope.getProperties();
+		
+		var url = '/api/v1/properties.json'+paramsString(scope.params);
 
+		$http({
+			method: 'GET',
+			url: url
+		}).then(function successCallback(response){
+				$.each(response.data.properties, function(i, item) {
+      	  scope.properties.push(item);
+    		});
+				scope.meta = response.data.meta;
+		});
 	}
-
-
-	scope.loadMore = function() {
-		var increamented = scope.limit + 16;
-		scope.limit = increamented > scope.properties.length ? scope.properties.length : increamented;
-		console.log(scope.limit)
-	};
 
 	scope.createArray = function(i){
 		return new Array(i);

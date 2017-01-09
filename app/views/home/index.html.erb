@@ -37,7 +37,6 @@
 </section>
 
 <section class="property-section">
-  <% @properties = Property.where(featured: [1,2,3,4,5,6], status: 'for_sale').order(:featured).map { |property| PropertySerializer.new(property,root: false) } %>
   <span ng:init="properties = <%= @properties.to_json %>"></span>
   <div class="container">
     <div class="row">
@@ -46,61 +45,98 @@
           <h3 class="text-center">Featured Properties</h3>
           <% if !current_user %>
           <div id="featured-properties-slider" class="owl-carousel owl-theme">
-            <% Property.where(featured: [1,2,3], status: 'for_sale').order(:featured).each do |property| %>
+            <% @properties_featured_one_to_three.each do |property| %>
             <div class="item">
               <div class="propery-box">
                 <div class="img-box">
-                  <%= link_to property_path(property) do %>	
+                  <%= link_to property_path(property) do %>
                   <%= image_tag property.image.url, class: 'img-responsive'%>
                   <% end %>
                 </div>
                 <h4><%= link_to property.raw_title,  property_path(property) %></h4>
                 <ul class="info">
-                  <li class="price">$<%= number_with_precision(property.offer_price,precision: 2,delimiter: ',') %></li>
-                  <li class="person"><%= property.raw_building_type %></li>
+                  <li class="price">
+                    $<%= number_with_precision(property.offer_price,precision: 2,delimiter: ',') %>
+                  </li>
+                  <li class="person">
+                    <%= property.raw_building_type %>
+                  </li>
                 </ul>
               </div>
             </div>
             <% end %>
           </div>
           <% else %>
-          <% @properties = Property.where(featured: [1,2,3,4,5,6], status: 'for_sale').order(:featured).map { |property| PropertySerializer.new(property,root: false) } %>
           <span ng:init="properties = <%= @properties.to_json %>"></span>
           <div class="row">
             <div class="col-sm-4 col-xs-12 mar-btm-30" ng:repeat="property in properties">
               <div class="propery-box">
                 <div class="img-box">
-                  <a href="<%= properties_path %>/{{property.slug}}">
-                    <img ng:src="{{property.image.image.url}}" class="img-responsive" alt="">
-                  </a></div>
-                  <h4>{{property.raw_title}}</h4>
-                  <ul class="info">
-                    <li class="price">${{property.raw_offer_price}}</li>
-                    <li class="person">{{property.raw_building_type}}</li>
-                  </ul>
-                  <div class="well" align="center" ng:if="mode.edit">
-                    <button class="btn btn-default btn-sm" ng:click="moveProperty(property,$index,$index-1)"><%= icon 'chevron-left' %></button>
-                    <button class="btn btn-default btn-sm" ng:click="moveProperty(property,$index,$index+1)"><%= icon 'chevron-right' %></button>
-                  </div>
+                  <a href="<%= properties_path %>/{{property.slug}}"> <img ng:src="{{property.image.image.url}}" class="img-responsive" alt=""> </a>
+                </div>
+                <h4>{{property.raw_title}}</h4>
+                <ul class="info">
+                  <li class="price">
+                    ${{property.raw_offer_price}}
+                  </li>
+                  <li class="person">
+                    {{property.raw_building_type}}
+                  </li>
+                </ul>
+                <div class="well" align="center" ng:if="mode.edit">
+                  <button class="btn btn-default btn-sm" ng:click="moveProperty(property,$index,$index-1)">
+                    <%= icon 'chevron-left' %>
+                  </button>
+                  <button class="btn btn-default btn-sm" ng:click="moveProperty(property,$index,$index+1)">
+                    <%= icon 'chevron-right' %>
+                  </button>
                 </div>
               </div>
             </div>
-            <ul class="pager">
-              <li ng:show="!mode.edit"><a href="" ng:click="mode = {edit: true}">Re-Order</a></li>
-              <li ng:show="mode.edit && !loading && changed"><a href="" ng:click="saveOrder()">Save</a></li>
-              <li ng:show="loading"><a href="" ng:click="">Saving...</a></li>
-              <li ng:show="!changed && mode.edit"><a href="" ng:click="mode = {}">Cancel</a></li>
-            </ul>
-            <% end %>
           </div>
-          <div class="text-center">
-            <%= link_to properties_path, class: 'btn border-btn btn-lg' do %><i class="fa fa-th" aria-hidden="true"></i>View More Offers<% end %>
-          </div>
+          <ul class="pager">
+            <li ng:show="!mode.edit">
+              <a href="" ng:click="mode = {edit: true}">Re-Order</a>
+            </li>
+            <li ng:show="mode.edit && !loading && changed">
+              <a href="" ng:click="saveOrder()">Save</a>
+            </li>
+            <li ng:show="loading">
+              <a href="" ng:click="">Saving...</a>
+            </li>
+            <li ng:show="!changed && mode.edit">
+              <a href="" ng:click="mode = {}">Cancel</a>
+            </li>
+          </ul>
+          <% end %>
+        </div>
+        <div class="text-center">
+          <%= link_to properties_path, class: 'btn border-btn btn-lg' do %><i class="fa fa-th" aria-hidden="true"></i>View More Offers<% end %>
         </div>
       </div>
     </div>
-  </section>
-
+  </div>
+</section>
+<section class="white-bg magazine-section">
+  <div class="container">
+   <div class="row">
+    <div class="col-sm-12 text-center">
+     <h3>Magazine Cover</h3>
+     <div class="row">
+      <div class="col-sm-4 col-xs-12">
+        <%= image_tag "REI-Voice-Cover-July-2015-1.jpg", alt: "REI Voice Magazine Cover (July 2015)", class: "img-responsive"%>
+      </div>
+      <div class="col-sm-4 col-xs-12">
+        <%= image_tag "Realty_Insights_July-2016_Cover_Tom_Summit.jpg", alt: "Realty Insights Magazine Cover (July 2015)", class: "img-responsive"%>
+      </div>
+      <div class="col-sm-4 col-xs-12">
+        <%= image_tag "REI-Voice-Cover-July-2015-2.jpg", alt: "Realty Insights Magazine Cover (July 2015)", class: "img-responsive"%>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+</section>
   <% if !current_user %>
     <section class="feedback-section">
       <div class="container">

@@ -3,7 +3,7 @@ class CreateBlogs < ActiveRecord::Migration
     create_table :blogs do |t|
       t.string :title
       t.text :content
-      t.string :summary
+      t.text :summary
       t.date :date
       t.string :image
       t.string :slug, unique: true, index: true

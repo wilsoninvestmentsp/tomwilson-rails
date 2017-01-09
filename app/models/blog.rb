@@ -7,6 +7,7 @@ class Blog < ActiveRecord::Base
   scope :recent_blogs, -> { all_recent_blogs.first(6) }
 
   validates :title, :summary, :content, presence: true
+  validates :summary, length: { maximum: 380 }
 
   def blog_time
     date.strftime('%B %d, %Y')

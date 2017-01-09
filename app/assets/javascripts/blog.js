@@ -14,7 +14,7 @@ Blog = {
   tinyMceEditor: function(selector){
     tinyMCE.init({
       selector: selector,
-      min_height: 300
+      min_height: 374
     });
   },
   documentOnReady: function(){

@@ -13,7 +13,7 @@
                   <div class="form-group">
                     <div class="col-sm-4 first">
                       <span ng:init="cities = <%= @cities.to_json %>"></span>
-                      <select ng:model="params.city" class="selectpicker" data-live-search="true" ng:options="val.city as val.city for (key,val) in cities" ng:change="getProperties()"><option value="">Default</option>
+                      <select ng:model="params.city" class="selectpicker" data-live-search="true" ng:options="val.city as val.city for (key,val) in cities" ng:change="getProperties()"><option value="">Select City</option>
                       </select>
                     </div>
                     <div class="col-sm-4 text-center">
@@ -47,7 +47,7 @@
             <ul class="list-unstyled">
               <div class="sort-option">
                 <h5>Sort By Price: </h5>
-                <select ng:model="params.order" ng:options="key as val.label for (key,val) in sort_offer_price" ng:change="getProperties()">
+                <select ng:model="params.order" ng:options="key as val.label for (key,val) in sort_offer_price" ng:change="getProperties()" class="selectpicker">
                   <option value="">Default</option>
                 </select>
               </div>
@@ -57,11 +57,8 @@
         <div class="row property-listing", id="property-listing">
           <%= render partial: 'properties' %>
         </div>
-
-        <div class="row">
-          <div class="col-xs-12 text-center">
-            <a href="javascript:;" class="btn btn-lg border-btn space-setting" ng:click="loadMore()"><i class="fa fa-th" aria-hidden="true"></i> View More Offers</a>
-          </div>
+        <div ng:if="meta.total_pages > 1" class="col-xs-12 text-center">
+          <a href="" class="btn btn-lg border-btn space-setting" ng:click="toPage(meta.next_page)" ng:class="{'invisible':!meta.next_page}"><i class="fa fa-th" aria-hidden="true"></i> View More Offers</a>
         </div>
       </div>
     </section>
