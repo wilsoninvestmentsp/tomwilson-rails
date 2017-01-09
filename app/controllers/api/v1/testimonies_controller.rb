@@ -11,16 +11,16 @@ module Api
 
 				@testimonies = Testimony.where(q)
 				.page(params[:page])
-				.per_page((params[:limit] || 100).to_i)
+				.per((params[:limit] || 100).to_i)
 				.order(params[:order])
 
 				respond_with @testimonies,
 				meta: {
 					current_page: @testimonies.current_page,
 					next_page: @testimonies.next_page,
-					prev_page: @testimonies.previous_page,
+					prev_page: @testimonies.prev_page,
 					total_pages: @testimonies.total_pages,
-					total_count: @testimonies.count,
+					total_count: @testimonies.total_count,
 					limit: (params[:limit] || 100).to_i
 				}
 

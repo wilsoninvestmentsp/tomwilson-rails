@@ -22,6 +22,15 @@
       <div class="col-xs-12">
         <h1><i class="fa fa-plus" aria-hidden="true"></i> <%= yield :blog_action %></h1>
         <%= form_for @blog do |f| %>
+        <% if @blog.errors.any? %>
+          <uib-alert type="danger">
+            <ul>
+              <% @blog.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </uib-alert>
+        <% end %>
         <%= render partial: 'blog_fields', locals: {f: f} %>
         <div class="row form-row">
           <div class="col-xs-12">
