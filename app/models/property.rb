@@ -9,11 +9,20 @@ class Property < ActiveRecord::Base
 	friendly_id :slug_candidates, use: :slugged
 
 	validates_presence_of :building_type, :address, :city, :state, :zip
-	#validates_uniqueness_of :address, scope: [:city, :state, :zip]
-	scope :by_featured, -> (featured_arr) { where(:featured => featured_arr) }
+	validates_uniqueness_of :address, scope: [:city, :state, :zip]
+	after_create :create_links
+
+  scope :by_featured, -> (featured_arr) { where(:featured => featured_arr) }
 	scope :active, -> { where(:active => true) }
 	scope :not_sold, -> { where.not(:status => 'sold') }
 	scope :by_status, -> (status) { where(:status => status) }
+
+  def create_links
+    links = [{title: 'Community Overview'}, {title: 'Appraisal Tax Record'}, {title: 'Parcel Map'}, {title: 'Tax Statement'}, {title: 'School District'}, {title: 'Accident'}]
+    links.each do |l|
+      Link.create(property_id: id, title: l[:title])
+    end
+  end
 
 	def slug_candidates
 	  [ :title, [:address, :city, :state] ]

@@ -1,12 +1,12 @@
 <section class="slide-show-header">
   <%= render 'layouts/jumbtron' %>
 </section>
-<section class="main-body without-search-feature">
+<section class="main-body without-search-feature gray-bg">
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
         <div class="box-shadow">
-          <ol class="breadcrumb">
+          <ol class="breadcrumb white">
             <li><%= link_to 'Home', root_url %></li>
             <li><%= link_to 'Blogs', blogs_path %></li>
             <% if current_user && action_name != 'new' %>

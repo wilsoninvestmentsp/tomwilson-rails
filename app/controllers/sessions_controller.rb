@@ -9,8 +9,6 @@ class SessionsController < ApplicationController
 
 		user = User.find_by_email params[:email]
 
-		user = nil if !user.admin
-
 		if user && user.authenticate(params[:password])
 
 			session[:user_id] = user.id

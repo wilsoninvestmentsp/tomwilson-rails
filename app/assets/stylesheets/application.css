@@ -11,25 +11,19 @@
  * file per style scope.
  *
  *= require_self
- *= require bootstrap.scss
- *= require bootstrap-social.css
- *= require bootstrapz.scss.erb
- *= require quicksearch.scss
- *= require testimonies.scss
+ *= require bootstrap
+ *= require bootstrap-social
+ *= require bootstrapz
+ *= require quicksearch
+ *= require testimonies
  *= require bootstrap-slider
  *= require bootstrap-select
- *= require fixed-header-menu.css
- *= require footer.css
+ *= require fixed-header-menu
+ *= require footer
  *= require font-awesome
- *= require content-pages
- *= require index
- *= require owl.carousel
- *= require blog-pages
+ *= require style
  *= require admin-pages
- *= require property-listing
- *= require add-edit-property
- *= require property-details
- *= require common-pages
+ *= require owl.carousel
  */
 
 .flash-message-container{

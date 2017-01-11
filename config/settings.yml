@@ -7,3 +7,5 @@ truncate:
   blog:
     title: 80
     summary: 370
+  property:
+    title: 30
