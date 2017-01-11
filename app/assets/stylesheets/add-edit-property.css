@@ -30,6 +30,18 @@
 .add-property-form .upload-image .list-unstyled li .btn.btn-default{width:100%;padding:0 12px;height:75px;line-height:75px}
 .add-property-form .upload-image .list-unstyled li img{border-radius:4px}
 .add-property-form table tr td{word-break:break-all}
+
+.add-property-form .checkbox{margin-top:0;margin-bottom:15px}
+.add-property-form .checkbox label{padding-left:0}
+.add-property-form .checkbox label:after{content:'';display:table;clear:both}
+.add-property-form .checkbox .cr{position:relative;display:inline-block;border:1px solid #a9a9a9;border-radius:.25em;width:1.3em;height:1.3em;float:left;margin-right:.5em}
+.add-property-form .checkbox .cr .cr-icon{position:absolute;font-size:.8em;line-height:0;top:50%;left:20%;color:#333 !important}
+.add-property-form .checkbox label input[type="checkbox"]{display:none}
+.add-property-form .checkbox label input[type="checkbox"] + .cr > .cr-icon{transform:scale(3) rotateZ(-20deg);opacity:0;transition:all .3s ease-in}
+.add-property-form .checkbox label input[type="checkbox"]:checked + .cr > .cr-icon{transform: scale(1) rotateZ(0deg);opacity:1}
+.add-property-form .checkbox label input[type="checkbox"]:disabled + .cr{opacity:.5}
+
+
 .blue-btn .fa{margin-right:0;margin-left:6px}
 .btn-danger{font-family:'AllerRG';box-shadow:none !important;margin-left:10px}
 .mar-top-15{margin-top:15px}

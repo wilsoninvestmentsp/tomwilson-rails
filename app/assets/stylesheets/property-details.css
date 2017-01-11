@@ -27,12 +27,14 @@ box-shadow: 0 0 4px #999;display:table;width:100%}
 .property-details .status-tag.red:after{border-color:#b71c1c transparent transparent transparent}
 .property-details .status-tag.green{background:#558B2F}
 .property-details .status-tag.green:after{border-color:#558B2F transparent transparent transparent}
+.property-details .status-tag.orange{background:#F57C00}
+.property-details .status-tag.orange:after{border-color:#F57C00 transparent transparent transparent}
 
 .property-details .property-info-tabs a{font-size:16px}
 .property-details .status-price-details{margin:2px 0 0 0;padding:0;list-style:none;color:#525252}
 .property-details .status-price-details li{padding:10px 15px;border-bottom:solid 1px #ddd;display:table;width:100%}
 .property-details .status-price-details li label{float:left;width:50%;font-weight:normal;margin-bottom:0}
-.property-details .status-price-details li.odd{background:#f5f5f5}
+.property-details .status-price-details li:nth-child(2n){background:#f5f5f5}
 .property-details .status-price-details li .title{float:left;width:120px}
 .property-details .status-price-details li .label{font-size:14px;font-weight:normal}
 .property-details .status-price-details li.links{text-align:center}

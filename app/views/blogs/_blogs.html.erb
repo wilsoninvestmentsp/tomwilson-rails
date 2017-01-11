@@ -7,8 +7,8 @@
           <%= image_tag blog.image.thumb.url, alt: '', class: 'img-responsive' %>
         </a>
       </div>
-      <h3><a href=""><%= link_to blog.title.truncate(80), blog_path(blog), method: :get %></a></h3>
-      <p><%= blog.summary.truncate(380) %></p>
+      <h3><a href=""><%= link_to blog.title.truncate(Settings.truncate.blog.title), blog_path(blog), method: :get %></a></h3>
+      <p><%= blog.summary.truncate(Settings.truncate.blog.summary) %></p>
       <ul class="status-dtls">
         <li><i class="fa fa-calendar" aria-hidden="true"></i> <%= blog.blog_time %></li>
         <li class="text-right"><%= link_to blog_path(blog), method: :get do %>Read More <i class="fa fa-angle-right" aria-hidden="true"></i><% end %></li>

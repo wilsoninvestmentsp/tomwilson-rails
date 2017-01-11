@@ -21,6 +21,7 @@
 /* Body Section CSS */
 .main-body.without-search-feature{font-family:'AllerRG';margin-top:0;margin-bottom:60px}
 .main-body.only-bread-crumb{margin-top:0;margin-bottom:60px}
+.main-body.only-bread-crumb.mar-btm-setting{margin-bottom:125px}
 .box-shadow{-webkit-box-shadow: 0 0 4px#999;
 -moz-box-shadow: 0 0 4px #999;
 -ms-box-shadow: 0 0 4px #999;

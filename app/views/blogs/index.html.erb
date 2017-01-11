@@ -8,6 +8,9 @@
           <ol class="breadcrumb">
             <li><%= link_to 'Home', root_url %></li>
             <li class="active">Our Blogs</li>
+            <% if current_user %>
+              <li><%= link_to 'New', new_blog_path %></li>
+            <% end %>
           </ol>
         </div>
       </div>

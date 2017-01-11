@@ -57,6 +57,29 @@ App.controller('PropertiesCtrl',['$scope','$http',function($scope,$http){
     scope.activeMenu = building_type
  	}
 	
+	scope.getStatusClass = function(status){
+		switch(status) {
+			case 'sold':
+				status_class = 'status-tag-top red'
+				break;
+			case 'for_sale':
+				status_class = 'status-tag-top yellow'
+				break;
+			case 'sale_pending':
+				status_class = 'status-tag-top orange'
+				break;
+			case 'comming_soon':
+				status_class = 'status-tag-top orange'
+				break;
+			case 'reserved':
+				status_class = 'status-tag-top red'
+				break;
+			default:
+			status_class = 'status-tag-top yellow'
+		}
+		return status_class
+	}	
+
 	scope.getProperties = function(){
 
 		scope.loading = true;

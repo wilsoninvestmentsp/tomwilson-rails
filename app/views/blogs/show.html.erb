@@ -11,7 +11,7 @@
   </div>
 <% end %>
 
-<section class="main-body only-bread-crumb">
+<section class="main-body only-bread-crumb <%= Blog.count > 1 ? '' : 'mar-btm-setting' %>">
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
@@ -38,36 +38,37 @@
     </div>
   </div>
 </section>
-
-<section class="latest-blogs-section">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 blog-listing">
-        <h2 class="text-center">Latest Blogs</h2>
-        <div id="latest-blogs" class="owl-carousel owl-theme">
-          <% @blogs.each do |blog| %>
-            <div class="item">
-              <div class="listing-box">
-                <div class="img-box">
-                  <%= image_tag blog.image.thumb.url, alt: '', class: 'img-responsive' %>
+<% if Blog.count > 1 %>
+  <section class="latest-blogs-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 blog-listing">
+          <h2 class="text-center">Latest Blogs</h2>
+          <div id="latest-blogs" class="owl-carousel owl-theme">
+            <% @blogs.each do |blog| %>
+              <div class="item">
+                <div class="listing-box">
+                  <div class="img-box">
+                    <%= image_tag blog.image.thumb.url, alt: '', class: 'img-responsive' %>
+                  </div>
+                  <h3><%= link_to blog.title.truncate(Settings.truncate.blog.title), blog_path(blog), method: :get %></h3>
+                  <p><%= blog.summary.truncate(Settings.truncate.blog.summary) %></p>
+                  <ul class="status-dtls">
+                    <li><i class="fa fa-calendar" aria-hidden="true"></i> <%= blog.blog_time %></li>
+                    <li class="text-right"><%= link_to blog_path(blog) do %>Read More <i class="fa fa-angle-right" aria-hidden="true"></i><% end %></li>
+                  </ul>
                 </div>
-                <h3><%= link_to blog.title.truncate(Settings.truncate.blog.title), blog_path(blog), method: :get %></h3>
-                <p><%= blog.summary.truncate(380) %></p>
-                <ul class="status-dtls">
-                  <li><i class="fa fa-calendar" aria-hidden="true"></i> <%= blog.blog_time %></li>
-                  <li class="text-right"><%= link_to blog_path(blog) do %>Read More <i class="fa fa-angle-right" aria-hidden="true"></i><% end %></li>
-                </ul>
               </div>
-            </div>
-          <% end %>
-        </div>
-        <div class="text-center">
-          <%= link_to blogs_path, class: 'btn border-btn btn-lg mar-top-40' do %><i class="fa fa-th" aria-hidden="true"></i>View All Blogs<% end %>
+            <% end %>
+          </div>
+          <div class="text-center">
+            <%= link_to blogs_path, class: 'btn border-btn btn-lg mar-top-40' do %><i class="fa fa-th" aria-hidden="true"></i>View All Blogs<% end %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+<% end %>
 
 <%= javascript_include_tag 'owl.carousel.min' %>
 
