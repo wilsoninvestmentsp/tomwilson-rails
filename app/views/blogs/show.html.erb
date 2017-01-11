@@ -1,6 +1,3 @@
-<%= stylesheet_link_tag 'blog-pages' %>
-<%= stylesheet_link_tag 'owl.carousel' %>
-
 <% if @blog.image.present? %>
   <section class="blog-img-header">
     <%= image_tag @blog.image.url, class: 'img-responsive' %>
@@ -70,9 +67,7 @@
   </section>
 <% end %>
 
-<%= javascript_include_tag 'owl.carousel.min' %>
-
-<script>
+<script type="text/javascript">
   $(function(){
     $("#latest-blogs").owlCarousel({autoPlay:6000,items:3,itemsDesktop:[1199,3],itemsDesktopSmall:[991,3],itemsTablet:[767,2],itemsMobile:[479,1],transitionStyle:"fade"});
   });

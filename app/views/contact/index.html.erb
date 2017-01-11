@@ -1,4 +1,3 @@
-<%= stylesheet_link_tag 'common-pages' %>
 <%= render 'layouts/jumbtron' %>
 <section class="main-body without-search-feature">
   <div class="container" ng:controller="TicketCtrl">
@@ -23,11 +22,11 @@
         <div class="row mar-btm-30" ng:if="show_form">
           <div class="col-md-6">
             <form name="ticket_form" ng:submit="submitForm()" novalidate>
-              <div class="form-group">  
+              <div class="form-group">
                 <label>Full Name</label><br>
                 <input type="text" class="form-control" ng:model="inquiry.name" placeholder="Full Name" required>
               </div>
-              <div class="form-group">  
+              <div class="form-group">
                 <label>Email</label><br>
                 <input type="email" class="form-control" ng:model="inquiry.email" placeholder="Email" required>
               </div>
@@ -35,11 +34,11 @@
                 <label>Phone #</label><br>
                 <input type="tel" class="form-control" ng:model="inquiry.phone" placeholder="Phone #" required>
               </div>
-              <div class="form-group">  
+              <div class="form-group">
                 <label>Subject</label><br>
                 <input type="text" class="form-control" ng:model="inquiry.subject" placeholder="A brief description of the inquiry" required>
               </div>
-              <div class="form-group">  
+              <div class="form-group">
                 <label>Description</label><br>
                 <textarea rows="6" class="form-control" ng:model="inquiry.description" placeholder="Please descripbe the nature of your inquiry" required></textarea>
               </div>

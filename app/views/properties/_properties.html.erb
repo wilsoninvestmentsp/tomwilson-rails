@@ -1,24 +1,24 @@
 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12" ng:repeat="property in properties | limitTo: limit">
   <div class="listing-box">
-    <div class="img-box">
-      <a href="<%= properties_path %>/{{property.slug}}"><img ng:src="{{property.image.image.url}}" class="img-responsive"></a>
-      <span ng:class="getStatusClass(property.status)" ng:if="property.raw_status">{{property.raw_status}}</span>
-      <span class="status-tag-bottom red" ng:if="property.leased == 1">Leased</span>
-    </div>
-    <h3><a href="<%= properties_path %>/{{property.slug}}">{{property.raw_title | limitTo: 56 }}{{property.raw_title.length > 56 ? '...' : ''}}</a></h3>
-    <ul class="labels">
-      <li class="price">${{property.raw_offer_price}}
-        <span ng:if="property.offer_price_label"> / {{property.offer_price_label}}</span></li>
-        <li class="person">{{property.raw_building_type}}</li>
-      </ul>
-      <ul class="price-flow">
-        <li>Cash Flow: <span class="blue-text">${{property.raw_cash_flow}}</span></li>
-        <li>Rent: <span class="blue-text">${{property.raw_rent}}</span></li>
-      </ul>
-      <ul class="numbers-details">
-        <li ng:if="property.bedrooms > 0"><span data-toggle="tooltip" data-placement="top" title="Bedroom"><i class="fa fa-bed" aria-hidden="true"></i>{{property.bedrooms}}</span></li>
-        <li ng:if="property.bathrooms > 0"><span data-toggle="tooltip" data-placement="top" title="Bathroom"><i class="fa fa-bath" aria-hidden="true"></i>{{property.bathrooms}}</span></li>
-        <li ng:if="property.garages > 0"><span data-toggle="tooltip" data-placement="top" title="Garage"><i class="fa fa-car" aria-hidden="true"></i>{{property.garages}}</span></li>
-      </ul>
-    </div>
-  </div>
+	  <div class="img-box">
+	    <a href="<%= properties_path %>/{{property.slug}}"><img ng:src="{{property.image.image.url}}" class="img-responsive"></a>
+	    <span ng:class="getStatusClass(property.status)" ng:if="property.raw_status">{{property.raw_status}}</span>
+	    <span class="status-tag-bottom red" ng:if="property.leased == 1">Leased</span>
+	  </div>
+	  <h3><a href="<%= properties_path %>/{{property.slug}}">{{property.raw_title | limitTo: 56 }}{{property.raw_title.length > 56 ? '...' : ''}}</a></h3>
+	  <ul class="labels">
+	    <li class="price">${{property.raw_offer_price}}
+	      <span ng:if="property.offer_price_label"> / {{property.offer_price_label}}</span></li>
+	      <li class="person">{{property.raw_building_type}}</li>
+	    </ul>
+	    <ul class="price-flow">
+	      <li>Cash Flow: <span class="blue-text">${{property.raw_cash_flow}}</span></li>
+	      <li>Rent: <span class="blue-text">${{property.raw_rent}}</span></li>
+	    </ul>
+	    <ul class="numbers-details">
+	      <li ng:if="property.bedrooms > 0"><span data-toggle="tooltip" data-placement="top" title="Bedroom"><i class="fa fa-bed" aria-hidden="true"></i>{{property.bedrooms}}</span></li>
+	      <li ng:if="property.bathrooms > 0"><span data-toggle="tooltip" data-placement="top" title="Bathroom"><i class="fa fa-bath" aria-hidden="true"></i>{{property.bathrooms}}</span></li>
+	      <li ng:if="property.garages > 0"><span data-toggle="tooltip" data-placement="top" title="Garage"><i class="fa fa-car" aria-hidden="true"></i>{{property.garages}}</span></li>
+	    </ul>
+	 </div>
+</div>

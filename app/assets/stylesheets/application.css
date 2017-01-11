@@ -22,6 +22,14 @@
  *= require footer.css
  *= require font-awesome
  *= require content-pages
+ *= require index
+ *= require owl.carousel
+ *= require blog-pages
+ *= require admin-pages
+ *= require property-listing
+ *= require add-edit-property
+ *= require property-details
+ *= require common-pages
  */
 
 .flash-message-container{
