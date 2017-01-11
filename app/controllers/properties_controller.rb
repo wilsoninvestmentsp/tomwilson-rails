@@ -1,5 +1,5 @@
 class PropertiesController < ApplicationController
-  
+
   before_action :authorize,except: [:index,:show]
   before_action :set_property, only: [:show, :edit, :update, :destroy]
   before_action :set_status_options
@@ -67,13 +67,12 @@ class PropertiesController < ApplicationController
   end
 
   def import
-    
-    csv = Property.import params[:file]
-
-    # render json: nil
-    send_data csv,filename: "errors_#{Time.now.to_i}.csv"
-    # redirect_to jobs_url, flash: {warning: "Import testing."}
-
+    error_csv = Property.import params[:file]
+    if error_csv.nil?
+      redirect_to import_url, flash: {success: "Properties has been imported successfully..."}
+    else
+      send_data error_csv, filename: "errors_#{Time.now.to_i}.csv"
+    end
   end
 
   private
@@ -81,7 +80,7 @@ class PropertiesController < ApplicationController
     def set_property
       @property = Property.where(slug: params[:id],active: true).first
     end
-    
+
     def set_status_options
       # @status_options = [
       #   ['Select One',nil],

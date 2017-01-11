@@ -8,8 +8,8 @@ class Property < ActiveRecord::Base
 	extend FriendlyId
 	friendly_id :slug_candidates, use: :slugged
 
-	validates_presence_of :building_type,:address,:city,:state,:zip
-	validates_uniqueness_of :address,scope: [:city,:state,:zip]
+	validates_presence_of :building_type, :address, :city, :state, :zip
+	validates_uniqueness_of :address, scope: [:city, :state, :zip]
 	scope :by_featured, -> (featured_arr) { where(:featured => featured_arr) }
 	scope :active, -> { where(:active => true) }
 	scope :not_sold, -> { where.not(:status => 'sold') }
@@ -158,99 +158,86 @@ class Property < ActiveRecord::Base
 		errors = []
 		e = []
 
-		i = 0
-		CSV.foreach(file.path, headers: true) do |row|
+		CSV.foreach(file.path, headers: true).with_index do |row, i|
+			if row['address'].present?
+  			newRow = row.clone
+  			errors << row.headers.unshift('error') if i.zero?
+  			errors << row.fields.unshift('') if row['ignore'].eql?('header')
 
-			newRow = row.clone
+  			data = row.clone.to_hash.slice(
+  				'id',
+  				'address',
+  				'city',
+  				'state',
+  				'zip',
+  				'building_type',
+  				'school_district',
+  				'status',
+  				'active',
+  				'year_built',
+  				'square_ft',
+  				'lot_size',
+  				'bedrooms',
+  				'bathrooms',
+  				'garages',
+  				'offer_price',
+  				'cash_flow',
+  				'rent',
+  				'leased',
+  				'property_management_fee',
+  				'mortgage_payment',
+  				'hoa_fee',
+  				'property_tax',
+  				'hazard_insurance'
+  			)
 
-			if i == 0
-				# newRow.headers.unshift 'error'
-				errors << row.headers.unshift('error')
-			end
+  			if !row['id'].present?
+  			  new_address = data['address'].clone
+    			if new_address.present?
+    				new_address.strip!
+    				number = new_address.match /[-\d\/]+/i
+    				new_address.gsub! /[-\d]+/i,''
+    				new_address = "#{number} #{new_address}"
+    				new_address.gsub! /\(.+\)/i,''
+    				new_address.strip!
+    				new_address.chomp! '/'
+    				new_address.strip!
+    			end
 
-			if row['ignore'] == 'header'
-				errors << row.fields.unshift('')
-			end
+      		data['address'] = new_address
+      		data['building_type'] = data['building_type'].parameterize.underscore if data['building_type'].present?
+      		data['status'] = data['status'].parameterize.underscore if data['status'].present?
+      		data['active'] = ['y','yes'].include?(data['active'].strip.downcase) if data['active'].present?
+      		data['offer_price'] = data['offer_price'].to_f * 1000 if data['offer_price'].present?
+      		data['leased'] = data['leased'].parameterize.underscore if data['leased'].present?
 
-			i+=1
+    			# property = Property.find_by(address: data['address'],city: data['city'],state: data['state'],zip: data['zip']) || new(data)
+    			property = Property.find_by_id(data['id']) || new(data)
 
-			#next if row['ignore'].present?
+    			if property.new_record?
+    				if !property.save
+    					errors << row.fields.unshift((property.errors.to_a.unshift('create')).to_s)
+    					# e << property.errors.to_a.unshift('create') << property.address
+    				end
+    			else
+    				if !property.update(data)
+    					errors << row.fields.unshift((property.errors.to_a.unshift('update')).to_s)
+    					# e << property.errors.to_a.unshift('update') << property.address
+    				end
+    			end
+  		  end # ID not present end
+  		end # ADDRESS not present end
+    end # CSV loop end
 
-			data = row.clone.to_hash.slice(
-				'id',
-				'address',
-				'city',
-				'state',
-				'zip',
-				'building_type',
-				'school_district',
-				'status',
-				'active',
-				'year_built',
-				'square_ft',
-				'lot_size',
-				'bedrooms',
-				'bathrooms',
-				'garages',
-				'offer_price',
-				'cash_flow',
-				'rent',
-				'leased',
-				'property_management_fee',
-				'mortgage_payment',
-				'hoa_fee',
-				'property_tax',
-				'hazard_insurance'
-			)
-
-			if !row['id'].present?
-			  new_address = data['address'].clone
-  			if new_address.present?
-  				new_address.strip!
-  				number = new_address.match /[-\d\/]+/i
-  				new_address.gsub! /[-\d]+/i,''
-  				new_address = "#{number} #{new_address}"
-  				new_address.gsub! /\(.+\)/i,''
-  				new_address.strip!
-  				new_address.chomp! '/'
-  				new_address.strip!
-  			end
-
-  			data['address'] = new_address
-  			data['building_type'] = data['building_type'].parameterize.underscore if data['building_type'].present?
-  			data['status'] = data['status'].parameterize.underscore if data['status'].present?
-  			data['active'] = ['y','yes'].include?(data['active'].strip.downcase) if data['active'].present?
-  			data['offer_price'] = data['offer_price'].to_f * 1000 if data['offer_price'].present?
-  			data['leased'] = data['leased'].parameterize.underscore if data['leased'].present?
-
-			# property = Property.find_by(address: data['address'],city: data['city'],state: data['state'],zip: data['zip']) || new(data)
-			property = Property.find_by_id(data['id']) || new(data)
-
-  			if property.new_record?
-  				if !property.save
-  					errors << row.fields.unshift((property.errors.to_a.unshift('create')).to_s)
-  					# e << property.errors.to_a.unshift('create') << property.address
-  				end
-  			else
-  				if !property.update(data)
-  					errors << row.fields.unshift((property.errors.to_a.unshift('update')).to_s)
-  					# e << property.errors.to_a.unshift('update') << property.address
-  				end
-  			end
-
-		end
-end
-
-		# JP e
-
+  if errors.count > 1
 		csv_string = CSV.generate do |csv|
 		  errors.each_with_index do |item,i|
-		  	# csv << item.headers if i == 0
 		  	csv << item
 		  end
 		end
+	end
 
-		return csv_string
+	return csv_string
 
 	end
 	# End import :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
