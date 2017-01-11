@@ -9,7 +9,7 @@ class Property < ActiveRecord::Base
 	friendly_id :slug_candidates, use: :slugged
 
 	validates_presence_of :building_type, :address, :city, :state, :zip
-	validates_uniqueness_of :address, scope: [:city, :state, :zip]
+	#validates_uniqueness_of :address, scope: [:city, :state, :zip]
 	scope :by_featured, -> (featured_arr) { where(:featured => featured_arr) }
 	scope :active, -> { where(:active => true) }
 	scope :not_sold, -> { where.not(:status => 'sold') }
@@ -191,41 +191,39 @@ class Property < ActiveRecord::Base
   				'hazard_insurance'
   			)
 
-  			if !row['id'].present?
-  			  new_address = data['address'].clone
-    			if new_address.present?
-    				new_address.strip!
-    				number = new_address.match /[-\d\/]+/i
-    				new_address.gsub! /[-\d]+/i,''
-    				new_address = "#{number} #{new_address}"
-    				new_address.gsub! /\(.+\)/i,''
-    				new_address.strip!
-    				new_address.chomp! '/'
-    				new_address.strip!
-    			end
+			  new_address = data['address'].clone
+  			if new_address.present?
+  				new_address.strip!
+  				number = new_address.match /[-\d\/]+/i
+  				new_address.gsub! /[-\d]+/i,''
+  				new_address = "#{number} #{new_address}"
+  				new_address.gsub! /\(.+\)/i,''
+  				new_address.strip!
+  				new_address.chomp! '/'
+  				new_address.strip!
+  			end
 
-      		data['address'] = new_address
-      		data['building_type'] = data['building_type'].parameterize.underscore if data['building_type'].present?
-      		data['status'] = data['status'].parameterize.underscore if data['status'].present?
-      		data['active'] = ['y','yes'].include?(data['active'].strip.downcase) if data['active'].present?
-      		data['offer_price'] = data['offer_price'].to_f * 1000 if data['offer_price'].present?
-      		data['leased'] = data['leased'].parameterize.underscore if data['leased'].present?
+    		data['address'] = new_address
+    		data['building_type'] = data['building_type'].parameterize.underscore if data['building_type'].present?
+    		data['status'] = data['status'].parameterize.underscore if data['status'].present?
+    		data['active'] = ['y','yes'].include?(data['active'].strip.downcase) if data['active'].present?
+    		data['offer_price'] = data['offer_price'].to_f * 1000 if data['offer_price'].present?
+    		data['leased'] = data['leased'].parameterize.underscore if data['leased'].present?
 
-    			# property = Property.find_by(address: data['address'],city: data['city'],state: data['state'],zip: data['zip']) || new(data)
-    			property = Property.find_by_id(data['id']) || new(data)
+  			# property = Property.find_by(address: data['address'],city: data['city'],state: data['state'],zip: data['zip']) || new(data)
+  			property = Property.find_by_id(data['id']) || new(data)
 
-    			if property.new_record?
-    				if !property.save
-    					errors << row.fields.unshift((property.errors.to_a.unshift('create')).to_s)
-    					# e << property.errors.to_a.unshift('create') << property.address
-    				end
-    			else
-    				if !property.update(data)
-    					errors << row.fields.unshift((property.errors.to_a.unshift('update')).to_s)
-    					# e << property.errors.to_a.unshift('update') << property.address
-    				end
-    			end
-  		  end # ID not present end
+  			if property.new_record?
+  				if !property.save
+  					errors << row.fields.unshift((property.errors.to_a.unshift('create')).to_s)
+  					# e << property.errors.to_a.unshift('create') << property.address
+  				end
+  			else
+  				if !property.update(data)
+  					errors << row.fields.unshift((property.errors.to_a.unshift('update')).to_s)
+  					# e << property.errors.to_a.unshift('update') << property.address
+  				end
+  			end
   		end # ADDRESS not present end
     end # CSV loop end
 
