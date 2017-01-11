@@ -20,7 +20,7 @@ class BlogsController < ApplicationController
   end
 
   def show
-    @blogs = Blog.recent_blogs(@blog)
+    @blogs = Blog.recent_blogs(@blog.id)
   end
 
   def edit
