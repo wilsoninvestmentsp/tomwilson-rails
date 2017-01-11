@@ -2,6 +2,7 @@ body{background:#f5f5f5}
 .mar-top-30{margin-top:30px}
 .mar-top-15{margin-top:15px}
 .mar-btm-30{margin-bottom:30px}
+.mar-right-15{margin-right:15px}
 .btn:focus, .btn:active{outline:none !important}
 .border-btn, .border-btn:focus{border:solid 1px #407cbb;font-family:'AllerRG';background:transparent;color:#407cbb;box-shadow:none !important}
 .border-btn:hover{color:#fff;background:#407cbb}

@@ -54,6 +54,18 @@ video,source{bottom:0;left:0;min-height:100%;min-width:100%;position:absolute}
 .property-section .propery-box .info li{float:left;width:50%;padding:0 0 10px 0}
 .property-section .propery-box .info li.price{color:#FF8F00;text-align:left;padding-left:15px}
 .property-section .propery-box .info li.person{color:#407cbb;text-align:right;padding-right:15px}
+.property-section .status-tag{position:absolute;top:0;left:15px;min-width:auto;padding:5px 5px 5px 15px;color:#fff;display:inline-block;height:30px}
+.property-section .status-tag.top-setting{top:4px}
+.property-section .status-tag:after{content:"";position:absolute;top:0;right:-30px;width:0;height:0;border-style:solid;border-width:30px 30px 0 0}
+.property-section .status-tag.yellow{background:#FFB300}
+.property-section .status-tag.yellow:after{border-color:#FFB300 transparent transparent transparent}
+.property-section .status-tag.red{background:#b71c1c}
+.property-section .status-tag.red:after{border-color:#b71c1c transparent transparent transparent}
+.property-section .status-tag.green{background:#558B2F}
+.property-section .status-tag.green:after{border-color:#558B2F transparent transparent transparent}
+.property-section .status-tag.orange{background:#F57C00}
+.property-section .status-tag.orange:after{border-color:#F57C00 transparent transparent transparent}
+
 .property-section .btn{margin-top:15px}
 .property-section .well{margin-bottom:0}
 

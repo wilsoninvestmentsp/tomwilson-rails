@@ -4,12 +4,11 @@ class Blog < ActiveRecord::Base
   friendly_id :title, use: :slugged
 
   scope :all_recent_blogs, -> { all.order('created_at DESC') }
-  scope :recent_blogs, -> { all_recent_blogs.first(6) }
+  scope :recent_blogs, -> (blog_id) { all_recent_blogs.where.not(id: blog_id).limit(6) }
 
   validates :title, :summary, :content, presence: true
-  validates :summary, length: { maximum: 380 }
 
-  def blog_time
+  def formatted_date
     date.strftime('%B %d, %Y')
   end
 end

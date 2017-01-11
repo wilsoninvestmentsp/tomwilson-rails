@@ -6,3 +6,4 @@ pagination:
 truncate:
   blog:
     title: 80
+    summary: 370

@@ -25,8 +25,24 @@ App.controller('PropertyFormCtrl',['$scope','$interval','$upload','$routeParams'
 		var slides = $scope.slides = [];
 		var currIndex = 0;
 
+		
 		JP('MAIN');
 
+		scope.updateLink = function(link){
+			scope.saving = {};
+			scope.saving[link.id] = '...';
+
+			if (!link.title || !link.link){ return; }
+		
+			$http({
+			  method: 'PUT',
+			  url: '/api/v1/links/'+link.id+'.json',
+			  data: {link: link}
+			}).then(function successCallback(response){
+				delete scope.saving;
+				delete link.edit;
+			});
+		}
 		scope.uploadUrl = function(id,url){
 
 			scope.img_loading = true;

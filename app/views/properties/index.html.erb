@@ -17,7 +17,7 @@
                       </select>
                     </div>
                     <div class="col-sm-4 text-center">
-                      <input id="price-filter" type="text" class="span2" value="" data-slider-min="10000" data-slider-max="400000" data-slider-step="10000" data-slider-value="[10000,400000]" ng:model="params.offer_price">
+                      <input id="price-filter" type="text" class="span2" value="" data-slider-min="0" data-slider-max="400000" data-slider-step="1000" data-slider-value="[0,400000]" ng:model="params.offer_price">
                       <label class="price-hint">Price: $0 - $400000</label>
                     </div>
                   </div>
@@ -44,13 +44,12 @@
                 <a href="" ng:click="setActive(val)" ng:class="{active : activeMenu === val}">{{ val.label }}</a>
               </li>
             </ul>
-            <ul class="list-unstyled">
-              <div class="sort-option">
-                <h5>Sort By Price: </h5>
-                <select ng:model="params.order" ng:options="key as val.label for (key,val) in sort_offer_price" ng:change="getProperties()" class="selectpicker">
-                  <option value="">Default</option>
-                </select>
-              </div>
+            <div class="sort-option">
+              <h5>Sort By Price: </h5>
+              <select ng:model="params.order" ng:options="key as val.label for (key,val) in sort_offer_price" ng:change="getProperties()" class="selectpicker">
+                <option value="">Default</option>
+              </select>
+            </div>
             </div>
           </div>
         </div>

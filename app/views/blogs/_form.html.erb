@@ -32,9 +32,12 @@
           </uib-alert>
         <% end %>
         <%= render partial: 'blog_fields', locals: {f: f} %>
-        <div class="row form-row">
+        <div class="row form-row mar-btm-30">
           <div class="col-xs-12">
-            <%= f.button type: :submit, class: 'btn blue-btn btn-lg mar-btm-30' do %>Submit Blog <i class="fa fa-angle-right fa-next" aria-hidden="true"></i>
+            <%= f.button type: :submit, class: 'btn blue-btn btn-lg mar-right-15' do %>Submit Blog <i class="fa fa-angle-right fa-next" aria-hidden="true"></i>
+            <% end %>
+            <% unless @blog.new_record? %>
+              <%= link_to 'Delete Blog', @blog, method: :delete, data: { confirm: 'Are you sure you wish to delete this blog? This CANNOT be undone.' },class: 'btn btn-danger btn-lg' %>
             <% end %>
           </div>
         </div>
