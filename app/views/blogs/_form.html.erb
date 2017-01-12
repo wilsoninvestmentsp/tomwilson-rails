@@ -22,13 +22,16 @@
         <h1><i class="fa fa-plus" aria-hidden="true"></i> <%= yield :blog_action %></h1>
         <%= form_for @blog do |f| %>
         <% if @blog.errors.any? %>
-          <uib-alert type="danger">
-            <ul>
-              <% @blog.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-            </ul>
-          </uib-alert>
+          <div class="alert alert-danger fade in alert-dismissable">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+            <uib-alert type="danger">
+              <ul>
+                <% @blog.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </uib-alert>
+          </div>
         <% end %>
         <%= render partial: 'blog_fields', locals: {f: f} %>
         <div class="row form-row mar-btm-30">

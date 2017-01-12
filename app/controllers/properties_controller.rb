@@ -7,8 +7,8 @@ class PropertiesController < ApplicationController
   # GET /properties
   # GET /properties.json
   def index
-     @cities ||= Property.select(:city).uniq!
-    # @properties = Property.where active: true
+    @states ||= Property.select(:state).uniq!
+    @cities ||= Property.select(:city).uniq!
   end
 
   # GET /properties/1

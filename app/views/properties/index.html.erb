@@ -53,11 +53,20 @@
           </div>
         </div>
         <div class="row property-listing", id="property-listing">
+          <h3 ng:if="properties.length == 0">No properties found</h3>
           <%= render partial: 'properties' %>
         </div>
-        <div ng:if="meta.total_pages > 1" class="col-xs-12 text-center">
+        <div ng:if="meta.total_pages > 1" class="col-xs-12 text-center" ng:show="meta.next_page">
           <a href="" class="btn btn-lg border-btn space-setting" ng:click="toPage(meta.next_page)" ng:class="{'invisible':!meta.next_page}"><i class="fa fa-th" aria-hidden="true"></i> View More Offers</a>
         </div>
       </div>
     </section>
   </div>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#price-filter").slider({tooltip:'always', id: "price-filter"}).on('slideStop', function(ev){
+        angular.element('#PropertiesCtrl').scope().getProperties();
+      });
+    $('[data-toggle="tooltip"]').tooltip();
+  });    
+</script>

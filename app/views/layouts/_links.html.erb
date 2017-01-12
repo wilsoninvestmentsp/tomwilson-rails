@@ -43,11 +43,7 @@
     <ul class="dropdown-menu">
       <li><%= link_to 'Import',import_path %></li>
       <li><%= link_to 'My Account',edit_user_path(current_user), methods: :get %></li>
-      <%
-      luri = CGI.escape "#{request.protocol}#{request.host_with_port}#{request.fullpath}"
-      lpath = logout_path + "?redirect_uri=#{luri}"
-      %>
-      <li><%= link_to 'Logout',lpath %></li>
+      <li><%= link_to 'Logout', logout_path %></li>
     </ul>
   </li>
   <% end %>
