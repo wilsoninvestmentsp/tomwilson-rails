@@ -3,7 +3,7 @@
 	  <div class="img-box">
 	    <a href="<%= properties_path %>/{{property.slug}}"><img ng:src="{{property.image.image.url}}" class="img-responsive"></a>
 	    <span ng:class="getStatusClass(property.status)" ng:if="property.raw_status">{{property.raw_status}}</span>
-	    <span class="status-tag-bottom red" ng:if="property.leased == 1">Leased</span>
+	    <span class="status-tag-right blue" ng:if="property.leased == 1">Leased</span>
 	  </div>
 	  <h3><a href="<%= properties_path %>/{{property.slug}}">{{property.raw_title | limitTo: 56 }}{{property.raw_title.length > 56 ? '...' : ''}}</a></h3>
 	  <ul class="labels">

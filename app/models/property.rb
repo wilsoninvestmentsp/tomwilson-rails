@@ -33,9 +33,12 @@ class Property < ActiveRecord::Base
 	end
 
 	def raw_address
-		return "#{self.address.cap_each}, #{self.city.cap_each}, #{self.state.upcase}" if self.address.present? && self.city.present? && self.state.present?
-		return nil
+		"#{self.address.cap_each}, #{self.city.cap_each}, #{self.state.upcase}, #{self.zip}" if self.address.present? && self.city.present? && self.state.present?
 	end
+
+	def raw_map_address
+   (self.address.present? && self.city.present? && self.state.present?) ? "#{self.address.cap_each}, #{self.city.cap_each}, #{self.state.upcase}, #{self.zip}" : self.title
+  end
 
 	def raw_offer_price
 		helper.number_with_precision(self.offer_price,precision: 0,delimiter: ',')

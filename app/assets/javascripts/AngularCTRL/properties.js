@@ -39,7 +39,7 @@ App.controller('PropertiesCtrl',['$scope','$http',function($scope,$http){
 			label: 'Multifamily & Commercial',
 			value: 'multifamily%2Ccommercial'
 		}
-	}
+	};
 	scope.sort_offer_price = {
 		'asc': {
 			label: 'Low to High',
@@ -49,36 +49,36 @@ App.controller('PropertiesCtrl',['$scope','$http',function($scope,$http){
 			label: 'High to Low',
 			value: 'desc'
 		}
-	}
-	
+	};
+
 	scope.activeMenu = scope.separate_building_types['all'];
 
 	scope.setActive = function(building_type) {
-    scope.activeMenu = building_type
- 	}
-	
+    scope.activeMenu = building_type;
+ };
+
 	scope.getStatusClass = function(status){
 		switch(status) {
 			case 'sold':
-				status_class = 'status-tag-top red'
+				status_class = 'status-tag-top red';
 				break;
 			case 'for_sale':
-				status_class = 'status-tag-top yellow'
+				status_class = 'status-tag-top green';
 				break;
 			case 'sale_pending':
-				status_class = 'status-tag-top orange'
+				status_class = 'status-tag-top orange';
 				break;
 			case 'comming_soon':
-				status_class = 'status-tag-top orange'
+				status_class = 'status-tag-top skyblue';
 				break;
 			case 'reserved':
-				status_class = 'status-tag-top red'
+				status_class = 'status-tag-top yellow';
 				break;
 			default:
-			status_class = 'status-tag-top yellow'
+			status_class = 'status-tag-top green';
 		}
-		return status_class
-	}	
+		return status_class;
+	};
 
 	scope.getProperties = function(){
 
@@ -125,7 +125,7 @@ App.controller('PropertiesCtrl',['$scope','$http',function($scope,$http){
 		scope.getfilteredProperties(url);
 	}
 
-	
+
 	scope.getfilteredProperties = function (url){
 		$http({
 			method: 'GET',
@@ -139,11 +139,11 @@ App.controller('PropertiesCtrl',['$scope','$http',function($scope,$http){
 		});
 	},
 
-	
+
 	scope.toPage = function(page){
-		
+
 		scope.params.page = page;
-		
+
 		var url = '/api/v1/properties.json'+paramsString(scope.params);
 
 		$http({

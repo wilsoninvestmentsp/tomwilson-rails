@@ -19,11 +19,11 @@
         <h2 class="text-center">Multi-Family and Commercial Syndications</h2>
         <h4 class="text-center">High Quality, Investment Opportunities</h4>
         <div class="row opportunities-content">
-          <div class="col-sm-6 col-sm-offset-3 col-xs-12">
+          <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12 text-center">
             <iframe width="1366" height="768" src="https://www.youtube.com/embed/bQ-VFrY5ZGg" frameborder="0" allowfullscreen></iframe>
           </div>
           <div class="col-xs-12 text-center">
-           <p class="bullet-text mar-top-30"><span>Better access to value deals</span><span>Purchase shares in a larger property than an investor could on his or her own</span><span>Liability risk is limited to original investment amount</span><span>Easier to achieve a diversified portfolio with distributed risks</span><span>Does not require day-to-day management of oversight by the investor</span></p>
+           <p class="bullet-text mar-top-30"><span class="first"><span class="bullet"></span>Better access to value deals</span><span>Purchase shares in a larger property than an investor could on his or her own</span><span>Liability risk is limited to original investment amount</span><span>Easier to achieve a diversified portfolio with distributed risks</span><span>Does not require day-to-day management or oversight by the investor</span></p>
             <div>
               <a href="tel:4088671867" class="btn border-btn btn-lg"><i class="fa fa-phone" aria-hidden="true"></i> Call: <%= PHONE_NUMBER %></a> <a href="http://www.tomwilsonproperties.com/contact-us" class="btn border-btn btn-lg"><i class="fa fa-envelope" aria-hidden="true"></i> Contact Us</a>
             </div>
@@ -67,7 +67,7 @@
           </div>
           <% else %>
           <span ng:init="properties = <%= @properties.to_json %>"></span>
-          
+
             <div class="col-sm-4 col-xs-12 mar-btm-30" ng:repeat="property in properties">
               <div class="propery-box admin">
                 <div class="img-box">
@@ -121,16 +121,19 @@
   <div class="container">
    <div class="row">
     <div class="col-sm-12 text-center">
-     <h3>Magazine Cover</h3>
+     <h3>Magazine Featured</h3>
      <div class="row">
-      <div class="col-sm-4 col-xs-12">
+      <div class="col-sm-3 col-xs-12">
         <%= image_tag "REI-Voice-Cover-July-2015-1.jpg", alt: "REI Voice Magazine Cover (July 2015)", class: "img-responsive"%>
       </div>
-      <div class="col-sm-4 col-xs-12">
+      <div class="col-sm-3 col-xs-12">
         <%= image_tag "Realty_Insights_July-2016_Cover_Tom_Summit.jpg", alt: "Realty Insights Magazine Cover (July 2015)", class: "img-responsive"%>
       </div>
-      <div class="col-sm-4 col-xs-12">
+      <div class="col-sm-3 col-xs-12">
         <%= image_tag "REI-Voice-Cover-July-2015-2.jpg", alt: "Realty Insights Magazine Cover (July 2015)", class: "img-responsive last"%>
+      </div>
+      <div class="col-sm-3 col-xs-12">
+        <%= image_tag "realty-411-magazine-cover.jpg", alt: "Realty 411 Magazine Cover", class: "img-responsive last"%>
       </div>
      </div>
     </div>
