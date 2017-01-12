@@ -51,21 +51,21 @@
                   <% if @property.status.present? || @property.offer_price > 0 %>
                     <li>
                       <% if @property.status.present? %>
-                      <label><span class="title">Status:</span> <span class="label label-success"><%= @property.raw_status %></span></label>
+                      <label><span class="title">Status:</span> <span class="label <%= status_label_class(@property)%>"><%= @property.raw_status %></span></label>
                       <% end %>
                       <% if @property.offer_price.present? && @property.offer_price > 0 %>
-                      <label><span class="title">Price:</span> <span class="label label-warning">$<%= @property.raw_offer_price %>
-                        <%= " / #{@property.offer_price_label}" if @property.offer_price_label.present? %></span></label>
+                      <label><span class="title">Price:</span>$<%= @property.raw_offer_price %>
+                        <%= " / #{@property.offer_price_label}" if @property.offer_price_label.present? %></label>
                         <% end %>
                       </li>
                     <% end %>
                     <% if @property.rent > 0 || @property.cash_flow > 0 %>
                       <li>
                         <% if @property.rent.present? && @property.rent > 0 %>
-                        <label><span class="title">Rent:</span> <span class="label label-info">$<%= @property.raw_rent %></span></label>
+                        <label><span class="title"><b>Rent:</b></span> $<%= @property.raw_rent %></label>
                         <% end %>
                         <% if @property.cash_flow.present? && @property.cash_flow > 0 %>
-                        <label><span class="title">Cashflow:</span> <span class="label label-primary">$<%= @property.raw_cash_flow %></span></label>
+                        <label><span class="title">Cashflow:</span> $<%= @property.raw_cash_flow %></label>
                         <% end %>
                       </li>
                     <% end %>
