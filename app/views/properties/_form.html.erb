@@ -22,6 +22,8 @@
         <h1><%= yield(:page_title) %></h1>
         <%= form_for @property, html: { class: 'add-property-form' } do |f| %>
           <% if @property.errors.any? %>
+            <div class="alert alert-danger fade in alert-dismissable">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
             <uib-alert type="danger">
              <ul>
                <% @property.errors.full_messages.each do |message| %>
@@ -29,6 +31,7 @@
                <% end %>
              </ul>
            </uib-alert>
+           </div>
          <% end %>
         <div class="row">
           <div class="col-md-6 col-sm-12 col-xs-12 left-col">
@@ -64,15 +67,17 @@
               <div class="input-group">
                 <input type="text" ng:model="address" class="form-control" placeholder="Paste a full address here" ng:paste="updateAddressPaste($event)">
                 <span class="input-group-btn">
-                  <button class="btn btn-default" type="button" ng:click="updateAddress(address)" <% if @property.raw_address.present? %>
-                    ng:init="address = '<%= @property.raw_address %> <%= @property.zip %>'"
-                    <% end %>>Set</button>
+                  <button class="btn btn-default" type="button" ng:click="updateAddress(address)">Set</button>
                   </span>
                 </div>
                 <p class="text-muted small">An address with street, city, state and zip is required.</p>
+              <% if @property.raw_address.present? %>
+                <span ng:init="address = '<%= @property.raw_address %> <%= @property.zip %>'">
+              <% end %>
                 <ul class="list-unstyled">
                   <li ng:init="property.address = '<%= @property.address %>'">Street: {{property.address}}</li>
-                  <li ng:init="property.city = '<%= @property.city %>'; property.state = '<%= @property.state %>'">City: {{property.city}}, {{property.state}},</li>
+                  <li ng:init="property.city = '<%= @property.city %>'; property.state='<%= @property.state %>'">
+                    City: {{property.city}}, {{property.state}}</li>
                   <li ng:init="property.zip = '<%= @property.zip %>'">Zip: {{property.zip}}</li>
                   <%= f.hidden_field :address,'ng:model' => 'property.address', value: '{{property.address}}' %>
                   <%= f.hidden_field :city,'ng:model' => 'property.city', value: '{{property.city}}' %>
@@ -124,31 +129,31 @@
               <div class="form-group">
                 <div class="col-xs-6 no-pad-left">
                   <%= f.label :year_built, class: 'control-label' %>
-                  <%= f.number_field :year_built, class: 'form-control', placeholder: '' %>
+                  <%= f.number_field :year_built, min: 0, class: 'form-control', placeholder: '' %>
                 </div>
                 <div class="col-xs-6 no-pad-right">
                   <%= f.label :lot_size, 'Lot Size', class: 'control-label' %>
-                  <%= f.number_field :lot_size, class: 'form-control' %>
+                  <%= f.number_field :lot_size, value: (number_with_precision(f.object.bedrooms, :precision => 1) || 0), min: 0, class: 'form-control' %>
                 </div>
               </div>
               <div class="form-group">
                 <div class="col-xs-6 no-pad-left">
                   <%= f.label :square_ft, class: 'control-label' %>
-                  <%= f.number_field :square_ft, class: 'form-control', placeholder: '' %>
+                  <%= f.number_field :square_ft, value: (number_with_precision(f.object.bedrooms, :precision => 1) || 0), min: 0, class: 'form-control', placeholder: '' %>
                 </div>
                 <div class="col-xs-6 no-pad-right">
                   <%= f.label :bedrooms, class: 'control-label' %>
-                  <%= f.number_field :bedrooms, value: (number_with_precision(f.object.bedrooms, :precision => 1) || 0), class: 'form-control',placeholder: '' %>
+                  <%= f.number_field :bedrooms, value: (number_with_precision(f.object.bedrooms, :precision => 1) || 0), min: 0, class: 'form-control',placeholder: '' %>
                 </div>
               </div>
               <div class="form-group">
                 <div class="col-xs-6 no-pad-left">
                   <%= f.label :bathrooms, class: 'control-label' %>
-                  <%= f.number_field :bathrooms,value: (number_with_precision(f.object.bedrooms, :precision => 1) || 0), class: 'form-control',placeholder: '' %>
+                  <%= f.number_field :bathrooms,value: (number_with_precision(f.object.bedrooms, :precision => 1) || 0), min: 0, class: 'form-control',placeholder: '' %>
                 </div>
                 <div class="col-xs-6 no-pad-right">
                   <%= f.label :garages, class: 'control-label' %>
-                  <%= f.number_field :garages, value: (number_with_precision(f.object.bedrooms, :precision => 1) || 0), class: 'form-control',placeholder: '' %>
+                  <%= f.number_field :garages, value: (number_with_precision(f.object.bedrooms, :precision => 1) || 0), min: 0, class: 'form-control',placeholder: '' %>
                 </div>
               </div>
               <div class="form-group">
@@ -156,7 +161,7 @@
                   <%= f.label :offer_price, class: 'control-label' %>
                   <div class="input-group">
                     <div class="input-group-addon">$</div>
-                    <%= f.number_field :offer_price,value: (number_with_precision(f.object.offer_price, :precision => 2) || 0), class: 'form-control',placeholder:'' %>
+                    <%= f.number_field :offer_price,value: (number_with_precision(f.object.offer_price, :precision => 2) || 0), min: 0, class: 'form-control',placeholder:'' %>
                   </div>
                 </div>
                 <div class="col-xs-6 col-xxs-12 no-pad-right">
@@ -169,14 +174,14 @@
                   <%= f.label :rent, class: 'control-label' %>
                   <div class="input-group">
                     <div class="input-group-addon">$</div>
-                    <%= f.number_field :rent,value: (number_with_precision(f.object.rent, :precision => 2) || 0),class: 'form-control',placeholder:'' %>
+                    <%= f.number_field :rent,value: (number_with_precision(f.object.rent, :precision => 2) || 0), min: 0,class: 'form-control',placeholder:'' %>
                   </div>
                 </div>
                 <div class="col-xs-6 no-pad-right">
                   <%= f.label :cash_flow, class: 'control-label' %>
                   <div class="input-group">
                     <div class="input-group-addon">$</div>
-                    <%= f.number_field :cash_flow, value: (number_with_precision(f.object.cash_flow, :precision => 2) || 0), class: 'form-control',placeholder: '' %>
+                    <%= f.number_field :cash_flow, value: (number_with_precision(f.object.cash_flow, :precision => 2) || 0), min: 0, class: 'form-control',placeholder: '' %>
                   </div>
                 </div>
               </div>
@@ -195,7 +200,7 @@
                   <%= f.label :property_management_fee, class: 'control-label' %>
                   <div class="input-group">
                     <div class="input-group-addon">$</div>
-                    <%= f.number_field :property_management_fee,value: (number_with_precision(f.object.property_management_fee, :precision => 2) || 0),class: 'form-control',placeholder:'' %>
+                    <%= f.number_field :property_management_fee,value: (number_with_precision(f.object.property_management_fee, :precision => 2) || 0), min: 0, class: 'form-control',placeholder:'' %>
                     <div class="input-group-addon">Yearly</div>
                   </div>
                 </div>
@@ -203,7 +208,7 @@
                   <%= f.label :mortgage_payment, class: 'control-label' %>
                   <div class="input-group">
                     <div class="input-group-addon">$</div>
-                    <%= f.number_field :mortgage_payment,value: (number_with_precision(f.object.mortgage_payment, :precision => 2) || 0),class: 'form-control',placeholder:'' %>
+                    <%= f.number_field :mortgage_payment,value: (number_with_precision(f.object.mortgage_payment, :precision => 2) || 0), min: 0, class: 'form-control',placeholder:'' %>
                     <div class="input-group-addon">Monthly</div>
                   </div>
                 </div>
@@ -213,7 +218,7 @@
                   <%= f.label :hoa_fee, class: 'control-label' %>
                   <div class="input-group">
                     <div class="input-group-addon">$</div>
-                    <%= f.number_field :hoa_fee,value: (number_with_precision(f.object.hoa_fee, :precision => 2) || 0),class: 'form-control',placeholder:'' %>
+                    <%= f.number_field :hoa_fee,value: (number_with_precision(f.object.hoa_fee, :precision => 2) || 0), min: 0,class: 'form-control',placeholder:'' %>
                     <div class="input-group-addon">Monthly</div>
                   </div>
                 </div>
@@ -221,7 +226,7 @@
                   <%= f.label :property_tax, class: 'control-label' %>
                   <div class="input-group">
                     <div class="input-group-addon">$</div>
-                    <%= f.number_field :property_tax,value: (number_with_precision(f.object.property_tax, :precision => 2) || 0),class: 'form-control',placeholder:'' %>
+                    <%= f.number_field :property_tax,value: (number_with_precision(f.object.property_tax, :precision => 2) || 0), min: 0, class: 'form-control',placeholder:'' %>
                     <div class="input-group-addon">Yearly</div>
                   </div>
                 </div>
@@ -231,7 +236,7 @@
                   <%= f.label :hazard_insurance, class: 'control-label' %>
                   <div class="input-group">
                     <div class="input-group-addon">$</div>
-                    <%= f.number_field :hazard_insurance,value: (number_with_precision(f.object.hazard_insurance, :precision => 2) || 0),class: 'form-control',placeholder:'' %>
+                    <%= f.number_field :hazard_insurance,value: (number_with_precision(f.object.hazard_insurance, :precision => 2) || 0), min: 0, class: 'form-control',placeholder:'' %>
                     <div class="input-group-addon">Yearly</div>
                   </div>
                 </div>

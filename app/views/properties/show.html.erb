@@ -48,51 +48,63 @@
             <div class="tab-content">
               <div id="details" class="tab-pane fade in active">
                 <ul class="status-price-details">
-                  <li>
-                    <% if @property.status.present? %>
-                    <label><span class="title">Status:</span> <span class="label <%= status_label_class(@property)%>"><%= @property.raw_status %></span></label>
+                  <% if @property.status.present? || @property.offer_price > 0 %>
+                    <li>
+                      <% if @property.status.present? %>
+                      <label><span class="title">Status:</span> <span class="label label-success"><%= @property.raw_status %></span></label>
+                      <% end %>
+                      <% if @property.offer_price.present? && @property.offer_price > 0 %>
+                      <label><span class="title">Price:</span> <span class="label label-warning">$<%= @property.raw_offer_price %>
+                        <%= " / #{@property.offer_price_label}" if @property.offer_price_label.present? %></span></label>
+                        <% end %>
+                      </li>
                     <% end %>
-                    <% if @property.offer_price.present? && @property.offer_price > 0 %>
-                    <label><span class="title">Price:</span> $<%= @property.raw_offer_price %>
-                      <%= " / #{@property.offer_price_label}" if @property.offer_price_label.present? %></label>
-                      <% end %>
-                    </li>
-                    <li>
-                      <% if @property.rent.present? && @property.rent > 0 %>
-                      <label><span class="title"><b>Rent:</b></span> $<%= @property.raw_rent %></label>
-                      <% end %>
-                      <% if @property.cash_flow.present? && @property.cash_flow > 0 %>
-                      <label><span class="title">Cashflow:</span> $<%= @property.raw_cash_flow %></label>
-                      <% end %>
-                    </li>
-                    <li>
-                      <label><span class="title">Building Type:</span><%= @property.building_type.humanize.cap_each %></label>
-                      <label><span class="title">Leased:</span><%= @property.leased.to_i.zero? ? 'No' : 'Yes'%></label>
-                    </li>
-                    <li>
-                      <% if @property.year_built.present? %>
-                      <label><span class="title">Year Built:</span><%= @property.year_built %></label>
-                      <% end %>
-                      <% if @property.square_ft.present? && @property.square_ft > 0 %>
-                      <label><span class="title">Sq. Ft.:</span> <%= number_with_precision(@property.square_ft,precision: 0,delimiter: ',') %><sup>2ft</sup></label>
-                      <% end %>
-                    </li>
-                    <li>
-                      <% if @property.lot_size.present? && @property.lot_size > 0 %>
-                      <label><span class="title">Lot Size:</span><%= number_with_precision(@property.lot_size,precision: 0,delimiter: ',') %><sup>2ft</sup></label>
-                      <% end %>
-                      <% if @property.bedrooms.present? && @property.bedrooms > 0 %>
-                      <label><span class="title">Bedrooms:</span><%= number_with_precision(@property.bedrooms,precision: 1,delimiter: ',') %></label>
-                      <% end %>
-                    </li>
-                    <li>
-                      <% if @property.bathrooms.present? && @property.bathrooms > 0 %>
-                      <label><span class="title">Bathrooms:</span><%= number_with_precision(@property.bathrooms,precision: 1,delimiter: ',') %></label>
-                      <% end %>
-                      <% if @property.garages.present? && @property.garages > 0 %>
-                      <label><span class="title">Garages:</span><%= number_with_precision(@property.garages,precision: 1,delimiter: ',') %></label>
-                      <% end %>
-                    </li>
+                    <% if @property.rent > 0 || @property.cash_flow > 0 %>
+                      <li>
+                        <% if @property.rent.present? && @property.rent > 0 %>
+                        <label><span class="title">Rent:</span> <span class="label label-info">$<%= @property.raw_rent %></span></label>
+                        <% end %>
+                        <% if @property.cash_flow.present? && @property.cash_flow > 0 %>
+                        <label><span class="title">Cashflow:</span> <span class="label label-primary">$<%= @property.raw_cash_flow %></span></label>
+                        <% end %>
+                      </li>
+                    <% end %>
+                    <% if @property.building_type.present? || @property.leased.present? %>
+                      <li>
+                        <label><span class="title">Building Type:</span><%= @property.building_type.humanize.cap_each %></label>
+                        <label><span class="title">Leased:</span><%= @property.leased.to_i.zero? ? 'No' : 'Yes'%></label>
+                      </li>
+                    <% end %>
+                    <% if @property.year_built.present? || @property.square_ft.present? %>
+                      <li>
+                        <% if @property.year_built.present? %>
+                        <label><span class="title">Year Built:</span><%= @property.year_built %></label>
+                        <% end %>
+                        <% if @property.square_ft.present? && @property.square_ft > 0 %>
+                        <label><span class="title">Sq. Ft.:</span> <%= number_with_precision(@property.square_ft,precision: 0,delimiter: ',') %><sup>2ft</sup></label>
+                        <% end %>
+                      </li>
+                    <% end %>
+                    <% if @property.lot_size.present? || @property.bedrooms > 0 %>
+                      <li>
+                        <% if @property.lot_size.present? && @property.lot_size > 0 %>
+                        <label><span class="title">Lot Size:</span><%= number_with_precision(@property.lot_size,precision: 0,delimiter: ',') %><sup>2ft</sup></label>
+                        <% end %>
+                        <% if @property.bedrooms.present? && @property.bedrooms > 0 %>
+                        <label><span class="title">Bedrooms:</span><%= number_with_precision(@property.bedrooms,precision: 1,delimiter: ',') %></label>
+                        <% end %>
+                      </li>
+                    <% end %>
+                    <% if @property.bathrooms > 0 || @property.garages > 0 %>
+                      <li>
+                        <% if @property.bathrooms.present? && @property.bathrooms > 0 %>
+                        <label><span class="title">Bathrooms:</span><%= number_with_precision(@property.bathrooms,precision: 1,delimiter: ',') %></label>
+                        <% end %>
+                        <% if @property.garages.present? && @property.garages > 0 %>
+                        <label><span class="title">Garages:</span><%= number_with_precision(@property.garages,precision: 1,delimiter: ',') %></label>
+                        <% end %>
+                      </li>
+                    <% end %>
                   <% if @property.links.present? %>
                     <li class="links">
                       <% if @property.school_district.present? && false %>

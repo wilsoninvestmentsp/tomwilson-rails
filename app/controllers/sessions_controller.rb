@@ -29,14 +29,8 @@ class SessionsController < ApplicationController
 	end
 
 	def destroy
-		
 		session[:user_id] = nil
-
-		rurl = root_url
-		rurl = CGI.unescape params[:redirect_uri] if params[:redirect_uri].present?
-
-		redirect_to rurl, flash: {warning: "Logged out!"}
-
+		redirect_to login_path, flash: {warning: "Logged out!"}
 	end
 
 	private

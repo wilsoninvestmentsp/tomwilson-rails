@@ -12,10 +12,7 @@
  *
  *= require_self
  *= require bootstrap
- *= require bootstrap-social
  *= require bootstrapz
- *= require quicksearch
- *= require testimonies
  *= require bootstrap-slider
  *= require bootstrap-select
  *= require fixed-header-menu

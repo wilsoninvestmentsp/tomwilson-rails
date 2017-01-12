@@ -67,13 +67,12 @@
           </div>
           <% else %>
           <span ng:init="properties = <%= @properties.to_json %>"></span>
-
             <div class="col-sm-4 col-xs-12 mar-btm-30" ng:repeat="property in properties">
               <div class="propery-box admin">
                 <div class="img-box">
                   <a href="<%= properties_path %>/{{property.slug}}"> <img ng:src="{{property.image.image.url}}" class="img-responsive" alt=""> </a>
                 </div>
-                <h4>{{property.raw_title | limitTo: 40}}{{property.raw_title.length > 40 ? '...' : ''}}</h4>
+                <h4><a href="<%= properties_path %>/{{property.slug}}">{{property.raw_title | limitTo: 40}}{{property.raw_title.length > 40 ? '...' : ''}}</a></h4>
                 <ul class="info">
                   <li class="price">
                     ${{property.raw_offer_price}}
@@ -162,6 +161,7 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-12">
+            <h3 class="text-center">Testimonies</h3>
             <div class="table-responsive">
               <div ng:controller="TestimoniesCtrl">
                 <table class="table table-condensed table-striped">
@@ -230,7 +230,7 @@
     $(function(){
       $('#background-video').YTPlayer({
         fitToBackground:true,
-        videoId:'XzeIGPJjb24',
+        videoId:'<%= HOMEPAGE_VIDEO_ID %>',
         pauseOnScroll:true,
         callback:function(){videoCallbackEvents()}
       });

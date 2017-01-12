@@ -9,13 +9,17 @@ class Property < ActiveRecord::Base
 	friendly_id :slug_candidates, use: :slugged
 
 	validates_presence_of :building_type, :address, :city, :state, :zip
-	validates_uniqueness_of :address, scope: [:city, :state, :zip]
-	after_create :create_links
+  validates_uniqueness_of :address, scope: [:city, :state, :zip]
+	
+  after_create :create_links
 
   scope :by_featured, -> (featured_arr) { where(:featured => featured_arr) }
 	scope :active, -> { where(:active => true) }
 	scope :not_sold, -> { where.not(:status => 'sold') }
 	scope :by_status, -> (status) { where(:status => status) }
+
+  validates :property_management_fee, :mortgage_payment, :hoa_fee,
+  :property_tax, :hazard_insurance, numericality: { greater_than_or_equal_to: 0 }
 
   def create_links
     links = [{title: 'Community Overview'}, {title: 'Appraisal Tax Record'}, {title: 'Parcel Map'}, {title: 'Tax Statement'}, {title: 'School District'}, {title: 'Accident'}]

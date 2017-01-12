@@ -1,14 +1,17 @@
 <div ng:controller="UserFormCtrl">
 <%= form_for(@user) do |f| %>
-  
+
   <% if @user.errors.any? %>
-    <uib-alert type="danger">
-      <ul>
-        <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </uib-alert>
+    <div class="alert alert-danger fade in alert-dismissable">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+      <uib-alert type="danger">
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </uib-alert>
+    </div>
   <% end %>
 
   <div class="row">
