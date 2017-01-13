@@ -4,6 +4,12 @@ App.controller('TicketCtrl',['$scope','$interval','$upload','$routeParams','$htt
 	var scope = $scope;
 	scope.show_form = true;
 	scope.inquiry = {};
+  window.onload = function(e) {
+    $("#property-contact").find(':checkbox').trigger('click');
+  };
+  window.onload = function(e) {
+    $("#contact-form").find(':checkbox').trigger('click');
+  };
 	scope.alerts = [];
 
 	scope.moment = moment;

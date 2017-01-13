@@ -1,7 +1,7 @@
 <%= render 'layouts/jumbtron' %>
 <section class="main-body without-search-feature">
   <div class="container" ng:controller="TicketCtrl">
-    <div class="row content-section">
+    <div class="row content-section" id="contact-form">
       <div class="col-xs-12">
         <div class="box-shadow">
           <ol class="breadcrumb">
@@ -20,7 +20,7 @@
           <abbr title="Phone">Phone:</abbr> <%= PHONE_NUMBER %>
         </address>
         <div class="row mar-btm-30" ng:if="show_form">
-          <div class="col-md-6">
+          <div class="col-md-6 contact-us">
             <form name="ticket_form" ng:submit="submitForm()" novalidate>
               <div class="form-group">
                 <label>Full Name</label><br>
@@ -45,10 +45,9 @@
               <div class="form-group">
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox" ng:model="inquiry.newsletter"> Sign up for our Newsletter
+                    <input type="checkbox" ng:model="inquiry.newsletter"><span class="cr"><i class="cr-icon fa fa-check"></i></span> Sign up for our Newsletter
                   </label>
-                </div>
-              </div>
+              	</div>
               <input type="submit" class="btn btn-success" value="Submit" ng:disabled="!ticket_form.$valid" ng:if="!loading">
               <input type="submit" class="btn btn-warning" value="Submitting..." ng:disabled="true" ng:if="loading">
             </form>

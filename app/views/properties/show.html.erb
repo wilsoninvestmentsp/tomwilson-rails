@@ -162,7 +162,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <span ng:init="inquiry.property = <%= PropertySerializer.new(@property,root: false).to_json %>"></span>
+            <span ng:init="inquiry.property = <%= PropertySerializer.new(@property, root: false).to_json %>"></span>
             <uib-alert ng:repeat="alert in alerts" type="{{alert.type}}">{{alert.message}}</uib-alert>
             <h4 class="modal-title"><i class="fa fa-envelope" aria-hidden="true"></i> Contact us about this property</h4>
           </div>
