@@ -32,7 +32,7 @@
   <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About Us<span class="caret"></span></a>
     <ul class="dropdown-menu">
-      <li><%= link_to 'Contact Us',contact_us_path %></li>
+      <li><%= link_to 'Contact Us', contact_us_path, method: :get %></li>
       <li><%= link_to 'Our Team',users_path, methods: :get %></li>
       <li><%= link_to 'Our Process',our_difference_path %></li>
     </ul>
