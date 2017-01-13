@@ -6,10 +6,9 @@ App.controller('TicketCtrl',['$scope','$interval','$upload','$routeParams','$htt
 	scope.inquiry = {};
   window.onload = function(e) {
     $("#property-contact").find(':checkbox').trigger('click');
-  };
-  window.onload = function(e) {
     $("#contact-form").find(':checkbox').trigger('click');
   };
+
 	scope.alerts = [];
 
 	scope.moment = moment;
@@ -39,6 +38,6 @@ App.controller('TicketCtrl',['$scope','$interval','$upload','$routeParams','$htt
 
 		});
 
-	}
+	};
 
 }]);
