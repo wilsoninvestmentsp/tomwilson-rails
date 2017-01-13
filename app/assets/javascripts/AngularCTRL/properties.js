@@ -75,7 +75,7 @@ App.controller('PropertiesCtrl',['$scope','$http',function($scope,$http){
 				status_class = 'status-tag-top yellow';
 				break;
 			default:
-			status_class = 'status-tag-top green';
+				status_class = 'status-tag-top green';
 		}
 		return status_class;
 	};
@@ -113,6 +113,28 @@ App.controller('PropertiesCtrl',['$scope','$http',function($scope,$http){
 		});
 
 	}
+
+	scope.getCities = function(){
+		delete scope.params.city;
+		if(scope.params.state){
+			var url = 'properties/get_cities?state='+scope.params.state;
+			$.ajax({
+      	url: url
+      });
+		}
+		else{
+			$('#cities').val('');
+			$('#cities').prop('disabled', true);
+			$('#cities').selectpicker('refresh');
+		}
+		scope.getProperties();
+	},
+
+	scope.getPropertiesbyCities = function(city){
+		scope.params.city = city;
+		scope.getProperties();
+	},
+
 	scope.getProperties();
 
 	scope.filterPropertiesByBuildingType = function(query){

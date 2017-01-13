@@ -117,6 +117,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .advance-search .open > .dropdown-menu > li > a{color:#444}
 .advance-search .open > .dropdown-menu > li.selected > a{background-color:#337ab7;color:#fff}
 .advance-search .slider.slider-horizontal{width:100%}
+.advance-search .slider.slider-horizontal .tooltip{z-index:1000}
 .advance-search .price-hint{color:#fff}
 .advance-search .glyphicon{margin-right:4px}
 .blue-bg .social-icons{text-align:right;margin:5.5px 0}
@@ -276,6 +277,8 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 
 .property-contact-popup .form-horizontal .blue-btn{position:relative;float:left}
 .property-contact-popup .form-horizontal .blue-btn .fa{position:relative;top:auto;left:auto;color:#fff}
+
+.msg-content{padding-bottom:60px}
 
 /* Content Pages CSS */
 .content-section{padding-bottom:50px}

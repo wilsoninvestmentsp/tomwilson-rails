@@ -1,0 +1,1 @@
+ <%= select_tag :cities, options_for_select(cities.all.map{ |c| [c.city, c.city]}), {include_blank: 'Select City', 'data-live-search': true, default: '', 'ng:model': 'params.city', class: 'selectpicker', disabled: true } %>
