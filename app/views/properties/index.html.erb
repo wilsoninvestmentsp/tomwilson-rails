@@ -11,9 +11,13 @@
                 <form class="form-horizontal advance-search">
                   <div class="form-group">
                     <div class="col-sm-4 first">
-                      <span ng:init="cities = <%= @cities.to_json %>"></span>
-                      <select ng:model="params.city" class="selectpicker" data-live-search="true" ng:options="val.city as val.city for (key,val) in cities" ng:change="getProperties()"><option value="">Select City</option>
-                      </select>
+                      <%= select_tag :states, options_for_select(@states.all.map{ |s| [s.state, s.state]}), { include_blank: 'Select State', 'data-live-search': 'true' , default: '', 'ng:model': 'params.state', 'ng:change': 'getCities()', class: 'selectpicker
+                          '} %>
+                      </div>
+                    <div class="col-sm-4 first">
+                      <div id="filter_cities">
+                        <%= render partial: 'properties/cities', locals: {cities: @cities} %>
+                      </div>
                     </div>
                     <div class="col-sm-4 text-center">
                       <input id="price-filter" type="text" class="span2" value="" data-slider-min="0" data-slider-max="400000" data-slider-step="1000" data-slider-value="[0,400000]" ng:model="params.offer_price">
@@ -53,8 +57,10 @@
           </div>
         </div>
         <div class="row property-listing", id="property-listing">
-          <h3 ng:if="properties.length == 0">No properties found</h3>
           <%= render partial: 'properties' %>
+          <div class="col-xs-12 msg-content" ng:if="properties.length == 0">
+            <h3>No properties found</h3>
+          </div>
         </div>
         <div ng:if="meta.total_pages > 1" class="col-xs-12 text-center" ng:show="meta.next_page">
           <a href="" class="btn btn-lg border-btn space-setting" ng:click="toPage(meta.next_page)" ng:class="{'invisible':!meta.next_page}"><i class="fa fa-th" aria-hidden="true"></i> View More Offers</a>
@@ -68,5 +74,5 @@
         angular.element('#PropertiesCtrl').scope().getProperties();
       });
     $('[data-toggle="tooltip"]').tooltip();
-  });    
+  });
 </script>

@@ -32,4 +32,3 @@
 //= require owl.carousel.min
 //= require jquery.youtubebackground
 //= require blog
-//= require angular-bootstrap-select.min

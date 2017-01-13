@@ -1,6 +1,6 @@
 class PropertiesController < ApplicationController
 
-  before_action :authorize,except: [:index,:show]
+  before_action :authorize,except: [:index,:show,:get_cities]
   before_action :set_property, only: [:show, :edit, :update, :destroy]
   before_action :set_status_options
 
@@ -8,9 +8,12 @@ class PropertiesController < ApplicationController
   # GET /properties.json
   def index
     @states ||= Property.select(:state).uniq!
-    @cities ||= Property.select(:city).uniq!
+    @cities = Property.select(:city).uniq
   end
 
+  def get_cities
+    @cities = Property.select(:city).where(state: params[:state]).uniq!
+  end
   # GET /properties/1
   # GET /properties/1.json
   def show

@@ -90,7 +90,7 @@ Rails.application.routes.draw do
 
     resources :images
     collection do
-
+      get 'get_cities'
       post :import
 
     end
