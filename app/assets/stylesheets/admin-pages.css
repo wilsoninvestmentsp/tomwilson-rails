@@ -1,6 +1,7 @@
 /* Common CSS */
 .gray-bg{background:#f5f5f5}
 .breadcrumb.white{background:#fff}
+.mar-right-6{margin-right:6px}
 
 /* Body Section CSS */
 
@@ -22,7 +23,6 @@
 .fixed-admin-body .preview-img{width:60%}
 
 /* Add - Edit Property CSS */
-.add-property-form h3 .fa{margin-right:6px}
 .add-property-form .form-row{margin-bottom:30px}
 .add-property-form{color:#525252;position:relative}
 .add-property-form .left-col{padding-right:30px}
@@ -44,7 +44,6 @@
 .add-property-form .upload-image .list-unstyled li{float:left}
 .add-property-form .upload-image .list-unstyled li.left{width:75%;padding-right:15px}
 .add-property-form .upload-image .list-unstyled li.right{width:25%;padding-left:15px}
-.add-property-form .upload-image .list-unstyled li .fa{margin-right:6px}
 .add-property-form .upload-image .list-unstyled li .btn.btn-default{width:100%;padding:0 12px;height:75px;line-height:75px}
 .add-property-form .upload-image .list-unstyled li img{border-radius:4px}
 .add-property-form table tr td{word-break:break-all}
@@ -57,7 +56,10 @@
 .add-property-form .checkbox label input[type="checkbox"]{display:none}
 .add-property-form .checkbox label input[type="checkbox"] + .cr > .cr-icon{transform:scale(3) rotateZ(-20deg);opacity:0;transition:all .3s ease-in}
 .add-property-form .checkbox label input[type="checkbox"]:checked + .cr > .cr-icon{transform: scale(1) rotateZ(0deg);opacity:1}
-.add-property-form .checkbox label input[type="checkbox"]:disabled + .cr{opacity:.5} 
+.add-property-form .checkbox label input[type="checkbox"]:disabled + .cr{opacity:.5}
+
+.add-property-form .img-by-url .input-group-addon{padding:0 0 0 15px;border:none;background:transparent}
+.add-property-form .img-by-url .form-control{border-radius:4px}
 
 .fixed-admin-body .blue-btn .fa{margin-right:0;margin-left:6px}
 .fixed-admin-body .btn-danger{font-family:'AllerRG';box-shadow:none !important;margin-left:10px}

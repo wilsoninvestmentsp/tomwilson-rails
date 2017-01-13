@@ -37,7 +37,7 @@
           <div class="col-md-6 col-sm-12 col-xs-12 left-col">
             <h3>Information</h3>
             <div class="form-group btype-dropdown">
-              <%= f.label :building_type, class: 'control-label' %>
+              <%= f.label :building_type, 'Building Type', class: 'control-label' %>
               <%= f.select :building_type, @building_type_options, {}, class: 'selectpicker' %>
             </div>
             <div class="form-group status-dropdown">
@@ -94,10 +94,10 @@
             <div class="col-md-6 col-sm-12 col-xs-12 right-col vleft-bdr">
               <h3>Property Image</h3>
               <div class="form-group upload-image">
-                <label class="control-label" for="UploadImg">Image</label>
+                <label class="control-label" for="UploadImg">Upload First Image</label>
                 <ul class="list-unstyled">
                   <li class="left">
-                    <%= f.label :image, class: 'btn btn-default' do %><i class="fa fa-picture-o" aria-hidden="true"></i> Choose File
+                    <%= f.label :image, class: 'btn btn-default' do %><i class="fa fa-picture-o mar-right-6" aria-hidden="true"></i> Choose File
                     <%= f.file_field :image, style: "display:none;" %>
                     <% end %>
                   </li>
@@ -128,7 +128,7 @@
               <h3 class="mar-top-30">Specification</h3>
               <div class="form-group">
                 <div class="col-xs-6 no-pad-left">
-                  <%= f.label :year_built, class: 'control-label' %>
+                  <%= f.label :year_built, 'Year Built' ,class: 'control-label' %>
                   <%= f.number_field :year_built, min: 0, class: 'form-control', placeholder: '' %>
                 </div>
                 <div class="col-xs-6 no-pad-right">
@@ -138,7 +138,7 @@
               </div>
               <div class="form-group">
                 <div class="col-xs-6 no-pad-left">
-                  <%= f.label :square_ft, class: 'control-label' %>
+                  <%= f.label :square_ft, 'Square Ft',class: 'control-label' %>
                   <%= f.number_field :square_ft, value: (number_with_precision(f.object.bedrooms, :precision => 1) || 0), min: 0, class: 'form-control', placeholder: '' %>
                 </div>
                 <div class="col-xs-6 no-pad-right">
@@ -158,14 +158,14 @@
               </div>
               <div class="form-group">
                 <div class="col-xs-6 col-xxs-12 no-pad-left">
-                  <%= f.label :offer_price, class: 'control-label' %>
+                  <%= f.label :offer_price, 'Offer Price', class: 'control-label' %>
                   <div class="input-group">
                     <div class="input-group-addon">$</div>
                     <%= f.number_field :offer_price,value: (number_with_precision(f.object.offer_price, :precision => 2) || 0), min: 0, class: 'form-control',placeholder:'' %>
                   </div>
                 </div>
                 <div class="col-xs-6 col-xxs-12 no-pad-right">
-                  <%= f.label :offer_price_label, class: 'control-label' %>
+                  <%= f.label :offer_price_label, 'Offer Price Label', class: 'control-label' %>
                   <%= f.text_field :offer_price_label, class: 'form-control', placeholder:'' %>
                 </div>
               </div>
@@ -178,7 +178,7 @@
                   </div>
                 </div>
                 <div class="col-xs-6 no-pad-right">
-                  <%= f.label :cash_flow, class: 'control-label' %>
+                  <%= f.label :cash_flow, 'Cash Flow', class: 'control-label' %>
                   <div class="input-group">
                     <div class="input-group-addon">$</div>
                     <%= f.number_field :cash_flow, value: (number_with_precision(f.object.cash_flow, :precision => 2) || 0), min: 0, class: 'form-control',placeholder: '' %>
@@ -197,7 +197,7 @@
               <% end %>
               <div class="form-group">
                 <div class="col-xs-6 col-xxs-12 no-pad-left">
-                  <%= f.label :property_management_fee, class: 'control-label' %>
+                  <%= f.label :property_management_fee, 'Property Management Fee', class: 'control-label' %>
                   <div class="input-group">
                     <div class="input-group-addon">$</div>
                     <%= f.number_field :property_management_fee,value: (number_with_precision(f.object.property_management_fee, :precision => 2) || 0), min: 0, class: 'form-control',placeholder:'' %>
@@ -205,7 +205,7 @@
                   </div>
                 </div>
                 <div class="col-xs-6 col-xxs-12 no-pad-right">
-                  <%= f.label :mortgage_payment, class: 'control-label' %>
+                  <%= f.label :mortgage_payment, 'Mortgage Payment', class: 'control-label' %>
                   <div class="input-group">
                     <div class="input-group-addon">$</div>
                     <%= f.number_field :mortgage_payment,value: (number_with_precision(f.object.mortgage_payment, :precision => 2) || 0), min: 0, class: 'form-control',placeholder:'' %>
@@ -215,7 +215,7 @@
               </div>
               <div class="form-group">
                 <div class="col-xs-6 col-xxs-12 no-pad-left">
-                  <%= f.label :hoa_fee, class: 'control-label' %>
+                  <%= f.label :hoa_fee, 'HOA Fee', class: 'control-label' %>
                   <div class="input-group">
                     <div class="input-group-addon">$</div>
                     <%= f.number_field :hoa_fee,value: (number_with_precision(f.object.hoa_fee, :precision => 2) || 0), min: 0,class: 'form-control',placeholder:'' %>
@@ -223,7 +223,7 @@
                   </div>
                 </div>
                 <div class="col-xs-6 col-xxs-12 no-pad-right">
-                  <%= f.label :property_tax, class: 'control-label' %>
+                  <%= f.label :property_tax, 'Property Tax', class: 'control-label' %>
                   <div class="input-group">
                     <div class="input-group-addon">$</div>
                     <%= f.number_field :property_tax,value: (number_with_precision(f.object.property_tax, :precision => 2) || 0), min: 0, class: 'form-control',placeholder:'' %>
@@ -233,7 +233,7 @@
               </div>
               <div class="form-group">
                 <div class="col-xs-6 col-xxs-12 no-pad-left">
-                  <%= f.label :hazard_insurance, class: 'control-label' %>
+                  <%= f.label :hazard_insurance, 'Hazard Insurance', class: 'control-label' %>
                   <div class="input-group">
                     <div class="input-group-addon">$</div>
                     <%= f.number_field :hazard_insurance,value: (number_with_precision(f.object.hazard_insurance, :precision => 2) || 0), min: 0, class: 'form-control',placeholder:'' %>
@@ -250,16 +250,26 @@
             <div ng:init="image_ids = <%= @ids %>"></div>
             <div class="row">
             	<div class="col-xs-12">
-            		<h3>Images</h3>
+            		<h3>More Property Images</h3>
   	          <div align="center">
   	            <a ng:repeat="image in images" href="#" ng:click="removeImage(image)"><img ng:src="{{image.image.thumb.url}}" class="img-thumbnail"></a>
   	            <img ng:src="<%= asset_path 'loader-thumb.png' %>" class="img-thumbnail" ng:if="img_loading" alt="">
   	          </div>
   	          <div class="form-group mar-top-15">
   	            <div class="row">
-  	            	<div class="col-sm-4 col-xs-12"><button type="button" class="btn btn-default form-control" ng-file-select ng-file-change="upload($files,<%= @property.id %>)" multiple="multiple">Add Photo</button></div>
-  	            	<div class="col-sm-4 col-xs-12"><input type="text" class="form-control" placeholder="Image Url" ng:model="imageUrl"></div>
-  	            	<div class="col-sm-4 col-xs-12"><button type="button" class="btn btn-default" ng:click="uploadUrl(<%= @property.id %>,imageUrl)" ng:disabled="img_loading">Upload</button></div>
+  	            	<div class="col-sm-4 col-xs-12">
+                    <p>Upload Multiple Images</p>
+                    <button type="button" class="btn btn-default form-control" ng-file-select ng-file-change="upload($files,<%= @property.id %>)" multiple="multiple"><i class="fa fa-picture-o mar-right-6" aria-hidden="true"></i> Upload Images</button>
+                  </div>
+                  <div class="col-sm-8 col-xs-12">
+                    <p>OR Upload Image by URL</p>
+                    <div class="input-group img-by-url">
+                      <input type="text" class="form-control" placeholder="Image Url" ng:model="imageUrl">
+                      <div class="input-group-addon">
+                        <button type="button" class="btn btn-default" ng:click="uploadUrl(<%= @property.id %>,imageUrl)" ng:disabled="img_loading">Upload</button>
+                      </div>
+                    </div>
+                  </div>
   	            </div>
   	          </div>
   	        </div>
@@ -267,7 +277,7 @@
   	       <div class="row">
   	       	<div class="col-xs-12">
   	          <h3>Links</h3>
-  	          <div class="form-group" ng:init="links = <%= @property.links.to_json %>">
+  	          <div ng:init="links = <%= @property.links.to_json %>">
   	            <div class="table-responsive">
   	            	<table class="table table-condensed table-striped">
   	              <tr>
