@@ -301,7 +301,7 @@
                     </td>
                     <td ng:show="link.edit" align="right">
                       <button type="button" class="btn btn-default btn-sm" ng:click="link.edit = null">Cancel</button>
-                      <button type="button" class="btn btn-success btn-sm" ng:click="updateLink(link)" ng:disabled="saving[link.id]">{{saving[link.id] || 'Save'}}</button>
+                      <button type="button" class="btn btn-success btn-sm" ng:click="updateLink(link)" ng:disabled="!link.link">{{saving[link.id] || 'Save'}}</button>
                     </td>
                   </tr>
                   <tr>

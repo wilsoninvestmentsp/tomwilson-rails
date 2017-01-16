@@ -13,13 +13,9 @@ App.controller('PropertiesCtrl',['$scope','$http',function($scope,$http){
 			label: 'Single Family',
 			value: 'single_family'
 		},
-		'duplex': {
-			label: 'Duplex',
-			value: 'duplex'
-		},
-		'fourplex': {
-			label: 'Fourplex',
-			value: 'fourplex'
+		'duplex_fourplex': {
+			label: 'Duplex-Fourplex',
+			value: 'duplex%2Cfourplex'
 		},
 		'multifamily': {
 			label: 'Multifamily',
