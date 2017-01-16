@@ -28,11 +28,20 @@ App.controller('PropertyCtrl',['$scope','$http',function($scope,$http){
 		        {id: "c", label: "Cost", type: "number"}
 		    ], "rows": scope.mapped };
 
+		var height = 250;
+		var url = window.location.pathname.split('/');
+		var action = url[3];
+		if(action){
+			height = '400';		
+		}
+
 		scope.myChartObject.options = {
 			title: 'Monthly Estimated Income & Expenses\nRent: $'+data.rent,
 			pieSliceText: 'value',
 			is3D: true,
 			backgroundColor: '#f5f5f5',
+			chartArea: {top:40,width:'80%',height:'100%'},
+			height: height,
 		};
 	
 	};
