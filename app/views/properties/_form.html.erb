@@ -72,7 +72,7 @@
                 </div>
                 <p class="text-muted small">An address with street, city, state and zip is required.</p>
               <% if @property.raw_address.present? %>
-                <span ng:init="address = '<%= @property.raw_address %> <%= @property.zip %>'">
+                <span ng:init="address = '<%= @property.raw_address %>'">
               <% end %>
                 <ul class="list-unstyled">
                   <li ng:init="property.address = '<%= @property.address %>'">Street: {{property.address}}</li>

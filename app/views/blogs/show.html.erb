@@ -18,7 +18,7 @@
             <li><%= link_to 'Blogs', blogs_path, method: :get %></li>
             <li class="active"><%= @blog.title %></li>
             <% if current_user %>
-              <li><%= link_to 'Edit', edit_blog_path(@blog) %></li>
+              <li><%= link_to 'Edit', edit_blog_path(@blog), method: :get %></li>
             <% end %>
           </ol>
         </div>

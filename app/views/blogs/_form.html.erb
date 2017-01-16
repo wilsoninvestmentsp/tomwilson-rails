@@ -9,8 +9,8 @@
           <ol class="breadcrumb white">
             <li><%= link_to 'Home', root_url %></li>
             <li><%= link_to 'Blogs', blogs_path %></li>
-            <% if current_user && action_name != 'new' %>
-              <li><%= link_to @blog.title, blog_path(@blog) %><li>
+            <% if current_user && @blog.persisted? %>
+              <li><%= link_to @blog.title, blog_path(@blog) %></li>
             <% end %>
             <li class="active"><%= yield :blog_action %></li>
           </ol>

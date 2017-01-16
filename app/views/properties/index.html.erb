@@ -44,7 +44,7 @@
           <div class="list-selection">
             <ul class="list-unstyled">
               <li ng:repeat="(key, val) in separate_building_types" ng:model="params.building_type" ng:click="filterPropertiesByBuildingType(val)">
-                <a href="" ng:click="setActive(val)" ng:class="{active : activeMenu === val}">{{ val.label }}</a>
+                <a href="" ng:click="setActive(val)" ng:class="{active : activeMenu === val}">{{val.label}}</a>
               </li>
             </ul>
             <div class="sort-option">
@@ -58,8 +58,8 @@
         </div>
         <div class="row property-listing", id="property-listing">
           <%= render partial: 'properties' %>
-          <div class="col-xs-12 msg-content" ng:if="properties.length == 0">
-            <h3>No properties found</h3>
+          <div class="col-xs-12 text-center msg-content" ng:if="properties.length == 0">
+            <h3>No {{activeMenu.label == 'All' ? '' : activeMenu.label}} Properties Found</h3>
           </div>
         </div>
         <div ng:if="meta.total_pages > 1" class="col-xs-12 text-center" ng:show="meta.next_page">

@@ -136,23 +136,25 @@
       </div>
       <div class="map-graph-section">
         <div class="container">
-          <div class="row map-graph-details">
-            <div class="col-md-6 col-sm-12 col-xs-12">
-              <h4><a href="https://maps.google.com?q=<%= @property.raw_address %>" target="_blank" class="block">
-                <%= @property.raw_map_address %> - View in Google Maps</a></h4>
-                <google-map address="'<%= @property.raw_address %>'" zoom="9"></google-map>
-              </div>
+        <div class="row map-graph-details">
+          <div class="col-md-6 col-sm-12 col-xs-12" id="google_map">
+            <input type="hidden" id="is_admin" value="<%= current_user.present? %>">
+            <h4><a href="https://maps.google.com?q=<%= @property.raw_address %>" target="_blank" class="block">
+              <%= @property.raw_map_address %> - View in Google Maps</a></h4>
+              <google-map address="'<%= @property.raw_address %>'" zoom="9">
+              </google-map>
+            </div>
+            <% if @property.chart.present? %>
               <div class="col-md-6 col-sm-12 col-xs-12">
-                <% if @property.chart.present? %>
                 <span ng:init="chart = <%= @property.chart.to_json %>"></span>
                 <span ng:init="setChart(chart)"></span>
                 <div google-chart chart="myChartObject"></div>
                 <div align="center" class="text-muted"><small>Loan Assumptions: 75% LTV, 30 year fixed, 4.25%</small></div>
-                <% end %>
               </div>
-            </div>
+            <% end %>
           </div>
         </div>
+      </div>
     </section>
   </div>
   <div ng:controller="TicketCtrl">
