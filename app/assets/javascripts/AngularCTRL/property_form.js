@@ -28,12 +28,21 @@ App.controller('PropertyFormCtrl',['$scope','$interval','$upload','$routeParams'
 		
 		JP('MAIN');
 
-		scope.updateLink = function(link){
+		scope.updateLink = function(link, i){
 			scope.saving = {};
 			scope.saving[link.id] = '...';
 
-			if (!link.title || !link.link){ return; }
-		
+			if (!link.title && !link.link){
+				scope.deleteLink(link, i);
+				return;
+			}
+
+			if(!link.title){
+				alert('Please Enter Link Title')
+				delete scope.saving;
+				return;
+			}
+
 			$http({
 			  method: 'PUT',
 			  url: '/api/v1/links/'+link.id+'.json',
@@ -178,7 +187,10 @@ App.controller('PropertyFormCtrl',['$scope','$interval','$upload','$routeParams'
 		// Begin createLink =====================================
 		scope.createLink = function(link){
 
-			if (!link.title || !link.link){ return; }
+			if (!link.title || !link.link){
+				alert('Please Enter Link Title and Link');
+				return;
+			}
 			
 			scope.saving = {new: true};
 
@@ -229,6 +241,17 @@ App.controller('PropertyFormCtrl',['$scope','$interval','$upload','$routeParams'
 		
 		};
 		// End deleteLink =======================================
-
+		
+		scope.editLink = function(i){
+			scope.links[i].edit = true;
+			scope.links[i].old_title = scope.links[i].title;
+			scope.links[i].old_link = scope.links[i].link;
+		}
+		
+ 		scope.cancelEditing = function(i){
+			scope.links[i].edit = false;
+			scope.links[i].title = scope.links[i].old_title;
+			scope.links[i].link = scope.links[i].old_link;
+		}
 	}
 ]);

@@ -50,7 +50,7 @@ class PropertiesController < ApplicationController
   def update
     respond_to do |format|
       if @property.update(property_params)
-        format.html { redirect_to edit_property_path(@property), flash: {success: "#{@property.raw_title} was successfully updated!"} }
+        format.html { redirect_to @property, flash: {success: "#{@property.raw_title} was successfully updated!"} }
         format.json { render :show, status: :ok, location: @property }
       else
         format.html { render :edit }

@@ -290,18 +290,18 @@
                       <a href="{{link.link}}" target="_blank">{{link.link}}</a>
                     </td>
                     <td ng:show="!link.edit" align="right">
-                      <button type="button" class="btn btn-warning btn-sm" ng:click="link.edit = true">Edit</button>
+                      <button type="button" class="btn btn-warning btn-sm" ng:click="editLink($index)">Edit</button>
                       <button type="button" class="btn btn-danger btn-sm" ng:click="deleteLink(link,$index)" ng:if="$index > 5">Delete</button>
                     </td>
                     <td class="vmiddle" ng:show="link.edit">
-                      <input type="text" class="form-control" ng:model="link.title" placeholder="Title" />
+                      <input type="text" class="form-control" ng:model="link.title" placeholder="Title">
                     </td>
                     <td class="vmiddle" ng:show="link.edit">
-                      <input type="text" class="form-control" ng:model="link.link" placeholder="Link" />
+                      <input type="text" class="form-control" ng:model="link.link" placeholder="Link">
                     </td>
                     <td ng:show="link.edit" align="right">
-                      <button type="button" class="btn btn-default btn-sm" ng:click="link.edit = null">Cancel</button>
-                      <button type="button" class="btn btn-success btn-sm" ng:click="updateLink(link)" ng:disabled="!link.link">{{saving[link.id] || 'Save'}}</button>
+                      <button type="button" class="btn btn-default btn-sm" ng:click="cancelEditing($index)">Cancel</button>
+                      <button type="button" class="btn btn-success btn-sm" ng:click="updateLink(link, $index)">{{saving[link.id] || 'Save'}}</button>
                     </td>
                   </tr>
                   <tr>
