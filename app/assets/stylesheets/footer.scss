@@ -3,8 +3,8 @@ body{margin-bottom:60px}
 .footer{position:absolute;bottom:0;width:100%;height:60px;display:table}
 
 /* Fonts CSS */
-@font-face{font-family:'AllerRG';src:url(Aller_Rg.ttf)}
-@font-face{font-family:'AllerDisplay';src:url(Aller_Bd.ttf)}
+@font-face{font-family:'AllerRG';src:asset_url('Aller_Rg.ttf')}
+@font-face{font-family:'AllerDisplay';src:asset_url('Aller_Bd.ttf')}
 
 .topfix{margin-top:44px !important}
 .topfix .jumbotron{padding:0;margin:0;min-height:300px}
