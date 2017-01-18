@@ -179,9 +179,10 @@ App.controller('PropertiesCtrl',['$scope','$http',function($scope,$http){
 		return new Array(i);
 	}
 
-	scope.clickableDiv = function(property){
-		var property_url = 'http://localhost:3000/properties/'+property
+	scope.clickableDiv = function(properties_link, property){
+		var property_url = properties_link+'/'+property
 		window.location = property_url;
+		return false;
 	}
 
 }]);

@@ -46,7 +46,9 @@
               <div class="item">
                 <div class="listing-box">
                   <div class="img-box">
+                    <a href="<%= blog_path(blog) %>">
                     <%= image_tag blog.image.thumb.url, alt: '', class: 'img-responsive' %>
+                    </a>
                   </div>
                   <h3><%= link_to blog.title.truncate(Settings.truncate.blog.title), blog_path(blog), method: :get %></h3>
                   <p><%= blog.summary.truncate(Settings.truncate.blog.summary) %></p>
@@ -69,6 +71,6 @@
 
 <script type="text/javascript">
   $(function(){
-    $("#latest-blogs").owlCarousel({autoPlay:6000,items:3,itemsDesktop:[1199,3],itemsDesktopSmall:[991,3],itemsTablet:[767,2],itemsMobile:[479,1],transitionStyle:"fade"});
+    $("#latest-blogs").owlCarousel({autoPlay:6000,items:3,itemsDesktop:[1199,3],itemsDesktopSmall:[991,2],itemsTablet:[767,1],itemsMobile:[479,1],transitionStyle:"fade"});
   });
 </script>

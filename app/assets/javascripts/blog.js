@@ -20,9 +20,9 @@ Blog = {
   clickableDiv: function(){
     $('.listing-box, .propery-box').on('click', function(){
       if($(this).attr('class') == 'listing-box'){
-        var property_url = $(this).find('a')[2]['href'];
+        var property_url = $(this).find('h3').children('a')[0]['href'];
       }else{
-        var property_url = $(this).find('a')[1]['href'];
+       var property_url = $(this).find('a')[1]['href'];
       }
       window.location = property_url;
     })

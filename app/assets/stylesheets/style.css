@@ -435,6 +435,8 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 
 /* Property Details Page CSS */
 #google_map{margin-bottom:30px}
+
+.latest-blogs-section .border-btn{margin-bottom:50px}
 }
 
 @media(min-width:768px) and (max-width:991px){
@@ -455,4 +457,6 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 /* Property Listing Page CSS */
 .list-selection .list-unstyled li a{padding:13px 22px}
 .property-listing .listing-box{height:378px}
+
+.blog-listing .listing-box{height:504px}
 }
