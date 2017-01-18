@@ -17,10 +17,10 @@
         <h1>Our Team</h1>
         <% if current_user %>
         <ul class="pager">
-          <li ng:show="!mode.edit"><a href="" ng:click="mode = {edit: true}">Re-Order</a></li>
-          <li ng:show="mode.edit && !loading && changed"><a href="" ng:click="saveOrder()">Save</a></li>
-          <li ng:show="loading"><a href="" ng:click="">Saving...</a></li>
-          <li ng:show="!changed && mode.edit"><a href="" ng:click="mode = {}">Cancel</a></li>
+          <li ng:show="!mode.edit"><a href="" ng:click="mode = {edit: true}"><i class="fa fa-sort" aria-hidden="true"></i> Re-Order</a></li>
+          <li ng:show="mode.edit && !loading && changed"><a href="" ng:click="saveOrder()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</a></li>
+          <li ng:show="loading"><a href="" ng:click=""><i class="fa fa-ellipsis-h" aria-hidden="true"></i> Saving</a></li>
+          <li ng:show="!changed && mode.edit"><a href="" ng:click="mode = {}"><i class="fa fa-times" aria-hidden="true"></i> Cancel</a></li>
         </ul>
         <% end %>
         <% if current_user %><div ng:show="!mode.edit"><% end %>
@@ -43,7 +43,7 @@
               <% if current_user %>
               <nav>
                 <ul class="pager">
-                  <li><a href="<%= users_path %>/{{user.id}}/edit">Edit</a></li>
+                  <li><a href="<%= users_path %>/{{user.id}}/edit" data-method="get"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a></li>
                 </ul>
               </nav>
               <% end %>
@@ -52,8 +52,8 @@
               <h2>{{user.name}}<br><small>{{user.role}}</small></h2>
               <div ng:if="user.description" ng-bind-html="user.description"></div>
             </div>
+            <div class="col-xs-12"><hr></div>
           </div>
-          <hr>
         </div>
         <% if current_user %></div><% end %>
         <% if current_user %>

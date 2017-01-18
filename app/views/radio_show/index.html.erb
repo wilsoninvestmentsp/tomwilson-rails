@@ -38,14 +38,14 @@
                 });
               </script>
               <div class="form-group mar-top-15">
-                <%= button_tag 'Cancel',type: 'button',class: 'btn btn-danger','ng:click' => 'mode = {}' %>
-                <%= submit_tag 'Save',class: 'btn btn-success' %>
+                <%= button_tag type: 'submit', class: 'btn btn-success' do %><i class="fa fa-floppy-o" aria-hidden="true"></i> Save<% end %>
+                <%= button_tag type: 'button', class: 'btn btn-danger','ng:click': 'mode = {}' do %><i class="fa fa-times" aria-hidden="true"></i> Cancel<% end %>
               </div>
               <% end %>
             </div>
             <nav>
               <ul class="pager">
-                <li ng:show="!mode.edit"><a href="" ng:click="mode = {edit: true}">Edit</a></li>
+                <li ng:show="!mode.edit"><a href="" ng:click="mode = {edit: true}"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a></li>
               </ul>
             </nav>
             <% end %>

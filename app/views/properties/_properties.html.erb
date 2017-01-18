@@ -1,11 +1,11 @@
-<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12" ng:repeat="property in properties | limitTo: limit">
+<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12" ng:repeat="property in properties">
   <div class="listing-box" ng:click="clickableDiv('<%= properties_url %>', property.slug)">
 	  <div class="img-box">
 	    <a href="<%= properties_path %>/{{property.slug}}"><img ng:src="{{property.image.image.url}}" class="img-responsive"></a>
 	    <span ng:class="getStatusClass(property.status)" ng:if="property.raw_status">{{property.raw_status}}</span>
 	    <span class="status-tag-right blue" ng:if="property.leased == 1">Leased</span>
 	  </div>
-	  <h3><a href="<%= properties_path %>/{{property.slug}}">{{property.raw_title | limitTo: 56 }}{{property.raw_title.length > 56 ? '...' : ''}}</a></h3>
+	  <h3><a href="<%= properties_path %>/{{property.slug}}">{{property.raw_title | limitTo: 42 }}{{property.raw_title.length > 42 ? '...' : ''}}</a></h3>
 	  <ul class="labels">
 	    <li class="price">${{property.raw_offer_price}}
 	      <span ng:if="property.offer_price_label"> / {{property.offer_price_label}}</span></li>

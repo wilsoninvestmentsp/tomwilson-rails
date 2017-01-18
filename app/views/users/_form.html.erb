@@ -1,99 +1,96 @@
 <div ng:controller="UserFormCtrl">
-<%= form_for(@user) do |f| %>
-
+  <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
-    <div class="alert alert-danger fade in alert-dismissable">
-      <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
-      <uib-alert type="danger">
-        <ul>
-          <% @user.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </uib-alert>
-    </div>
+  <div class="alert alert-danger fade in alert-dismissable">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+    <uib-alert type="danger">
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </uib-alert>
+  </div>
   <% end %>
-
-  <div class="row">
-
-    <div class="col-md-6">
-
+  <div class="row mar-top-15">
+    <div class="col-md-6 col-sm-12 col-xs-12 left-col">
       <div class="form-group">
-        <%= f.label :name %><br>
+        <%= f.label :name, class: 'control-label' %>
         <%= f.text_field :name,class: 'form-control',placeholder: 'Full Name' %>
       </div>
       <div class="form-group">
-        <%= f.label :role %><br>
+        <%= f.label :role, class: 'control-label' %>
         <%= f.text_field :role,class: 'form-control',placeholder: 'Role' %>
       </div>
       <div class="form-group">
-        <%= f.label :team %>
-        <%= f.select :team,@team_options,{},class: 'form-control' %>
+        <%= f.label :team, class: 'control-label' %>
+        <%= f.select :team,@team_options,{},class: 'selectpicker' %>
       </div>
       <div class="form-group">
+
         <div class="checkbox">
           <label>
-            <%= f.check_box :public %> <b>Public</b>
+            <%= f.check_box :public %>
+            <span class="cr"><i class="cr-icon fa fa-check"></i></span> Check as Public
           </label>
         </div>
+
       </div>
       <div class="form-group">
+
         <div class="checkbox">
-          <label ng:init="admin = <%= @user.admin %>">
-            <%= f.check_box :admin,'ng:model' => 'admin','ng:change' => 'adminChanged()' %> <b>Admin</b>
+          <label>
+            <%= f.check_box :admin, 'ng:model': 'admin','ng:change':'adminChanged()' %>
+            <span class="cr"><i class="cr-icon fa fa-check"></i></span> Check as Admin
           </label>
         </div>
+
       </div>
       <div class="form-group" ng:show="admin">
-        <%= f.label 'Password' %><br>
+        <%= f.label 'Password', class: 'control-label' %>
         <%= f.password_field :password,class: 'form-control',placeholder: 'Password','ng:model' => 'password' %>
       </div>
       <div class="form-group" ng:init="adminChanged()">
-        <%= f.label :email %><br>
+        <%= f.label :email, class: 'control-label' %>
         <%= f.text_field :email,class: 'form-control',placeholder: 'Email' %>
       </div>
       <div class="form-group">
-        <%= f.label :phone %><br>
+        <%= f.label :phone, class: 'control-label' %>
         <%= f.text_field :phone,class: 'form-control',placeholder: 'Phone' %>
       </div>
       <div class="form-group">
-        <%= f.label :image %><br>
-        <%= image_tag @user.image.thumb.url,class: 'img-thumbnail' %><br><br>
-        <%= f.file_field :image,class: 'form-control',placeholder: 'Profile Image' %>
+        <%= f.label :image, class: 'control-label' %>
+        <%= image_tag @user.image.thumb.url,class: 'img-thumbnail' %>
+        <br>
+        <%= f.label :image, class: 'btn btn-default mar-top-15' do %><i class="fa fa-picture-o mar-right-6" aria-hidden="true"></i> Upload Image
+        <%= f.file_field :image, style: "display:none;" %>
+        <% end %>
+        <%= f.label 'OR Upload Image by URL', class: 'mar-top-15 control-label' %>
         <%= f.text_field :remote_image_url,class: 'form-control',placeholder: 'Image Url' %>
       </div>
-
-      <div class="form-group">
-        <%= f.submit 'Save',class: 'btn btn-success btn-lg form-control' %>
-      </div>
-
     </div>
-
-    <div class="col-md-6">
-
+    <div class="col-md-6 col-sm-12 col-xs-12 right-col">
       <div class="form-group">
-        <%= f.label :description %><br>
+        <%= f.label :description, class: 'control-label' %>
         <%= f.text_area :description %>
         <script type="text/javascript">
           $(document).ready(function(){
-
             setTimeout(function(){
-              
               tinyMCE.remove();
               tinyMCE.init({
                 selector: '#user_description',
                 min_height: 300
               });
-
             },100);
-
           });
         </script>
       </div>
-
     </div>
-
   </div>
-
-<% end %>
+  <div class="row form-row mar-btm-30 user-form">
+    <div class="col-xs-12">
+      <%= button_tag type: 'Submit', class: 'btn blue-btn btn-lg' do %><i class="fa fa-check" aria-hidden="true"></i> Submit User<% end %>
+    </div>
+  </div>
+  <% end %>
 </div>

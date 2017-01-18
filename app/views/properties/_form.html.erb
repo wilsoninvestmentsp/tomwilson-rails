@@ -69,7 +69,7 @@
               <div class="input-group">
                 <input type="text" ng:model="address" class="form-control" placeholder="Paste a full address here" ng:paste="updateAddressPaste($event)">
                 <span class="input-group-btn">
-                  <button class="btn btn-default" type="button" ng:click="updateAddress(address)">Set</button>
+                  <button class="btn blue-btn input-btns" type="button" ng:click="updateAddress(address)">Set</button>
                   </span>
                 </div>
                 <p class="text-muted small">An address with street, city, state and zip is required.</p>
@@ -96,10 +96,10 @@
             <div class="col-md-6 col-sm-12 col-xs-12 right-col vleft-bdr">
               <h3>Property Image</h3>
               <div class="form-group upload-image">
-                <label class="control-label" for="UploadImg">Upload First Image</label>
+                <label class="control-label" for="UploadImg">First Image</label>
                 <ul class="list-unstyled">
                   <li class="left">
-                    <%= f.label :image, class: 'btn btn-default' do %><i class="fa fa-picture-o mar-right-6" aria-hidden="true"></i> Choose File
+                    <%= f.label :image, class: 'btn btn-default' do %><i class="fa fa-picture-o mar-right-6" aria-hidden="true"></i> Upload Image
                     <%= f.file_field :image, style: "display:none;" %>
                     <% end %>
                   </li>
@@ -260,7 +260,7 @@
   	          <div class="form-group mar-top-15">
   	            <div class="row">
   	            	<div class="col-sm-4 col-xs-12">
-                    <p>Upload Multiple Images</p>
+                    <p>Multiple Images</p>
                     <button type="button" class="btn btn-default form-control" ng-file-select ng-file-change="upload($files,<%= @property.id %>)" multiple="multiple"><i class="fa fa-picture-o mar-right-6" aria-hidden="true"></i> Upload Images</button>
                   </div>
                   <div class="col-sm-8 col-xs-12">
@@ -268,7 +268,7 @@
                     <div class="input-group img-by-url">
                       <input type="text" class="form-control" placeholder="Image Url" ng:model="imageUrl">
                       <div class="input-group-addon">
-                        <button type="button" class="btn btn-default" ng:click="uploadUrl(<%= @property.id %>,imageUrl)" ng:disabled="img_loading">Upload</button>
+                        <button type="button" class="btn blue-btn input-btns" ng:click="uploadUrl(<%= @property.id %>,imageUrl)" ng:disabled="img_loadipng">Upload</button>
                       </div>
                     </div>
                   </div>
@@ -315,7 +315,7 @@
                       <input type="text" class="form-control" ng:model="newLink.link" onenter="createLink(newLink)" placeholder="Link">
                     </td>
                     <td class="vmiddle" align="right">
-                      <button type="button" class="btn blue-btn btn-sm" ng:show="!saving.new" ng:click="createLink(newLink)" title="Create"><%= icon 'plus' %></button>
+                      <button type="button" class="btn blue-btn btn-sm input-btns" ng:show="!saving.new" ng:click="createLink(newLink)" title="Create"><%= icon 'plus' %></button>
                       <button type="button" class="btn btn-default btn-sm" ng:if="saving.new" ng:disabled="true">...</button>
                     </td>
                   </tr>

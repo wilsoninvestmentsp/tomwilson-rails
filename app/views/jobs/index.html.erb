@@ -28,14 +28,15 @@ ng:disabled="true"
 </div> -->
 <div class="col-xs-12">
   <h1>Import</h1>
-  <div class="row mar-top-30 mar-btm-30">
+  <div class="row mar-top-30 mar-btm-30 import-file">
     <div class="col-sm-6">
       <%= form_tag import_properties_path, multipart: true do %>
-      <div class="form-group">
-        <%= file_field_tag :file,class: 'form-control' %>
+        <%= label_tag :file, class: 'btn btn-default btn-lg' do %><i class="fa fa-file-excel-o mar-right-6" aria-hidden="true"></i> Upload CSV
+            <%= file_field_tag :file, style: "display:none;" %>
+          <% end %>
       </div>
-      <div class="form-group">
-        <%= submit_tag "Import",class: 'btn btn-default' %>
+      <div class="col-xs-12 mar-top-15">
+        <%= button_tag type: 'submit', class: 'btn blue-btn btn-lg' do %><i class="fa fa-check mar-right-6" aria-hidden="true"></i> Import File<% end %>
       </div>
       <% end %>
     </div>

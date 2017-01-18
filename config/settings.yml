@@ -5,7 +5,7 @@ pagination:
     per_page: 16
 truncate:
   blog:
-    title: 80
+    title: 60
     summary: 370
   property:
     title: 30

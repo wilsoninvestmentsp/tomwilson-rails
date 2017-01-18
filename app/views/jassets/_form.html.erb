@@ -1,63 +1,48 @@
 <%= form_for(@jasset) do |f| %>
-  <% if @jasset.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@jasset.errors.count, "error") %> prohibited this jasset from being saved:</h2>
-
-      <ul>
+<% if @jasset.errors.any? %>
+<div class="alert alert-danger fade in alert-dismissable">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+  <uib-alert type="danger">
+    <ul>
       <% @jasset.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <li><%= message %></li>
       <% end %>
-      </ul>
+    </ul>
+  </uib-alert>
+</div>
+<% end %>
+<div class="row" ng:init="jasset = <%= JassetSerializer.new(@jasset,root: false).to_json %>">
+  <div class="col-md-6">
+    <div class="form-group required">
+      <%= f.label :title %><br>
+      <%= f.text_field :title,class: 'form-control',placeholder: '' %>
     </div>
-  <% end %>
-
-  <!-- Begin Row :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->
-  <!-- :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->
-  <div class="row" ng:init="jasset = <%= JassetSerializer.new(@jasset,root: false).to_json %>">
-  
-    <!-- Begin Col :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->
-    <div class="col-md-6">
-    
-        <div class="form-group required">
-          <%= f.label :title %><br>
-          <%= f.text_field :title,class: 'form-control',placeholder: '' %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :description %><br>
-          <%= f.text_area :description,class: 'form-control',placeholder: '' %>
-        </div>
-
-        <div class="form-group required">
-          <%= f.label 'Link Name' %><br>
-          <%= f.text_field :link_name,class: 'form-control',placeholder: '' %>
-        </div>
-
-        <div class="form-group required">
-          <%= f.label 'Link URL' %><br>
-          <%= f.text_field :link_uri,class: 'form-control',placeholder: '' %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :image %><br>
-          <div ng:show="jasset.image.image.thumb.url"><%= image_tag @jasset.image.thumb.url,class: 'img-thumbnail' %><br><br></div>
-          <%= f.file_field :image,class: 'form-control',placeholder: 'Profile Image' %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label 'Priority' %><br>
-          <%= f.number_field :sort,class: 'form-control',placeholder: '' %>
-        </div>
-
-        <div class="form-group">
-          <%= f.submit 'Save',class: 'btn btn-success btn-lg form-control' %>
-        </div>
-    
+    <div class="form-group">
+      <%= f.label :description %><br>
+      <%= f.text_area :description,class: 'form-control',placeholder: '' %>
     </div>
-    <!-- End Col :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->
-  
+    <div class="form-group required">
+      <%= f.label 'Link Name' %><br>
+      <%= f.text_field :link_name,class: 'form-control',placeholder: '' %>
+    </div>
+    <div class="form-group required">
+      <%= f.label 'Link URL' %><br>
+      <%= f.text_field :link_uri,class: 'form-control',placeholder: '' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :image %><br>
+      <div ng:show="jasset.image.image.thumb.url"><%= image_tag @jasset.image.thumb.url,class: 'img-thumbnail' %><br><br></div>
+      <%= f.label :image, class: 'btn btn-default' do %><i class="fa fa-picture-o mar-right-6" aria-hidden="true"></i> Choose File
+      <%= f.file_field :image, style: "display:none;" %>
+      <% end %>
+    </div>
+    <div class="form-group">
+      <%= f.label 'Priority' %><br>
+      <%= f.number_field :sort,class: 'form-control',placeholder: '' %>
+    </div>
+    <div class="form-group">
+      <%= button_tag class: 'btn blue-btn btn-lg', type: 'submit' do %><i class="fa fa-check" aria-hidden="true"></i> Submit<% end %> 
+    </div>
   </div>
-  <!-- :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->
-  <!-- End Row :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-: -->
-
+</div>
 <% end %>

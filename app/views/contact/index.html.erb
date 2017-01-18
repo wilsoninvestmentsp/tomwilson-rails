@@ -14,7 +14,7 @@
         <h1>Contact Us</h1>
         <uib-alert ng:repeat="alert in alerts" type="{{alert.type}}">{{alert.message}}</uib-alert>
         <address>
-          <strong>Wilson Investment Properties, Inc.</strong><br>
+          <b>Wilson Investment Properties, Inc.</b><br>
           14435 Big Basin Way, Ste 240<br>
           Saratoga, CA 95070<br>
           <abbr title="Phone">Phone:</abbr> <%= PHONE_NUMBER %>
@@ -48,8 +48,9 @@
                     <input type="checkbox" ng:model="inquiry.newsletter"><span class="cr"><i class="cr-icon fa fa-check"></i></span> Sign up for our Newsletter
                   </label>
               	</div>
-              <input type="submit" class="btn btn-success" value="Submit" ng:disabled="!ticket_form.$valid" ng:if="!loading">
-              <input type="submit" class="btn btn-warning" value="Submitting..." ng:disabled="true" ng:if="loading">
+              <button type="submit" class="btn blue-btn" ng:disabled="!ticket_form.$valid" ng:if="!loading">
+                <i class="fa fa-check" aria-hidden="true"></i> Submit</button>
+              <button type="submit" class="btn btn-warning" ng:disabled="true" ng:if="loading"><i class="fa fa-ellipsis-h" aria-hidden="true"></i> Submitting</button>
             </form>
           </div>
         </div>

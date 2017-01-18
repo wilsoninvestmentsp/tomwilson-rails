@@ -1,5 +1,4 @@
 <%= render 'layouts/jumbtron' %>
-
 <section class="main-body without-search-feature">
   <div class="container">
     <div class="row">
@@ -14,39 +13,36 @@
       </div>
     </div>
     <p id="notice"><%= notice %></p>
-
     <div class="fixed-admin-body">
       <div class="col-xs-12">
         <h1>Resource</h1>
         <div class="mar-top-30 mar-btm-30">
         <p>
-          <strong>Title:</strong>
+          <b>Title:</b>
           <%= @jasset.title %>
         </p>
-
         <p>
-          <strong>Description:</strong>
+          <b>Description:</b>
           <%= @jasset.description %>
         </p>
-
         <p>
-          <strong>Link name:</strong>
+          <b>Link name:</b>
           <%= @jasset.link_name %>
         </p>
         <p>
-          <strong>Link uri:</strong>
+          <b>Link uri:</b>
           <%= @jasset.link_uri %>
         </p>
         <p>
-          <strong>Sort:</strong>
+          <b>Sort:</b>
           <%= @jasset.sort %>
         </p>
         <p>
-          <strong>Image:</strong>
+          <b>Image:</b>
           <%= @jasset.image %>
         </p>
-        <%= link_to 'Edit', edit_jasset_path(@jasset) %> |
-        <%= link_to 'Back', jassets_path %>
+        <%= link_to edit_jasset_path(@jasset), class: 'btn btn-success' do %><i class="fa fa-pencil" aria-hidden="true"></i> Edit<% end %>
+        <%= link_to jassets_path, class: 'btn blue-btn' do %><i class="fa fa-chevron-left" aria-hidden="true"></i> Back<% end %>
         </div>
       </div>
     </div>

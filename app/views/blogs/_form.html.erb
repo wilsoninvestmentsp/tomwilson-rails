@@ -17,9 +17,9 @@
         </div>
       </div>
     </div>
-    <div class="fixed-admin-body">
+    <div class="fixed-admin-body add-edit-blog">
       <div class="col-xs-12">
-        <h1><i class="fa fa-plus" aria-hidden="true"></i> <%= yield :blog_action %></h1>
+        <h1><%= yield :blog_action %></h1>
         <%= form_for @blog do |f| %>
         <% if @blog.errors.any? %>
           <div class="alert alert-danger fade in alert-dismissable">
@@ -36,10 +36,9 @@
         <%= render partial: 'blog_fields', locals: {f: f} %>
         <div class="row form-row mar-btm-30">
           <div class="col-xs-12">
-            <%= f.button type: :submit, class: 'btn blue-btn btn-lg mar-right-15' do %>Submit Blog <i class="fa fa-angle-right fa-next" aria-hidden="true"></i>
-            <% end %>
+            <%= f.button type: :submit, class: 'btn blue-btn btn-lg' do %><i class="fa fa-check" aria-hidden="true"></i> Submit Blog<% end %>
             <% unless @blog.new_record? %>
-              <%= link_to 'Delete Blog', @blog, method: :delete, data: { confirm: 'Are you sure you wish to delete this blog? This CANNOT be undone.' },class: 'btn btn-danger btn-lg' %>
+              <%= link_to @blog, method: :delete, data: { confirm: 'Are you sure you wish to delete this blog? This CANNOT be undone.' },class: 'btn btn-danger btn-lg' do %><i class="fa fa-trash" aria-hidden="true"></i> Delete Blog<% end %>
             <% end %>
           </div>
         </div>
