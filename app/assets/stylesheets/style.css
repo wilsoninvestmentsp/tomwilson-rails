@@ -30,7 +30,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 
 /* Index Page CSS */
 .first-section{height:500px}
-.first-section .box-content{padding:30px;color:#fff;border-radius:10px;width:80%;margin:0 10%;text-shadow:2px 2px 4px #000}
+.first-section .box-content{padding:30px;color:#fff;border-radius:10px;width:80%;margin:0 10%;text-shadow:2px 2px 4px #000;-webkit-text-shadow:2px 2px 4px #000;-moz-text-shadow:2px 2px 4px #000;-ms-text-shadow:2px 2px 4px #000;-o-text-shadow:2px 2px 4px #000}
 .first-section .box-content h1{margin-top:0;font-size:36px;font-family:'AllerDisplay'}
 .first-section .box-content p{color:#ffdf90;font-size:20px;font-family:'AllerRG'}
 
@@ -53,7 +53,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .property-section h3{margin-top:0;margin-bottom:30px;font-size:32px;line-height:1;color:#525252}
 .property-section .item{padding:5px 15px 0 15px}
 .property-section .propery-box{background:#fff;-webkit-box-shadow: 0 0 4px #999;-moz-box-shadow: 0 0 4px #999;-ms-box-shadow: 0 0 4px #999;-o-box-shadow: 0 0 4px #999;box-shadow: 0 0 4px #999;cursor:pointer}
-.property-section .propery-box a{display:block;text-decoration:none;color:#575757}
+.property-section .propery-box a{display:block;text-decoration:none;color:#575757;word-break:break-all;word-wrap:break-word}
 .property-section .propery-box .img-box{position:relative;overflow:hidden}
 .property-section .propery-box .img-box img{display:inline-block;transition:all .2s ease-in-out;-webkit-transition:all .2s ease-in-out;-moz-transition:all .2s ease-in-out;-ms-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out}
 .property-section .propery-box:hover .img-box img{transform:scale(1.1);-webkit-transform:scale(1.1);-moz-transform:scale(1.1);-ms-transform:scale(1.1);-o-transform:scale(1.1)}
@@ -86,19 +86,20 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .magazine-section{padding:50px 0 100px 0;font-family:'AllerRG'}
 .magazine-section h3{margin-top:0;margin-bottom:50px;font-size:32px;line-height:1;color:#525252}
 
-.feedback-section{padding:50px 0;font-family:'AllerRG';text-shadow:2px 2px 4px #000;margin-bottom:60px}
+.feedback-section{padding:50px 0;font-family:'AllerRG';text-shadow:2px 2px 4px #000;-webkit-text-shadow:2px 2px 4px #000;-moz-text-shadow:2px 2px 4px #000;-ms-text-shadow:2px 2px 4px #000;-o-text-shadow:2px 2px 4px #000;margin-bottom:60px}
 .feedback-section .comment{font-size:26px;padding-top:0;margin-top:0;color:#ffdf90}
 .feedback-section .user{font-size:16px;color:#ddd}
 .feedback-section .table{background:#fff;text-shadow:none;-webkit-text-shadow:none;-moz-text-shadow:none;-ms-text-shadow:none;-o-text-shadow:none}
-.feedback-table-section{padding:50px 0;margin-bottom:60px}
-.feedback-table-section h3{font-size:32px;margin-bottom:30px;margin-top:0;line-height:1}
+.feedback-table-section{padding:50px 0;margin-bottom:60px;border-top:solid 1px #ddd}
+.feedback-table-section h3{font-size:32px;margin-bottom:50px;margin-top:0;line-height:1}
 
 /* Common Body CSS */
 .main-body{font-family:'AllerRG';margin-top:-136px;margin-bottom:65px}
 .main-body.without-search-feature{font-family:'AllerRG';margin-top:0;margin-bottom:60px}
-.main-body h1{font-size:36px;color:#525252;font-family:'AllerDisplay';margin-top:0;color:#fff;margin-bottom:30px;color:#eee;text-shadow:2px 2px 4px #000}
+.main-body h1{font-size:36px;font-family:'AllerDisplay';margin-top:0;color:#fff;margin-bottom:30px}
+#PropertiesCtrl .main-body h1{text-shadow:2px 2px 4px #000;-webkit-text-shadow:2px 2px 4px #000;-moz-text-shadow:2px 2px 4px #000;-ms-text-shadow:2px 2px 4px #000;-o-text-shadow:2px 2px 4px #000}
 .box-shadow{-webkit-box-shadow:0 0 4px #999;-moz-box-shadow:0 0 4px #999;-ms-box-shadow:0 0 4px #999;-o-box-shadow:0 0 4px #999;box-shadow:0 0 4px #999;display:table;width:100%}
-.breadcrumb{border-radius:0;font-size:12px;background:#f5f5f5;margin-bottom:0;margin-top:0}
+.breadcrumb{border-radius:0;font-size:12px;background:#f5f5f5;margin-bottom:0;margin-top:0;word-break:break-all;word-wrap:break-word}
 .breadcrumb a{text-decoration:none}
 .breadcrumb a:hover{color:#444}
 
@@ -116,7 +117,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .advance-search .btn-group.open .dropdown-toggle, .advance-search .btn:active, .advance-search .btn:focus, .advance-search .btn:active:focus{box-shadow:none;outline:none !important}
 .advance-search .open > .dropdown-menu > li > a{color:#444}
 .advance-search .open > .dropdown-menu > li.selected > a{background-color:#337ab7;color:#fff}
-.advance-search .slider.slider-horizontal{width:100%}
+.advance-search .slider.slider-horizontal{width:90%}
 .advance-search .slider.slider-horizontal .tooltip{z-index:1000}
 .advance-search .price-hint{color:#fff}
 .advance-search .glyphicon{margin-right:4px}
@@ -131,10 +132,13 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .list-selection .list-unstyled{margin:0}
 .list-selection .list-unstyled li{float:left;border-right:solid 1px #ddd}
 .list-selection .list-unstyled li a{padding:13px 25px;display:inline-block;color:#444;text-decoration:none}
-.list-selection .list-unstyled li a.active,
-.list-selection .list-unstyled li a.active:hover{color:#fff;background:#407cbb}
-.list-selection .list-unstyled li a:hover{background:#e5e5e5;color:#407cbb}
-.list-selection .sort-option{float:right}
+.list-selection .list-unstyled li.active,
+.list-selection .list-unstyled li.active:hover{color:#fff;background:#407cbb}
+.list-selection .list-unstyled li.active a,
+.list-selection .list-unstyled li.active:hover a{color:#fff}
+.list-selection .list-unstyled li:hover{background:#e5e5e5}
+.list-selection .list-unstyled li:hover a{color:#407cbb}
+.list-selection .sort-option{float:right;padding-right:15px}
 .list-selection .sort-option h5{margin:0 5px 0 0;display:inline;line-height:46px;font-size:12px;color:#999}
 
 .list-selection .sort-option .bootstrap-select > .dropdown-toggle{background:transparent;color:#444;border-radius:0;border:none;border-bottom:solid 1px #fff;padding-left:0;box-shadow:none !important}
@@ -150,11 +154,11 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .list-selection .open > .dropdown-menu > li.selected > a{background-color:#337ab7 !important;color:#fff !important}
 .list-selection .open > .dropdown-menu > ul > li{display:inline-block !important;width:100% !important}
 
-.property-listing .listing-box{display:table;position:relative;width:100%;background:#fff;-webkit-box-shadow:0 0 4px #999;-moz-box-shadow:0 0 4px #999;-ms-box-shadow:0 0 4px #999;-o-box-shadow:0 0 4px #999;box-shadow:0 0 4px #999;margin-bottom:30px;cursor:pointer;height:358px}
+.property-listing .listing-box{display:table;position:relative;width:100%;background:#fff;-webkit-box-shadow:0 0 4px #999;-moz-box-shadow:0 0 4px #999;-ms-box-shadow:0 0 4px #999;-o-box-shadow:0 0 4px #999;box-shadow:0 0 4px #999;margin-bottom:30px;cursor:pointer;height:357px}
 .property-listing .listing-box:hover{-webkit-box-shadow:0 0 4px#454545;-moz-box-shadow:0 0 4px #454545;-ms-box-shadow:0 0 4px #454545;-o-box-shadow:0 0 4px #454545;box-shadow:0 0 4px #454545}
 .property-listing .listing-box:hover a{color:#407cbb}
 .property-listing .listing-box:hover .img-box img{transform:scale(1.1);-webkit-transform:scale(1.1);-moz-transform:scale(1.1);-ms-transform:scale(1.1);-o-transform:scale(1.1)}
-.property-listing .listing-box a{text-decoration:none;color:#575757;display:block}
+.property-listing .listing-box a{text-decoration:none;color:#575757;display:block;word-break:break-all;word-wrap:break-word}
 .property-listing .listing-box .img-box{position:relative;overflow:hidden}
 .property-listing .listing-box .img-box img{display:inline-block;transition:all .2s ease-in-out;-webkit-transition:all .2s ease-in-out;-moz-transition:all .2s ease-in-out;-ms-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out}
 .property-listing .listing-box h3{font-size:16px;height:40px;padding:0 15px}
@@ -193,7 +197,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 
 /* Property Details Page */
 .property-details{margin-bottom:30px}
-.property-details h1{margin-top:30px;margin-bottom:15px;border-bottom:solid 1px #ddd;padding-bottom:5px;font-size:30px;color:#0288D1;text-shadow:none}
+.property-details h1{margin-top:30px;margin-bottom:15px;border-bottom:solid 1px #ddd;padding-bottom:5px;font-size:30px;color:#0288D1;word-break:break-all;word-wrap:break-word}
 .property-details .info-lable-text{font-size:14px;background:#E3F2FD;padding:10px;margin:20px 0;border-radius:4px;color:#444;text-align:center}
 .property-details .status-tag{position:absolute;top:0;left:15px;min-width:auto;padding:5px 5px 5px 15px;color:#fff;display:inline-block;height:50px;font-size:18px;line-height:40px}
 .property-details .status-tag:after{content:"";position:absolute;top:0;right:-49px;width:0;height:0;border-style:solid;border-width:50px 50px 0 0}
@@ -231,7 +235,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .property-details .status-price-details li.links a{color:#5296d0;text-decoration:none}
 .property-details .status-price-details li.links a:hover{color:#444}
 
-.property-details .description-content{padding:15px 0;color:#525252;border-bottom:solid 1px #ddd}
+.property-details .description-content{padding:15px 0;color:#525252;border-bottom:solid 1px #ddd;word-break:break-all;word-wrap:break-word}
 .property-details .description-content ul{padding:0;margin:0;list-style:none}
 .property-details .description-content ul li{padding:10px 0;border-bottom:solid 1px #ddd}
 .property-details .description-content ul li:last-of-type{border-bottom:none}
@@ -248,7 +252,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 
 .map-graph-section{background:#f5f5f5;padding:30px 0;-webkit-box-shadow:0 0 4px 1px #ccc;-moz-box-shadow:0 0 4px 1px #ccc;-ms-box-shadow:0 0 4px 1px #ccc;-o-box-shadow:0 0 4px 1px #ccc;box-shadow:0 0 4px 1px #ccc}
 .map-graph-details h4{margin-top:0;margin-bottom:4px;font-size:12px}
-.map-graph-details h4 a{color:#5296d0;text-decoration:none;padding:6px 0;display:inline-block}
+.map-graph-details h4 a{color:#5296d0;text-decoration:none;padding:6px 0;display:inline-block;word-break:break-all;word-wrap:break-word}
 .map-graph-details h4 a:hover{color:#444}
 .map-graph-details iframe{border:0;width:100%;height:380px}
 
@@ -282,10 +286,11 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 
 /* Content Pages CSS */
 .content-section{padding-bottom:50px}
-.content-section h1{margin-top:30px;margin-bottom:15px;border-bottom:solid 1px #ddd;padding-bottom:5px;font-size:30px;color:#0288D1;text-shadow:none !important}
+.content-section h1{margin-top:30px;margin-bottom:15px;border-bottom:solid 1px #ddd;padding-bottom:5px;font-size:30px;color:#0288D1}
 .content-section h3{margin-top:30px;font-size:22px}
 .content-section p{color:#444;text-align:justify}
 .content-section.faq h4{margin-top:0;padding-top:78px}
+.content-section.faq ol{margin-bottom:78px}
 .content-section.faq article{padding-bottom:65px}
 .content-section.faq hr{margin-top:0;margin-bottom:0}
 
@@ -302,7 +307,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .latest-blogs-section .blog-listing{padding-left:0;padding-right:0}
 .latest-blogs-section .blog-listing .listing-box{margin-bottom:0}
 
-.blog-content-section h1{margin-top:30px;margin-bottom:15px;border-bottom:solid 1px #ddd;padding-bottom:5px;font-size:30px;color:#0288D1;word-break:break-all;text-shadow:none !important}
+.blog-content-section h1{margin-top:30px;margin-bottom:15px;border-bottom:solid 1px #ddd;padding-bottom:5px;font-size:30px;color:#0288D1;word-break:break-all}
 .blog-content-section h2, .content-section h3, .content-section h4, .content-section h5, .content-section h6{margin-top:30px;margin-bottom:15px}
 .blog-content-section p{color:#444;text-align:justify}
 .blog-content-section .featured-img{margin-bottom:20px}
@@ -322,7 +327,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .blog-listing .listing-box .img-box{overflow:hidden;height:200px}
 .blog-listing .listing-box .img-box img{display:inline-block;transition:all .2s ease-in-out;-webkit-transition:all .2s ease-in-out;-moz-transition:all .2s ease-in-out;-ms-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out}
 .blog-listing .listing-box h3{font-size:16px;height:40px;border-bottom:solid 1px #ddd;padding-left:15px;padding-right:15px}
-.blog-listing .listing-box p{color:#888;padding-left:15px;padding-right:15px}
+.blog-listing .listing-box p{color:#888;padding-left:15px;padding-right:15px;word-break:break-all;word-wrap: break-word}
 .blog-listing .listing-box a{text-decoration:none;color:#525252;display:block;position:relative;word-break:break-all;}
 .blog-listing .listing-box .status-dtls{position:absolute;bottom:0;padding:10px 0 10px 15px;border-top:solid 1px #ddd;display:table;margin-bottom:0}
 .blog-listing .listing-box .status-dtls li{width:1%}
@@ -350,27 +355,28 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .first-section .box-content{width:100%;margin:0}
 .first-section .box-content h1{font-size:24px}
 .first-section .box-content p,.content-section-row h4{font-size:16px}
-.content-section-row h2,.property-section h3,.magazine-section h3{font-size:22px}
+.content-section-row h2,.property-section h3,.magazine-section h3, .property-details h1{font-size:22px}
 .content-section-row ul{font-size:14px}
 .magazine-section .img-responsive.last{margin-bottom:0}
 .feedback-section .comment{font-size:18px}
 
 /* Property Listing Page CSS */
 .list-selection{height:auto}
-.list-selection .list-unstyled{width:100%;display:table;border-bottom:solid 1px #ddd;text-align:center}
-.list-selection .list-unstyled li{float:none;width:1%;display:table-cell}
-.list-selection .list-unstyled li a{display:block}
-.list-selection .list-unstyled li:last-of-type{border-right:none}
-.list-selection .sort-option{float:none}
+.list-selection .list-unstyled{width:100%;display:table;text-align:center}
+.list-selection .list-unstyled li{float:left;width:auto;display:table-cell}
+.list-selection .list-unstyled li a{padding:10px;display:block;border-bottom:solid 1px #ddd}
+.list-selection .sort-option{float:none;border-top:solid 1px #ddd}
 .list-selection .sort-option h5{margin-left:15px}
 .property-listing .listing-box{height:auto}
 .property-listing .col-xs-12{width:100% !important}
-.sort-option .btn-group.bootstrap-select{width:75% !important}
+.sort-option .btn-group.bootstrap-select{width:75% !important;margin-left:15px}
 
+/* Content Pages CSS */
 .content-section h1{font-size:18px}
-.content-section h3{margin-top:20px;font-size:16px}
+.content-section h3{font-size:16px}
 
 /* Property Details Page CSS */
+.property-details .status-price-details li .title{float:none;width:auto;display:block;font-weight:bold}
 .property-details .contact-link a.left-link{margin-bottom:15px}
 .property-details .contact-link a.left-link, .property-details .contact-link a.right-link{float:none;display:block}
 
@@ -383,18 +389,24 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .first-section .box-content{width:90%;margin:0 5%}
 .first-section .box-content h1{font-size:28px}
 .first-section .box-content p,.content-section-row h4{font-size:18px}
-.content-section-row h2,.property-section h3,.magazine-section h3{font-size:26px}
+.content-section-row h2,.property-section h3,.magazine-section h3, .property-details h1{font-size:26px}
 .magazine-section .col-xs-12{width:50%}
 .feedback-section .comment{font-size:20px}
 
 /* Property Listing Page CSS */
-.list-selection{height:96px}
-.list-selection .list-unstyled{border-bottom:solid 1px #ddd;width:100%;display:table}
+.list-selection{height:115px}
+.list-selection .list-unstyled{width:100%;display:table;border-bottom:solid 1px #ddd}
+.list-selection .list-unstyled li{width:1%;display:table-cell;float:none;text-align:center}
+.list-selection .list-unstyled li a{padding-left:15px;padding-right:15px}
 .property-listing .listing-box{height:342px}
 .sort-option .btn-group.bootstrap-select{width:138px !important}
 
+/* Content Pages CSS */
 .content-section h1{font-size:24px}
 .content-section h3{margin-top:20px;font-size:20px}
+
+/* Property Details Page CSS */
+.property-details .contact-link a.left-link, .property-details .contact-link a.right-link{padding:8px 12px;font-size:14px}
 }
 @media(max-width:767px){
 /* Index Page CSS */
@@ -407,15 +419,22 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 
 /* Common Body CSS */
 .main-body{margin-top:-193px;margin-bottom:125px}
+.main-body.without-search-feature{margin-bottom:113px}
+
+/* Content Pages CSS */
+.content-section ul, .content-section ol{padding-left:15px}
+.no-wrap{white-space:normal !important}
+.no-wrap h4{font-size:16px}
 
 /* Property Listing Page CSS */
 .advance-search .form-group .first{padding-left:15px}
 .advance-search .slider.slider-horizontal{margin-top:10px}
 .property-listing .col-xs-12{width:50%}
 .advance-search .btn-group.bootstrap-select{margin-bottom:15px}
-.list-selection .list-unstyled{width:100%;display:table}
-.list-selection .list-unstyled li{width:1%;display:table-cell;float:none}
-.list-selection .list-unstyled li a{padding-left:15px;padding-right:15px}
+.advance-search .slider.slider-horizontal{width:92.5%}
+
+/* Property Details Page CSS */
+#google_map{margin-bottom:30px}
 }
 
 @media(min-width:768px) and (max-width:991px){
@@ -424,7 +443,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .list-selection .list-unstyled li a{padding:16px 10px}
 .list-selection .sort-option h5{display:block;line-height:inherit}
 .property-listing .listing-box{height:349px}
-
+.advance-search .form-group .first{padding-left:15px}
 .content-section h1{font-size:28px}
 }
 @media(max-width:991px){

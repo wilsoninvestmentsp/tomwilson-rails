@@ -21,6 +21,18 @@ class Property < ActiveRecord::Base
   scope :by_status, -> (status) { where(:status => status) }
   scope :for_sale_and_reserved, -> { where status: [:for_sale, :reserved] }
 
+  STATUS_ORDER = ['for_sale', 'reserved', 'sale_pending', 'sold', 'coming_soon']
+
+  def self.order_by_case
+    query = "CASE"
+    STATUS_ORDER.each_with_index do |s, i|
+      query << " WHEN status = '#{s}' THEN #{i}"
+    end
+    query << " END"
+  end
+ 
+  scope :order_by_status, -> { order(order_by_case) }
+
   def create_links
     links = [{title: 'Community Overview'}, {title: 'Appraisal Tax Record'}, {title: 'Parcel Map'}, {title: 'Tax Statement'}, {title: 'School District'}, {title: 'Accident'}]
     links.each do |l|

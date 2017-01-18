@@ -45,11 +45,13 @@
               <%= f.select :status, @status_options, {}, class: 'selectpicker' %>
             </div>
             <% unless @property.new_record? %>
-              <div class="checkbox">
-                <label>
-                <%= f.check_box :leased %>
-                <span class="cr"><i class="cr-icon fa fa-check"></i></span> Select to show property as Leased
-                </label>
+              <div class="form-group">
+                <div class="checkbox">
+                  <label>
+                    <%= f.check_box :leased %>
+                    <span class="cr"><i class="cr-icon fa fa-check"></i></span> Select to show property as Leased
+                  </label>
+                </div>
               </div>
             <% end %>
             <div class="form-group">
@@ -290,7 +292,7 @@
                       <a href="{{link.link}}" target="_blank">{{link.link}}</a>
                     </td>
                     <td ng:show="!link.edit" align="right">
-                      <button type="button" class="btn btn-warning btn-sm" ng:click="editLink($index)">Edit</button>
+                      <button type="button" class="btn btn-success btn-sm" ng:click="editLink($index)" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                       <button type="button" class="btn btn-danger btn-sm" ng:click="deleteLink(link,$index)" ng:if="$index > 5">Delete</button>
                     </td>
                     <td class="vmiddle" ng:show="link.edit">
@@ -300,8 +302,8 @@
                       <input type="text" class="form-control" ng:model="link.link" placeholder="Link">
                     </td>
                     <td ng:show="link.edit" align="right">
-                      <button type="button" class="btn btn-default btn-sm" ng:click="cancelEditing($index)">Cancel</button>
-                      <button type="button" class="btn btn-success btn-sm" ng:click="updateLink(link, $index)">{{saving[link.id] || 'Save'}}</button>
+                       <button type="button" class="btn btn-success btn-sm" ng:click="updateLink(link, $index)" title="Save">{{saving[link.id] || ''}} <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+                      <button type="button" class="btn btn-danger btn-sm" ng:click="cancelEditing($index)" title="Cancel"><i class="fa fa-times" aria-hidden="true"></i></button>
                     </td>
                   </tr>
                   <tr>
@@ -313,7 +315,7 @@
                       <input type="text" class="form-control" ng:model="newLink.link" onenter="createLink(newLink)" placeholder="Link">
                     </td>
                     <td class="vmiddle" align="right">
-                      <button type="button" class="btn btn-default btn-sm" ng:show="!saving.new" ng:click="createLink(newLink)"><%= icon 'plus' %></button>
+                      <button type="button" class="btn blue-btn btn-sm" ng:show="!saving.new" ng:click="createLink(newLink)" title="Create"><%= icon 'plus' %></button>
                       <button type="button" class="btn btn-default btn-sm" ng:if="saving.new" ng:disabled="true">...</button>
                     </td>
                   </tr>
@@ -325,11 +327,12 @@
           <% end %>
           <div class="row mar-btm-30">
             <div class="col-xs-12">
-              <%= button_tag(type: 'submit', class: 'btn blue-btn btn-lg') do %>
-                Submit Property <i class="fa fa-angle-right fa-next" aria-hidden="true"></i>
+              <%= button_tag(type: 'submit', class: 'btn blue-btn btn-lg') do %><i class="fa fa-check" aria-hidden="true"></i> Submit Property
               <% end %>
               <% unless @property.new_record? %>
-                <%= link_to 'Delete Property', @property, method: :delete, data: { confirm: 'Are you sure you wish to delete this property? This CANNOT be undone.' },class: 'btn btn-danger btn-lg' %>
+                <%= link_to @property, method: :delete, data: { confirm: 'Are you sure you wish to delete this property? This CANNOT be undone.' },class: 'btn btn-danger btn-lg' do %>
+                      <i class="fa fa-times" aria-hidden="true"></i> Delete Property
+                <% end %>
               <% end %>
             </div>
           </div>

@@ -48,10 +48,9 @@ App.controller('PropertiesCtrl',['$scope','$http',function($scope,$http){
 	};
 
 	scope.activeMenu = scope.separate_building_types['all'];
-
-	scope.setActive = function(building_type) {
-    scope.activeMenu = building_type;
- };
+	scope.setActive = function(building_type){
+	  scope.activeMenu = building_type;
+	};
 
 	scope.getStatusClass = function(status){
 		switch(status) {
@@ -134,6 +133,7 @@ App.controller('PropertiesCtrl',['$scope','$http',function($scope,$http){
 	scope.getProperties();
 
 	scope.filterPropertiesByBuildingType = function(query){
+		scope.setActive(query)
 		scope.loading = true
 		delete scope.params.q;
 		delete scope.params.page;
@@ -177,6 +177,11 @@ App.controller('PropertiesCtrl',['$scope','$http',function($scope,$http){
 
 	scope.createArray = function(i){
 		return new Array(i);
+	}
+
+	scope.clickableDiv = function(property){
+		var property_url = 'http://localhost:3000/properties/'+property
+		window.location = property_url;
 	}
 
 }]);

@@ -18,7 +18,7 @@ module Api
         @properties = Property.where(q)
         .page(params[:page])
         .per(Settings.pagination.properties.per_page)
-        .order("FIELD(status, 'for_sale','reserved','sale_pending','sold','coming_soon')")
+        .order_by_status
 
         filter_by_offer_price(offer_price) if offer_price.present?
         @properties = @properties.order(offer_price: params[:order]) if params[:order].present?

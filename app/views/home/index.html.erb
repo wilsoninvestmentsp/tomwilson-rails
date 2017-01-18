@@ -110,7 +110,7 @@
           <% end %>
         </div>
         <div class="text-center">
-          <%= link_to properties_path, class: 'btn border-btn btn-lg' do %><i class="fa fa-th" aria-hidden="true"></i>View More Offers<% end %>
+          <%= link_to properties_path, method: :get, class: 'btn border-btn btn-lg' do %><i class="fa fa-th" aria-hidden="true"></i>View More Offers<% end %>
         </div>
       </div>
     </div>
@@ -129,7 +129,7 @@
         <%= image_tag "Realty_Insights_July-2016_Cover_Tom_Summit.jpg", alt: "Realty Insights Magazine Cover (July 2015)", class: "img-responsive"%>
       </div>
       <div class="col-sm-3 col-xs-12">
-        <%= image_tag "REI-Voice-Cover-July-2015-2.jpg", alt: "Realty Insights Magazine Cover (July 2015)", class: "img-responsive last"%>
+        <%= image_tag "REI-Voice-Cover-July-2015-2.jpg", alt: "Realty Insights Magazine Cover (July 2015)", class: "img-responsive"%>
       </div>
       <div class="col-sm-3 col-xs-12">
         <%= image_tag "realty-411-magazine-cover.jpg", alt: "Realty 411 Magazine Cover", class: "img-responsive last"%>
@@ -166,11 +166,11 @@
               <div ng:controller="TestimoniesCtrl">
                 <table class="table table-condensed table-striped">
                   <tr>
-                    <td><strong>Quote</strong></td>
-                    <td><strong>Author</strong></td>
-                    <td align="center"><strong>Order</strong></td>
+                    <td><b>Quote</b></td>
+                    <td><b>Author</b></td>
+                    <td align="center"><b>Order</b></td>
                     <td align="right">
-                      <button type="button" class="btn btn-default btn-sm" ng:click="saveOrder()" ng:disabled="saving.order">{{saving.order || 'Save Order'}}</button>
+                      <button type="button" class="btn blue-btn btn-sm" ng:click="saveOrder()" ng:disabled="saving.order">{{saving.order || 'Save Order'}}</button>
                     </td>
                   </tr>
                   <tr ng:repeat="testimony in testimonies">
@@ -181,34 +181,33 @@
                       <div><a href="" ng:click="moveTestimony(testimony,$index,$index+1)"><%= icon 'chevron-down' %></a></div>
                     </td>
                     <td ng:show="!testimony.edit" align="right">
-                      <button type="button" class="btn btn-warning btn-sm" ng:click="editTestimony($index)">Edit</button>
-                      <button type="button" class="btn btn-danger btn-sm" ng:click="deleteTestimony(testimony,$index)">Delete</button>
+                      <button type="button" class="btn btn-success btn-sm" ng:click="editTestimony($index)" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                      <button type="button" class="btn btn-danger btn-sm" ng:click="deleteTestimony(testimony,$index)" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></button>
                     </td>
                     <td class="vmiddle" ng:show="testimony.edit">
-                      <input type="text" class="form-control" ng:model="testimony.quote" placeholder="" />
+                      <input type="text" class="form-control" ng:model="testimony.quote" placeholder="">
                     </td>
                     <td class="vmiddle" ng:show="testimony.edit">
-                      <input type="text" class="form-control" ng:model="testimony.author" placeholder="" />
+                      <input type="text" class="form-control" ng:model="testimony.author" placeholder="">
                     </td>
                     <td class="vmiddle" align="center" ng:show="testimony.edit">
                       <div><a href="" ng:click="moveTestimony(testimony,$index,$index-1)"><%= icon 'chevron-up' %></a></div>
                       <div><a href="" ng:click="moveTestimony(testimony,$index,$index+1)"><%= icon 'chevron-down' %></a></div>
                     </td>
                     <td ng:show="testimony.edit" align="right">
-                      <button type="button" class="btn btn-default btn-sm" ng:click="cancelEditing($index)">Cancel</button>
-                      <button type="button" class="btn btn-success btn-sm" ng:click="saveTestimony(testimony)" ng:disabled="saving[testimony.id]">{{saving[testimony.id] || 'Save'}}</button>
+                      <button type="button" class="btn btn-success btn-sm" ng:click="saveTestimony(testimony)" ng:disabled="saving[testimony.id]" title="Save">{{saving[testimony.id] || ''}}<i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+                      <button type="button" class="btn btn-danger btn-sm" ng:click="cancelEditing($index)"><i class="fa fa-times" aria-hidden="true" title="Cancel"></i></button>
                     </td>
                   </tr>
                   <tr>
                     <td class="vmiddle">
-                      <input type="text" class="form-control" ng:model="newTestimony.quote" placeholder="Quote" />
+                      <input type="text" class="form-control" ng:model="newTestimony.quote" placeholder="Quote">
                     </td>
-                    <td class="vmiddle">
-                      <input type="text" class="form-control" ng:model="newTestimony.author" placeholder="Author" />
+                    <td class="vmiddle" colspan="2">
+                      <input type="text" class="form-control" ng:model="newTestimony.author" placeholder="Author">
                     </td>
-                    <td class="vmiddle" align="center"></td>
                     <td align="right">
-                      <button type="button" class="btn btn-default btn-sm" ng:click="createTestimony(newTestimony)" ng:show="!saving.new"><%= icon 'plus' %></button>
+                      <button type="button" class="btn blue-btn btn-sm" ng:click="createTestimony(newTestimony)" ng:show="!saving.new" title="Create"><%= icon 'plus' %></button>
                       <button type="button" class="btn btn-default btn-sm" ng:show="saving.new" ng:disabled="true">{{saving.new}}</button>
                     </td>
                   </tr>
