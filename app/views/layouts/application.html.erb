@@ -3,6 +3,7 @@
 <head>
   <title>Wilson Investment Properties, Inc</title>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <%= display_meta_tags%>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
   <link rel="shortcut icon" href="<%= asset_path "favicon-#{Rails.env}.png" %>">
@@ -39,42 +40,32 @@
       background-position: center center !important;
     }
   </style>
+
   <script type="text/javascript">
-
     <% images.each_with_index do |img,i| %>
-
     var img_<%= i %> = new Image();
     img_<%= i %>.src = '<%= img[:main] %>';
-
     <% end %>
+
     var images = <%= images.shuffle.to_json.html_safe %>;
     var selectedBG = 0;
     var bgTime = 7000;
     setTimeout(function(){
-
       setInterval(function(){
-
         var i = (images.length-1) - selectedBG;
-
         $('.jumbotron.home').css('background-image','url('+images[i].main+')');
         $('.jumbotron.blue').css('background-image','url('+images[i].small+')');
-
         selectedBG++;
-
         if (selectedBG >= images.length){ selectedBG = 0 }
-
       },bgTime);
-
     },bgTime);
   </script>
 
   <%
   preload = []
   images.each do |image|
-
     preload << image[:main]
     preload << image[:small]
-
   end
   %>
   <style type="text/css">
@@ -95,26 +86,30 @@
       background-image: url('<%= image[:small] %>');
     }
   </style>
-  <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+
 </head>
 <body ng:controller="MainCtrl">
 
   <% if Rails.env.production? %>
   <div id="placeholder"></div>
   <!-- Google Tag Manager -->
-  <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-M29TXX"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-M29TXX');</script>
+  <noscript>
+  	<iframe src="//www.googletagmanager.com/ns.html?id=GTM-M29TXX"height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+
+  <script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+	  var f = d.getElementsByTagName(s)[0],
+	  j = d.createElement(s),dl = l != 'dataLayer' ? '&l=' + l: '';
+	  j.async=true;
+	  j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+	  f.parentNode.insertBefore(j,f);
+  })
+  (window,document,'script','dataLayer','GTM-M29TXX');
+  </script>
   <!-- End Google Tag Manager -->
   <% end %>
-  
+
   <%= render 'shared/flash_messages'%>
   <%= render 'layouts/header' %>
     <%= yield %>

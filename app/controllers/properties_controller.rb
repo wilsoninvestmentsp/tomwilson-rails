@@ -17,6 +17,9 @@ class PropertiesController < ApplicationController
   # GET /properties/1
   # GET /properties/1.json
   def show
+    prepare_meta_tags(title: @property.title,
+                      description: @property.description,
+                      keywords: @property.address)
   end
 
   # GET /properties/new
