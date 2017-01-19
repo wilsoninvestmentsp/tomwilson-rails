@@ -5,10 +5,10 @@
       <div class="col-xs-12">
         <div class="box-shadow">
           <ol class="breadcrumb">
-            <li><%= link_to 'Home', root_url, method: :get %></li>
+            <li><%= link_to 'Home', root_url %></li>
             <li class="active">Our Blogs</li>
             <% if current_user %>
-              <li><%= link_to 'New', new_blog_path, method: :get %></li>
+              <li><%= link_to 'New', new_blog_path %></li>
             <% end %>
           </ol>
         </div>

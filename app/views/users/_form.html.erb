@@ -73,24 +73,25 @@
       <div class="form-group">
         <%= f.label :description, class: 'control-label' %>
         <%= f.text_area :description %>
-        <script type="text/javascript">
-          $(document).ready(function(){
-            setTimeout(function(){
-              tinyMCE.remove();
-              tinyMCE.init({
-                selector: '#user_description',
-                min_height: 300
-              });
-            },100);
-          });
-        </script>
       </div>
     </div>
   </div>
-  <div class="row form-row mar-btm-30 user-form">
+  <div class="row form-row mar-btm-30">
     <div class="col-xs-12">
       <%= button_tag type: 'Submit', class: 'btn blue-btn btn-lg' do %><i class="fa fa-check" aria-hidden="true"></i> Submit User<% end %>
     </div>
   </div>
   <% end %>
 </div>
+<script type="text/javascript">
+  $(document).on('ready page:load', function() {
+    $('.selectpicker').selectpicker();
+    setTimeout(function(){
+      tinyMCE.remove();
+      tinyMCE.init({
+        selector: '#user_description',
+        min_height: 300
+      });
+    },100);
+  });
+</script>

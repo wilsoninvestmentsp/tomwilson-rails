@@ -4,4 +4,8 @@ class Link < ActiveRecord::Base
 
 	validates_presence_of :title,:property_id
 
+  def formatted_link
+    (link[/\Ahttp:\/\//] || link[/\Ahttps:\/\//]) ? link : "http://#{link}"
+  end
+
 end

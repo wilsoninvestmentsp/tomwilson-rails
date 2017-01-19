@@ -36,16 +36,6 @@ App.controller('PropertiesCtrl',['$scope','$http',function($scope,$http){
 			value: 'multifamily%2Ccommercial'
 		}
 	};
-	scope.sort_offer_price = {
-		'asc': {
-			label: 'Low to High',
-			value: 'acs'
-		},
-		'desc': {
-			label: 'High to Low',
-			value: 'desc'
-		}
-	};
 
 	scope.activeMenu = scope.separate_building_types['all'];
 	scope.setActive = function(building_type){

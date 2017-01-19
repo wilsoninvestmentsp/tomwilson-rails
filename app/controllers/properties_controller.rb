@@ -9,6 +9,10 @@ class PropertiesController < ApplicationController
   def index
     @states ||= Property.select(:state).uniq!
     @cities = Property.select(:city).uniq
+    min_price = Property.minimum(:offer_price)
+    max_price = Property.maximum(:offer_price)
+    @min_max_price = { min_price: min_price, max_price: max_price }
+    @sort_by_offer_price = { asc: 'Low to High', desc: 'High to Low' }
   end
 
   def get_cities
