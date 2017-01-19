@@ -327,7 +327,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .status-dtls li a.comment{color:#ef5350}
 .status-dtls li a.fav{color:#8BC34A}
 
-.blog-listing .listing-box{display:block;position:relative;overflow:hidden;width:100%;height:486px;margin-bottom:30px;cursor:pointer;background:#fff;-webkit-box-shadow:0 0 4px#999;-moz-box-shadow:0 0 4px #999;-ms-box-shadow:0 0 4px #999;-o-box-shadow:0 0 4px #999;box-shadow:0 0 4px #999}
+.blog-listing .listing-box{display:block;position:relative;overflow:hidden;width:100%;height:516px;margin-bottom:30px;cursor:pointer;background:#fff;-webkit-box-shadow:0 0 4px#999;-moz-box-shadow:0 0 4px #999;-ms-box-shadow:0 0 4px #999;-o-box-shadow:0 0 4px #999;box-shadow:0 0 4px #999}
 .blog-listing .listing-box:hover{-webkit-box-shadow:0 0 4px#454545;-moz-box-shadow:0 0 4px #454545;-ms-box-shadow:0 0 4px #454545;-o-box-shadow:0 0 4px #454545;box-shadow:0 0 4px #454545}
 .blog-listing .listing-box:hover h3 a{color:#0288D1}
 .blog-listing .listing-box:hover .img-box img{transform:scale(1.1);-webkit-transform:scale(1.1);-moz-transform:scale(1.1);-ms-transform:scale(1.1);-o-transform:scale(1.1)}
@@ -340,6 +340,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .blog-listing .listing-box .status-dtls li{width:1%}
 .blog-listing .listing-box .status-dtls a{color:#ef5350}
 .blog-listing .listing-box:hover .status-dtls a{color:#0288D1}
+.blog-listing .listing-box .status-dtls{margin-top:0}
 
 .pagination{display:none}
 
@@ -387,7 +388,8 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .property-details .status-price-details li .title{float:none;width:auto;display:block;font-weight:bold}
 .property-details .contact-link a.left-link{margin-bottom:15px}
 .property-details .contact-link a.left-link, .property-details .contact-link a.right-link{float:none;display:block}
-
+.property-details .status-tag-right{height:30px;font-size:14px;line-height:20px}
+.property-details .status-tag-right:after{left:-29px;border-width:30px 30px 0 0}
 }
 @media(min-width:480px) and (max-width:767px){
 /* Common CSS */
@@ -416,6 +418,8 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 
 /* Property Details Page CSS */
 .property-details .contact-link a.left-link, .property-details .contact-link a.right-link{padding:8px 12px;font-size:14px}
+.property-details .status-tag-right{height:40px;font-size:16px;line-height:30px}
+.property-details .status-tag-right:after{left:-39px;border-width:40px 40px 0 0}
 }
 @media(max-width:767px){
 /* Index Page CSS */
@@ -443,8 +447,6 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .advance-search .slider.slider-horizontal{width:92.5%}
 
 /* Property Details Page CSS */
-#google_map{margin-bottom:30px}
-
 .blog-listing .listing-box{height:auto}
 .blog-listing .listing-box .status-dtls{position:relative;bottom:auto}
 .latest-blogs-section .border-btn{margin-bottom:50px}
@@ -461,7 +463,9 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 }
 @media(max-width:991px){
   /* Property Details Page CSS */
+  .property-details .item .img-responsive{width:100%}
   .property-details .property-info-tabs{margin-top:30px}
+  #google_map{margin-bottom:30px}
 }
 
 @media(min-width:992px) and (max-width:1199px){
@@ -469,5 +473,5 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .list-selection .list-unstyled li a{padding:13px 22px}
 .property-listing .listing-box{height:378px}
 
-.blog-listing .listing-box{height:504px}
+.blog-listing .listing-box{height:560px}
 }

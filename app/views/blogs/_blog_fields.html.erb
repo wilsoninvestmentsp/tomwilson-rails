@@ -9,7 +9,7 @@
       <%= f.label :summary, class: 'control-label' %>
       <%= f.text_area :summary, class: 'form-control', placeholder: '', rows: 4 %>
       <p class="text-muted small">Summary will show as text on Blog Listing page.
-      <br>Summary allow maximum 380 characters.</p>
+      <br>Summary will show maximum 370 characters.</p>
     </div>
     <div class="form-group">
       <%= f.label 'Featured Image', class: 'control-label' %>
@@ -27,8 +27,3 @@
     </div>
   </div>
 </div>
-<script>
-  $(function(){
-    Blog.tinyMceEditor('#blog_content');
-  });
-</script>

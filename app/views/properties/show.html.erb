@@ -7,10 +7,10 @@
             <div class="box-shadow">
               <ol class="breadcrumb">
                 <li><%= link_to 'Home',root_url %></li>
-                <li><%= link_to 'Properties', properties_path, method: :get %></li>
+                <li><%= link_to 'Properties', properties_path %></li>
                 <li class="active"><%= @property.raw_title %></li>
                 <% if current_user %>
-                <li><%= link_to 'Edit', edit_property_path(@property), method: :get %></li>
+                <li><%= link_to 'Edit', edit_property_path(@property) %></li>
                 <% end %>
               </ol>
             </div>
@@ -23,16 +23,17 @@
             <div class="info-lable-text"><%= @property.highlight.html_safe %></div>
             <% end %>
           </div>
-          <% @slides = @property.images.map { |item| item.to_json } %>
-          <% @slides.unshift @property.image.to_json %>
-          <span ng:init="slides = [<%= @slides.join(',') %>]"></span>
+
           <div class="col-md-6 col-sm-12 col-xs-12">
-            <div id="property-images-slider" class="owl-theme">
-              <uib-carousel active="active" interval="5000" no-wrap="false">
-                <uib-slide ng-repeat="slide in slides track by $index" index="$index">
-                  <img ng-src="{{slide.image.url}}" class="img-responsive">
-                </uib-slide>
-              </uib-carousel>
+            <div id="property-images-slider" class="owl-carousel owl-theme">
+            <div class="item">
+              <%= image_tag @property.image.url, class: 'img-responsive' %>   
+            </div>
+            <% @property.images.each do |property| %>
+              <div class="item">
+                <%= image_tag property.image.url, class: 'img-responsive' %>   
+              </div>
+              <% end %>
             </div>
             <% if @property.leased == '1' %>
               <span class="status-tag-right blue">Leased</span>
@@ -112,7 +113,7 @@
                       <% end %>
                       <% @property.links.each do |link| %>
                         <% if link.link.present? %>
-                          <span><a href="<%= link.link %>" target="_blank"><%= link.title %></a></span>
+                          <span><%= link_to "#{link.title}", "#{link.formatted_link}", target: '_blank'%></span>
                         <% end %>
                       <% end %>
                     </li>
@@ -251,3 +252,9 @@
     </div>
   </div>
 </div>
+<script type="text/javascript">
+   $(document).ready(function(){
+    var auto_play = ($('.item').length == 1) ? false : 4000;
+    $("#property-images-slider").owlCarousel({autoPlay:auto_play,items:1,itemsDesktop:[1199,1],itemsTablet:[991,1],itemsMobile:[767,1],transitionStyle:"fade"});
+    });
+</script>

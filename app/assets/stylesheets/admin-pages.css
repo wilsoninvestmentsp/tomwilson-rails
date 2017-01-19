@@ -36,9 +36,13 @@
 .add-property-form .control-label{display:block;font-weight:normal}
 .add-property-form .no-pad-left{padding-left:0}
 .add-property-form .no-pad-right{padding-right:0}
-.btn-group.bootstrap-select{width:100% !important}
-.add-property-form .btn.dropdown-toggle.btn-default, .add-property-form .dropdown-menu > li > a{color:#777}
-.add-property-form .dropdown-menu > li > a:hover{color:#407cbb}
+.add-property-form .btn-group.bootstrap-select,
+.user-form .btn-group.bootstrap-select{width:100% !important}
+.add-property-form .btn.dropdown-toggle.btn-default,
+.add-property-form .dropdown-menu > li > a,
+.user-form .btn.dropdown-toggle.btn-default,
+.user-form .dropdown-menu > li > a{color:#777}
+.add-property-form .dropdown-menu > li > a:hover,  .user-form .dropdown-menu > li > a:hover{color:#407cbb}
 .add-property-form .list-unstyled{margin-top:5px;margin-bottom:0;color:#777;font-size:13px}
 .add-property-form .upload-image .list-unstyled{margin-top:0;display:table}
 .add-property-form .upload-image .list-unstyled li{float:left}

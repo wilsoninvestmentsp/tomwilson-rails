@@ -20,8 +20,9 @@
                       </div>
                     </div>
                     <div class="col-sm-4 text-center">
-                      <input id="price-filter" type="text" class="span2" value="" data-slider-min="0" data-slider-max="400000" data-slider-step="1000" data-slider-value="[0,400000]" ng:model="params.offer_price">
-                      <label class="price-hint">Price: $0 - $400000</label>
+                    <input id="price-filter" type="text" class="span2" value="" data-slider-min="<%= @min_max_price[:min_price] %>" data-slider-max="<%= @min_max_price[:max_price] %>" data-slider-step="1000" data-slider-value="[<%= @min_max_price[:min_price] %>, <%= @min_max_price[:max_price] %>]" ng:model="params.offer_price">
+                      <label class="price-hint">
+                      Price: $<%= @min_max_price[:min_price] %> - $<%= @min_max_price[:max_price] %></label>
                     </div>
                   </div>
                 </form>
@@ -37,21 +38,20 @@
               <li><%= link_to 'Home', root_url %></li>
               <li class="active">Properties</li>
               <% if current_user %>
-              <li><%= link_to 'New', new_property_path, method: :get %></li>
+              <li><%= link_to 'New', new_property_path %></li>
               <% end %>
             </ol>
           </div>
           <div class="list-selection">
             <ul class="list-unstyled">
-              <li ng:repeat="(key, val) in separate_building_types" ng:model="params.building_type" ng:click="filterPropertiesByBuildingType(val)"  ng:class="{active : activeMenu === val}">
+              <li ng:repeat="(key, val) in separate_building_types" ng:model="params.building_type" ng:click="filterPropertiesByBuildingType(val)" ng:class="{active : activeMenu === val}">
                 <a href="">{{val.label}}</a>
               </li>
             </ul>
             <div class="sort-option">
               <h5>Sort By Price: </h5>
-              <select ng:model="params.order" ng:options="key as val.label for (key,val) in sort_offer_price" ng:change="getProperties()" class="selectpicker">
-                <option value="">Default</option>
-              </select>
+               <%= select_tag :offer_price, options_for_select(@sort_by_offer_price.map{ |k,v| [v, k]}), { include_blank: 'Default', 'ng:model': 'params.order', 'ng:change': 'getProperties()', class: 'selectpicker
+                          '} %>
             </div>
             </div>
           </div>
@@ -70,7 +70,8 @@
     </section>
   </div>
 <script type="text/javascript">
-  $(document).ready(function(){
+ $(document).ready(function(){
+    $('.selectpicker').selectpicker();
     $("#price-filter").slider({tooltip:'always', id: "price-filter"}).on('slideStop', function(ev){
         angular.element('#PropertiesCtrl').scope().getProperties();
       });

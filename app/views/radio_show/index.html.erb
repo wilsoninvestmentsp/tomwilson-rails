@@ -26,17 +26,6 @@
             <div ng:show="mode.edit">
               <%= form_tag radio_show_path,method: :put do |f| %>
               <%= text_area_tag :content,@content.body %>
-              <script type="text/javascript">
-                $(document).ready(function(){
-                  setTimeout(function(){
-                    tinyMCE.remove();
-                    tinyMCE.init({
-                      selector: '#content',
-                      min_height: 100
-                    });
-                  },100);
-                });
-              </script>
               <div class="form-group mar-top-15">
                 <%= button_tag type: 'submit', class: 'btn btn-success' do %><i class="fa fa-floppy-o" aria-hidden="true"></i> Save<% end %>
                 <%= button_tag type: 'button', class: 'btn btn-danger','ng:click': 'mode = {}' do %><i class="fa fa-times" aria-hidden="true"></i> Cancel<% end %>
@@ -80,3 +69,15 @@
     </div>
   </div>
 </section>
+
+<script type="text/javascript">
+  $(document).on('ready page:load', function(){
+    setTimeout(function(){
+      tinyMCE.remove();
+      tinyMCE.init({
+        selector: '#content',
+        min_height: 100
+      });
+    },100);
+  });
+</script>
