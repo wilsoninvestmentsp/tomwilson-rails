@@ -77,7 +77,6 @@ App.controller('PropertyFormCtrl',['$scope','$interval','$upload','$routeParams'
 
 			}, 
 			function(response){
-#?&//=]*)/ ");
 			
 				delete scope.img_loading;
 
