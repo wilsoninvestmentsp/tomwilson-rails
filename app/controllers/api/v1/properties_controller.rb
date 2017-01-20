@@ -14,6 +14,7 @@ module Api
         end
 
         q = QueryTools.query params
+        pagination_by_device
 
         @properties = Property.where(q)
         .page(params[:page])
