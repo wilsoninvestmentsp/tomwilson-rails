@@ -71,6 +71,7 @@
 
 <script type="text/javascript">
   $(function(){
-    $("#latest-blogs").owlCarousel({autoPlay:6000,items:3,itemsDesktop:[1199,3],itemsDesktopSmall:[991,2],itemsTablet:[767,1],itemsMobile:[479,1],transitionStyle:"fade"});
+    var auto_play = ($('.item').length == 1) ? false : 6000;
+    $("#latest-blogs").owlCarousel({autoPlay:auto_play,items:3,itemsDesktop:[1199,3],itemsDesktopSmall:[991,2],itemsTablet:[767,1],itemsMobile:[479,1],transitionStyle:"fade"});
   });
 </script>

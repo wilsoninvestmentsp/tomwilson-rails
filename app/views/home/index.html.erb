@@ -98,10 +98,10 @@
               <a href="" ng:click="mode = {edit: true}"><i class="fa fa-sort" aria-hidden="true"></i> Re-Order</a>
             </li>
             <li ng:show="mode.edit && !loading && changed">
-              <a href="" ng:click="saveOrder()">Save</a>
+              <a href="" ng:click="saveOrder()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</a>
             </li>
             <li ng:show="loading">
-              <a href="" ng:click="">Saving...</a>
+              <a href="" ng:click=""><i class="fa fa-ellipsis-h" aria-hidden="true"></i> Saving</a>
             </li>
             <li ng:show="!changed && mode.edit">
               <a href="" ng:click="mode = {}"><i class="fa fa-times" aria-hidden="true"></i> Cancel</a>

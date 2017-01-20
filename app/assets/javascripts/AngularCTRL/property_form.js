@@ -43,12 +43,6 @@ App.controller('PropertyFormCtrl',['$scope','$interval','$upload','$routeParams'
 				return;
 			}
 
-			// var url_regex =  new RegExp("/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/");
-			// if(!url_regex.test(link.link)){
-			// 	alert('Please Enter Valid Link');
-			// 	return;
-			// }
-
 			$http({
 			  method: 'PUT',
 			  url: '/api/v1/links/'+link.id+'.json',
@@ -56,6 +50,9 @@ App.controller('PropertyFormCtrl',['$scope','$interval','$upload','$routeParams'
 			}).then(function successCallback(response){
 				delete scope.saving;
 				delete link.edit;
+			}, function errorCallback(response){
+				alert(response.data.errors.link);
+				delete scope.saving;
 			});
 		}
 		scope.uploadUrl = function(id,url){
@@ -77,9 +74,7 @@ App.controller('PropertyFormCtrl',['$scope','$interval','$upload','$routeParams'
 
 			}, 
 			function(response){
-			
 				delete scope.img_loading;
-
 			});
 
 		}
@@ -192,17 +187,12 @@ App.controller('PropertyFormCtrl',['$scope','$interval','$upload','$routeParams'
 
 		// Begin createLink =====================================
 		scope.createLink = function(link){
+
 			if (!link.title || !link.link){
 				alert('Please Enter Link Title and Link');
 				return;
 			}
 			
-			// var url_regex =  new RegExp("/([-a-zA-Z0-9:%_\+.~#?&//=]*)/ ");
-			// if(!url_regex.test(link.link)){
-			// 	alert('Please Enter Valid Link');
-			// return;
-			// }
-
 			scope.saving = {new: true};
 
 			$http({
@@ -218,8 +208,7 @@ App.controller('PropertyFormCtrl',['$scope','$interval','$upload','$routeParams'
 
 			}, function errorCallback(response){
 
-				JP('Error!');
-				JP(response);
+				alert(response.data.errors.link);
 				delete scope.saving;
 
 			});
@@ -244,8 +233,6 @@ App.controller('PropertyFormCtrl',['$scope','$interval','$upload','$routeParams'
 
 			}, function errorCallback(response){
 
-				JP('Error!');
-				JP(response);
 				delete scope.saving;
 
 			});

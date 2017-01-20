@@ -2,7 +2,10 @@ pagination:
   blogs:
     per_page: 9
   properties:
-    per_page: 16
+    per_page:
+      default: 16
+      tablet: 15
+      mobile: 10
 truncate:
   blog:
     title: 60

@@ -58,6 +58,7 @@ GEM
     bootstrap-select-rails (1.6.3)
     bootstrap-slider-rails (9.2.0)
       railties (>= 3.2, < 6.0)
+    browser (2.3.0)
     builder (3.2.2)
     byebug (9.0.5)
     carrierwave (0.11.2)
@@ -233,6 +234,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootstrap-select-rails
   bootstrap-slider-rails
+  browser
   byebug
   carrierwave
   cloudinary

@@ -88,7 +88,8 @@ App.controller('PropertiesCtrl',['$scope','$http',function($scope,$http){
 			scope.properties = response.data.properties;
 			scope.meta = response.data.meta;
 			delete scope.loading;
-
+			$('[data-toggle="tooltip"]').tooltip();
+			
 		}, function errorCallback(response){
 
 			JP('PropertiesCtrl getProperties Error!');

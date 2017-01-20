@@ -1,9 +1,9 @@
 module Api
   module V1
     class PropertiesController < ApplicationController
-
       respond_to :json
       before_action :set_property,except: [:index,:order]
+      before_action :detect_device, only: [:index]
 
       def index
         params[:active] = 'true'
@@ -17,7 +17,7 @@ module Api
 
         @properties = Property.where(q)
         .page(params[:page])
-        .per(Settings.pagination.properties.per_page)
+        .per(@per_page)
         .order_by_status
 
         filter_by_offer_price(offer_price) if offer_price.present?
@@ -33,6 +33,17 @@ module Api
           limit: (params[:limit] || 100).to_i
         }
 
+      end
+
+      def pagination_by_device
+        if @browser.device.tablet?
+          per_page = Settings.pagination.properties.per_page.tablet
+        elsif @browser.device.mobile?
+          per_page = Settings.pagination.properties.per_page.mobile
+        else
+          per_page = Settings.pagination.properties.per_page.default
+        end
+        @per_page = per_page
       end
 
       def filter_by_offer_price(offer_price)
@@ -67,6 +78,10 @@ module Api
         @property = Property.friendly.find(params[:id])
       end
 
+      def detect_device
+        user_agent = request.user_agent
+        @browser = Browser.new(user_agent, accept_language: "en-us")
+      end
     end
   end
 end

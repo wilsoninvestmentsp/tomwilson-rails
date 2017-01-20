@@ -74,11 +74,19 @@ class PropertiesController < ApplicationController
   end
 
   def import
-    error_csv = Property.import params[:file]
-    if error_csv.nil?
-      redirect_to import_url, flash: {success: "Properties has been imported successfully..."}
+    if params[:file].present?
+      file_extension = File.extname params[:file].original_filename
+      error_csv = Property.import params[:file] 
+      if file_extension != 'csv'
+        return redirect_to import_url, flash: {danger: "Please select CSV file to import properties..."}
+      end
+      if error_csv.nil?
+        redirect_to import_url, flash: {success: "Properties has been imported successfully..."}
+      else
+        send_data error_csv, filename: "errors_#{Time.now.to_i}.csv"
+      end
     else
-      send_data error_csv, filename: "errors_#{Time.now.to_i}.csv"
+      redirect_to import_url, flash: {danger: "Please select CSV file to import properties..."}
     end
   end
 
