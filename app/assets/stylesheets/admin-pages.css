@@ -78,8 +78,6 @@
   .col-xxs-12.no-pad-left{padding-right:0}
   .col-xxs-12.no-pad-right{padding-left:0;margin-tisop:15px}
   .fixed-admin-body .blue-btn, .fixed-admin-body .btn-danger, .import-file .btn-default{font-size:14px;padding:8px 14px}
-  .fixed-admin-body .btn-danger.btn-sm, .fixed-admin-body .btn-success.btn-sm{font-size:12px;padding:5px 10px}
-  .fixed-admin-body .blue-btn.btn-sm{font-size:12px;padding:5px 9px}
 
   /* Add - Edit Property CSS */
   .add-property-form .form-group.btype-dropdown,
@@ -107,6 +105,8 @@
   .fixed-admin-body{padding-left:0;padding-right:0}
   .fixed-admin-body .input-btns{padding:6px 12px;font-size:14px}
   .fixed-admin-body .btn-sm.input-btns{padding:5px 10px;font-size:12px}
+  .fixed-admin-body .btn-danger.btn-sm, .fixed-admin-body .btn-success.btn-sm{font-size:12px;padding:5px 10px}
+  .fixed-admin-body .blue-btn.btn-sm{font-size:12px;padding:5px 9px}
   /* Add - Edit Property CSS */
   .add-property-form table tr td{white-space:normal !important}
   .btn.btn-default.form-control{margin-bottom:15px}
