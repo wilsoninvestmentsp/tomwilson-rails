@@ -374,8 +374,8 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .feedback-section .comment{font-size:18px}
 
 /* Property Listing Page CSS */
-.list-selection{height:auto}
-.list-selection .list-unstyled{width:100%;display:table;text-align:center}
+/*.list-selection{height:auto}
+.list-selection .list-unstyled{width:100%;display:table;text-align:center}*/
 .list-selection .list-unstyled li{float:left;width:auto;display:table-cell}
 .list-selection .list-unstyled li a{padding:10px;display:block;border-bottom:solid 1px #ddd}
 .list-selection .sort-option{float:none;border-top:solid 1px #ddd}
@@ -409,8 +409,8 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .feedback-section .comment{font-size:20px}
 
 /* Property Listing Page CSS */
-.list-selection{height:115px}
-.list-selection .list-unstyled{width:100%;display:table;border-bottom:solid 1px #ddd}
+/*.list-selection{height:115px}
+.list-selection .list-unstyled{width:100%;display:table;border-bottom:solid 1px #ddd}*/
 .list-selection .list-unstyled li{width:1%;display:table-cell;float:none;text-align:center}
 .list-selection .list-unstyled li a{padding-left:15px;padding-right:15px}
 .property-listing .listing-box{height:342px}
@@ -452,6 +452,10 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .property-listing .col-xs-12{width:50%}
 .advance-search .btn-group.bootstrap-select{margin-bottom:15px}
 .advance-search .slider.slider-horizontal{width:92.5%}
+
+.list-selection{height:auto;border:none}
+.list-selection .list-unstyled{border:none;display:table;width:100%}
+.list-selection .list-unstyled li{border:solid 1px #ddd}
 
 /* Property Details Page CSS */
 .blog-listing .listing-box{height:auto}
