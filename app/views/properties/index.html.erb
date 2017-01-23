@@ -1,12 +1,12 @@
 <%= render 'layouts/jumbtron' %>
 <div ng:controller="PropertiesCtrl", id="PropertiesCtrl">
-  <section class="main-body">
+  <section class="main-body without-search-feature">
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
-          <h1>Properties</h1>
+          <!-- <h1>Properties</h1> -->
           <div class="box-shadow">
-            <div class="blue-bg">
+            <!-- <div class="blue-bg">
               <div class="col-md-9 col-sm-12 col-xs-12">
                 <form class="form-horizontal advance-search">
                   <div class="form-group">
@@ -33,7 +33,7 @@
                 <a href="https://twitter.com/wilsoninvestprp" class="icons"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                 <a href="https://www.facebook.com/WilsonInvestmentProperties" class="icons"><i class="fa fa-facebook" aria-hidden="true"></i></a>
               </div>
-            </div>
+            </div> -->
             <ol class="breadcrumb">
               <li><%= link_to 'Home', root_url %></li>
               <li class="active">Properties</li>
@@ -42,17 +42,18 @@
               <% end %>
             </ol>
           </div>
+          <h1 class="common-title">Properties</h1>
           <div class="list-selection">
             <ul class="list-unstyled">
               <li ng:repeat="(key, val) in separate_building_types" ng:model="params.building_type" ng:click="filterPropertiesByBuildingType(val)" ng:class="{active : activeMenu === val}">
                 <a href="">{{val.label}}</a>
               </li>
             </ul>
-            <div class="sort-option">
+          <!--   <div class="sort-option">
               <h5>Sort By Price: </h5>
                <%= select_tag :offer_price, options_for_select(@sort_by_offer_price.map{ |k,v| [v, k]}), { include_blank: 'Default', 'ng:model': 'params.order', 'ng:change': 'getProperties()', class: 'selectpicker
                           '} %>
-            </div>
+            </div> -->
             </div>
           </div>
         </div>
@@ -69,11 +70,11 @@
       </div>
     </section>
   </div>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
  $(document).ready(function(){
     $('.selectpicker').selectpicker();
     $("#price-filter").slider({tooltip:'always', id: "price-filter"}).on('slideStop', function(ev){
         angular.element('#PropertiesCtrl').scope().getProperties();
       });
   });
-</script>
+</script> -->

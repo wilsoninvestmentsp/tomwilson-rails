@@ -106,6 +106,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .main-body.without-search-feature{font-family:'AllerRG';margin-top:0;margin-bottom:60px}
 .main-body h1{font-size:36px;font-family:'AllerDisplay';margin-top:0;color:#fff;margin-bottom:30px}
 #PropertiesCtrl .main-body h1{text-shadow:2px 2px 4px #000;-webkit-text-shadow:2px 2px 4px #000;-moz-text-shadow:2px 2px 4px #000;-ms-text-shadow:2px 2px 4px #000;-o-text-shadow:2px 2px 4px #000}
+.main-body h1.common-title{text-shadow:none !important;-webkit-text-shadow:none;-moz-text-shadow:none;-ms-text-shadow:none;-o-text-shadow:none;color:#0288D1;margin-top:30px}
 .box-shadow{-webkit-box-shadow:0 0 4px #999;-moz-box-shadow:0 0 4px #999;-ms-box-shadow:0 0 4px #999;-o-box-shadow:0 0 4px #999;box-shadow:0 0 4px #999;display:table;width:100%}
 .breadcrumb{border-radius:0;font-size:12px;background:#f5f5f5;margin-bottom:0;margin-top:0;word-break:break-all;word-wrap:break-word}
 .breadcrumb a{text-decoration:none}
@@ -437,6 +438,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 /* Common Body CSS */
 .main-body{margin-top:-193px;margin-bottom:125px}
 .main-body.without-search-feature{margin-bottom:113px}
+.btn-sm{min-width:32px}
 
 /* Content Pages CSS */
 .content-section ul, .content-section ol{padding-left:15px}

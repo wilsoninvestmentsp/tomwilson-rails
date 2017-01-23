@@ -50,7 +50,7 @@
                   <%= link_to property_path(property) do %>
                   <%= image_tag property.image.url, class: 'img-responsive'%>
                   <% end %>
-                  <span class="status-tag top-setting yellow"><%= property.raw_status %></span>
+                  <span class="status-tag top-setting <%= status_color(property.status) %>"><%= property.raw_status %></span>
                 </div>
                 <h4><%= link_to property.raw_title.truncate(Settings.truncate.property.title), property_path(property) %></h4>
                 <ul class="info">
@@ -120,7 +120,7 @@
   <div class="container">
    <div class="row">
     <div class="col-sm-12 text-center">
-     <h3>Magazine Featured</h3>
+     <h3>Magazine Features</h3>
      <div class="row">
       <div class="col-sm-3 col-xs-12">
         <%= image_tag "REI-Voice-Cover-July-2015-1.jpg", alt: "REI Voice Magazine Cover (July 2015)", class: "img-responsive"%>

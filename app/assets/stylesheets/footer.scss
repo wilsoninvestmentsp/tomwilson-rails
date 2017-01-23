@@ -14,8 +14,10 @@ footer{background:#333 !important;padding:30px 0;font-family:'AllerRG'}
 footer address{color:#fff}
 footer address h5{margin-top:0}
 footer .social-links{margin-top:36.5px}
-footer .social-links a{height:32px;width:32px;border-radius:50%;background:#444;display:inline-block;line-height:32px;font-size:16px;color:#fff;margin-right:5px;text-align:center;box-shadow:0 0 2px 0 #090909;-webkit-box-shadow:0 0px 2px 0 #090909;-moz-box-shadow:0 0 2px 0 #090909;-ms-box-shadow:0 0 2px 0 #090909;-o-box-shadow:0 0 2px 0 #090909}
-footer .social-links a:hover{background:#407cbb}
+footer .social-links a.icons{height:32px;width:32px;border-radius:50%;background:#444;display:inline-block;line-height:32px;font-size:16px;color:#fff;margin-right:5px;text-align:center;box-shadow:0 0 2px 0 #090909;-webkit-box-shadow:0 0px 2px 0 #090909;-moz-box-shadow:0 0 2px 0 #090909;-ms-box-shadow:0 0 2px 0 #090909;-o-box-shadow:0 0 2px 0 #090909}
+footer .social-links a.icons:hover{background:#407cbb}
+footer .social-links a.meetup{float:right;margin-left:5px}
+footer .social-links a.meetup img{width:46px}
 
 footer .deals-form-box{padding:20px;background:rgba(0,0,0,.5);border-radius:4px}
 footer .deals-form-box h5{color:#fff;margin-top:0;margin-bottom:15px;font-size:18px}
@@ -27,7 +29,7 @@ footer .form-horizontal .btn:hover{border-color:#407cbb;background:#407cbb;color
 
 /* Newsletter Box CSS */ #newsletter-form{display:none}
 #newsletter-form{display:none}
-#newsletter{position:fixed;right:0;top:120px;height:300px;margin-left:-3px;margin-bottom:-3px;z-index:1000;font-family:'AllerRG'}
+#newsletter{position:fixed;right:0;top:120px;height:345px;margin-left:-3px;margin-bottom:-3px;z-index:1000;font-family:'AllerRG'}
 #newsletter-form{font-size:12px;float:right;width:450px;height:100%;z-index:1000;padding-left:0;padding-right:0;margin-right:20px;border:1px solid rgba(0,0,0,.2);-moz-border-radius:0;-webkit-border-radius:0;border-radius:0;-webkit-box-shadow:0 5px 10px rgba(0,0,0,.2);-moz-box-shadow:0 5px 10px rgba(0,0,0,.2);box-shadow:0 0 4px #aaa;-webkit-box-shadow:0 0 4px #aaa;-moz-box-shadow:0 0 4px #aaa;-ms-box-shadow:0 0 4px #aaa;-o-box-shadow:0 0 4px #aaa}
 #newsletter-form .panel-body{padding:20px}
 #newsletter-form .form-group{position:relative}
@@ -37,7 +39,7 @@ footer .form-horizontal .btn:hover{border-color:#407cbb;background:#407cbb;color
 #newsletter-form .form-control:focus{border-color:#66afe9;outline:0;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);-moz-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);-ms-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);-o-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)}
 #newsletter-form h5{margin-top:0;margin-bottom:15px;color:#407cbb;font-size:18px;border-bottom:solid 1px #ddd;padding-bottom:10px}
 #newsletter-form .border-btn{height:40px}
-#newsletter-tab{float:right;color:#fff;font-size:18px;line-height:50px;cursor:pointer;text-align:center;width:150px;height:50px;background:#FB8C00;margin-top:50px;margin-right:-50px;border-radius:3px;border-top-right-radius:0;border-top-left-radius:0;-webkit-transform:rotate(90deg);-moz-transform:rotate(90deg);-ms-transform:rotate(90deg);-o-transform:rotate(90deg);transform:rotate(90deg)}
+#newsletter-tab{float:right;color:#fff;font-size:16px;line-height:50px;cursor:pointer;text-align:center;width:250px;height:50px;background:#FB8C00;margin-top:100px;margin-right:-100px;border-radius:3px;border-top-right-radius:0;border-top-left-radius:0;-webkit-transform:rotate(90deg);-moz-transform:rotate(90deg);-ms-transform:rotate(90deg);-o-transform:rotate(90deg);transform:rotate(90deg)}
 #newsletter-tab .fa{margin-right:4px}
 
 /* Scroll Top CSS */
@@ -53,18 +55,21 @@ footer .form-horizontal .btn:hover{border-color:#407cbb;background:#407cbb;color
 .modal.ng-isolate-scope .modal-dialog{margin-top:80px}
 @media(max-width:479px){
 	footer address{padding:0 10px}
-	#newsletter{height:298px}
+	#newsletter{height:350px}
 	#newsletter-form{width:220px;margin-right:0;margin-bottom:0}
   #newsletter-form h5{font-size:14px}
-
+  #newsletter-tab{margin-top:105px;margin-right:-106px;height:40px;line-height:40px}
 }
 @media(min-width:480px) and (max-width:767px){
-  #newsletter{height:288px;bottom:15px}
+  #newsletter{height:360px;bottom:15px}
   #newsletter-form{width:360px;margin-right:15px}
 }
 @media(max-width:767px){
 	footer address{text-align:center}
 	footer .social-links{margin-top:15px;text-align:center}
+  footer .social-links a.meetup{float:none;display:inline-block;margin-left:0;margin-bottom:-8px}
+
+
 	#newsletter-form .panel-body{padding:15px}
   #newsletter-form .no-pad-left{padding-right:0}
   #newsletter-form .no-pad-left-right{padding-right:0;margin-top:15px}
