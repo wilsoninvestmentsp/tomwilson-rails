@@ -81,7 +81,7 @@
                     {{property.raw_building_type}}
                   </li>
                 </ul>
-                <span class="status-tag yellow" ng:if="property.raw_status">{{property.raw_status}}</span>
+                <span ng:class="getStatusClass(property.status)" ng:if="property.raw_status">{{property.raw_status}}</span>
                 <div class="well" align="center" ng:if="mode.edit">
                   <button class="btn btn-default btn-sm" ng:click="moveProperty(property,$index,$index-1)">
                     <%= icon 'chevron-left' %>
