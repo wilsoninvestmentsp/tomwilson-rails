@@ -178,12 +178,12 @@
               </div>
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12 right-col">
-              <h3 class="mar-top-30">Chart</h3>
+              <h3 class="mar-top-30" id="chart_title">Chart</h3>
               <% if @property.chart.present? %>
               <div class="form-group">
                 <span ng:init="chart = <%= @property.chart.to_json %>"></span>
                 <span ng:init="setChart(chart)"></span>
-                <div google-chart chart="myChartObject"></div>
+                <div id="google_chart" google-chart chart="myChartObject"></div>
               </div>
               <% end %>
               <div class="form-group">
@@ -320,7 +320,7 @@
               <% end %>
               <% unless @property.new_record? %>
               <%= link_to @property, method: :delete, data: { confirm: 'Are you sure you wish to delete this property? This CANNOT be undone.' },class: 'btn btn-danger btn-lg' do %>
-                      <i class="fa fa-times" aria-hidden="true"></i> Delete Property
+                  <i class="fa fa-times" aria-hidden="true"></i> Delete Property
                 <% end %>
               <% end %>
             </div>
@@ -340,5 +340,10 @@
         min_height: 300
       });
     },100);
+    $(window).on('orientationchange', function() {
+      var title_width = $('#chart_title').width();
+      $('#google_chart').find('div')[1].style.width = title_width+'px';
+      $('#google_chart').trigger('resize');
+    });
   });
 </script>
