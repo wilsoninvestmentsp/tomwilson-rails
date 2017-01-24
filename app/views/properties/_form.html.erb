@@ -340,9 +340,15 @@
         min_height: 300
       });
     },100);
-    $(window).on('orientationchange', function() {
-      var title_width = $('#chart_title').width();
-      $('#google_chart').find('div')[1].style.width = title_width+'px';
+    $(window).resize(function() {
+      if(this.resizeTO) clearTimeout(this.resizeTO);
+      this.resizeTO = setTimeout(function() {
+        $(this).trigger('resizeEnd');
+      }, 50);
+    });
+    $(window).on('resizeEnd', function() {
+      var title_width = $('#chart_title').width()+'px';
+      $('#google_chart').find('div')[1].style.width = title_width;
       $('#google_chart').trigger('resize');
     });
   });
