@@ -278,7 +278,7 @@
                   <tr ng:repeat="link in links">
                     <td class="vmiddle" ng:show="!link.edit">{{link.title}}</td>
                     <td class="vmiddle" ng:show="!link.edit">
-                      <a href="{{link.link}}" target="_blank">{{link.link}}</a>
+                      <a href="{{link.link.startsWith('http') ? link.link : 'http://'+link.link}}" target="_blank">{{link.link}}</a>
                     </td>
                     <td ng:show="!link.edit" align="right">
                       <button type="button" class="btn btn-success btn-sm" ng:click="editLink($index)" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></button>

@@ -53,7 +53,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .content-section-row .opportunities-content .btn:first-of-type{margin-left:0}
 .content-section-row .bullet-text{font-size:18px;text-align:center}
 .content-section-row .bullet-text span{position:relative;padding-left:20px;padding-right:12px}
-.content-section-row .bullet-text span.first .bullet{width:8px;height:8px;border-radius:50%;background:#407cbb;padding:0;margin-right:16px}
+/*.content-section-row .bullet-text span.first .bullet{width:8px;height:8px;border-radius:50%;background:#407cbb;padding:0;margin-right:16px}*/
 .content-section-row .bullet-text span:before{content:"";width:8px;height:8px;position:absolute;top:6px;left:0;border-radius:50%;background:#407cbb}
 
 .property-section{background:#eee;padding:50px 0;font-family:'AllerRG';-webkit-box-shadow:0 0 4px 1px #ccc;-moz-box-shadow:0 0 4px 1px #ccc;-ms-box-shadow:0 0 4px 1px #ccc;-o-box-shadow:0 0 4px 1px #ccc;box-shadow:0 0 4px 1px #ccc}
@@ -114,7 +114,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 
 /* Property Listing Page CSS */
 .blue-bg{background:#407cbb;width:100%;display:table;padding:10px 0;height:65px}
-.advance-search select{width:100%}
+/*.advance-search select{width:100%}
 .advance-search .form-group{margin-bottom:0}
 .advance-search .form-group .first{padding-left:30px}
 .advance-search .price-hint{font-weight:normal;font-size:12px}
@@ -135,11 +135,11 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .blue-bg .social-icons a.icons{height:32px;width:32px;border-radius:50%;background:#fff;color:#407cbb;font-size:16px;line-height:32px;margin-right:5px;text-align:center}
 .blue-bg .social-icons a.icons:hover{background:#444;color:#fff}
 .blue-bg .social-icons a:first-of-type{margin-right:15px}
-.blue-bg .social-icons a.meetup img{height:34px}
+.blue-bg .social-icons a.meetup img{height:34px}*/
 
-.list-selection{border:solid 1px #ddd;height:48px;margin:30px 0}
-.list-selection .list-unstyled{margin:0}
-.list-selection .list-unstyled li{float:left;border-right:solid 1px #ddd}
+.list-selection{margin:30px 0}
+.list-selection .list-unstyled{margin:0;display:table;width:100%;border-bottom:solid 1px #ddd}
+.list-selection .list-unstyled li{float:left;border-top-left-radius:4px;border-top-right-radius:4px;margin-right:4px;background:#f5f5f5}
 .list-selection .list-unstyled li a{padding:13px 25px;display:inline-block;color:#444;text-decoration:none}
 .list-selection .list-unstyled li.active,
 .list-selection .list-unstyled li.active:hover{color:#fff;background:#407cbb}
@@ -147,6 +147,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .list-selection .list-unstyled li.active:hover a{color:#fff}
 .list-selection .list-unstyled li:hover{background:#e5e5e5}
 .list-selection .list-unstyled li:hover a{color:#407cbb}
+/*
 .list-selection .sort-option{float:right;padding-right:15px}
 .list-selection .sort-option h5{margin:0 5px 0 0;display:inline;line-height:46px;font-size:12px;color:#999}
 
@@ -162,6 +163,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .list-selection .open > .dropdown-menu > li > a{padding:3px 20px !important;display:inline-block !important;width:100% !important}
 .list-selection .open > .dropdown-menu > li.selected > a{background-color:#337ab7 !important;color:#fff !important}
 .list-selection .open > .dropdown-menu > ul > li{display:inline-block !important;width:100% !important}
+*/
 
 .property-listing .listing-box{display:table;position:relative;width:100%;background:#fff;-webkit-box-shadow:0 0 4px #999;-moz-box-shadow:0 0 4px #999;-ms-box-shadow:0 0 4px #999;-o-box-shadow:0 0 4px #999;box-shadow:0 0 4px #999;margin-bottom:30px;cursor:pointer;height:357px}
 .property-listing .listing-box:hover{-webkit-box-shadow:0 0 4px#454545;-moz-box-shadow:0 0 4px #454545;-ms-box-shadow:0 0 4px #454545;-o-box-shadow:0 0 4px #454545;box-shadow:0 0 4px #454545}
@@ -376,13 +378,14 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 /* Property Listing Page CSS */
 /*.list-selection{height:auto}
 .list-selection .list-unstyled{width:100%;display:table;text-align:center}*/
-.list-selection .list-unstyled li{float:left;width:auto;display:table-cell}
-.list-selection .list-unstyled li a{padding:10px;display:block;border-bottom:solid 1px #ddd}
-.list-selection .sort-option{float:none;border-top:solid 1px #ddd}
-.list-selection .sort-option h5{margin-left:15px}
+.list-selection .list-unstyled{border-bottom:none}
+.list-selection .list-unstyled li{float:left;width:auto;display:table-cell;margin-bottom:4px}
+.list-selection .list-unstyled li a{padding:10px;display:block}
+/*.list-selection .sort-option{float:none;border-top:solid 1px #ddd}
+.list-selection .sort-option h5{margin-left:15px}*/
 .property-listing .listing-box{height:auto}
 .property-listing .col-xs-12{width:100% !important}
-.sort-option .btn-group.bootstrap-select{width:75% !important;margin-left:15px}
+/*.sort-option .btn-group.bootstrap-select{width:75% !important;margin-left:15px}*/
 
 /* Content Pages CSS */
 .content-section h1{font-size:18px}
@@ -415,7 +418,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .list-selection .list-unstyled li a{padding-left:15px;padding-right:15px}
 .property-listing .listing-box{height:342px}
 .property-listing .listing-box .blue-text{display:block}
-.sort-option .btn-group.bootstrap-select{width:138px !important}
+/*.sort-option .btn-group.bootstrap-select{width:138px !important}*/
 
 /* Content Pages CSS */
 .content-section h1{font-size:24px}
@@ -447,15 +450,19 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .table td{white-space:normal !important}
 
 /* Property Listing Page CSS */
+/*
 .advance-search .form-group .first{padding-left:15px}
 .advance-search .slider.slider-horizontal{margin-top:10px}
+*/
 .property-listing .col-xs-12{width:50%}
+/*
 .advance-search .btn-group.bootstrap-select{margin-bottom:15px}
 .advance-search .slider.slider-horizontal{width:92.5%}
+*/
 
-.list-selection{height:auto;border:none}
-.list-selection .list-unstyled{border:none;display:table;width:100%}
-.list-selection .list-unstyled li{border:solid 1px #ddd}
+/*.list-selection{height:auto;border:none}*/
+/*.list-selection .list-unstyled{border:none;display:table;width:100%}*/
+.list-selection .list-unstyled li{border-radius:0;}
 
 /* Property Details Page CSS */
 .blog-listing .listing-box{height:auto}
@@ -465,11 +472,13 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 
 @media(min-width:768px) and (max-width:991px){
 /* Property Listing Page CSS */
-.list-selection{height:54px}
-.list-selection .list-unstyled li a{padding:16px 10px}
+/*.list-selection{height:54px}*/
+/*.list-selection .list-unstyled li a{padding:16px 10px}*/
+/*
 .list-selection .sort-option h5{display:block;line-height:inherit}
+*/
 .property-listing .listing-box{height:349px}
-.advance-search .form-group .first{padding-left:15px}
+/*.advance-search .form-group .first{padding-left:15px}*/
 .content-section h1{font-size:28px}
 }
 @media(max-width:991px){

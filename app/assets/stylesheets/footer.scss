@@ -56,7 +56,7 @@ footer .form-horizontal .btn:hover{border-color:#407cbb;background:#407cbb;color
 @media(max-width:479px){
 	footer address{padding:0 10px}
 	#newsletter{height:350px}
-	#newsletter-form{width:220px;margin-right:0;margin-bottom:0}
+	#newsletter-form{width:170px;margin-right:0;margin-bottom:0}
   #newsletter-form h5{font-size:14px}
   #newsletter-tab{margin-top:105px;margin-right:-106px;height:40px;line-height:40px}
 }
@@ -69,7 +69,7 @@ footer .form-horizontal .btn:hover{border-color:#407cbb;background:#407cbb;color
 	footer .social-links{margin-top:15px;text-align:center}
   footer .social-links a.meetup{float:none;display:inline-block;margin-left:0;margin-bottom:-8px}
 
-
+  #newsletter{display:none}
 	#newsletter-form .panel-body{padding:15px}
   #newsletter-form .no-pad-left{padding-right:0}
   #newsletter-form .no-pad-left-right{padding-right:0;margin-top:15px}
