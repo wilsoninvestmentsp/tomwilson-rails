@@ -47,3 +47,14 @@
     </div>
   </div>
 </section>
+<script type="text/javascript">
+  $(document).on('ready page:load', function(){
+    setTimeout(function(){
+      try{tinyMCE.remove('#blog_content');}catch(e){}
+      tinyMCE.init({
+        selector: '#blog_content',
+        min_height: 391
+      });
+    },100);
+  });
+</script>

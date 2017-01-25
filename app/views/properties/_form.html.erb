@@ -334,7 +334,7 @@
   $(document).on('ready page:load', function(){
     $('.selectpicker').selectpicker();
     setTimeout(function(){
-      tinyMCE.remove();
+      try{tinyMCE.remove('#property_description');}catch(e){}
       tinyMCE.init({
         selector: '#property_description',
         min_height: 300

@@ -21,24 +21,13 @@ Blog = {
       window.location = property_url;
     })
   },
-  tinyMceEditor: function(){
-    setTimeout(function(){
-      tinyMCE.remove();
-      tinyMCE.init({
-        selector: '#blog_content',
-        min_height: 391
-      });
-    },100);
-  },
   documentOnReady: function(){
-    this.tinyMceEditor();
     this.pagintation();
     this.clickableDiv();
   },
    pageLoad: function () {
     this.pagintation();
     this.clickableDiv();
-    this.tinyMceEditor();
   }
 }
 $(document).ready(function(){

@@ -87,7 +87,7 @@
   $(document).on('ready page:load', function() {
     $('.selectpicker').selectpicker();
     setTimeout(function(){
-      tinyMCE.remove();
+      try{tinyMCE.remove('#user_description');}catch(e){}
       tinyMCE.init({
         selector: '#user_description',
         min_height: 300

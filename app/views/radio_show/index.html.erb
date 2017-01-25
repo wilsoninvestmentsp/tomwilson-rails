@@ -73,7 +73,7 @@
 <script type="text/javascript">
   $(document).on('ready page:load', function(){
     setTimeout(function(){
-      tinyMCE.remove();
+      try{tinyMCE.remove('#content');}catch(e){}
       tinyMCE.init({
         selector: '#content',
         min_height: 100
