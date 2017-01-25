@@ -14,8 +14,8 @@
         <h1>Login</h1>
         <div class="mar-top-15 mar-btm-30">
           <%= form_tag sessions_path do |f| %>
-          <div class="form-group"><%= text_field_tag :email,nil,class: 'form-control',placeholder: 'Email' %></div>
-          <div class="form-group"><%= password_field_tag :password,nil,class: 'form-control',placeholder: 'Password' %></div>
+          <div class="form-group"><%= text_field_tag :email,nil,class: 'form-control',placeholder: 'Email', required: true, oninvalid: "this.setCustomValidity('Please Enter Email')" %></div>
+          <div class="form-group"><%= password_field_tag :password,nil,class: 'form-control',placeholder: 'Password', required: true, oninvalid: "this.setCustomValidity('Please Enter Password')" %></div>
           <% if params[:redirect_uri].present? %>
           <div class="form-group"><%= hidden_field_tag :redirect_uri,nil,class: 'form-control',value: params[:redirect_uri] %></div>
           <% end %>

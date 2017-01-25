@@ -7,6 +7,11 @@ class SessionsController < ApplicationController
 
 	def create
 
+		if params[:email].empty? && params[:password].empty?
+			flash[:danger] = "Email and Password can't be blank"
+			return render 'index'
+		end
+
 		user = User.find_by_email params[:email]
 
 		if user && user.authenticate(params[:password])
