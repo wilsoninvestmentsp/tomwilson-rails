@@ -306,6 +306,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .content-section.faq hr{margin-top:0;margin-bottom:0}
 .top-zero{color:#0288D1}
 .top-zero img{margin-left:10px}
+.resources-data .img-thumbnail{min-width:120px}
 
 /* Blog Pages CSS */
 .main-body.only-bread-crumb{margin-top:0;margin-bottom:60px}
@@ -441,7 +442,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 /* Common Body CSS */
 .main-body{margin-top:-193px;margin-bottom:125px}
 .main-body.without-search-feature{margin-bottom:113px}
-.btn-sm{min-width:32px}
+.table-responsive{margin-bottom:30px}
 
 /* Content Pages CSS */
 .content-section ul, .content-section ol{padding-left:15px}
@@ -486,6 +487,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
   .property-details .item .img-responsive{width:100%}
   .property-details .property-info-tabs{margin-top:30px}
   #google_map{margin-bottom:30px}
+  .btn-sm{min-width:32px}
 }
 
 @media(min-width:992px) and (max-width:1199px){

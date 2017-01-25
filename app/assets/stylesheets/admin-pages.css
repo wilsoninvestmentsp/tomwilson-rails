@@ -77,7 +77,9 @@
   .col-xxs-12{width:100%}
   .col-xxs-12.no-pad-left{padding-right:0}
   .col-xxs-12.no-pad-right{padding-left:0;margin-tisop:15px}
-  .fixed-admin-body .blue-btn, .fixed-admin-body .btn-danger, .import-file .btn-default{font-size:14px;padding:8px 14px}
+  .fixed-admin-body .blue-btn,
+  .fixed-admin-body .btn-danger,
+  .import-file .btn-default{font-size:14px;padding:8px 14px}
 
   /* Add - Edit Property CSS */
   .add-property-form .form-group.btype-dropdown,
@@ -107,6 +109,7 @@
   .fixed-admin-body .btn-sm.input-btns{padding:5px 10px;font-size:12px}
   .fixed-admin-body .btn-danger.btn-sm, .fixed-admin-body .btn-success.btn-sm{font-size:12px;padding:5px 10px}
   .fixed-admin-body .blue-btn.btn-sm{font-size:12px;padding:5px 9px}
+
   /* Add - Edit Property CSS */
   .add-property-form table tr td{white-space:normal !important}
   .btn.btn-default.form-control{margin-bottom:15px}
@@ -125,6 +128,7 @@
 @media(max-width:991px){
   .fixed-admin-body .left-col, .add-property-form .left-col{padding-right:15px}
   .fixed-admin-body .right-col, .add-property-form .right-col{padding-left:15px}  
+  .table .btn-success.btn-sm, .table .btn-danger.btn-sm{margin-bottom:4px}
 }
 @media(min-width:992px) and (max-width:1199px){
   /* Add - Edit Property CSS */
