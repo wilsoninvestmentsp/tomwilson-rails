@@ -22,11 +22,11 @@
       <%= f.text_area :description,class: 'form-control',placeholder: '' %>
     </div>
     <div class="form-group required">
-      <%= f.label :label_name, 'Link Name' %><br>
+      <%= f.label :link_name, 'Link Name' %><br>
       <%= f.text_field :link_name,class: 'form-control',placeholder: '' %>
     </div>
     <div class="form-group required">
-      <%= f.label :label_uri, 'Link URL' %><br>
+      <%= f.label :link_uri, 'Link URL' %><br>
       <%= f.text_field :link_uri,class: 'form-control',placeholder: '' %>
     </div>
     <div class="form-group">
@@ -37,7 +37,7 @@
       <% end %>
     </div>
     <div class="form-group">
-      <%= f.label 'Priority' %><br>
+      <%= f.label :sort, 'Priority' %><br>
       <%= f.number_field :sort,class: 'form-control',placeholder: '' %>
     </div>
     <div class="form-group">

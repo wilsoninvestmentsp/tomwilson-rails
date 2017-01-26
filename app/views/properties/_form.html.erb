@@ -67,7 +67,7 @@
             <div class="form-group">
               <%= f.label :address, class: 'control-label' %>
               <div class="input-group">
-                <input type="text" ng:model="address" class="form-control" placeholder="Paste a full address here" ng:paste="updateAddressPaste($event)">
+                <input type="text" ng:model="address" class="form-control" placeholder="Paste a full address here" ng:paste="updateAddressPaste($event)" id="property_address">
                 <span class="input-group-btn">
                   <button class="btn blue-btn input-btns" type="button" ng:click="updateAddress(address)">Set</button>
                   </span>
@@ -96,7 +96,7 @@
             <div class="col-md-6 col-sm-12 col-xs-12 right-col vleft-bdr">
               <h3>Property Image</h3>
               <div class="form-group upload-image">
-                <label class="control-label" for="UploadImg">First Image</label>
+                <label class="control-label" for="property_image">First Image</label>
                 <ul class="list-unstyled">
                   <li class="left">
                     <%= f.label :image, class: 'btn btn-default' do %><i class="fa fa-picture-o mar-right-6" aria-hidden="true"></i> Upload Image
@@ -247,15 +247,15 @@
   	            <img ng:src="<%= asset_path 'loader-thumb.png' %>" class="img-thumbnail" ng:if="img_loading" alt="">
   	          </div>
   	          <div class="form-group mar-top-15">
-  	            <div class="row">
+  	            <div class="row more-images-field">
   	            	<div class="col-sm-4 col-xs-12">
-                    <p>Multiple Images</p>
-                    <button type="button" class="btn btn-default form-control" ng-file-select ng-file-change="upload($files,<%= @property.id %>)" multiple="multiple"><i class="fa fa-picture-o mar-right-6" aria-hidden="true"></i> Upload Images</button>
+                    <label for="multiple_images">Multiple Images</label>
+                    <button type="button" class="btn btn-default form-control" ng-file-select ng-file-change="upload($files,<%= @property.id %>)" multiple="multiple" id="multiple_images"><i class="fa fa-picture-o mar-right-6" aria-hidden="true"></i> Upload Images</button>
                   </div>
                   <div class="col-sm-8 col-xs-12">
-                    <p>OR Upload Image by URL</p>
+                    <label for="image_by_url">OR Upload Image by URL</label>
                     <div class="input-group img-by-url">
-                      <input type="text" class="form-control" placeholder="Image Url" ng:model="imageUrl">
+                      <input type="text" class="form-control" placeholder="Image Url" ng:model="imageUrl" id="image_by_url">
                       <div class="input-group-addon">
                         <button type="button" class="btn blue-btn input-btns" ng:click="uploadUrl(<%= @property.id %>,imageUrl)" ng:disabled="img_loadipng">Upload</button>
                       </div>

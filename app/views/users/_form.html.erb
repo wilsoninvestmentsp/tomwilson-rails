@@ -65,7 +65,7 @@
         <%= f.label :image, class: 'btn btn-default mar-top-15' do %><i class="fa fa-picture-o mar-right-6" aria-hidden="true"></i> Upload Image
         <%= f.file_field :image, style: "display:none;" %>
         <% end %>
-        <%= f.label 'OR Upload Image by URL', class: 'mar-top-15 control-label' %>
+        <%= f.label :remote_image_url, 'OR Upload Image by URL', class: 'mar-top-15 control-label' %>
         <%= f.text_field :remote_image_url,class: 'form-control',placeholder: 'Image Url' %>
       </div>
     </div>

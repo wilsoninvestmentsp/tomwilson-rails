@@ -23,24 +23,24 @@
           <div class="col-md-6 contact-us">
             <form name="ticket_form" ng:submit="submitForm()" novalidate>
               <div class="form-group">
-                <label>Full Name</label><br>
-                <input type="text" class="form-control" ng:model="inquiry.name" placeholder="Full Name" required>
+                <label for="name">Full Name</label><br>
+                <input id="name" type="text" class="form-control" ng:model="inquiry.name" placeholder="Full Name" required>
               </div>
               <div class="form-group">
-                <label>Email</label><br>
-                <input type="email" class="form-control" ng:model="inquiry.email" placeholder="Email" required>
+                <label for="email">Email</label><br>
+                <input id="email" type="email" class="form-control" ng:model="inquiry.email" placeholder="Email" required>
               </div>
               <div class="form-group">
-                <label>Phone #</label><br>
-                <input type="tel" class="form-control" ng:model="inquiry.phone" placeholder="Phone #" required>
+                <label for="phone">Phone #</label><br>
+                <input id="phone" type="tel" class="form-control" ng:model="inquiry.phone" placeholder="Phone #" required>
               </div>
               <div class="form-group">
-                <label>Subject</label><br>
-                <input type="text" class="form-control" ng:model="inquiry.subject" placeholder="A brief description of the inquiry" required>
+                <label for="subject">Subject</label><br>
+                <input id="subject" type="text" class="form-control" ng:model="inquiry.subject" placeholder="A brief description of the inquiry" required>
               </div>
               <div class="form-group">
-                <label>Description</label><br>
-                <textarea rows="6" class="form-control" ng:model="inquiry.description" placeholder="Please descripbe the nature of your inquiry" required></textarea>
+                <label for="description">Description</label><br>
+                <textarea id="description" rows="6" class="form-control" ng:model="inquiry.description" placeholder="Please descripbe the nature of your inquiry" required></textarea>
               </div>
               <div class="form-group">
                 <div class="checkbox">

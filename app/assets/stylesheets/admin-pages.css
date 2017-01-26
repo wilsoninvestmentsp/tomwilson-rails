@@ -44,13 +44,15 @@
 .user-form .dropdown-menu > li > a{color:#777}
 .add-property-form .dropdown-menu > li > a:hover,  .user-form .dropdown-menu > li > a:hover{color:#407cbb}
 .add-property-form .list-unstyled{margin-top:5px;margin-bottom:0;color:#777;font-size:13px}
-.add-property-form .upload-image .list-unstyled{margin-top:0;display:table}
+.add-property-form .upload-image .list-unstyled{margin-top:0;width:100%;display:table}
 .add-property-form .upload-image .list-unstyled li{float:left}
 .add-property-form .upload-image .list-unstyled li.left{width:75%;padding-right:15px}
 .add-property-form .upload-image .list-unstyled li.right{width:25%;padding-left:15px}
 .add-property-form .upload-image .list-unstyled li .btn.btn-default{width:100%;padding:0 12px;height:75px;line-height:75px}
 .add-property-form .upload-image .list-unstyled li img{border-radius:4px}
 .add-property-form table tr td{word-break:break-all}
+.add-property-form .more-images-field label{font-weight:normal;width:100%}
+
 
 .checkbox{margin-top:0;margin-bottom:0}
 .checkbox label{padding-left:0}
@@ -65,7 +67,6 @@
 .add-property-form .img-by-url .input-group-addon{padding:0 0 0 15px;border:none;background:transparent}
 .add-property-form .img-by-url .form-control{border-radius:4px}
 .add-property-form .blue-btn .fa, .add-property-form .btn-danger.btn-lg .fa{margin-left:0 !important;margin-right:6px !important}
-
 .add-property-form .btn-success.btn-sm .fa, .add-property-form .btn-danger.btn-sm .fa{margin-right:0}
 
 .fixed-admin-body .blue-btn .fa{margin-right:6px}
