@@ -29,7 +29,8 @@
         <div ng:repeat="team in teams">
           <div class="list-group">
             <div class="list-group-item active">
-              <h4 class="list-group-item-heading capitalize">{{team.name}} Team</h4>
+              <h4 class="list-group-item-heading capitalize">
+              {{toUpperCase(team.name)}} Team</h4>
             </div>
           </div>
           <div class="row" ng:repeat="user in team.users">
