@@ -18,10 +18,10 @@
       <div class="col-xs-12">
         <h1>Our Blogs</h1>
         <div class="row blog-listing" id="blog-listing">
-          <% if @blogs %>
+          <% if Blog.count > 0 %>
             <%= render partial: 'blogs', locals: {blogs: @blogs} %>
           <% else %>
-            <div class="col-xs-12 msg-content">
+            <div class="col-xs-12 msg-content text-center">
               <h3>No Blogs found</h3>
             </div>
           <% end %>
