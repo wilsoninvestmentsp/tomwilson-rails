@@ -199,5 +199,17 @@ App.controller('TestimoniesCtrl',['$scope','$http','$interval',function($scope,$
 	
 	};
 	// End deleteTestimony =======================================
+	
+	scope.editTestimony = function(i){
+		scope.testimonies[i].edit = true;
+		scope.testimonies[i].old_quote = scope.testimonies[i].quote;
+		scope.testimonies[i].old_author = scope.testimonies[i].author;
+	}
 
+	scope.cancelEditing = function(i){
+		scope.testimonies[i].edit = false;
+		scope.testimonies[i].quote = scope.testimonies[i].old_quote;
+		scope.testimonies[i].author = scope.testimonies[i].old_author;
+	}
+	
 }]);

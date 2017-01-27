@@ -1,44 +1,57 @@
-<!-- <footer>
-	<div class="row">
-		<div class="col-md-3">© Wilson Investment Properties, Inc. 2016</div>
-		<div class="col-md-3">Phone: 408-867-1867</div>
-		<div class="col-md-3">Fax: 408-867-8811</div>
-		<div class="col-md-3">info@tomwilsonproperties.com</div>
-	</div>
-</footer> -->
 <footer class="footer">
-	<div class="container">
-		<div class="row">
-
-			<div class="col-md-9">
-				
-				<p class="text-muted">
-					<address>
-						<strong>© Wilson Investment Properties, Inc. 2016</strong><br>
-						14435 Big Basin Way, Ste 240<br>
-						Saratoga, CA 95070<br>
-						<%= PHONE_NUMBER %>
-					</address>
-				</p>
-
-			</div>
-			<div class="col-md-3">
-				
-				<% if current_user %>
-					<div align="right">
-						<%= link_to '',logout_path,class: 'login-button' %>
-					</div>
-				<% else
-				ruri = CGI.escape "#{request.protocol}#{request.host_with_port}#{request.fullpath}"
-				rpath = login_path + "?redirect_uri=#{ruri}"
-				%>
-					<div align="right">
-						<%= link_to '',rpath,class: 'login-button' %>
-					</div>
-				<% end  %>
-
-			</div>
-
-		</div>
-	</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-xs-12">
+        <address>
+          <h5>&copy; Wilson Investment Properties, Inc. 2017</h5>
+          14435 Big Basin Way, Ste 240<br>
+          Saratoga, CA 95070<br>
+          <%= PHONE_NUMBER %><br>
+        </address>
+      </div>
+      <div class="col-sm-6 col-xs-12 social-links text-right">
+        <a class="icons" href="https://www.facebook.com/WilsonInvestmentProperties"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+        <a class="icons" href="https://twitter.com/wilsoninvestprp"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+        <a class="icons" href="https://www.linkedin.com/company/wilson-investment-properties"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+        <a class="meetup" href="http://www.meetup.com/Wilson-Investment-Properties-Inc/"><%= image_tag 'meetup.svg', align: 'MeetUp', class: 'img-responsive' %></a>
+      </div>
+    </div>
+  </div>
 </footer>
+<% unless current_user %>
+<%= render 'layouts/newsletter' %>
+<% end %>
+
+<div class="scroll-top-wrapper"><span class="scroll-top-inner"><i class="fa fa-angle-up"></i></span></div>
+
+<script>
+  $(document).on('ready', function(){
+    setTimeout(function(){
+        $('#newsletter-form').show('500');
+    }, 1000);
+    setTimeout(function(){
+        $('#newsletter-form').hide('500');
+    }, 6000);
+  });
+
+  $(function(){
+    $("#newsletter-tab").click(function() {
+      $("#newsletter-form").toggle("slide");
+    });
+    $(document).on('scroll',function(){
+      if($(window).scrollTop()>200){
+        $('.scroll-top-wrapper').addClass('show');
+      }else{
+        $('.scroll-top-wrapper').removeClass('show');
+      }
+    });
+    $('.scroll-top-wrapper').on('click',scrollToTop);
+  });
+  function scrollToTop(){
+    verticalOffset=typeof(verticalOffset)!='undefined'?verticalOffset:0;
+    element=$('body');
+    offset=element.offset();
+    offsetTop=offset.top;
+    $('html,body').animate({scrollTop:offsetTop},500,'linear');
+  }
+</script>

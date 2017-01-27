@@ -1,13 +1,22 @@
-<ol class="breadcrumb">
-  <li><%= link_to 'Home',root_url %></li>
-  <li><%= link_to 'Our Team',users_url %></li>
-  <li class="active">New</li>
-</ol>
-
-<div>
-  <h1>New Member</h1>
-</div>
-
-<hr>
-
-<%= render 'form' %>
+<%= render 'layouts/jumbtron' %>
+<section class="main-body without-search-feature gray-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="box-shadow">
+          <ol class="breadcrumb white">
+            <li><%= link_to 'Home',root_url %></li>
+            <li><%= link_to 'Our Team',users_url %></li>
+            <li class="active">New</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div class="fixed-admin-body">
+      <div class="col-xs-12 user-form">
+        <h1>New Member</h1>
+          <%= render 'form' %>
+      </div>
+    </div>
+  </div>
+</section>

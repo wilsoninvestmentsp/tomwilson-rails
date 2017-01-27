@@ -1,0 +1,29 @@
+<div class="row mar-top-15">
+  <div class="col-md-6 col-sm-12 col-xs-12 left-col">
+    <div class="form-group">
+      <%= f.label :title, class: 'control-label' %>
+      <%= f.text_field :title, class: 'form-control', placeholder: '' %>
+      <p class="text-muted small">Blog title will show as title and create Page URL.</p>
+    </div>
+    <div class="form-group">
+      <%= f.label :summary, class: 'control-label' %>
+      <%= f.text_area :summary, class: 'form-control', placeholder: '', rows: 4 %>
+      <p class="text-muted small">Summary will show as text on Blog Listing page.
+      <br>Summary will show maximum 370 characters.</p>
+    </div>
+    <div class="form-group">
+      <%= f.label :image, 'Featured Image', class: 'control-label' %>
+      <%= f.label :image, class: 'btn btn-default' do %><i class="fa fa-picture-o" aria-hidden="true"></i> Upload Image
+      <%= f.file_field :image, style: "display:none;" %>
+      <% end %>
+      <%= image_tag @blog.image.thumb.url, class: 'img-responsive mar-top-15 preview-img' %>
+      <p class="text-muted small">Featured Image for Blog</p>
+    </div>
+  </div>
+  <div class="col-md-6 col-sm-12 col-xs-12 right-col">
+    <div class="form-group">
+      <%= f.label :content, class: 'control-label' %>
+      <%= f.text_field :content, class: 'form-control', placeholder: '' %>
+    </div>
+  </div>
+</div>

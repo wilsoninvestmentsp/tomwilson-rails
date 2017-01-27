@@ -1,10 +1,9 @@
 class HomeController < ApplicationController
   def index
-    @properties_featured_one_to_three = Property.active.not_sold.by_featured(FEATURED_PROPERTIES_ROW_1_POSITIONS).order(:featured)
-    @properties_featured_four_to_six  = Property.active.not_sold.by_featured(FEATURED_PROPERTIES_ROW_2_POSITIONS).order(:featured)
-    @all_properties = Property.active.not_sold.by_featured([1,2,3,4,5,6]).order(:featured).map { |property| PropertySerializer.new(property, root: false) }
+    @testimonies = Testimony.all
+    @properties_featured_one_to_three = Property.active.by_featured(ALL_FEATURED_PROPERTIES).for_sale_and_reserved.order(:featured).limit(6)
+    @properties = Property.active.by_featured(ALL_FEATURED_PROPERTIES).for_sale_and_reserved.order(:featured).limit(6).map { |property| PropertySerializer.new(property,root: false) }
   end
 end
 
-FEATURED_PROPERTIES_ROW_1_POSITIONS = [1,2,3]
-FEATURED_PROPERTIES_ROW_2_POSITIONS = [4,5,6]
+ALL_FEATURED_PROPERTIES = [1,2,3,4,5,6]

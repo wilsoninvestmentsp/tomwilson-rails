@@ -1,16 +1,19 @@
 App.controller('TicketCtrl',['$scope','$interval','$upload','$routeParams','$http','$uibModal',function($scope,$interval,$upload,$routeParams,$http,$uibModal){
-
 	JP('Ticket');
 
 	var scope = $scope;
 	scope.show_form = true;
 	scope.inquiry = {};
+  window.onload = function(e) {
+    $("#property-contact").find(':checkbox').trigger('click');
+    $("#contact-form").find(':checkbox').trigger('click');
+  };
+
 	scope.alerts = [];
 
 	scope.moment = moment;
-
 	scope.submitForm = function(){
-		
+
 		scope.loading = true;
 
 		$http({
@@ -28,13 +31,13 @@ App.controller('TicketCtrl',['$scope','$interval','$upload','$routeParams','$htt
 			delete scope.show_form;
 			delete scope.loading;
 
-		}, 
+		},
 		function(response){
 
 			delete scope.loading;
 
 		});
 
-	}
+	};
 
 }]);

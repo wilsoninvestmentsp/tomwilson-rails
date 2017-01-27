@@ -1,34 +1,49 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @jasset.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @jasset.description %>
-</p>
-
-<p>
-  <strong>Link name:</strong>
-  <%= @jasset.link_name %>
-</p>
-
-<p>
-  <strong>Link uri:</strong>
-  <%= @jasset.link_uri %>
-</p>
-
-<p>
-  <strong>Sort:</strong>
-  <%= @jasset.sort %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @jasset.image %>
-</p>
-
-<%= link_to 'Edit', edit_jasset_path(@jasset) %> |
-<%= link_to 'Back', jassets_path %>
+<%= render 'layouts/jumbtron' %>
+<section class="main-body without-search-feature gray-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="box-shadow">
+          <ol class="breadcrumb white">
+            <li><%= link_to 'Home',root_url %></li>
+            <li><%= link_to 'Resources',jassets_url %></li>
+            <li class="active">Show</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <p id="notice"><%= notice %></p>
+    <div class="fixed-admin-body">
+      <div class="col-xs-12">
+        <h1>Resource</h1>
+        <div class="mar-top-30 mar-btm-30">
+        <p>
+          <b>Title:</b>
+          <%= @jasset.title %>
+        </p>
+        <p>
+          <b>Description:</b>
+          <%= @jasset.description %>
+        </p>
+        <p>
+          <b>Link Name:</b>
+          <%= @jasset.link_name %>
+        </p>
+        <p>
+          <b>Link URL:</b>
+          <%= @jasset.link_uri %>
+        </p>
+        <p>
+          <b>Sort:</b>
+          <%= @jasset.sort %>
+        </p>
+        <p>
+          <b>Image:</b>
+          <%= @jasset.image %>
+        </p>
+        <%= link_to edit_jasset_path(@jasset), class: 'btn btn-success' do %><i class="fa fa-pencil" aria-hidden="true"></i> Edit<% end %>
+        <%= link_to jassets_path, class: 'btn blue-btn' do %><i class="fa fa-chevron-left" aria-hidden="true"></i> Back<% end %>
+        </div>
+      </div>
+    </div>
+    </section>

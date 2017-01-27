@@ -68,5 +68,8 @@ Rails.application.configure do
   # Phone Number
   PHONE_NUMBER = ENV['PHONE_NUMBER']
   FAX_NUMBER = ENV['FAX_NUMBER']
-  
+
+  #Home Page Background Youtube Video
+  HOMEPAGE_VIDEO_ID = ENV['HOMEPAGE_VIDEO_ID']
+
 end

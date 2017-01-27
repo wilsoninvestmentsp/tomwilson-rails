@@ -103,7 +103,7 @@ class SpreadsheetWorker
 				property[:bedrooms] = normal(row['bedrooms-x'])
 				property[:bathrooms] = normal(row['bathrooms-x'])
 				property[:garages] = normal(row['garages-x'])
-				property[:carports] = normal(row['carports-x'])
+				# property[:carports] = normal(row['carports-x'])
 				property[:cash_flow] = normal(row['cash_flow-x'])
 				property[:lot_size] = normal(row['lot_size-x'])
 				property[:school_district] = normal(row['school_district-x'])

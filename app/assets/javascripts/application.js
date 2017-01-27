@@ -27,3 +27,8 @@
 //= require ./Utilities/parse-address.js
 //= require ./Utilities/google-chart.js
 //= require tinymce-jquery
+//= require bootstrap-slider
+//= require bootstrap-select
+//= require owl.carousel.min
+//= require jquery.youtubebackground
+//= require blog

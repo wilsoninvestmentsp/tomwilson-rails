@@ -21,7 +21,7 @@ class PropertySerializer < ActiveModel::Serializer
 		:bedrooms,
 		:bathrooms,
 		:garages,
-		:carports,
+		# :carports,
 		:monthly_return,
 		:chart,
 		:city,

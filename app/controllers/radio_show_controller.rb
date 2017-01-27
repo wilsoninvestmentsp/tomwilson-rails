@@ -8,7 +8,7 @@ class RadioShowController < ApplicationController
 		@content = Content.find_by_key :radio_show_summary
 		@content = Content.new key: :radio_show_summary,body: 'Blank text' if !@content
 
-		url = URI.escape('https://www.googleapis.com/youtube/v3/search?order=date&maxResults=20&type=video&channelId=UCGSnSdEw-gG88-3E6Be0Bgw&part=snippet&key=AIzaSyDcLxfFw3-Fc99r-_GrMm0PQP2peQ1mUx0')
+		url = URI.escape("https://www.googleapis.com/youtube/v3/search?order=date&maxResults=20&type=video&channelId=UCGSnSdEw-gG88-3E6Be0Bgw&part=snippet&key=#{GOOGLE_SERVER_KEY}")
 		uri = URI.parse url
 
 		http = Net::HTTP.new(uri.host,443)
@@ -22,11 +22,8 @@ class RadioShowController < ApplicationController
 
 		code = response.code.to_f.round
 		body = response.body
-
 		if code == 200
-
 			@videos = JSON.parse(body)['items']
-
 		else
 
 			@videos = []

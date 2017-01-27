@@ -7,9 +7,12 @@ class SessionsController < ApplicationController
 
 	def create
 
-		user = User.find_by_email params[:email]
+		if params[:email].empty? && params[:password].empty?
+			flash[:danger] = "Email and Password can't be blank"
+			return render 'index'
+		end
 
-		user = nil if !user.admin
+		user = User.find_by_email params[:email]
 
 		if user && user.authenticate(params[:password])
 
@@ -31,14 +34,8 @@ class SessionsController < ApplicationController
 	end
 
 	def destroy
-		
 		session[:user_id] = nil
-
-		rurl = root_url
-		rurl = CGI.unescape params[:redirect_uri] if params[:redirect_uri].present?
-
-		redirect_to rurl, flash: {warning: "Logged out!"}
-
+		redirect_to login_path, flash: {warning: "Logged out!"}
 	end
 
 	private

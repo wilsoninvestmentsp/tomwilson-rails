@@ -1,0 +1,6 @@
+$('#filter_cities').html("<%= escape_javascript(render partial: 'properties/cities', locals: { cities: @cities } ) %>");
+$('#cities').prop('disabled', false);
+$('select').selectpicker();
+$('#cities').on('change', function(){
+  angular.element('#PropertiesCtrl').scope().getPropertiesbyCities($(this).val());
+});

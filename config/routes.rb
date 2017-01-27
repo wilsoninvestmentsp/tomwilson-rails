@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'contact-us',to: 'contact#index',as: 'contact_us'
 
   resources :articles
+  resources :blogs
 
   get 'api/v1/map.png',to: 'map#index',as: 'map'
   get 'api/v1/map.js',to: 'map#js',as: 'js'
@@ -15,33 +16,29 @@ Rails.application.routes.draw do
   # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
   # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
   link = 'Our Difference'
-  get link.parameterize,to: 'articles#show',id: 222021107,as: link.parameterize.underscore
+  get link.parameterize, to: 'articles#our_difference', as: link.parameterize.underscore
 
   link = 'FAQ'
-  get link.parameterize,to: 'articles#show',id: 221934688,as: link.parameterize.underscore
-  
+  get link.parameterize, to: 'articles#faq', as: link.parameterize.underscore
+
   link = 'Financing Investments'
-  get link.parameterize,to: 'articles#show',id: 222023087,as: link.parameterize.underscore
+  get link.parameterize, to: 'articles#financing_investments', as: link.parameterize.underscore
 
   link = 'Property Management'
-  get link.parameterize,to: 'articles#show',id: 222023127,as: link.parameterize.underscore
-
-  link = 'Resources'
-  get link.parameterize,to: 'articles#show',id: 221935908,as: link.parameterize.underscore
+  get link.parameterize, to: 'articles#property_management', as: link.parameterize.underscore
 
   link = 'Market & City Reports'
-  get link.parameterize,to: 'articles#show',id: 222023207,as: link.parameterize.underscore
+  get link.parameterize, to: 'articles#market_and_city_reports', as: link.parameterize.underscore
   # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
   # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
-
 
   namespace :api do
     namespace :v1 do
-      
+
       resources :links
       resources :charts
       resources :jassets
-    
+
       resources :properties do
 
         collection do
@@ -91,9 +88,9 @@ Rails.application.routes.draw do
   resources :images
   resources :properties do
 
-  	resources :images
+    resources :images
     collection do
-
+      get 'get_cities'
       post :import
 
     end

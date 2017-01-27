@@ -1,270 +1,260 @@
+<%= render 'layouts/jumbtron' %>
 <div ng:controller="PropertyCtrl">
-
-
-  <ol class="breadcrumb">
-    <li><%= link_to 'Home',root_url %></li>
-    <li><%= link_to 'Properties',properties_path %></li>
-    <li class="active"><%= @property.raw_title %></li>
-    <% if current_user %>
-      <li><%= link_to 'Edit', edit_property_path(@property) %></li>
-    <% end %>
-  </ol>
-
-  <div>
-
-    <h1><%= @property.raw_title %><% if @property.title.present? %></br><small><%= @property.city.capitalize %>, <%= @property.state.upcase %></small><% end %></h1>
-    <% if @property.highlight.present? %>
-      <div class="wipalert" align="center"><%= @property.highlight.html_safe %></div>
-    <% end %>
-
-  </div>
-
-  <hr>
-
-  <% @slides = @property.images.map { |item| item.to_json } %>
-  <% @slides.unshift @property.image.to_json %>
-  <span ng:init="slides = [<%= @slides.join(',') %>]"></span>
-
-  <div class="row">
-
-    <div class="col-md-6">
-        
-        <div style="height: 267px; width: 400px;">
-          <uib-carousel active="active" interval="5000" no-wrap="false">
-            <uib-slide ng-repeat="slide in slides track by $index" index="$index">
-              <img ng-src="{{slide.image.url}}" style="margin:auto;">
-            </uib-slide>
-          </uib-carousel>
+    <section class="main-body without-search-feature">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="box-shadow">
+              <ol class="breadcrumb">
+                <li><%= link_to 'Home',root_url %></li>
+                <li><%= link_to 'Properties', properties_path %></li>
+                <li class="active"><%= @property.raw_title %></li>
+                <% if current_user %>
+                <li><%= link_to 'Edit', edit_property_path(@property) %></li>
+                <% end %>
+              </ol>
+            </div>
+          </div>
         </div>
+        <div class="row property-details">
+          <div class="col-xs-12">
+            <h1><%= @property.raw_title %></h1>
+            <% if @property.highlight.present? %>
+            <div class="info-lable-text"><%= @property.highlight.html_safe %></div>
+            <% end %>
+          </div>
 
-        <a href="https://maps.google.com?q=<%= @property.raw_address %>" target="_blank" class="block">
-
-        <p>
-          <h5>
-            <% if @property.title.present? %><%= @property.title %><br><% end %>
-            <small><%= @property.raw_address %><br>View in Google Maps</small>
-          </h5>
-        </p>
-        </a>
-
-        <table class="table table-striped">
-          <% if @property.status.present? %>
-          <tr>
-            <td class="vmiddle" width="1"><h4>Status:</h4></td>
-            <td colspan="2" class="vmiddle" width="1"><h4><span class="label label-warning"><%= @property.raw_status %></span></td></td>
-          </tr>
-          <% end %>
-          <% if @property.offer_price.present? && @property.offer_price > 0 %>
-          <tr>
-            <td class="vmiddle" width="1"><h4>Price:</h4></td>
-            <td class="vmiddle" width="1">
-              <h4>
-                <span class="label label-success">$<%= @property.raw_offer_price %></span>
-              </h4>
-            </td>
-            <td class="vmiddle"><h4><small><%= @property.offer_price_label %></small></h4></td>
-          </tr>
-          <% end %>
-          <% if @property.cash_flow.present? && @property.cash_flow > 0 %>
-          <tr>
-            <td class="vmiddle"><h4>Cash Flow:</h4></td>
-            <td colspan="2" class="vmiddle text-success">
-              <h4>
-                <span class="label label-success">$<%= @property.raw_cash_flow %></span>
-              </h4>
-            </td>
-          </tr>
-          <% end %>
-          <% if @property.rent.present? && @property.rent > 0 %>
-          <tr>
-            <td class="vmiddle"><h4>Rent:</h4></td>
-            <td colspan="2" class="vmiddle text-success">
-              <h4>
-                <span class="label label-success">$<%= @property.raw_rent %></span>
-              </h4>
-            </td>
-          </tr>
-          <% end %>
-          <tr>
-            <td class="vmiddle no-wrap"><h5>Building Type:</h5></td>
-            <td class="vmiddle" colspan="2"><%= @property.building_type.humanize.cap_each %></td>
-          </tr>
-          <% if @property.leased.present? && @property.leased != 'no' %>
-          <tr>
-            <td class="vmiddle"><h5>Leased:</h5></td>
-            <td class="vmiddle" colspan="2"><%= @property.leased.capitalize %></td>
-          </tr>
-          <% end %>
-          <% if @property.year_built.present? %>
-          <tr>
-            <td class="vmiddle no-wrap"><h5>Year Built:</h5></td>
-            <td class="vmiddle" colspan="2"><%= @property.year_built %></td>
-          </tr>
-          <% end %>
-          <% if @property.square_ft.present? && @property.square_ft > 0 %>
-          <tr>
-            <td class="vmiddle no-wrap"><h5>Sq Ft:</h5></td>
-            <td class="vmiddle" colspan="2"><%= number_with_precision(@property.square_ft,precision: 0,delimiter: ',') %><sup>2ft</sup></td>
-          </tr>
-          <% end %>
-          <% if @property.lot_size.present? && @property.lot_size > 0 %>
-          <tr>
-            <td class="vmiddle no-wrap"><h5>Lot Size:</h5></td>
-            <td class="vmiddle" colspan="2"><%= number_with_precision(@property.lot_size,precision: 0,delimiter: ',') %><sup>2ft</sup></td>
-          </tr>
-          <% end %>
-          <% if @property.bedrooms.present? && @property.bedrooms > 0 %>
-          <tr>
-            <td class="vmiddle"><h5>Bedrooms:</h5></td>
-            <td class="vmiddle" colspan="2"><%= number_with_precision(@property.bedrooms,precision: 1,delimiter: ',') %></td>
-          </tr>
-          <% end %>
-          <% if @property.bathrooms.present? && @property.bathrooms > 0 %>
-          <tr>
-            <td class="vmiddle"><h5>Bathrooms:</h5></td>
-            <td class="vmiddle" colspan="2"><%= number_with_precision(@property.bathrooms,precision: 1,delimiter: ',') %></td>
-          </tr>
-          <% end %>
-          <% if @property.garages.present? && @property.garages > 0 %>
-          <tr>
-            <td class="vmiddle"><h5>Garages:</h5></td>
-            <td class="vmiddle" colspan="2"><%= number_with_precision(@property.garages,precision: 1,delimiter: ',') %></td>
-          </tr>
-          <% end %>
-          <% if @property.carports.present? && @property.carports > 0 %>
-          <tr>
-            <td class="vmiddle"><h5>Carports:</h5></td>
-            <td class="vmiddle" colspan="2"><%= number_with_precision(@property.carports,precision: 1,delimiter: ',') %></td>
-          </tr>
-          <% end %>
-          <% if @property.school_district.present? && false %>
-          <tr>
-            <td class="vmiddle no-wrap" colspan="3"><%= link_to "School District: #{@property.raw_school_district}","http://www.greatschools.org/search/search.page?q=#{@property.raw_school_district}&state=#{@property.state}",target: '_blank' %></td>
-          </tr>
-          <% end %>
-          <tr>
-            <td colspan="3" class="vmiddle"><a href="http://www.city-data.com/zips/<%= @property.zip %>.html" target="_blank">Community Overview</a></td>
-          </tr>
-          <% @property.links.each do |link| %>
-          <tr>
-            <td class="vmiddle" colspan="3"><a href="<%= link.link %>" target="_blank"><%= link.title %></a></td>
-          </tr>
-          <% end %>
-        </table>
-
-    </div>
-    <div class="col-md-6">
-      
-      <a href="#property_contact" class="btn btn-default">Contact Us About this Property</a>
-
-      <div class="top-20">
-      <% if @property.description.present? %>
-        <%= @property.description.html_safe %>
-      <% end %>
+          <div class="col-md-6 col-sm-12 col-xs-12">
+            <div id="property-images-slider" class="owl-carousel owl-theme">
+            <div class="item">
+              <%= image_tag @property.image.url, class: 'img-responsive' %>   
+            </div>
+            <% @property.images.each do |property| %>
+              <div class="item">
+                <%= image_tag property.image.url, class: 'img-responsive' %>   
+              </div>
+              <% end %>
+            </div>
+            <% if @property.leased == '1' %>
+              <span class="status-tag-right blue">Leased</span>
+            <% end %>
+          </div>
+          <div class="col-md-6 col-sm-12 col-xs-12">
+            <ul class="nav nav-tabs property-info-tabs">
+                <li class="active"><a data-toggle="tab" href="#details">Details</a></li>
+              <% if @property.description.present? %>
+                <li><a data-toggle="tab" href="#description">Description</a></li>
+              <% end %>
+            </ul>
+            <div class="tab-content">
+              <div id="details" class="tab-pane fade in active">
+                <ul class="status-price-details">
+                  <% if @property.status.present? || @property.offer_price > 0 %>
+                    <li>
+                      <% if @property.status.present? %>
+                      <label><span class="title">Status:</span> <span class="label <%= status_label_class(@property)%>"><%= @property.raw_status %></span></label>
+                      <% end %>
+                      <% if @property.offer_price.present? && @property.offer_price > 0 %>
+                      <label><span class="title">Price:</span>$<%= @property.raw_offer_price %>
+                        <%= " / #{@property.offer_price_label}" if @property.offer_price_label.present? %></label>
+                        <% end %>
+                      </li>
+                    <% end %>
+                    <% if (@property.rent.present? && @property.rent > 0) || (@property.cash_flow.present? && @property.cash_flow > 0) %>
+                      <li>
+                        <% if @property.rent.present? && @property.rent > 0 %>
+                        <label><span class="title"><b>Rent:</b></span> $<%= @property.raw_rent %></label>
+                        <% end %>
+                        <% if @property.cash_flow.present? && @property.cash_flow > 0 %>
+                        <label><span class="title">Cashflow:</span> $<%= @property.raw_cash_flow %></label>
+                        <% end %>
+                      </li>
+                    <% end %>
+                    <% if @property.building_type.present? || @property.leased.present? %>
+                      <li>
+                        <label><span class="title">Building Type:</span><%= @property.building_type.humanize.cap_each %></label>
+                        <label><span class="title">Leased:</span><%= @property.leased.to_i.zero? ? 'No' : 'Yes'%></label>
+                      </li>
+                    <% end %>
+                    <% if @property.year_built.present? || @property.square_ft.present? %>
+                      <li>
+                        <% if @property.year_built.present? %>
+                        <label><span class="title">Year Built:</span><%= @property.year_built %></label>
+                        <% end %>
+                        <% if @property.square_ft.present? && @property.square_ft > 0 %>
+                        <label><span class="title">Sq. Ft.:</span> <%= number_with_precision(@property.square_ft,precision: 0,delimiter: ',') %><sup>2ft</sup></label>
+                        <% end %>
+                      </li>
+                    <% end %>
+                    <% if @property.lot_size.present? || (@property.bedrooms.present? && @property.bedrooms > 0) %>
+                      <li>
+                        <% if @property.lot_size.present? && @property.lot_size > 0 %>
+                        <label><span class="title">Lot Size:</span><%= number_with_precision(@property.lot_size,precision: 0,delimiter: ',') %><sup>2ft</sup></label>
+                        <% end %>
+                        <% if @property.bedrooms.present? && @property.bedrooms > 0 %>
+                        <label><span class="title">Bedrooms:</span><%= number_with_precision(@property.bedrooms,precision: 0,delimiter: ',') %></label>
+                        <% end %>
+                      </li>
+                    <% end %>
+                    <% if (@property.bathrooms.present? && @property.bathrooms > 0) || (@property.garages.present? && @property.garages > 0) %>
+                      <li>
+                        <% if @property.bathrooms.present? && @property.bathrooms > 0 %>
+                        <label><span class="title">Bathrooms:</span><%= number_with_precision(@property.bathrooms,precision: 0,delimiter: ',') %></label>
+                        <% end %>
+                        <% if @property.garages.present? && @property.garages > 0 %>
+                        <label><span class="title">Garages:</span><%= number_with_precision(@property.garages,precision: 0,delimiter: ',') %></label>
+                        <% end %>
+                      </li>
+                    <% end %>
+                  <% if @property.links.present? %>
+                    <li class="links">
+                      <% if @property.school_district.present? && false %>
+                      <span><%= link_to "School District: #{@property.raw_school_district}","http://www.greatschools.org/search/search.page?q=#{@property.raw_school_district}&state=#{@property.state}",target: '_blank' %></span>
+                      <% end %>
+                      <% @property.links.each do |link| %>
+                        <% if link.link.present? %>
+                          <span><%= link_to "#{link.title}", "#{link.formatted_link}", target: '_blank'%></span>
+                        <% end %>
+                      <% end %>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+              <% if @property.description.present? %>
+                <div id="description" class="tab-pane description-content">
+                  <% if @property.description.present? %>
+                    <%= @property.description.html_safe %>
+                  <% end %>
+                </div>
+              <% end %>
+              <div class="contact-link">
+              	<a href="tel:4088671867" class="btn border-btn left-link"><i class="fa fa-phone" aria-hidden="true"></i> Call us at <%= PHONE_NUMBER %></a>
+                <a href="#" data-toggle="modal" data-target="#property-contact" class="btn border-btn right-link"><i class="fa fa-envelope" aria-hidden="true"></i> Contact Us About this Property</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <google-map address="'<%= @property.raw_address %>'" zoom="9"></google-map>
-
-      <% if @property.chart.present? %>
-      <span ng:init="chart = <%= @property.chart.to_json %>"></span>
-      <span ng:init="setChart(chart)"></span>
-      
-      <div google-chart chart="myChartObject" style="height:400px; width:100%;"></div>
-      <div align="center" class="text-muted"><small>Loan Assumptions: 75% LTV, 30 year fixed, 4.25%</small></div>
-      <% end %>
-
-      <div ng:controller="TicketCtrl">
-          
-          <a name="property_contact"></a>
-
-          <span ng:init="inquiry.property = <%= PropertySerializer.new(@property,root: false).to_json %>"></span>
-
-          <uib-alert ng:repeat="alert in alerts" type="{{alert.type}}">{{alert.message}}</uib-alert>
-
-          <form
+      <div class="map-graph-section">
+        <div class="container">
+        <div class="row map-graph-details">
+          <div class="col-md-6 col-sm-12 col-xs-12" id="google_map">
+            <input type="hidden" id="is_admin" value="<%= current_user.present? %>">
+            <h4><a href="https://maps.google.com?q=<%= @property.raw_address %>" target="_blank" class="block">
+              <%= @property.raw_map_address %> - View in Google Maps</a></h4>
+              <google-map address="'<%= @property.raw_address %>'" zoom="9">
+              </google-map>
+            </div>
+            <% if @property.chart.present? %>
+              <div class="col-md-6 col-sm-12 col-xs-12">
+                <span ng:init="chart = <%= @property.chart.to_json %>"></span>
+                <span ng:init="setChart(chart)"></span>
+                <div google-chart chart="myChartObject"></div>
+                <div align="center" class="text-muted"><small>Loan Assumptions: 75% LTV, 30 year fixed, 4.25%</small></div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div ng:controller="TicketCtrl">
+    <div id="property-contact" class="modal fade" role="dialog">
+      <div class="modal-dialog property-contact-popup">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <span ng:init="inquiry.property = <%= PropertySerializer.new(@property, root: false).to_json %>"></span>
+            <uib-alert ng:repeat="alert in alerts" type="{{alert.type}}">{{alert.message}}</uib-alert>
+            <h4 class="modal-title"><i class="fa fa-envelope" aria-hidden="true"></i> Contact us about this property</h4>
+          </div>
+          <div class="modal-body">
+            <form
             name="ticket_form"
             ng:submit="submitForm()"
+            class="form-horizontal"
             novalidate
             ng:show="show_form"
-          >
-
-            <h3>Contact us about this property:<br><small>Call us at <%= PHONE_NUMBER %> or fill out the form below</small></h3>
+            >
             <div class="form-group">
-              <label>Full Name</label><br>
-              <input
+              <div class="col-xs-12">
+                <i class="fa fa-user input-icons" aria-hidden="true"></i>
+                <input
                 type="text"
-                class="form-control" 
+                class="form-control"
                 ng:model="inquiry.name"
-                placeholder="Full Name"
+                placeholder="Your Name *"
                 required
-              />
+                />
+              </div>
             </div>
-
             <div class="form-group">
-              <label>Email</label><br>
-              <input
+              <div class="col-sm-6 col-xs-12 pad-right-0">
+                <i class="fa fa-envelope input-icons" aria-hidden="true"></i>
+                <input
                 type="email"
-                class="form-control" 
+                class="form-control"
                 ng:model="inquiry.email"
                 placeholder="Email"
                 required
-              />
-            </div>
-
-            <div class="form-group">
-              <label>Phone #</label><br>
-              <input
+                />
+              </div>
+              <div class="col-sm-6 col-xs-12">
+                <i class="fa fa-phone input-icons" aria-hidden="true"></i>
+                <input
                 type="tel"
-                class="form-control" 
+                class="form-control"
                 ng:model="inquiry.phone"
                 placeholder="Phone #"
                 required
-              />
+                />
+              </div>
             </div>
-
             <div class="form-group">
-              <label>Comments</label><br>
-              <textarea
+              <div class="col-xs-12">
+                <i class="fa fa-pencil input-icons" aria-hidden="true"></i>
+                <textarea
                 rows="5"
                 class="form-control"
                 ng:model="inquiry.description"
-                placeholder="Leave a comment"
+                placeholder="Your Message *"
                 required
-              ></textarea>
-            </div>
-
-            <div class="form-group">
-              <div class="checkbox">
-
-                <label>
-                  <input type="checkbox" ng:model="inquiry.newsletter" /> Sign up for our Newsletter
-                </label>
-
+                ></textarea>
               </div>
             </div>
-
-            <input
-              type="submit"
-              class="btn btn-success"
-              value="Submit"
-              ng:disabled="!ticket_form.$valid"
-              ng:if="!loading"
-            />
-            <input
-              type="submit"
-              class="btn btn-warning"
-              value="Submitting..."
-              ng:disabled="true"
-              ng:if="loading"
-            />
-
+            <div class="form-group last">
+              <div class="col-xs-12">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" ng:model="inquiry.newsletter"><span class="cr"><i class="cr-icon fa fa-check"></i></span> Sign up for our Newsletter
+                  </label>
+                </div>
+                <input
+                type="submit"
+                class="btn btn-success"
+                value="Submit"
+                ng:disabled="!ticket_form.$valid"
+                ng:if="!loading"
+                />
+                <input
+                type="submit"
+                class="btn btn-warning"
+                value="Submitting..."
+                ng:disabled="true"
+                ng:if="loading"
+                />
+              </div>
+            </div>
           </form>
-
+        </div>
       </div>
-
     </div>
-
   </div>
-
-
 </div>
+<script type="text/javascript">
+   $(document).ready(function(){
+    var auto_play = ($('.item').length == 1) ? false : 4000;
+    $("#property-images-slider").owlCarousel({autoPlay:auto_play,items:1,itemsDesktop:[1199,1],itemsTablet:[991,1],itemsMobile:[767,1],transitionStyle:"fade"});
+    });
+</script>

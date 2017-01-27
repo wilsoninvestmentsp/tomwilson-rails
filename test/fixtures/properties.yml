@@ -11,7 +11,7 @@ one:
   bedrooms: 1
   bathrooms: 1
   garages: 1
-  carports: 1
+  # carports: 1
   monthly_return: 9.99
 
 two:
@@ -25,5 +25,5 @@ two:
   bedrooms: 1
   bathrooms: 1
   garages: 1
-  carports: 1
+  # carports: 1
   monthly_return: 9.99

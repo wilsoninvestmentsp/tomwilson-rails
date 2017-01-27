@@ -1,0 +1,14 @@
+pagination:
+  blogs:
+    per_page: 9
+  properties:
+    per_page:
+      default: 16
+      tablet: 15
+      mobile: 10
+truncate:
+  blog:
+    title: 60
+    summary: 370
+  property:
+    title: 30

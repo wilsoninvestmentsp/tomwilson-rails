@@ -7,6 +7,20 @@ App.controller('FeaturedCtrl',['$scope','$http',function($scope,$http){
 	scope.properties = [];
 	scope.changed = false;
 
+	scope.getStatusClass = function(status){
+		switch(status) {
+			case 'for_sale':
+				status_class = 'status-tag green';
+				break;
+			case 'reserved':
+				status_class = 'status-tag yellow';
+				break;
+			default:
+				status_class = 'status-tag-top yellow';
+		}
+		return status_class;
+	};
+
 	scope.moveProperty = function(property,old_index,new_index){
 
 		if (new_index < 0 || new_index > (scope.properties.length-1)){ return false; }

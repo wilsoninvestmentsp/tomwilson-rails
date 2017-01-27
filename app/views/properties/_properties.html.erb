@@ -1,0 +1,41 @@
+<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12" ng:repeat="property in properties">
+  <div class="listing-box" ng:click="clickableDiv('<%= properties_url %>', property.slug)">
+	  <div class="img-box">
+	    <a href="<%= properties_path %>/{{property.slug}}"><img ng:src="{{property.image.image.url}}" class="img-responsive"></a>
+	    <span ng:class="getStatusClass(property.status)" ng:if="property.raw_status">{{property.raw_status}}</span>
+	    <span class="status-tag-right blue" ng:if="property.leased == 1">Leased</span>
+	  </div>
+	  <h3><a href="<%= properties_path %>/{{property.slug}}">{{property.raw_title | limitTo: 42 }}{{property.raw_title.length > 42 ? '...' : ''}}</a></h3>
+	  <ul class="labels">
+	    <li class="price">${{property.raw_offer_price}}
+	      <span ng:if="property.offer_price_label"> / {{property.offer_price_label}}</span>
+	      </li>
+	      <li class="person">{{property.raw_building_type}}</li>
+	    </ul>
+	    <ul class="price-flow">
+	      <li>
+	      	Cash Flow: <span class="blue-text" ng:if="property.raw_cash_flow && property.cash_flow > 0">${{property.raw_cash_flow}}</span>
+	      	<span class="blue-text" ng:if="!property.raw_cash_flow || property.cash_flow == 0">N/A</span>
+	      </li>
+	      <li>Rent: 
+	      	<span class="blue-text" ng:if="property.raw_rent && property.rent > 0">${{property.raw_rent}}
+	      	</span><span class="blue-text" ng:if="!property.raw_rent || property.rent == 0">N/A</span>
+	      </li>
+	    </ul>
+	    <ul class="numbers-details">
+	      <li>
+	      	<span data-toggle="tooltip" data-placement="top" title="Bedroom" ng:if="property.bedrooms && property.bedrooms > 0"><i class="fa fa-bed" aria-hidden="true"></i>{{property.bedrooms | number: 0 }}</span>
+					<span data-toggle="tooltip" data-placement="top" title="Bedroom" ng:if="!property.bedrooms || property.bedrooms == 0"><i class="fa fa-bed" aria-hidden="true"></i>N/A</span>
+	      </li>
+
+	      <li>
+	      	<span data-toggle="tooltip" data-placement="top" title="Bathroom" ng:if="property.bathrooms && property.bathrooms > 0"><i class="fa fa-bath" aria-hidden="true"></i>{{property.bathrooms | number: 0}}</span>
+	      	<span data-toggle="tooltip" data-placement="top" title="Bathroom" ng:if="!property.bathrooms || property.bathrooms == 0"><i class="fa fa-bath" aria-hidden="true"></i>N/A</span>
+	      </li>
+	      <li>
+	      	<span data-toggle="tooltip" data-placement="top" title="Garage" ng:if="property.garages && property.garages > 0"><i class="fa fa-car" aria-hidden="true"></i>{{property.garages | number: 0}}</span>
+	      	<span data-toggle="tooltip" data-placement="top" title="Garage" ng:if="!property.garages || property.garages == 0"><i class="fa fa-car" aria-hidden="true"></i>N/A</span>
+	      </li>
+	    </ul>
+	 </div>
+</div>

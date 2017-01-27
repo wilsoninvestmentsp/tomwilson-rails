@@ -4,27 +4,29 @@ App.controller('PropertiesCtrl',['$scope','$http',function($scope,$http){
 	scope.properties = [];
 	scope.params = toParams(window.location.search);
 	scope.meta = {};
+	scope.separate_building_types = {
+		'all': {
+			label: 'All',
+			value: 'single_family%2Cduplex%2Cfourplex%2Cmultifamily%2Ccommercial'
+		},
+		'single_family': {
+			label: 'Single Family',
+			value: 'single_family'
+		},
+		'duplex_fourplex': {
+			label: 'Duplex - Fourplex',
+			value: 'duplex%2Cfourplex'
+		},
+		'multifamily': {
+			label: 'Multifamily',
+			value: 'multifamily'
+		},
+		'commercial': {
+			label: 'Commercial',
+			value: 'commercial'
+		}
+	};
 	scope.building_types = {
-		// 'single_family': {
-		// 	label: 'Single Family',
-		// 	value: 'single_family'
-		// },
-		// 'duplex': {
-		// 	label: 'Duplex',
-		// 	value: 'duplex'
-		// },
-		// 'fourplex': {
-		// 	label: 'Fourplex',
-		// 	value: 'fourplex'
-		// },
-		// 'multifamily': {
-		// 	label: 'Multifamily',
-		// 	value: 'multifamily'
-		// },
-		// 'commercial': {
-		// 	label: 'Commercial',
-		// 	value: 'commercial'
-		// },
 		'single_family%2Cduplex%2Cfourplex': {
 			label: 'Rental Homes & 2-4\'s',
 			value: 'single_family%2Cduplex%2Cfourplex'
@@ -33,13 +35,42 @@ App.controller('PropertiesCtrl',['$scope','$http',function($scope,$http){
 			label: 'Multifamily & Commercial',
 			value: 'multifamily%2Ccommercial'
 		}
-	}
+	};
+
+	scope.activeMenu = scope.separate_building_types['all'];
+	scope.setActive = function(building_type){
+	  scope.activeMenu = building_type;
+	};
+
+	scope.getStatusClass = function(status){
+		switch(status) {
+			case 'sold':
+				status_class = 'status-tag-top red';
+				break;
+			case 'for_sale':
+				status_class = 'status-tag-top green';
+				break;
+			case 'sale_pending':
+				status_class = 'status-tag-top orange';
+				break;
+			case 'comming_soon':
+				status_class = 'status-tag-top skyblue';
+				break;
+			case 'reserved':
+				status_class = 'status-tag-top yellow';
+				break;
+			default:
+				status_class = 'status-tag-top green';
+		}
+		return status_class;
+	};
 
 	scope.getProperties = function(){
 
 		scope.loading = true;
 
 		delete scope.params.q;
+		delete scope.params.page;
 
 		angular.forEach(scope.params,function(val,key){
 
@@ -50,14 +81,15 @@ App.controller('PropertiesCtrl',['$scope','$http',function($scope,$http){
 		var url = '/api/v1/properties.json'+paramsString(scope.params);
 
 		$http({
-		  method: 'GET',
-		  url: url
+			method: 'GET',
+			url: url
 		}).then(function successCallback(response){
 
 			scope.properties = response.data.properties;
 			scope.meta = response.data.meta;
 			delete scope.loading;
-
+			$('[data-toggle="tooltip"]').tooltip();
+			
 		}, function errorCallback(response){
 
 			JP('PropertiesCtrl getProperties Error!');
@@ -67,17 +99,81 @@ App.controller('PropertiesCtrl',['$scope','$http',function($scope,$http){
 		});
 
 	}
+
+	scope.getCities = function(){
+		delete scope.params.city;
+		if(scope.params.state){
+			var url = 'properties/get_cities?state='+scope.params.state;
+			$.ajax({
+      	url: url
+      });
+		}
+		else{
+			$('#cities').val('');
+			$('#cities').prop('disabled', true);
+			$('#cities').selectpicker('refresh');
+		}
+		scope.getProperties();
+	},
+
+	scope.getPropertiesbyCities = function(city){
+		scope.params.city = city;
+		scope.getProperties();
+	},
+
 	scope.getProperties();
+
+	scope.filterPropertiesByBuildingType = function(query){
+		scope.setActive(query)
+		scope.loading = true
+		delete scope.params.q;
+		delete scope.params.page;
+
+		scope.params['building_type'] = query.value
+		var url = '/api/v1/properties.json'+paramsString(scope.params);
+		scope.getfilteredProperties(url);
+	}
+
+
+	scope.getfilteredProperties = function (url){
+		$http({
+			method: 'GET',
+			url: url
+		}).then(function successCallback(response){
+			scope.properties = response.data.properties;
+			scope.meta = response.data.meta;
+			delete scope.loading;
+		}, function errorCallback(response){
+			delete scope.loading;
+		});
+	},
+
 
 	scope.toPage = function(page){
 
 		scope.params.page = page;
-		scope.getProperties();
 
+		var url = '/api/v1/properties.json'+paramsString(scope.params);
+
+		$http({
+			method: 'GET',
+			url: url
+		}).then(function successCallback(response){
+				$.each(response.data.properties, function(i, item) {
+      	  scope.properties.push(item);
+    		});
+				scope.meta = response.data.meta;
+		});
 	}
 
 	scope.createArray = function(i){
-	    return new Array(i);
+		return new Array(i);
+	}
+
+	scope.clickableDiv = function(properties_link, property){
+		var property_url = properties_link+'/'+property
+		window.location = property_url;
+		return false;
 	}
 
 }]);

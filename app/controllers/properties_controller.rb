@@ -1,15 +1,23 @@
 class PropertiesController < ApplicationController
-  
-  before_action :authorize,except: [:index,:show]
+
+  before_action :authorize,except: [:index,:show,:get_cities]
   before_action :set_property, only: [:show, :edit, :update, :destroy]
   before_action :set_status_options
 
   # GET /properties
   # GET /properties.json
   def index
-    # @properties = Property.where active: true
+    @states ||= Property.select(:state).uniq!
+    @cities = Property.select(:city).uniq
+    min_price = Property.minimum(:offer_price)
+    max_price = Property.maximum(:offer_price)
+    @min_max_price = { min_price: min_price, max_price: max_price }
+    @sort_by_offer_price = { asc: 'Low to High', desc: 'High to Low' }
   end
 
+  def get_cities
+    @cities = Property.select(:city).where(state: params[:state]).uniq!
+  end
   # GET /properties/1
   # GET /properties/1.json
   def show
@@ -28,7 +36,7 @@ class PropertiesController < ApplicationController
   # POST /properties
   # POST /properties.json
   def create
-    @property = Property.new(property_params)
+    @property = Property.new(property_params.merge!({active: true}))
 
     respond_to do |format|
       if @property.save
@@ -46,7 +54,7 @@ class PropertiesController < ApplicationController
   def update
     respond_to do |format|
       if @property.update(property_params)
-        format.html { redirect_to edit_property_path(@property), flash: {success: "#{@property.raw_title} was successfully updated!"} }
+        format.html { redirect_to @property, flash: {success: "#{@property.raw_title} was successfully updated!"} }
         format.json { render :show, status: :ok, location: @property }
       else
         format.html { render :edit }
@@ -66,13 +74,20 @@ class PropertiesController < ApplicationController
   end
 
   def import
-    
-    csv = Property.import params[:file]
-
-    # render json: nil
-    send_data csv,filename: "errors_#{Time.now.to_i}.csv"
-    # redirect_to jobs_url, flash: {warning: "Import testing."}
-
+    if params[:file].present?
+      file_extension = File.extname params[:file].original_filename
+      if file_extension != 'csv'
+        return redirect_to import_url, flash: {danger: "Please select CSV file to import properties..."}
+      end
+      error_csv = Property.import params[:file]
+      if error_csv.nil?
+        redirect_to import_url, flash: {success: "Properties has been imported successfully..."}
+      else
+        send_data error_csv, filename: "errors_#{Time.now.to_i}.csv"
+      end
+    else
+      redirect_to import_url, flash: {danger: "Please select CSV file to import properties..."}
+    end
   end
 
   private
@@ -80,6 +95,7 @@ class PropertiesController < ApplicationController
     def set_property
       @property = Property.where(slug: params[:id],active: true).first
     end
+
     def set_status_options
       # @status_options = [
       #   ['Select One',nil],
@@ -127,7 +143,7 @@ class PropertiesController < ApplicationController
         :bedrooms,
         :bathrooms,
         :garages,
-        :carports,
+        # :carports,
         :monthly_return,
         :images,
         :city,

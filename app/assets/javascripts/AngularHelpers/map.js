@@ -55,7 +55,16 @@ App.directive('googleMap',function(){
                       alert("No results found");
                     }
                   } else {
-                    alert("Geocode was not successful for the following reason: " + status);
+                    if($('#is_admin').val() == 'true'){
+                      alert("Incorrect address. Enter correct address to generate google map.");
+                      $('#google_map').remove();
+                    }
+                    if($.trim($('.map-graph-section .container').text()) == ''){
+                      $('.map-graph-section').remove();
+                    }
+                    else{
+                      $('#google_map').remove();
+                    }
                   }
                   delete scope.map_loading;
                 });
