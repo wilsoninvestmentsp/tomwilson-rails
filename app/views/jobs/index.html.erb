@@ -46,12 +46,14 @@ ng:disabled="true"
 </div>
 </section>
 <script type="text/javascript">
-  $(document).on('ready', function(){
-    $('#file').on('change', function(){
-      if($(this).val().toLowerCase().lastIndexOf(".csv")==-1){
-        alert("Please upload only .csv extention file");
-        return false;
-      } 
-    }); 
+  $(document).on('ready page:load', function(){
+    try{
+      $('#file').on('change', function(){
+        if($(this).val().toLowerCase().lastIndexOf(".csv")==-1){
+          alert("Please upload only .csv extention file");
+          $(this).val('');
+        } 
+      }); 
+    }catch(e){}
   });
 </script>
