@@ -53,6 +53,11 @@
       try{tinyMCE.remove('#blog_content');}catch(e){}
       tinyMCE.init({
         selector: '#blog_content',
+        toolbar: [
+        "styleselect | bold italic | alignleft aligncenter alignright alignjustify",
+        "bullist numlist outdent indent | link image | code | codesample"
+          ],
+        plugins: "image,link,code,imagetools,media,table,insertdatetime,charmap,print,preview,anchor,searchreplace,visualblocks",
         min_height: 391
       });
     },100);

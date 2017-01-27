@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
 
   def index
-    @blogs = Blog.all_recent_blogs.page(params[:page]).per(Settings.pagination.blogs.per_page)
+    @blogs = Blog.blogs_by_user(current_user).page(params[:page]).per(Settings.pagination.blogs.per_page)
   end
 
   def new
@@ -20,7 +20,7 @@ class BlogsController < ApplicationController
   end
 
   def show
-    @blogs = Blog.recent_blogs(@blog.id)
+    @blogs = Blog.recent_blogs_by_user(current_user, @blog.id)
   end
 
   def edit
@@ -46,6 +46,6 @@ class BlogsController < ApplicationController
   end
 
   def blog_params
-    params.require(:blog).permit(:title, :content, :summary, :image)
+    params.require(:blog).permit(:title, :content, :summary, :author, :status, :image)
   end
 end
