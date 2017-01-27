@@ -24,4 +24,4 @@
  */
 
 .flash-message-container{position:absolute;z-index:1080;width:100%;top:0;padding:0 !important}
-.alert{border-radius:0 !important;word-break:break-all;word-wrap:break-word}
+.alert{border-radius:0 !important;word-wrap:break-word}
