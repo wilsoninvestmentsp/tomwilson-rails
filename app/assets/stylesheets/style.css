@@ -94,10 +94,10 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .magazine-section{padding:50px 0 100px 0;font-family:'AllerRG'}
 .magazine-section h3{margin-top:0;margin-bottom:50px;font-size:32px;line-height:1;color:#525252}
 
-.feedback-section{padding:50px 0;font-family:'AllerRG';text-shadow:2px 2px 4px #000;-webkit-text-shadow:2px 2px 4px #000;-moz-text-shadow:2px 2px 4px #000;-ms-text-shadow:2px 2px 4px #000;-o-text-shadow:2px 2px 4px #000;margin-bottom:60px}
-.feedback-section .comment{font-size:26px;padding-top:0;margin-top:0;color:#ffdf90}
-.feedback-section .user{font-size:16px;color:#ddd}
-.feedback-section .table{background:#fff;text-shadow:none;-webkit-text-shadow:none;-moz-text-shadow:none;-ms-text-shadow:none;-o-text-shadow:none}
+.feedback-section{padding:50px 0;font-family:'AllerRG';margin-bottom:60px;border-top:solid 1px #ddd}
+.feedback-section .comment{font-size:26px;padding-top:0;margin-top:0;color:#525252}
+.feedback-section .user{font-size:16px;color:#407cbb}
+.feedback-section .table{background:#fff}
 .feedback-table-section{padding:50px 0;margin-bottom:60px;border-top:solid 1px #ddd}
 .feedback-table-section h3{font-size:32px;margin-bottom:50px;margin-top:0;line-height:1}
 
@@ -172,14 +172,14 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .property-listing .listing-box a{text-decoration:none;color:#575757;display:block;word-break:break-all;word-wrap:break-word}
 .property-listing .listing-box .img-box{position:relative;overflow:hidden}
 .property-listing .listing-box .img-box img{display:inline-block;transition:all .2s ease-in-out;-webkit-transition:all .2s ease-in-out;-moz-transition:all .2s ease-in-out;-ms-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out}
-.property-listing .listing-box h3{font-size:16px;height:40px;padding:0 15px}
+.property-listing .listing-box h3{font-size:16px;height:40px;padding:0 10px}
 .property-listing .listing-box ul{margin:0;padding:0;list-style:none;display:table;width:100%}
 .property-listing .listing-box ul li{float:left}
 .property-listing .listing-box .labels li{padding:0 0 10px 0}
-.property-listing .listing-box .labels .price{color:#558B2F;text-align:left;padding-left:15px;float:left}
-.property-listing .listing-box .labels .person{color:#407cbb;text-align:right;padding-right:15px;float:right}
+.property-listing .listing-box .labels .price{color:#558B2F;text-align:left;padding-left:10px;float:left}
+.property-listing .listing-box .labels .person{color:#407cbb;text-align:right;padding-right:10px;float:right}
 .property-listing .listing-box .price-flow{border-top:solid 1px #ddd;border-bottom:solid 1px #ddd}
-.property-listing .listing-box .price-flow li{width:50%;padding:10px 0;border-right:solid 1px #ddd;padding-left:15px}
+.property-listing .listing-box .price-flow li{width:50%;padding:10px 0;border-right:solid 1px #ddd;padding-left:10px}
 .property-listing .listing-box .price-flow li:last-of-type{border-right:none}
 .property-listing .listing-box .blue-text{color:#407cbb}
 .property-listing .listing-box .numbers-details{color:#818181;text-align:center}

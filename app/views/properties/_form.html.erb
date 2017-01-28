@@ -277,7 +277,7 @@
   	              </tr>
                   <tr ng:repeat="link in links">
                     <td class="vmiddle" ng:show="!link.edit">{{link.title}}</td>
-                    <td class="vmiddle" ng:show="!link.edit">
+                    <td class="vmiddle word-break" ng:show="!link.edit">
                       <a href="{{link.link.startsWith('http') ? link.link : 'http://'+link.link}}" target="_blank">{{link.link}}</a>
                     </td>
                     <td ng:show="!link.edit" align="right">
@@ -287,7 +287,7 @@
                     <td class="vmiddle" ng:show="link.edit">
                       <input type="text" class="form-control" ng:model="link.title" placeholder="Title">
                     </td>
-                    <td class="vmiddle" ng:show="link.edit">
+                    <td class="vmiddle word-break" ng:show="link.edit">
                       <input type="text" class="form-control" ng:model="link.link" placeholder="Link">
                     </td>
                     <td ng:show="link.edit" align="right">

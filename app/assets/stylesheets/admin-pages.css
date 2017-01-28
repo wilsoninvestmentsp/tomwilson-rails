@@ -50,7 +50,7 @@
 .add-property-form .upload-image .list-unstyled li.right{width:25%;padding-left:15px}
 .add-property-form .upload-image .list-unstyled li .btn.btn-default{width:100%;padding:0 12px;height:75px;line-height:75px}
 .add-property-form .upload-image .list-unstyled li img{border-radius:4px}
-.add-property-form table tr td{word-break:break-all}
+.add-property-form .word-break{word-break:break-all}
 .add-property-form .more-images-field label{font-weight:normal;width:100%}
 
 

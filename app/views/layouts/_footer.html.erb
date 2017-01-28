@@ -19,21 +19,12 @@
   </div>
 </footer>
 <% unless current_user %>
-<%= render 'layouts/newsletter' %>
+  <%= render 'layouts/newsletter' %>
 <% end %>
 
 <div class="scroll-top-wrapper"><span class="scroll-top-inner"><i class="fa fa-angle-up"></i></span></div>
 
 <script>
-  $(document).on('ready', function(){
-    setTimeout(function(){
-        $('#newsletter-form').show('500');
-    }, 1000);
-    setTimeout(function(){
-        $('#newsletter-form').hide('500');
-    }, 6000);
-  });
-
   $(function(){
     $("#newsletter-tab").click(function() {
       $("#newsletter-form").toggle("slide");
