@@ -18,7 +18,7 @@
       <div class="col-xs-12">
         <h1>Our Blogs</h1>
         <div class="row blog-listing" id="blog-listing">
-          <% if Blog.count > 0 %>
+          <% if @blogs.any? %>
             <%= render partial: 'blogs', locals: {blogs: @blogs} %>
           <% else %>
             <div class="col-xs-12 msg-content text-center">
@@ -28,7 +28,7 @@
         </div>
       </div>
     </div>
-    <% if Blog.count > 1 %>
+    <% if @blogs.any? %>
     <div class="row">
       <div class="col-xs-12 text-center">
         <% if @blogs.current_page < @blogs.num_pages %>

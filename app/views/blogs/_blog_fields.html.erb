@@ -12,6 +12,14 @@
       <br>Summary will show maximum 370 characters.</p>
     </div>
     <div class="form-group">
+      <%= f.label :author, class: 'control-label' %>
+      <%= f.text_field :author, class: 'form-control', placeholder: '' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :status, class: 'control-label' %>
+      <%= f.select :status, Blog.statuses.map { |key, value| [key.humanize, key] }, {}, class: 'selectpicker form-control' %>
+    </div>
+    <div class="form-group">
       <%= f.label :image, 'Featured Image', class: 'control-label' %>
       <%= f.label :image, class: 'btn btn-default' do %><i class="fa fa-picture-o" aria-hidden="true"></i> Upload Image
       <%= f.file_field :image, style: "display:none;" %>

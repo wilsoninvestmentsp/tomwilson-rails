@@ -16,31 +16,21 @@
           <div align="right"><%= link_to new_jasset_path, class: 'btn blue-btn' do %><i class="fa fa-plus" aria-hidden="true"></i> New<% end %>
           </div>
         <% end %>
-        <div class="table-responsive mar-top-15 mar-btm-30">
-          <table class="table table-striped resources-data">
-            <tr>
-              <td>Name</td>
-              <td></td>
-              <td>Description</td>
-              <td width="25%" colspan="2" align="right">Resource</td>
-            </tr>
-            <tr ng:repeat="asset in assets.items">
-              <td class="no-wrap"><h4>{{asset.title}}</h4></td>
-              <td>
-                <img ng:src="{{asset.image.image.thumb.url}}" class="img-thumbnail" ng:if="asset.image.image.thumb.url" />
-              </td>
-              <td>
-                <span ng-bind-html="asset.description"></span>
-              </td>
-              <td align="right"<% if !current_user %> colspan="2"<% end %>><a href="{{asset.link_uri}}" target="_blank">{{asset.link_name}}</a></td>
-              <% if current_user %>
-              <td align="right">
-                <a href="<%= jassets_path %>/{{asset.id}}/edit" class="btn btn-success btn-sm" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                <button type="button" class="btn btn-danger btn-sm" ng:click="removeAsset(asset,$index)" ng:disabled="assets.meta.removeLoading[asset.id]" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></button>
-              </td>
-              <% end %>
-            </tr>
-          </table>
+        <div class="list-group mar-top-15">
+          <div class="list-group-item resources-data" ng:repeat="asset in assets.items">
+            <div class="row">
+              <div class="col-md-2 col-sm-3"><img ng:src="{{asset.image.image.thumb.url}}" class="img-thumbnail" ng:if="asset.image.image.thumb.url" alt=""></div>
+              <div class="col-md-10 col-sm-9">
+                <h4>{{asset.title}}</h4>
+                <p><span ng-bind-html="asset.description"></span></p>
+                <a href="{{asset.link_uri}}" target="_blank" class="btn blue-btn"><i class="fa fa-download fa-lg" aria-hidden="true"></i> {{asset.link_name}}</a>
+                <% if current_user %>
+                  <a href="<%= jassets_path %>/{{asset.id}}/edit" class="btn btn-success" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
+                  <button type="button" class="btn btn-danger" ng:click="removeAsset(asset,$index)" ng:disabled="assets.meta.removeLoading[asset.id]" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
+                <% end %>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

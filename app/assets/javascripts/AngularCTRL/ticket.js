@@ -7,6 +7,7 @@ App.controller('TicketCtrl',['$scope','$interval','$upload','$routeParams','$htt
   window.onload = function(e) {
     $("#property-contact").find(':checkbox').trigger('click');
     $("#contact-form").find(':checkbox').trigger('click');
+    $("#home-contact").find(':checkbox').trigger('click');
   };
 
 	scope.alerts = [];
