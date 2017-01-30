@@ -95,4 +95,18 @@ App.controller('AssetsCtrl',['$scope','$http',function($scope,$http){
 	};
 	// End removeAsset =======================================
 
+	//  Remove Asset Image
+	scope.removeImage = function(jasset){
+		if(jasset.image.image.url != '/custom/no-image.png'){
+			if (confirm("Remove this image?")){
+				jasset.image = '';
+				$http({
+					method: 'PATCH',
+					url: '/api/v1/jassets/'+jasset.id+'.json',
+					data: {jasset: {remove_image: true}}
+				}).then(function successCallback(response){},
+					function errorCallback(response){});
+			}
+		}
+	}
 }]);

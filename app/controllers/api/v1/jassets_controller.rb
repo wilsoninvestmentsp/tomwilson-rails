@@ -52,6 +52,8 @@ module Api
 
 			# Begin update :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
 			def update
+				
+				@jasset.remove_image! if params[:jasset][:remove_image] == true
 
 				if @jasset.update(p)
 

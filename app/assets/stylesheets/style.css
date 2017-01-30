@@ -279,6 +279,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .property-contact-popup .form-control:focus{border-color:#66afe9;outline:0;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);-moz-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);-ms-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);-o-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)}
 .property-contact-popup textarea{resize:none}
 .property-contact-popup .form-horizontal .form-group .fa{position:absolute;left:25px;top:10px;color:#999}
+.property-contact-popup .form-horizontal .form-group.btns-row .fa{position:relative;left:auto;top:auto;color:#fff;margin-right:6px}
 .property-contact-popup .pad-right-0{padding-right:0}
 
 .property-contact-popup .form-horizontal .checkbox{padding-top:5px;float:right}
@@ -308,14 +309,16 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .content-section h4.list-group-item-heading{margin-top:0;margin-bottom:0}
 .top-zero{color:#0288D1}
 .top-zero img{margin-left:10px}
-.resources-data .img-thumbnail{min-width:120px}
+.resources-data .img-thumbnail{min-width:120px;margin-top:10px;margin-bottom:10px}
+.resources-data h4{margin-top:10px !important}
+.resources-data .btn{margin-right:4px}
 
 /* Blog Pages CSS */
 .main-body.only-bread-crumb{margin-top:0;margin-bottom:60px}
 .main-body.only-bread-crumb.mar-btm-setting{margin-bottom:125px}
 
 .blog-img-header{margin-top:44px;overflow:hidden;max-height:320px}
-.blog-img-header img{background-position:50%}
+.blog-img-header img{margin-top:-400px;width:100%}
 
 .latest-blogs-section{background:#f5f5f5;padding:50px 0;margin-bottom:65px;font-family:'AllerRG';-webkit-box-shadow: 0 0 4px 1px #ccc;-moz-box-shadow: 0 0 4px 1px #ccc;-ms-box-shadow: 0 0 4px 1px #ccc;-o-box-shadow: 0 0 4px 1px #ccc;box-shadow: 0 0 4px 1px #ccc}
 .latest-blogs-section h2{margin-top:0;margin-bottom:60px;font-size:32px;line-height:1;color:#525252}
@@ -400,6 +403,11 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .property-details .contact-link a.left-link, .property-details .contact-link a.right-link{float:none;display:block}
 .property-details .status-tag-right{height:30px;font-size:14px;line-height:20px}
 .property-details .status-tag-right:after{left:-29px;border-width:30px 30px 0 0}
+.property-details .status-price-details li.links{text-align:left}
+.property-details .status-price-details li.links span{width:50%}
+
+/* Blog Pages CSS */
+.blog-img-header img{margin-top:0}
 }
 @media(min-width:480px) and (max-width:767px){
 /* Common CSS */
@@ -431,6 +439,9 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .property-details .contact-link a.left-link, .property-details .contact-link a.right-link{padding:8px 12px;font-size:14px}
 .property-details .status-tag-right{height:40px;font-size:16px;line-height:30px}
 .property-details .status-tag-right:after{left:-39px;border-width:40px 40px 0 0}
+
+/* Blog Pages CSS */
+.blog-img-header img{margin-top:-70px}
 }
 @media(max-width:767px){
 /* Index Page CSS */
@@ -451,6 +462,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .no-wrap{white-space:normal !important}
 .no-wrap h4{font-size:16px;word-wrap:normal}
 .table td{white-space:normal !important}
+.resources-data .img-thumbnail{max-width:220px;margin-top:5px}
 
 /* Property Listing Page CSS */
 /*
@@ -467,7 +479,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 /*.list-selection .list-unstyled{border:none;display:table;width:100%}*/
 .list-selection .list-unstyled li{border-radius:0;}
 
-/* Property Details Page CSS */
+/* Blog Pages CSS */
 .blog-listing .listing-box{height:auto}
 .blog-listing .listing-box .status-dtls{position:relative;bottom:auto}
 .latest-blogs-section .border-btn{margin-bottom:50px}
@@ -483,6 +495,9 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .property-listing .listing-box{height:349px}
 /*.advance-search .form-group .first{padding-left:15px}*/
 .content-section h1{font-size:28px}
+
+/* Blog Pages CSS */
+.blog-img-header img{margin-top:-140px}
 }
 @media(max-width:991px){
   /* Property Details Page CSS */
@@ -497,5 +512,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .list-selection .list-unstyled li a{padding:13px 22px}
 .property-listing .listing-box{height:378px}
 
+/* Blog Pages CSS */
 .blog-listing .listing-box{height:560px}
+.blog-img-header img{margin-top:-220px}
 }
