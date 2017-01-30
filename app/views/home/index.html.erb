@@ -140,7 +140,7 @@
   </div>
 </section>
   <% if !current_user %>
-    <section class="feedback-section">
+    <section class="white-bg feedback-section">
       <div class="container">
         <div class="row">
           <div class="col-xs-12 text-center">
@@ -222,6 +222,13 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
+    setTimeout(function(){
+        $('#newsletter-form').show('500');
+    }, 1000);
+    setTimeout(function(){
+        $('#newsletter-form').hide('500');
+    }, 6000);
+
     var auto_play = ($('.item').length == 1) ? false : 6000;
     $("#featured-properties-slider").owlCarousel({autoPlay:auto_play,items:4 ,itemsDesktop:[1199,3],itemsDesktopSmall:[991,3],itemsTablet:[767,2],itemsMobile:[479,1],transitionStyle:"fade"});
     $("#testimonials-slider").owlCarousel({autoPlay:auto_play,items:1,itemsDesktop:[1199,1],itemsDesktopSmall:[991,1],itemsTablet:[767,1],itemsMobile:[479,1],transitionStyle:"fade"});

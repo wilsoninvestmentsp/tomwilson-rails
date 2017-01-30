@@ -76,7 +76,7 @@ class PropertiesController < ApplicationController
   def import
     if params[:file].present?
       file_extension = File.extname params[:file].original_filename
-      if file_extension != 'csv'
+      if file_extension != '.csv'
         return redirect_to import_url, flash: {danger: "Please select CSV file to import properties..."}
       end
       error_csv = Property.import params[:file]
