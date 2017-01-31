@@ -7,6 +7,7 @@ class JassetsController < ApplicationController
   # GET /jassets.json
   def index
     @jassets = Jasset.all
+    @order_by_resource_type = { asc: 'Ascending', desc: 'Descending' }
   end
 
   # GET /jassets/1

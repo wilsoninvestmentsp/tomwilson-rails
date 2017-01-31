@@ -12,10 +12,16 @@
       </div>
       <div class="col-xs-12">
         <h1>Resources</h1>
-        <% if current_user %>
-          <div align="right"><%= link_to new_jasset_path, class: 'btn blue-btn' do %><i class="fa fa-plus" aria-hidden="true"></i> New<% end %>
-          </div>
-        <% end %>
+        <div class="sort-row">
+          <span class="sort-span">
+            <h5>Sort By Resource Type:</h5>
+              <%= select_tag :order_link_name, options_for_select(@order_by_resource_type.map{ |k,v| [v, k]}), {include_blank: 'Default','ng:model': 'order_link_name', 'ng:change': 'getAssetsByType()', class: 'selectpicker'} %>
+          </span>
+          <% if current_user %>
+            <span class="btn-span"><%= link_to new_jasset_path, class: 'btn blue-btn' do %><i class="fa fa-plus" aria-hidden="true"></i> New<% end %>
+            </span>
+          <% end %>
+        </div>
         <div class="list-group mar-top-15">
           <div class="list-group-item resources-data" ng:repeat="asset in assets.items">
             <div class="row">
@@ -36,3 +42,6 @@
     </div>
   </div>
 </section>
+<script type="text/javascript">
+  $('.selectpicker').selectpicker();
+</script>

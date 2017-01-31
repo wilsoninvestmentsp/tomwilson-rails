@@ -10,12 +10,17 @@ module Api
 			# Begin index :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
 			def index
 
+				order_link_name = params[:order_link_name] if params[:order_link_name].present?
+				params.delete :order_link_name
+
 				q = QueryTools.query params
 
 				@jassets = Jasset.where(q)
 				.page(params[:page])
 				.per((params[:limit] || 100).to_i)
 				.order(params[:order])
+				
+				@jassets = @jassets.order(link_name: order_link_name) if order_link_name.present?
 
 				respond_with @jassets,
 				meta: {

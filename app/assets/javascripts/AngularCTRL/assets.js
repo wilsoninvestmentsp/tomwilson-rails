@@ -34,6 +34,25 @@ App.controller('AssetsCtrl',['$scope','$http',function($scope,$http){
 	// End getAssets =======================================
 	scope.getAssets();
 
+	scope.getAssetsByType = function(){
+		scope.assets.meta.loading = true;
+		
+		if($('#order_link_name').val() != ''){
+			var url = '/api/v1/jassets.json?order_link_name='+$('#order_link_name').val();
+		}else{
+			var url = '/api/v1/jassets.json?order=sort DESC';
+		}
+		
+		$http({
+		  method: 'GET',
+		  url: url
+		}).then(function successCallback(response){
+			scope.assets.items = response.data.jassets;
+			delete scope.assets.meta.loading;
+		},function errorCallback(response){
+			delete scope.assets.meta.loading;
+		});
+	};
 
 	// Begin createAsset =====================================
 	scope.createAsset = function(){
