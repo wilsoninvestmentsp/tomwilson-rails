@@ -1,192 +1,186 @@
 module Api
-	module V1
-		class JobsController < ApplicationController
+  module V1
+    class JobsController < ApplicationController
+      respond_to :json
+      before_action :authorize
 
-			respond_to :json
+      def master_spreadsheet
+        SpreadsheetWorker.perform_async current_user.id
+        render json: {type: :success,message: 'Process started!'}
 
-			before_action :authorize
+        # flash = {}
 
-			def master_spreadsheet
+        # @job = Job.new user_id: current_user.id,name: 'master_spreadsheet_sync',status: :started
 
-				SpreadsheetWorker.perform_async current_user.id
+        # begin
 
-				render json: {type: :success,message: 'Process started!'}
+        # 	url = URI.escape "https://sheets.googleapis.com/v4/spreadsheets/1lHiaNk_YJXQ7YeJdj36EWYxOaynsL_8RiyXQNA6KQPg/values/A:GH?key=#{GOOGLE_SERVER_KEY}"
+        # 	uri = URI.parse url
 
-				# flash = {}
+        # 	http = Net::HTTP.new uri.host,uri.port
+        # 	http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+        # 	http.use_ssl = true
 
-				# @job = Job.new user_id: current_user.id,name: 'master_spreadsheet_sync',status: :started
+        # 	request = Net::HTTP::Get.new(uri.path+"?"+uri.query)
+        # 	request.content_type = 'application/json'
 
-				# begin
-					
-				# 	url = URI.escape "https://sheets.googleapis.com/v4/spreadsheets/1lHiaNk_YJXQ7YeJdj36EWYxOaynsL_8RiyXQNA6KQPg/values/A:GH?key=#{GOOGLE_SERVER_KEY}"
-				# 	uri = URI.parse url
+        # 	response = http.request request
 
-				# 	http = Net::HTTP.new uri.host,uri.port
-				# 	http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-				# 	http.use_ssl = true
+        # 	code = response.code.to_f.round
+        # 	body = response.body
 
-				# 	request = Net::HTTP::Get.new(uri.path+"?"+uri.query)
-				# 	request.content_type = 'application/json'
+        # 	if code != 200
+        # 		puts "Error: #{code}"
+        # 		puts body
+        # 		@job.status = code.to_s
+        # 		@job.save!
+        # 		flash = {
+        # 			type: :danger,
+        # 			message: "There was an error retrieving the spreadsheet from Google. Code: #{code}"
+        # 		}
+        # 		render json: flash,status: code
+        # 		return
+        # 	end
 
-				# 	response = http.request request
+        # 	data = JSON.parse(body.force_encoding('UTF-8'))
+        # 	values = data['values']
 
-				# 	code = response.code.to_f.round
-				# 	body = response.body
+        # 	csv_data = CSV.generate do |csv|
 
-				# 	if code != 200
-				# 		puts "Error: #{code}"
-				# 		puts body
-				# 		@job.status = code.to_s
-				# 		@job.save!
-				# 		flash = {
-				# 			type: :danger,
-				# 			message: "There was an error retrieving the spreadsheet from Google. Code: #{code}"
-				# 		}
-				# 		render json: flash,status: code
-				# 		return
-				# 	end
+        # 		values.each_with_index do |row,i|
 
-				# 	data = JSON.parse(body.force_encoding('UTF-8'))
-				# 	values = data['values']
+        # 			new_row = row
 
-				# 	csv_data = CSV.generate do |csv|
+        # 			new_row = row.map { |item| item.strip } if i == 0
 
-				# 		values.each_with_index do |row,i|
+        # 			csv << new_row
 
-				# 			new_row = row
+        # 		end
 
-				# 			new_row = row.map { |item| item.strip } if i == 0
+        # 	end
 
-				# 			csv << new_row
+        # 	def normal val
 
-				# 		end
+        # 		return nil if !val.present?
+        # 		return val.strip
 
-				# 	end
+        # 	end
 
-				# 	def normal val
+        # 	# File.write 'files/test.csv',csv_data
+        # 	i = 0
+        # 	properties = []
+        # 	csv = CSV.parse csv_data,headers: true do |row|
 
-				# 		return nil if !val.present?
-				# 		return val.strip
+        # 		i+=1
 
-				# 	end
+        # 		property = {}
+        # 		property[:building_type] = row['building_type-x'].parameterize.underscore if row['building_type-x'].present?
 
-				# 	# File.write 'files/test.csv',csv_data
-				# 	i = 0
-				# 	properties = []
-				# 	csv = CSV.parse csv_data,headers: true do |row|
+        # 		new_address = row['address-x']
+        # 		if new_address.present?
 
-				# 		i+=1
+        # 			new_address.strip!
+        # 			number = new_address.match /[-\d\/]+/i
+        # 			new_address.gsub! /[-\d]+/i,''
+        # 			new_address = "#{number} #{new_address}"
+        # 			new_address.gsub! /\(.+\)/i,''
+        # 			new_address.strip!
+        # 			new_address.chomp! '/'
+        # 			new_address.strip!
 
-				# 		property = {}
-				# 		property[:building_type] = row['building_type-x'].parameterize.underscore if row['building_type-x'].present?
-						
-				# 		new_address = row['address-x']
-				# 		if new_address.present?
+        # 		end
 
-				# 			new_address.strip!
-				# 			number = new_address.match /[-\d\/]+/i
-				# 			new_address.gsub! /[-\d]+/i,''
-				# 			new_address = "#{number} #{new_address}"
-				# 			new_address.gsub! /\(.+\)/i,''
-				# 			new_address.strip!
-				# 			new_address.chomp! '/'
-				# 			new_address.strip!
+        # 		property[:address] = new_address
+        # 		property[:city] = normal(row['city-x'])
+        # 		property[:state] = :tx
+        # 		property[:year_built] = normal(row['year_built-x'])
+        # 		property[:zip] = normal(row['zip-x'])
+        # 		property[:square_ft] = normal(row['square_ft-x'])
+        # 		property[:offer_price] = normal(row['offer_price-x'])
+        # 		property[:offer_price] = property[:offer_price].to_f*1000 if property[:offer_price].present?
+        # 		property[:rent] = normal(row['rent-x'])
+        # 		property[:status] = row['status-x'].strip.parameterize.underscore if row['status-x'].present?
+        # 		property[:leased] = 'yes' if row['leased-x'].present? && ['y','yes'].include?(row['leased-x'].strip.downcase)
+        # 		property[:bedrooms] = normal(row['bedrooms-x'])
+        # 		property[:bathrooms] = normal(row['bathrooms-x'])
+        # 		property[:garages] = normal(row['garages-x'])
+        # 		property[:carports] = normal(row['carports-x'])
+        # 		property[:cash_flow] = normal(row['cash_flow-x'])
+        # 		property[:lot_size] = normal(row['lot_size-x'])
+        # 		property[:school_district] = normal(row['school_district-x'])
+        # 		property[:active] = ['y','yes'].include?(row['active-x'].strip.downcase) if row['active-x'].present?
 
-				# 		end
+        # 		properties << property if row['city-x'].present? && i >= 17
 
-				# 		property[:address] = new_address
-				# 		property[:city] = normal(row['city-x'])
-				# 		property[:state] = :tx
-				# 		property[:year_built] = normal(row['year_built-x'])
-				# 		property[:zip] = normal(row['zip-x'])
-				# 		property[:square_ft] = normal(row['square_ft-x'])
-				# 		property[:offer_price] = normal(row['offer_price-x'])
-				# 		property[:offer_price] = property[:offer_price].to_f*1000 if property[:offer_price].present?
-				# 		property[:rent] = normal(row['rent-x'])
-				# 		property[:status] = row['status-x'].strip.parameterize.underscore if row['status-x'].present?
-				# 		property[:leased] = 'yes' if row['leased-x'].present? && ['y','yes'].include?(row['leased-x'].strip.downcase)
-				# 		property[:bedrooms] = normal(row['bedrooms-x'])
-				# 		property[:bathrooms] = normal(row['bathrooms-x'])
-				# 		property[:garages] = normal(row['garages-x'])
-				# 		property[:carports] = normal(row['carports-x'])
-				# 		property[:cash_flow] = normal(row['cash_flow-x'])
-				# 		property[:lot_size] = normal(row['lot_size-x'])
-				# 		property[:school_district] = normal(row['school_district-x'])
-				# 		property[:active] = ['y','yes'].include?(row['active-x'].strip.downcase) if row['active-x'].present?
+        # 	end
 
-				# 		properties << property if row['city-x'].present? && i >= 17
+        # 	log_attempts = 0
+        # 	log_new_success = 0
+        # 	log_old_success = 0
+        # 	properties.each do |property|
 
-				# 	end
+        # 		@current = Property.where(address: property[:address],city: property[:city],zip: property[:zip]).first
 
-				# 	log_attempts = 0
-				# 	log_new_success = 0
-				# 	log_old_success = 0
-				# 	properties.each do |property|
+        # 		log_attempts += 1
 
-				# 		@current = Property.where(address: property[:address],city: property[:city],zip: property[:zip]).first
+        # 		if @current
 
-				# 		log_attempts += 1
+        # 			if @current.update(property)
 
-				# 		if @current
+        # 				log_old_success += 1
 
-				# 			if @current.update(property)
+        # 				puts "UPDATE OLD(#{@current.id}): #{@current.address}"
 
-				# 				log_old_success += 1
+        # 			else
 
-				# 				puts "UPDATE OLD(#{@current.id}): #{@current.address}"
+        # 				puts "ERROR OLD(#{@current.id}): #{@current.address} #{@current.errors.to_a.to_s}"
 
-				# 			else
+        # 			end
 
-				# 				puts "ERROR OLD(#{@current.id}): #{@current.address} #{@current.errors.to_a.to_s}"
+        # 		else
 
-				# 			end
+        # 			@new = Property.new property
 
-				# 		else
+        # 			if @new.save
 
-				# 			@new = Property.new property
+        # 				log_new_success += 1
 
-				# 			if @new.save
+        # 				puts "CREATE NEW(#{@new.id}): #{@new.address}"
 
-				# 				log_new_success += 1
+        # 			else
 
-				# 				puts "CREATE NEW(#{@new.id}): #{@new.address}"
+        # 				puts "ERROR NEW: #{@new.address} #{@new.errors.to_a.to_s}"
 
-				# 			else
+        # 			end
 
-				# 				puts "ERROR NEW: #{@new.address} #{@new.errors.to_a.to_s}"
+        # 		end
 
-				# 			end
+        # 	end
 
-				# 		end
+        # 	puts "OLD: #{log_old_success}:#{log_new_success} #{log_old_success+log_new_success} / #{log_attempts}"
 
-				# 	end
+        # 	@job.status = :completed
+        # 	@job.save!
 
-				# 	puts "OLD: #{log_old_success}:#{log_new_success} #{log_old_success+log_new_success} / #{log_attempts}"
+        # 	flash = {
+        # 		type: :success,
+        # 		message: "Master Spreadsheet was successfully synced!"
+        # 	}
+        # 	render json: flash,status: 200
 
-				# 	@job.status = :completed
-				# 	@job.save!
+        # rescue
 
-				# 	flash = {
-				# 		type: :success,
-				# 		message: "Master Spreadsheet was successfully synced!"
-				# 	}
-				# 	render json: flash,status: 200
+        # 	@job.status = :rescued
+        # 	@job.save!
 
-				# rescue
-					
-				# 	@job.status = :rescued
-				# 	@job.save!
+        # 	flash = {
+        # 		type: :danger,
+        # 		message: "An error occured while processing the spreadsheet."
+        # 	}
+        # 	render json: flash,status: 422
 
-				# 	flash = {
-				# 		type: :danger,
-				# 		message: "An error occured while processing the spreadsheet."
-				# 	}
-				# 	render json: flash,status: 422
-
-				# end
-
-			end
-
-		end
-	end
+        # end
+      end
+    end
+  end
 end

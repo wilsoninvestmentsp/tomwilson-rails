@@ -55,7 +55,6 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .content-section-row .opportunities-content .btn:first-of-type{margin-left:0}
 .content-section-row .bullet-text{font-size:18px;text-align:center}
 .content-section-row .bullet-text span{position:relative;padding-left:20px;padding-right:12px}
-/*.content-section-row .bullet-text span.first .bullet{width:8px;height:8px;border-radius:50%;background:#407cbb;padding:0;margin-right:16px}*/
 .content-section-row .bullet-text span:before{content:"";width:8px;height:8px;position:absolute;top:6px;left:0;border-radius:50%;background:#407cbb}
 
 .property-section{background:#eee;padding:50px 0;font-family:'AllerRG';-webkit-box-shadow:0 0 4px 1px #ccc;-moz-box-shadow:0 0 4px 1px #ccc;-ms-box-shadow:0 0 4px 1px #ccc;-o-box-shadow:0 0 4px 1px #ccc;box-shadow:0 0 4px 1px #ccc}
@@ -128,29 +127,6 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 
 /* Property Listing Page CSS */
 .blue-bg{background:#407cbb;width:100%;display:table;padding:10px 0;height:65px}
-/*.advance-search select{width:100%}
-.advance-search .form-group{margin-bottom:0}
-.advance-search .form-group .first{padding-left:30px}
-.advance-search .price-hint{font-weight:normal;font-size:12px}
-.advance-search .slider-handle{border:solid 4px #fff}
-.advance-search #price-filter .slider-selection{background:#424242}
-.advance-search .btn-group.bootstrap-select{width:100% !important}
-.advance-search .bootstrap-select > .dropdown-toggle{background:transparent;color:#fff;border-radius:0;border:none;border-bottom:solid 1px #fff;padding-left:0;box-shadow:none !important}
-.advance-search .open > .dropdown-toggle.btn-default:focus, .advance-search .open > .dropdown-toggle.btn-default:hover{color:#fff;background-color:transparent;border-color:#fff;box-shadow:none;outline:none}
-.advance-search .btn-group.open .dropdown-toggle, .advance-search .btn:active, .advance-search .btn:focus, .advance-search .btn:active:focus{box-shadow:none;outline:none !important}
-.advance-search .open > .dropdown-menu > li > a{color:#444}
-.advance-search .open > .dropdown-menu > li.selected > a{background-color:#337ab7;color:#fff}
-.advance-search .slider.slider-horizontal{width:90%}
-.advance-search .slider.slider-horizontal .tooltip{z-index:1000}
-.advance-search .price-hint{color:#fff}
-.advance-search .glyphicon{margin-right:4px}
-.blue-bg .social-icons{text-align:right;margin:5.5px 0}
-.blue-bg .social-icons a{float:right}
-.blue-bg .social-icons a.icons{height:32px;width:32px;border-radius:50%;background:#fff;color:#407cbb;font-size:16px;line-height:32px;margin-right:5px;text-align:center}
-.blue-bg .social-icons a.icons:hover{background:#444;color:#fff}
-.blue-bg .social-icons a:first-of-type{margin-right:15px}
-.blue-bg .social-icons a.meetup img{height:34px}*/
-
 .list-selection{margin:30px 0}
 .list-selection .list-unstyled{margin:0;display:table;width:100%;border-bottom:solid 1px #ddd}
 .list-selection .list-unstyled li{float:left;border-top-left-radius:4px;border-top-right-radius:4px;margin-right:4px;background:#f5f5f5}
@@ -161,23 +137,6 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .list-selection .list-unstyled li.active:hover a{color:#fff}
 .list-selection .list-unstyled li:hover{background:#e5e5e5}
 .list-selection .list-unstyled li:hover a{color:#407cbb}
-/*
-.list-selection .sort-option{float:right;padding-right:15px}
-.list-selection .sort-option h5{margin:0 5px 0 0;display:inline;line-height:46px;font-size:12px;color:#999}
-
-.list-selection .sort-option .bootstrap-select > .dropdown-toggle{background:transparent;color:#444;border-radius:0;border:none;border-bottom:solid 1px #fff;padding-left:0;box-shadow:none !important}
-.list-selection .sort-option .open > .dropdown-toggle.btn-default:focus,
-.list-selection .sort-option .open > .dropdown-toggle.btn-default:hover{color:#444;background-color:transparent;border-color:#fff;box-shadow:none;outline:none}
-.list-selection .sort-option .btn-group.open .dropdown-toggle,
-.list-selection .sort-option .btn:active,
-.list-selection .btn:focus,
-.list-selection .btn:active:focus{box-shadow:none;outline:none !important}
-.list-selection .open > .dropdown-menu{margin-top:5px !important}
-.list-selection .open > .dropdown-menu > li.selected > a,
-.list-selection .open > .dropdown-menu > li > a{padding:3px 20px !important;display:inline-block !important;width:100% !important}
-.list-selection .open > .dropdown-menu > li.selected > a{background-color:#337ab7 !important;color:#fff !important}
-.list-selection .open > .dropdown-menu > ul > li{display:inline-block !important;width:100% !important}
-*/
 
 .property-listing .listing-box{display:table;position:relative;width:100%;background:#fff;-webkit-box-shadow:0 0 4px #999;-moz-box-shadow:0 0 4px #999;-ms-box-shadow:0 0 4px #999;-o-box-shadow:0 0 4px #999;box-shadow:0 0 4px #999;margin-bottom:30px;cursor:pointer;height:357px}
 .property-listing .listing-box:hover{-webkit-box-shadow:0 0 4px#454545;-moz-box-shadow:0 0 4px #454545;-ms-box-shadow:0 0 4px #454545;-o-box-shadow:0 0 4px #454545;box-shadow:0 0 4px #454545}
@@ -401,15 +360,10 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .feedback-section .comment{font-size:18px}
 
 /* Property Listing Page CSS */
-/*.list-selection{height:auto}
-.list-selection .list-unstyled{width:100%;display:table;text-align:center}*/
 .list-selection .list-unstyled{border-bottom:none}
 .list-selection .list-unstyled li{float:left;width:auto;display:table-cell;margin-bottom:4px}
 .list-selection .list-unstyled li a{padding:10px;display:block}
-/*.list-selection .sort-option{float:none;border-top:solid 1px #ddd}
-.list-selection .sort-option h5{margin-left:15px}*/
 .property-listing .listing-box{height:auto}
-/*.sort-option .btn-group.bootstrap-select{width:75% !important;margin-left:15px}*/
 
 /* Content Pages CSS */
 .content-section h1{font-size:18px}
@@ -431,6 +385,10 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .blog-img-header img{margin-top:0}
 .blog-content-section .status-dtls li{display:block;padding-right:0}
 .blog-content-section .status-dtls li:first-of-type{padding-bottom:5px}
+.blog-listing .listing-box .status-dtls{width:100%;padding-right:10px}
+.blog-listing .listing-box .status-dtls li{width:auto}
+.blog-listing .listing-box .status-dtls li:first-of-type{float:left}
+.blog-listing .listing-box .status-dtls li:last-of-type{float:right}
 }
 @media(min-width:480px) and (max-width:767px){
 /* Common CSS */
@@ -450,17 +408,11 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .feedback-section .comment{font-size:20px}
 
 /* Property Listing Page CSS */
-/*.list-selection{height:115px}
-.list-selection .list-unstyled{width:100%;display:table;border-bottom:solid 1px #ddd}*/
 .property-listing, .property-listing .col-xs-12{padding-left:7.5px;padding-right:7.5px}
 .property-listing .col-xs-12{width:50%}
 .list-selection .list-unstyled li{width:1%;display:table-cell;float:none;text-align:center}
 .list-selection .list-unstyled li a{padding-left:15px;padding-right:15px}
 .property-listing .listing-box{height:332px}
-/*
-.property-listing .listing-box .blue-text{display:block}
-*/
-/*.sort-option .btn-group.bootstrap-select{width:138px !important}*/
 
 /* Content Pages CSS */
 .content-section h1{font-size:24px}
@@ -496,41 +448,23 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .resources-data .img-thumbnail{max-width:220px;margin-top:5px}
 
 /* Property Listing Page CSS */
-/*
-.advance-search .form-group .first{padding-left:15px}
-.advance-search .slider.slider-horizontal{margin-top:10px}
-*/
-/*
-.advance-search .btn-group.bootstrap-select{margin-bottom:15px}
-.advance-search .slider.slider-horizontal{width:92.5%}
-*/
-
-/*.list-selection{height:auto;border:none}*/
-/*.list-selection .list-unstyled{border:none;display:table;width:100%}*/
 .list-selection .list-unstyled li{border-radius:0;}
 
 /* Blog Pages CSS */
-.blog-listing .listing-box{height:auto}
+.blog-listing .listing-box, .blog-listing .listing-box .img-box{height:auto}
 .blog-listing .listing-box .status-dtls{position:relative;bottom:auto}
 .latest-blogs-section .border-btn{margin-bottom:50px}
 }
 
 @media(min-width:768px) and (max-width:991px){
 /* Property Listing Page CSS */
-/*.list-selection{height:54px}*/
-/*.list-selection .list-unstyled li a{padding:16px 10px}*/
-/*
-.list-selection .sort-option h5{display:block;line-height:inherit}
-*/
 .property-listing .listing-box{height:339px}
-/*.advance-search .form-group .first{padding-left:15px}*/
 .content-section h1{font-size:28px}
 
 /* Blog Pages CSS */
 .blog-img-header img{margin-top:-140px}
 }
 @media(max-width:991px){
-
 .property-section .propery-box .labels li,.property-listing .listing-box .labels li{padding:0 0 5px 0}
 .property-section .propery-box .price-flow, .property-listing .listing-box .price-flow{padding:2.5px 0}
 .property-section .propery-box .price-flow li, .property-listing .listing-box .price-flow li{width:100%;padding-top:2.5px;padding-bottom:2.5px;border-right:none}

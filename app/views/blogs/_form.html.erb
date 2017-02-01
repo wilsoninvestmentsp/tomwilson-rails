@@ -49,6 +49,7 @@
 </section>
 <script type="text/javascript">
   $(document).on('ready page:load', function(){
+    Blog.removeImage(<%= raw @blog.slug.to_json %>);
     $('.selectpicker').selectpicker();
     setTimeout(function(){
       try{tinyMCE.remove('#blog_content');}catch(e){}

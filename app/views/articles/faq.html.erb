@@ -1,365 +1,178 @@
 <%= render 'layouts/jumbtron' %>
 <section class="main-body without-search-feature">
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12">
-				<div class="box-shadow">
-					<ol class="breadcrumb">
-						<li>
-							<%= link_to 'Home', root_url %>
-						</li>
-						<li class="active">
-							FAQ
-						</li>
-					</ol>
-				</div>
-			</div>
-		</div>
-		<div class="row content-section faq">
-			<div class="col-xs-12">
-				<h1>Frequently Asked Questions (FAQs)</h1>
-				<ol>
-					<li>
-						<%= link_to "How does a single family house compare as an investment to a duplex, fourplex, small multifam, or a commercial property?", faq_path(:anchor => "send_1") %>
-					</li>
-					<li>
-						<%= link_to "What are the advantages of a syndication?", faq_path(:anchor => "send_2") %>
-					</li>
-					<li>
-						<%= link_to "Are the rental rates for your properties projected or are there already tenants living in these homes?", faq_path(:anchor => "send_3") %>
-					</li>
-					<li>
-						<%= link_to "I believe I would need to hire a property management company to take care of my property. How does this work and what is the average rate for the property manager?", faq_path(:anchor => "send_4") %>
-					</li>
-					<li>
-						<%= link_to "I'm a little nervous about buying a property in Texas, or anywhere for that matter that I can’t get to within a half an hour to fix any problem that may come up. How did you overcome this fear?", faq_path(:anchor => "send_5") %>
-					</li>
-					<li>
-						<%= link_to "Should I be concerned about investing in Texas because the taxes seem to be high?", faq_path(:anchor => "send_6") %>
-					</li>
-					<li>
-						<%= link_to "Why should I buy property from you? Why not just take a trip to Dallas and find my own?", faq_path(:anchor => "send_7") %>
-					</li>
-					<li>
-						<%= link_to "I notice the tax records that you appreciatively provide to me sometimes show appraised values that are higher or lower than the your sale price and of the MLS comparables. Can you explain this?", faq_path(:anchor => "send_8") %>
-					</li>
-					<li>
-						<%= link_to "I see that your sales prices sometimes are at the comparable sales prices, and sometimes discounted by varying amounts. Why is that?", faq_path(:anchor => "send_9") %>
-					</li>
-					<li>
-						<%= link_to "Since the house prices are so cheap, why don’t renters there buy a home instead of renting?", faq_path(:anchor => "send_10") %>
-					</li>
-					<li>
-						<%= link_to "What is the advantage of purchasing from Wilson Investment Properties, Inc. rather than other investment property suppliers?", faq_path(:anchor => "send_11") %>
-					</li>
-					<li>
-						<%= link_to "I'm convinced that Texas and DFW are one of the best regions to buy rental property because of cash flow, high employment growth and low risk, but is there any appreciation?", faq_path(:anchor => "send_12") %>
-					</li>
-				</ol>
-				<hr>
-				<article>
-				<h4>Q: What are the advantages of each type of investment product? How do single family homes compare as investments to a duplexes, fourplexes, small multifamilies, apartment buildings or commercial properties?</h4>
-				<p>
-					<b>A:</b>Single Family Residences (SFR) are simple. Relative easy to understand, liquidate or get cash out from a refi. In order to give good cash flow the rent should be close to 1% per month of the total investment amount, are best if they are not built earlier than the 80’s, and should be in a region with high employment growth and a broad based economy, not “one horse towns” like N. Dakata.
-				</p>
-				<p>
-					Duplexes, triplexes, and fourplexes give higher cash flow (if everything else is equal), however, you are putting more “eggs in one address”. They are less liquid and tend to appreciate less than a SFH. Like all investments it is critical that you buy from a reputable experienced source and that you get excellent property management.
-				</p>
-				<p>
-					Mulfifamily (Apartment buildings - 5 or more units) properties just amplify the characteristics above, both positively and negatively. It is harder to qualify for a loan, however, if you do, or if you invest with an entity that can, you avoid limiting your Fannie/Freddie loan restrictions. To reduce and spread your risks it is recommended that you invest with an excellent, reputable and very experienced syndicator.
-				</p>
-				<p>
-					Commercial properties on the average have higher returns and higher risks. Their advantages are that you have higher quality tenants, longer tenants and more predictable income. Also most are NNN (triple net) which means that the taxes, insurance, and maintenance costs are passed on to the tenants. Again, like with multifamily properties, to reduce and spread your risks it is recommended that you invest with an excellent, reputable and very experienced syndicator.
-				</p>
-				<p>
-					<%= link_to "Back to Top", "#top"%>
-				</p>
-				</article>
-				<hr>
-				<article>
-				<h4 id="send_2">Q: What are the advantages of a syndication?</h4>
-				<p>
-					<b>A:</b> A syndication is simply the pooling of funds from multiple investors for a common investment and goal. They have been around for literally thousands of years. Crowdfunding is just a modern term with special regulations for syndications. The advantages include:
-				</p>
-				<p>
-					<b>Enables Small Investors to</b>
-				</p>
-				<p>
-					<b>“Play in the Big Leagues”</b>
-				</p>
-				<p>
-					<span>✓</span><b>Invest with as little as $50K</b>
-				</p>
-				<p>
-					<span>✓</span><b>Take advantage of promoter skills</b>
-				</p>
-				<p>
-					<span>✓</span><b> Access to deals</b>
-				</p>
-				<p>
-					<span>✓</span><b> Negotiations</b>
-				</p>
-				<p>
-					<span>✓</span><b> Management</b>
-				</p>
-				<p>
-					<span>✓</span><b>Greater asset class diversification</b>
-				</p>
-				<ul>
-					<li>
-						<b>Better high value deals</b>
-					</li>
-					<li>
-						<b>Better access</b>
-					</li>
-					<li>
-						<b>Better negotiations</b>
-					</li>
-					<li>
-						<b>Can qualify for better loans</b>
-					</li>
-					<li>
-						<b>Purchase larger &amp; higher quality properties Professional management</b>
-					</li>
-					<li>
-						<b>Economy of scale; Blanket contracts</b>
-					</li>
-					<li>
-						<b>Easier to achieve a diversified portfolio</b>
-					</li>
-				</ul>
-				<p>
-					<b>Easier to get into outside markets</b>
-				</p>
-				<ul>
-					<li>
-						<b>Promoter assumes financial or legal risk</b>
-					</li>
-					<li>
-						<b>Does not require day to day management or </b><b>oversight by the investor</b>
-					</li>
-					<li>
-						<b>Risk is limited to original investment</b>
-					</li>
-					<li>
-						<b>Promoter has expertise to deal with complex issues</b>
-					</li>
-					<li>
-						<b>Tenant Improvements</b>
-					</li>
-					<li>
-						<b>Leasing Commissions</b>
-					</li>
-					<li>
-						<b>Vacancy issues</b>
-					</li>
-					<li>
-						<b>Negotiation of complex leases</b>
-					</li>
-				</ul>
-				<p>
-					<%= link_to "Back to Top", "#top"%>
-				</p>
-				</article>
-				<hr>
-				<article>
-				<h4>Q: What characteristics should I look for in selecting an excellent syndicator?</h4>
-				<p>
-					<b>A:</b> Track record
-				</p>
-				<ul>
-					<li>
-						<b>Integrity</b>
-					</li>
-					<li>
-						<b>Incentivized Long Term</b>
-					</li>
-					<li>
-						<b>Access to deals in strong metros</b>
-					</li>
-					<li>
-						<b>Ability to negotiate &amp; close</b>
-					</li>
-					<li>
-						<b>Management</b>
-					</li>
-				</ul>
-				<p>
-					<%= link_to "Back to Top", "#top"%>
-				</p>
-				</article>
-				<hr>
-				<article>
-				<h4 id="send_3">Q: Are the rental rates for your properties projected or are there already tenants living in these homes?</h4>
-				<p>
-					<b>A:</b>The listed properties are all in different phases. Most are under the ownership of Wilson Investment Properties, Inc. and under control of the property manager. Most are totally renovated and rented. Others are in the process of renovation and nearing completion. Sometimes we even get them rented before the renovation is complete once a prospective tenant sees the quality of the work. My specifications to my managers are to do a total renovation, not just a cheap minimal make ready. Almost all of them have all new flooring and two tone paint throughout. Most of the properties rent at or above the price shown, and most of them are rented by the time you close on the property which usually takes about 30 days if you get a loan.
-				</p>
-				<p>
-					<%= link_to "Back to Top", "#top"%>
-				</p>
-				</article>
-				<hr>
-				<article>
-				<h4 id="send_4">Q: I believe I would need to hire a property management company to take care of my property. How does this work and what is the average rate for the property manager?</h4>
-				<p>
-					<b>A:</b> When you buy a product from Wilson Investment Properties, Inc., it is a turnkey deal with the property management already in place. You are free, of course, to choose your own, but the ones in place are ones whom I recommend and who also manage my portfolio. The normal retail management fee is 10% of collected rents (note collected) for full service (they handle everything, taxes, mortgage payments, insurance, etc), and one half a month’s rent for a new lease. For Wilson investment Properties, Inc. clients, my property managers have agreed to discount their fee to only 9%.
-				</p>
-				<p>
-					<%= link_to "Back to Top", "#top"%>
-				</p>
-				</article>
-				<hr>
-				<article>
-				<h4 id="send_5">Q: I’m a little nervous about buying a property in Texas, or anywhere for that matter that I can’t get to within a half an hour to fix any problem that may come up. How did you overcome this fear?</h4>
-				<p>
-					<b>A:</b> Most of my real estate holdings (~240 units) are in Texas. The key is to have very professional property managers. You don’t have to be a landlord (and I feel you should not) in order to be a successful investor. I believe that it makes just as much sense to buy real estate where it gives you the best return without regard to how far away it is, as it does to choose the best stock, regardless of where its headquarters is located.
-				</p>
-				<p>
-					I buy mostly in Texas because that is where the best rent ratio is for a major high growth economic center and, therefore, the best cash flow return on investment. My property managers handle everything needed to manage the properties. They are easily accessible, but I mostly just look at the monthly reports and collect the checks. And if you feel you have to go see your properties once in a while, it is only a non-stop, three hour or less plane ride away from almost anywhere in the U.S. Even with all of my holdings, I only go look at my properties about once per year or two.
-				</p>
-				<p>
-					<%= link_to "Back to Top", "#top"%>
-				</p>
-				</article>
-				<hr>
-				<article>
-				<h4 id="send_6">Q: Should I be concerned about investing in Texas because the taxes seem to be high?</h4>
-				<p>
-					<b>A:</b> The taxes in Texas are higher than in California and many other states, but not as high as some states and in absolute dollars it is still much less than equivalent properties in other markets. The taxes average 2.6%. Even though the taxes are higher than in some other states, the high rent ratio is a much more dominant factor that more than offsets the more secondary tax factor. In every market there are factors that are better and worse than other markets. None are more important than the rent ratio. In addition to the high rent ratio in Texas, other factors are relative positives also, such as lower repair and maintenance costs, high occupancy, &amp; employment.
-				</p>
-				<p>
-					<%= link_to "Back to Top", "#top"%>
-				</p>
-				</article>
-				<hr>
-				<article>
-				<h4 id="send_7">Q: Why should I buy property from you? Why not just take a trip to Dallas and find my own?</h4>
-				<p>
-					<b>A:</b> We give you a no hassle, minimum risk, and time efficient approach to buying quality rental properties in DFW. When you buy a property from Wilson Investment Properties, Inc. everything is taken care of and it is a straight-forward turnkey event. You are taking advantage of following in the footsteps of a successful investor whose experience has filtered the criteria and locations that yield the best results.
-				</p>
-				<p>
-					It takes a lot more work and knowledge to acquire an optimum property and do everything that it takes to get it to the point of a cash flowing property than most new investors realize. Many investors forget to include many of the costs associated with the process such as debt service during rehab and rent up, utilities, advertising, extra rehab surprises, etc. My profit margin comes from volume wholesale purchasing by my dedicated team, and from wholesale rehab prices without costing you any more than if you went out on your own and found your own agent and property manager.
-				</p>
-				<p>
-					The properties have been highly selected, fully renovated, and property management is already in place. Of course, you are free to choose whatever property manager you wish, but the ones that are already managing them are also the ones that I have chosen to manage my own personal portfolio. I also give you the support and coordination of my entire preferred professional team, the same ones that I use for my properties and whom are very experienced with investors, which is not common in the real estate business.
-						<br>
-						<br>
-					<b>Advantages of Wilson Investment Properties, Inc.</b>
-				</p>
-				<ul>
-					<li>
-						Follow the experience and success of Wilson Investment Properties, Inc. team.
-					</li>
-					<li>
-						Tom Wilson’s technical and business background in Silicon Valley have contributed to his thorough research of the best cities, properties, and formulas for optimum returns on investments.
-					</li>
-					<li>
-						Wilson Investment Properties, Inc. is Silicon Valley based, accessible, and understands the perspectives of out-of-state investors.
-					</li>
-					<li>
-						Facilitates faster path to owning top investment property.
-					</li>
-					<li>
-						Reduces time, hassle, and risk of buying investment property, especially in a new area.
-					</li>
-					<li>
-						More selective products for best ROI investments than generally available through other sources.
-					</li>
-					<li>
-						Fully rehabbed homes, not just raw foreclosures, or minimally repaired properties for minimal rents.
-					</li>
-					<li>
-						Leased properties.
-					</li>
-					<li>
-						Top experienced and high integrity property management in place, the same that manages Wilson Properties’ personal portfolio.
-					</li>
-					<li>
-						Full complement of highly selected resources including, investor lenders, insurance specialists, attorney, tax specialists, property managers, real estate agents, title company officers, and 1031 exchange accommodators.
-					</li>
-					<li>
-						High transparency.
-					</li>
-					<li>
-						Team and resources available after the sale.
-					</li>
-				</ul>
-				<p>
-					<%= link_to "Back to Top", "#top"%>
-				</p>
-				</article>
-				<hr>
-				<article>
-				<h4 id="send_8">Q: I notice the tax records that you appreciatively provide to me sometimes show appraised values that are higher or lower than the your sale price and of the MLS comparables. Can you explain this?</h4>
-				<p>
-					<b>A:</b> Texas is one of 11 non-disclosure states, which means that the sales prices do not have to be reported, although many do, which is where we obtain the MLS comparables to support each property value. So each county appraisal district has to guess what each property is worth, and if it was sold, for how much. It becomes a good news/bad news issue.
-				</p>
-				<p>
-					If the appraised value is less than your purchase price, that is typical, because generally the appraised values trails the actual market value by two to three years and your taxes will be lower, and it will reflect in a little higher cash flow ROI for you.
-				</p>
-				<p>
-					If the appraised value for the property that you are considering purchasing is higher, it is further supporting evidence that you are buying a good value. The bad news is that your tax may be a little higher, but if you send in a protest letter along with your copy of the sale (closing statement), generally they will reduce the appraised value, and, therefore, the taxes.
-				</p>
-				<p>
-					<%= link_to "Back to Top", "#top"%>
-				</p>
-				</article>
-				<hr>
-				<article>
-				<h4 id="send_9">Q: I see that your sales prices sometimes are at the comparable sales prices, and sometimes discounted by varying amounts. Why is that?</h4>
-				<p>
-					<b>A:</b> Sometimes our DFW expert scouts find needle in the haystack properties that are more discounted than others, although they are getting harder to find because of the high demand. When they do, if I still have adequate margin after rehab and expenses, I pass the extra savings along to you in the form of a more discounted sales price. My profit margin comes from volume wholesale purchasing by my dedicated team, and from wholesale rehab prices, without costing you any more than if you went out on your own and found your own agent and property manager. Many investors forget to include all of the costs associated with the process such as debt service during rehab and rent up, utilities, advertising, extra rehab surprises, etc.
-				</p>
-				<p>
-					<%= link_to "Back to Top", "#top"%>
-				</p>
-				</article>
-				<hr>
-				<article>
-				<h4 id="send_10">Q: Since the house prices are relatively cheap, why don’t renters there buy a home instead of renting?</h4>
-				<p>
-					<b>A:</b> My peer investors and I have asked ourselves for years that same question about why renters pay so much when they could buy the same home and pay less per month. For the most part we have given up trying to figure it out and are just happy to accept their rent! One reason is that there are a lot of good paying jobs so they can afford the rent, and the second reason is that most people in the Midwest and South just don’t have the kind of cash reserves and credit that we are use to in higher priced states. They don’t seem to think of their home as an investment as we do in higher priced coastal cities.
-				</p>
-				<p>
-					<%= link_to "Back to Top", "#top"%>
-				</p>
-				</article>
-				<hr>
-				<article>
-				<h4 id="send_11">Q: What is the advantage of purchasing from Wilson Investment Properties, Inc. rather than other investment property suppliers?</h4>
-				<ul>
-					<li>
-						75% of online advertisers are referral agents. Wilson Investment Properties, Inc. is a direct supplier with hands on experience, control, and clear title and ownership for most properties.
-					</li>
-					<li>
-						Transparency. Unlike other sources, we proudly display on all properties the year built, photos, actual current expenses, leasing status, and sales comparables.
-					</li>
-					<li>
-						We buy and hold in the same areas that we recommend to our investors.
-					</li>
-					<li>
-						We never sell a property that we would not be willing to hold for our own portfolios.
-					</li>
-					<li>
-						Tom Wilson has 40 years, 3,000 units and $200M of investment experience.
-					</li>
-				</ul>
-				<p>
-					<%= link_to "Back to Top", "#top"%>
-				</p>
-				</article>
-				<hr>
-				<article>
-				<h4 id="send_12">Q: I'm convinced that Texas and DFW are the best regions to buy rental property because of cash flow, high employment growth and low risk, but is there any appreciation? </h4>
-				<p>
-					<b>A:</b> This is a popular misconception. Although Texas and DFW did not appreciate as fast in the boom years of the high and coastal cities, it did experience an average appreciation of 6% during the two decades prior to the great recession. When that is leveraged by 5 or 4 to with a 25% or 80% loan, you get 20-25% return per year on your loan payment in addition to your high and stable cash on cash return. It is your total return on investment over the long run that counts, not how much the property appreciates in the good years. And during the recession, it dropped in value less that any other region in the country. In the past few years during the post recession recovery, the top Texas metros have appreciated 10% per year on top of top cash flow.
-				</p>
-				<p>
-					<%= link_to "Back to Top", "#top"%>
-				</p>
-				</article>
-				<hr>
-			</div>
-		</div>
-	</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="box-shadow">
+          <ol class="breadcrumb">
+            <li><%= link_to 'Home', root_url %></li>
+            <li class="active">FAQ</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div class="row content-section faq">
+      <div class="col-xs-12">
+        <h1>Frequently Asked Questions (FAQs)</h1>
+        <ol>
+          <li><%= link_to "What are the advantages of each type of investment product? How does a single family house compare as an investment to a duplex, fourplex, small multifam, or a commercial property?", faq_path(:anchor => "send_1") %></li>
+          <li><%= link_to "What are the advantages of a syndication?", faq_path(:anchor => "send_2") %></li>
+          <li><%= link_to "What characteristics should I look for in selecting an excellent syndicator?", faq_path(:anchor => "send_3") %></li>
+          <li><%= link_to "Are the rental rates for your properties projected or are there already tenants living in these homes?", faq_path(:anchor => "send_4") %></li>
+          <li><%= link_to "I believe I would need to hire a property management company to take care of my property. How does this work and what is the average rate for the property manager?", faq_path(:anchor => "send_5") %></li>
+          <li><%= link_to "I'm a little nervous about buying a property in Texas, or anywhere for that matter that I can’t get to within a half an hour to fix any problem that may come up. How did you overcome this fear?", faq_path(:anchor => "send_6") %></li>
+          <li><%= link_to "Should I be concerned about investing in Texas because the taxes seem to be high?", faq_path(:anchor => "send_7") %></li>
+          <li><%= link_to "Why should I buy property from you? Why not just take a trip to Dallas and find my own?", faq_path(:anchor => "send_8") %></li>
+          <li><%= link_to "I notice the tax records that you appreciatively provide to me sometimes show appraised values that are higher or lower than the your sale price and of the MLS comparables. Can you explain this?", faq_path(:anchor => "send_9") %></li>
+          <li><%= link_to "I see that your sales prices sometimes are at the comparable sales prices, and sometimes discounted by varying amounts. Why is that?", faq_path(:anchor => "send_10") %></li>
+          <li><%= link_to "Since the house prices are so cheap, why don’t renters there buy a home instead of renting?", faq_path(:anchor => "send_11") %></li>
+          <li><%= link_to "What is the advantage of purchasing from Wilson Investment Properties, Inc. rather than other investment property suppliers?", faq_path(:anchor => "send_12") %></li>
+          <li><%= link_to "I'm convinced that Texas and DFW are one of the best regions to buy rental property because of cash flow, high employment growth and low risk, but is there any appreciation?", faq_path(:anchor => "send_13") %></li>
+        </ol>
+        <hr>
+        <article>
+          <h4 id="send_1">Q: What are the advantages of each type of investment product? How does a single family house compare as an investment to a duplex, fourplex, small multifam, or a commercial property?</h4>
+          <p><b>A:</b>Single Family Residences (SFR) are simple. Relative easy to understand, liquidate or get cash out from a refi. In order to give good cash flow the rent should be close to 1% per month of the total investment amount, are best if they are not built earlier than the 80’s, and should be in a region with high employment growth and a broad based economy, not "one horse towns" like N. Dakata.</p>
+          <p>Duplexes, triplexes, and fourplexes give higher cash flow (if everything else is equal), however, you are putting more “eggs in one address”. They are less liquid and tend to appreciate less than a SFH. Like all investments it is critical that you buy from a reputable experienced source and that you get excellent property management.</p>
+          <p>Mulfifamily (Apartment buildings - 5 or more units) properties just amplify the characteristics above, both positively and negatively. It is harder to qualify for a loan, however, if you do, or if you invest with an entity that can, you avoid limiting your Fannie/Freddie loan restrictions. To reduce and spread your risks it is recommended that you invest with an excellent, reputable and very experienced syndicator.</p>
+          <p>Commercial properties on the average have higher returns and higher risks. Their advantages are that you have higher quality tenants, longer tenants and more predictable income. Also most are NNN (triple net) which means that the taxes, insurance, and maintenance costs are passed on to the tenants. Again, like with multifamily properties, to reduce and spread your risks it is recommended that you invest with an excellent, reputable and very experienced syndicator.</p>
+          <p><%= link_to "Back to Top", "#top"%></p>
+        </article>
+        <hr>
+        <article>
+          <h4 id="send_2">Q: What are the advantages of a syndication?</h4>
+          <p><b>A:</b> A syndication is simply the pooling of funds from multiple investors for a common investment and goal. They have been around for literally thousands of years. Crowdfunding is just a modern term with special regulations for syndications. The advantages include:</p>
+          <p><b>Enables Small Investors to</b></p>
+          <p><b>“Play in the Big Leagues”</b></p>
+          <p><span>✓</span><b>Invest with as little as $50K</b></p>
+          <p><span>✓</span><b>Take advantage of promoter skills</b></p>
+          <p><span>✓</span><b> Access to deals</b></p>
+          <p><span>✓</span><b> Negotiations</b></p>
+          <p><span>✓</span><b> Management</b></p>
+          <p><span>✓</span><b>Greater asset class diversification</b></p>
+          <ul>
+            <li><b>Better high value deals</b></li>
+            <li><b>Better access</b></li>
+            <li><b>Better negotiations</b></li>
+            <li><b>Can qualify for better loans</b></li>
+            <li><b>Purchase larger &amp; higher quality properties Professional management</b></li>
+            <li><b>Economy of scale; Blanket contracts</b></li>
+            <li><b>Easier to achieve a diversified portfolio</b></li>
+          </ul>
+          <p><b>Easier to get into outside markets</b></p>
+          <ul>
+            <li><b>Promoter assumes financial or legal risk</b></li>
+            <li><b>Does not require day to day management or </b><b>oversight by the investor</b></li>
+            <li><b>Risk is limited to original investment</b></li>
+            <li><b>Promoter has expertise to deal with complex issues</b></li>
+            <li><b>Tenant Improvements</b></li>
+            <li><b>Leasing Commissions</b></li>
+            <li><b>Vacancy issues</b></li>
+            <li><b>Negotiation of complex leases</b></li>
+          </ul>
+          <p><%= link_to "Back to Top", "#top"%></p>
+        </article>
+        <hr>
+        <article>
+          <h4 id="send_3">Q: What characteristics should I look for in selecting an excellent syndicator?</h4>
+          <p><b>A:</b> Track record</p>
+          <ul>
+            <li><b>Integrity</b></li>
+            <li><b>Incentivized Long Term</b></li>
+            <li><b>Access to deals in strong metros</b></li>
+            <li><b>Ability to negotiate &amp; close</b></li>
+            <li><b>Management</b></li>
+          </ul>
+          <p><%= link_to "Back to Top", "#top"%></p>
+        </article>
+        <hr>
+        <article>
+          <h4 id="send_4">Q: Are the rental rates for your properties projected or are there already tenants living in these homes?</h4>
+          <p><b>A:</b>The listed properties are all in different phases. Most are under the ownership of Wilson Investment Properties, Inc. and under control of the property manager. Most are totally renovated and rented. Others are in the process of renovation and nearing completion. Sometimes we even get them rented before the renovation is complete once a prospective tenant sees the quality of the work. My specifications to my managers are to do a total renovation, not just a cheap minimal make ready. Almost all of them have all new flooring and two tone paint throughout. Most of the properties rent at or above the price shown, and most of them are rented by the time you close on the property which usually takes about 30 days if you get a loan.</p>
+          <p><%= link_to "Back to Top", "#top"%></p>
+        </article>
+        <hr>
+        <article>
+          <h4 id="send_5">Q: I believe I would need to hire a property management company to take care of my property. How does this work and what is the average rate for the property manager?</h4>
+          <p><b>A:</b> When you buy a product from Wilson Investment Properties, Inc., it is a turnkey deal with the property management already in place. You are free, of course, to choose your own, but the ones in place are ones whom I recommend and who also manage my portfolio. The normal retail management fee is 10% of collected rents (note collected) for full service (they handle everything, taxes, mortgage payments, insurance, etc), and one half a month’s rent for a new lease. For Wilson investment Properties, Inc. clients, my property managers have agreed to discount their fee to only 9%.</p>
+          <p><%= link_to "Back to Top", "#top"%></p>
+        </article>
+        <hr>
+        <article>
+          <h4 id="send_6">Q: I’m a little nervous about buying a property in Texas, or anywhere for that matter that I can’t get to within a half an hour to fix any problem that may come up. How did you overcome this fear?</h4>
+          <p><b>A:</b> Most of my real estate holdings (~240 units) are in Texas. The key is to have very professional property managers. You don’t have to be a landlord (and I feel you should not) in order to be a successful investor. I believe that it makes just as much sense to buy real estate where it gives you the best return without regard to how far away it is, as it does to choose the best stock, regardless of where its headquarters is located.</p>
+          <p>I buy mostly in Texas because that is where the best rent ratio is for a major high growth economic center and, therefore, the best cash flow return on investment. My property managers handle everything needed to manage the properties. They are easily accessible, but I mostly just look at the monthly reports and collect the checks. And if you feel you have to go see your properties once in a while, it is only a non-stop, three hour or less plane ride away from almost anywhere in the U.S. Even with all of my holdings, I only go look at my properties about once per year or two.</p>
+          <p><%= link_to "Back to Top", "#top"%></p>
+        </article>
+        <hr>
+        <article>
+          <h4 id="send_7">Q: Should I be concerned about investing in Texas because the taxes seem to be high?</h4>
+          <p><b>A:</b> The taxes in Texas are higher than in California and many other states, but not as high as some states and in absolute dollars it is still much less than equivalent properties in other markets. The taxes average 2.6%. Even though the taxes are higher than in some other states, the high rent ratio is a much more dominant factor that more than offsets the more secondary tax factor. In every market there are factors that are better and worse than other markets. None are more important than the rent ratio. In addition to the high rent ratio in Texas, other factors are relative positives also, such as lower repair and maintenance costs, high occupancy, &amp; employment.</p>
+          <p><%= link_to "Back to Top", "#top"%></p>
+        </article>
+        <hr>
+        <article>
+          <h4 id="send_8">Q: Why should I buy property from you? Why not just take a trip to Dallas and find my own?</h4>
+          <p><b>A:</b> We give you a no hassle, minimum risk, and time efficient approach to buying quality rental properties in DFW. When you buy a property from Wilson Investment Properties, Inc. everything is taken care of and it is a straight-forward turnkey event. You are taking advantage of following in the footsteps of a successful investor whose experience has filtered the criteria and locations that yield the best results.</p>
+          <p>It takes a lot more work and knowledge to acquire an optimum property and do everything that it takes to get it to the point of a cash flowing property than most new investors realize. Many investors forget to include many of the costs associated with the process such as debt service during rehab and rent up, utilities, advertising, extra rehab surprises, etc. My profit margin comes from volume wholesale purchasing by my dedicated team, and from wholesale rehab prices without costing you any more than if you went out on your own and found your own agent and property manager.</p>
+          <p>The properties have been highly selected, fully renovated, and property management is already in place. Of course, you are free to choose whatever property manager you wish, but the ones that are already managing them are also the ones that I have chosen to manage my own personal portfolio. I also give you the support and coordination of my entire preferred professional team, the same ones that I use for my properties and whom are very experienced with investors, which is not common in the real estate business.<br><br>
+          <b>Advantages of Wilson Investment Properties, Inc.</b></p>
+          <ul>
+            <li>Follow the experience and success of Wilson Investment Properties, Inc. team.</li>
+            <li>Tom Wilson’s technical and business background in Silicon Valley have contributed to his thorough research of the best cities, properties, and formulas for optimum returns on investments.</li>
+            <li>Wilson Investment Properties, Inc. is Silicon Valley based, accessible, and understands the perspectives of out-of-state investors.</li>
+            <li>Facilitates faster path to owning top investment property.</li>
+            <li>Reduces time, hassle, and risk of buying investment property, especially in a new area.</li>
+            <li>More selective products for best ROI investments than generally available through other sources.</li>
+            <li>Fully rehabbed homes, not just raw foreclosures, or minimally repaired properties for minimal rents.</li>
+            <li>Leased properties.</li>
+            <li>Top experienced and high integrity property management in place, the same that manages Wilson Properties’ personal portfolio.</li>
+            <li>Full complement of highly selected resources including, investor lenders, insurance specialists, attorney, tax specialists, property managers, real estate agents, title company officers, and 1031 exchange accommodators.</li>
+            <li>High transparency.</li>
+            <li>Team and resources available after the sale.</li>
+          </ul>
+          <p><%= link_to "Back to Top", "#top"%></p>
+        </article>
+        <hr>
+        <article>
+          <h4 id="send_9">Q: I notice the tax records that you appreciatively provide to me sometimes show appraised values that are higher or lower than the your sale price and of the MLS comparables. Can you explain this?</h4>
+          <p><b>A:</b> Texas is one of 11 non-disclosure states, which means that the sales prices do not have to be reported, although many do, which is where we obtain the MLS comparables to support each property value. So each county appraisal district has to guess what each property is worth, and if it was sold, for how much. It becomes a good news/bad news issue.</p>
+          <p>If the appraised value is less than your purchase price, that is typical, because generally the appraised values trails the actual market value by two to three years and your taxes will be lower, and it will reflect in a little higher cash flow ROI for you.</p>
+          <p>If the appraised value for the property that you are considering purchasing is higher, it is further supporting evidence that you are buying a good value. The bad news is that your tax may be a little higher, but if you send in a protest letter along with your copy of the sale (closing statement), generally they will reduce the appraised value, and, therefore, the taxes.</p>
+          <p><%= link_to "Back to Top", "#top"%></p>
+        </article>
+        <hr>
+        <article>
+          <h4 id="send_10">Q: I see that your sales prices sometimes are at the comparable sales prices, and sometimes discounted by varying amounts. Why is that?</h4>
+          <p><b>A:</b> Sometimes our DFW expert scouts find needle in the haystack properties that are more discounted than others, although they are getting harder to find because of the high demand. When they do, if I still have adequate margin after rehab and expenses, I pass the extra savings along to you in the form of a more discounted sales price. My profit margin comes from volume wholesale purchasing by my dedicated team, and from wholesale rehab prices, without costing you any more than if you went out on your own and found your own agent and property manager. Many investors forget to include all of the costs associated with the process such as debt service during rehab and rent up, utilities, advertising, extra rehab surprises, etc.</p>
+          <p><%= link_to "Back to Top", "#top"%></p>
+        </article>
+        <hr>
+        <article>
+          <h4 id="send_11">Q: Since the house prices are relatively cheap, why don’t renters there buy a home instead of renting?</h4>
+          <p><b>A:</b> My peer investors and I have asked ourselves for years that same question about why renters pay so much when they could buy the same home and pay less per month. For the most part we have given up trying to figure it out and are just happy to accept their rent! One reason is that there are a lot of good paying jobs so they can afford the rent, and the second reason is that most people in the Midwest and South just don’t have the kind of cash reserves and credit that we are use to in higher priced states. They don’t seem to think of their home as an investment as we do in higher priced coastal cities.</p>
+          <p><%= link_to "Back to Top", "#top"%></p>
+        </article>
+        <hr>
+        <article>
+          <h4 id="send_12">Q: What is the advantage of purchasing from Wilson Investment Properties, Inc. rather than other investment property suppliers?</h4>
+          <ul>
+            <li>75% of online advertisers are referral agents. Wilson Investment Properties, Inc. is a direct supplier with hands on experience, control, and clear title and ownership for most properties.</li>
+            <li>Transparency. Unlike other sources, we proudly display on all properties the year built, photos, actual current expenses, leasing status, and sales comparables.</li>
+            <li>We buy and hold in the same areas that we recommend to our investors.</li>
+            <li>We never sell a property that we would not be willing to hold for our own portfolios.</li>
+            <li>Tom Wilson has 40 years, 3,000 units and $200M of investment experience.</li>
+          </ul>
+          <p><%= link_to "Back to Top", "#top"%></p>
+        </article>
+        <hr>
+        <article>
+          <h4 id="send_13">Q: I'm convinced that Texas and DFW are the best regions to buy rental property because of cash flow, high employment growth and low risk, but is there any appreciation? </h4>
+          <p><b>A:</b> This is a popular misconception. Although Texas and DFW did not appreciate as fast in the boom years of the high and coastal cities, it did experience an average appreciation of 6% during the two decades prior to the great recession. When that is leveraged by 5 or 4 to with a 25% or 80% loan, you get 20-25% return per year on your loan payment in addition to your high and stable cash on cash return. It is your total return on investment over the long run that counts, not how much the property appreciates in the good years. And during the recession, it dropped in value less that any other region in the country. In the past few years during the post recession recovery, the top Texas metros have appreciated 10% per year on top of top cash flow.</p>
+          <p><%= link_to "Back to Top", "#top"%></p>
+        </article>
+        <hr>
+      </div>
+    </div>
+  </div>
 </section>

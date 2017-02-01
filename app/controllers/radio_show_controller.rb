@@ -1,59 +1,48 @@
 class RadioShowController < ApplicationController
+  before_action :authorize,except: [:index]
+  before_action :set_directory
 
-	before_action :authorize,except: [:index]
-	before_action :set_directory
+  def index
+    @content = Content.find_by_key :radio_show_summary
+    @content = Content.new key: :radio_show_summary,body: 'Blank text' if !@content
 
-	def index
+    url = URI.escape("https://www.googleapis.com/youtube/v3/search?order=date&maxResults=20&type=video&channelId=UCGSnSdEw-gG88-3E6Be0Bgw&part=snippet&key=#{GOOGLE_SERVER_KEY}")
+    uri = URI.parse url
 
-		@content = Content.find_by_key :radio_show_summary
-		@content = Content.new key: :radio_show_summary,body: 'Blank text' if !@content
+    http = Net::HTTP.new(uri.host,443)
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    http.use_ssl = true
 
-		url = URI.escape("https://www.googleapis.com/youtube/v3/search?order=date&maxResults=20&type=video&channelId=UCGSnSdEw-gG88-3E6Be0Bgw&part=snippet&key=#{GOOGLE_SERVER_KEY}")
-		uri = URI.parse url
+    request = Net::HTTP::Get.new(uri.path+"?"+uri.query)
+    request.content_type = 'application/json'
 
-		http = Net::HTTP.new(uri.host,443)
-		http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-		http.use_ssl = true
+    response = http.request request
 
-		request = Net::HTTP::Get.new(uri.path+"?"+uri.query)
-		request.content_type = 'application/json'
+    code = response.code.to_f.round
+    body = response.body
 
-		response = http.request request
+    if code == 200
+      @videos = JSON.parse(body)['items']
+    else
+      @videos = []
+    end
+  end
 
-		code = response.code.to_f.round
-		body = response.body
-		if code == 200
-			@videos = JSON.parse(body)['items']
-		else
+  def update
+    @content = Content.find_by_key :radio_show_summary
+    @content = Content.new key: :radio_show_summary if !@content
+    @content.body = params.require :content
 
-			@videos = []
+    if @content.save
+      redirect_to radio_show_path,flash: {success: 'Summary was successfully updated!'}
+    else
+      redirect_to radio_show_path,flash: {danger: 'An error occured.'}
+    end
+  end
 
-		end
+  private
 
-	end
-
-	def update
-
-		@content = Content.find_by_key :radio_show_summary
-		@content = Content.new key: :radio_show_summary if !@content
-
-		@content.body = params.require :content
-
-		if @content.save
-
-			redirect_to radio_show_path,flash: {success: 'Summary was successfully updated!'}
-
-		else
-
-			redirect_to radio_show_path,flash: {danger: 'An error occured.'}
-
-		end
-
-	end
-
-	private
-	def set_directory
-		@directory = Rails.root.join('lib','radio_show_summary.html')
-	end
-
+  def set_directory
+    @directory = Rails.root.join('lib','radio_show_summary.html')
+  end
 end

@@ -31,7 +31,7 @@
     </div>
     <div class="form-group">
       <%= f.label :image %><br>
-      <div ng:controller="AssetsCtrl" ng:show="jasset.image.image.thumb.url", ng:click="removeImage(jasset)"><%= image_tag @jasset.image.thumb.url,class: 'img-thumbnail' %></div>
+      <div ng:controller="AssetsCtrl" ng:show="jasset.image.image.thumb.url", ng:click="removeImage(jasset)"><%= image_tag @jasset.image.thumb.url,class: "img-thumbnail #{@jasset.image.thumb.url == '/custom/no-image.png' ? 'preview-img' : ''}" %></div>
       <%= f.label :image, class: 'btn btn-default mar-top-15' do %><i class="fa fa-picture-o mar-right-6" aria-hidden="true"></i> Choose File
       <%= f.file_field :image, style: "display:none;" %>
       <% end %>

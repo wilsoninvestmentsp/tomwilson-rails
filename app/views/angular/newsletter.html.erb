@@ -1,10 +1,10 @@
 <div class="panel panel-<%= params[:type] %>">
   <div class="panel-heading">
-  	<% if params[:type] == 'danger' %>
-  		Error
-  	<% else %>
-  		Success
-  	<% end %>
+    <% if params[:type] == 'danger' %>
+      Error
+    <% else %>
+      Success
+    <% end %>
   </div>
   <div class="panel-body">
     <%= params[:message] %>

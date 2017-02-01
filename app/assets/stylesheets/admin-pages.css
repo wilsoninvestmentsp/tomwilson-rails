@@ -20,7 +20,7 @@
 .fixed-admin-body .control-label{display:block;font-weight:normal}
 .fixed-admin-body .no-pad-left{padding-left:0}
 .fixed-admin-body .no-pad-right{padding-right:0}
-.fixed-admin-body .preview-img{width:60%}
+.fixed-admin-body .preview-img{width:60%;padding:4px;border-radius:4px;border:solid 1px #ddd}
 
 /* Add - Edit Property CSS */
 .add-property-form .form-row{margin-bottom:30px}
