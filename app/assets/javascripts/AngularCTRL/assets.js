@@ -79,7 +79,6 @@ App.controller('AssetsCtrl',['$scope','$http',function($scope,$http){
   scope.removeImage = function(jasset){
     if(jasset.image.image.url != '/custom/no-image.png'){
       if (confirm('Are you sure you want to remove this Image?')){
-        jasset.image = '';
         $http({
           method: 'PATCH',
           url: '/api/v1/jassets/'+jasset.id+'.json',

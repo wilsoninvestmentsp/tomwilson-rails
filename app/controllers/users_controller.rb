@@ -34,6 +34,10 @@ class UsersController < ApplicationController
 
   def update
     respond_to do |format|
+      if params[:user][:remove_image].present? && params[:user][:remove_image] == true
+        @user.remove_image!
+        format.json { render json: @user.image }
+      end
       if @user.update(user_params)
         format.html { redirect_to users_url, flash: {success: "#{@user.name} was successfully updated."} }
         format.json { render :show, status: :ok, location: @user }
