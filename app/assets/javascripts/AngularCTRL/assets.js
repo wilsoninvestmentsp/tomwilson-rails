@@ -1,131 +1,91 @@
 App.controller('AssetsCtrl',['$scope','$http',function($scope,$http){
+  var scope = $scope;
+  scope.assets = {
+    items: [],
+    meta: {}
+  };
+  scope.newAsset = {};
 
-	var scope = $scope;
-	scope.assets = {
-		items: [],
-		meta: {}
-	};
-	scope.newAsset = {};
+  scope.getAssets = function(){
+    scope.assets.meta.loading = true;
+    var url = '/api/v1/jassets.json?order=sort DESC';
 
-	// Begin getAssets =====================================
-	scope.getAssets = function(){
-		
-		scope.assets.meta.loading = true;
+    $http({
+      method: 'GET',
+      url: url
+    }).then(function successCallback(response){
+      scope.assets.items = response.data.jassets;
+      delete scope.assets.meta.loading;
+    },function errorCallback(response){
+      delete scope.assets.meta.loading;
+    });
+  };
 
-		var url = '/api/v1/jassets.json?order=sort DESC';
+  scope.getAssets();
 
-		$http({
-		  method: 'GET',
-		  url: url
-		}).then(function successCallback(response){
+  scope.getAssetsByType = function(){
+    scope.assets.meta.loading = true;
 
-			JP(response);
-			scope.assets.items = response.data.jassets;
-			delete scope.assets.meta.loading;
+    if($('#order_link_name').val() != ''){
+      var url = '/api/v1/jassets.json?order_link_name='+$('#order_link_name').val();
+    }else{
+      var url = '/api/v1/jassets.json?order=sort DESC';
+    }
 
-		}, function errorCallback(response){
+    $http({
+      method: 'GET',
+      url: url
+    }).then(function successCallback(response){
+      scope.assets.items = response.data.jassets;
+      delete scope.assets.meta.loading;
+    },function errorCallback(response){
+      delete scope.assets.meta.loading;
+    });
+  };
 
-			JP(response);
-			delete scope.assets.meta.loading;
+  scope.createAsset = function(){
+    if (!scope.newAsset.title || !scope.newAsset.link_name || !scope.newAsset.link_uri){ return; }
+    scope.assets.meta.newLoading = true;
 
-		});
-	
-	};
-	// End getAssets =======================================
-	scope.getAssets();
+    $http({
+      method: 'POST',
+      url: '/api/v1/jassets.json',
+      data: { asset: scope.newAsset }
+    }).then(function successCallback(response){
+      scope.assets.items.push(response.data.jasset);
+      delete scope.newAsset;
+      delete scope.assets.meta.newLoading;
+    },function errorCallback(response){
+      delete scope.assets.meta.newLoading;
+    });
+  };
 
-	scope.getAssetsByType = function(){
-		scope.assets.meta.loading = true;
-		
-		if($('#order_link_name').val() != ''){
-			var url = '/api/v1/jassets.json?order_link_name='+$('#order_link_name').val();
-		}else{
-			var url = '/api/v1/jassets.json?order=sort DESC';
-		}
-		
-		$http({
-		  method: 'GET',
-		  url: url
-		}).then(function successCallback(response){
-			scope.assets.items = response.data.jassets;
-			delete scope.assets.meta.loading;
-		},function errorCallback(response){
-			delete scope.assets.meta.loading;
-		});
-	};
+  scope.removeAsset = function(asset,i){
+    if (!confirm('Are you sure you want to delete '+asset.title+'?')){ return; }
+    scope.assets.meta.removeLoading = {};
+    scope.assets.meta.removeLoading[asset.id] = true;
 
-	// Begin createAsset =====================================
-	scope.createAsset = function(){
-		
-		JP(1);
+    $http({
+      method: 'DELETE',
+      url: '/api/v1/jassets/'+asset.id+'.json'
+    }).then(function successCallback(response){
+      scope.assets.items.splice(i,1);
+      delete scope.assets.meta.removeLoading;
+    },function errorCallback(response){
+      delete scope.assets.meta.removeLoading;
+    });
+  };
 
-		if (!scope.newAsset.title || !scope.newAsset.link_name || !scope.newAsset.link_uri){ return; }
-
-		JP(2);
-
-		scope.assets.meta.newLoading = true;
-
-		$http({
-			method: 'POST',
-		  	url: '/api/v1/jassets.json',
-		  	data: { asset: scope.newAsset }
-		}).then(function successCallback(response){
-
-			JP(response);
-			scope.assets.items.push(response.data.jasset);
-			delete scope.newAsset;
-			delete scope.assets.meta.newLoading;
-
-		}, function errorCallback(response){
-
-			JP(response);
-			delete scope.assets.meta.newLoading;
-
-		});
-	
-	};
-	// End createAsset =======================================
-
-
-	// Begin removeAsset =====================================
-	scope.removeAsset = function(asset,i){
-
-		if (!confirm('Are you sure you want to delete '+asset.title+'?')){ return; }
-		
-		scope.assets.meta.removeLoading = {};
-		scope.assets.meta.removeLoading[asset.id] = true;
-
-		$http({
-			method: 'DELETE',
-		  	url: '/api/v1/jassets/'+asset.id+'.json'
-		}).then(function successCallback(response){
-
-			JP(response);
-			scope.assets.items.splice(i,1);
-			delete scope.assets.meta.removeLoading;
-
-		}, function errorCallback(response){
-
-			JP(response);
-			delete scope.assets.meta.removeLoading;
-
-		});
-	
-	};
-	// End removeAsset =======================================
-
-	//  Remove Asset Image
-	scope.removeImage = function(jasset){
-		if(jasset.image.image.url != '/custom/no-image.png'){
-			if (confirm("Remove this image?")){
-				jasset.image = '';
-				$http({
-					method: 'PATCH',
-					url: '/api/v1/jassets/'+jasset.id+'.json',
-					data: {jasset: {remove_image: true}}
-				}).then(function successCallback(response){},
-					function errorCallback(response){});
-			}
-		}
-	}
+  scope.removeImage = function(jasset){
+    if(jasset.image.image.url != '/custom/no-image.png'){
+      if (confirm('Are you sure you want to remove this Image?')){
+        $http({
+          method: 'PATCH',
+          url: '/api/v1/jassets/'+jasset.id+'.json',
+          data: {jasset: {remove_image: true}}
+        }).then(function successCallback(response){},
+        function errorCallback(response){});
+      }
+    }
+  }
 }]);

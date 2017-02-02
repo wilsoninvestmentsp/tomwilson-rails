@@ -1,15 +1,15 @@
 <div ng:controller="UserFormCtrl">
   <%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-  <div class="alert alert-danger fade in alert-dismissable">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
-    <uib-alert type="danger">
-      <ul>
-        <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-      </ul>
-    </uib-alert>
+    <% if @user.errors.any? %>
+    <div class="alert alert-danger fade in alert-dismissable">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+      <uib-alert type="danger">
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </uib-alert>
   </div>
   <% end %>
   <div class="row mar-top-15">
@@ -27,24 +27,20 @@
         <%= f.select :team,@team_options,{},class: 'selectpicker' %>
       </div>
       <div class="form-group">
-
         <div class="checkbox">
           <label>
             <%= f.check_box :public %>
             <span class="cr"><i class="cr-icon fa fa-check"></i></span> Check as Public
           </label>
         </div>
-
       </div>
       <div class="form-group">
-
         <div class="checkbox">
           <label>
             <%= f.check_box :admin, 'ng:model': 'admin','ng:change':'adminChanged()' %>
             <span class="cr"><i class="cr-icon fa fa-check"></i></span> Check as Admin
           </label>
         </div>
-
       </div>
       <div class="form-group" ng:show="admin">
         <%= f.label 'Password', class: 'control-label' %>
@@ -60,7 +56,7 @@
       </div>
       <div class="form-group">
         <%= f.label :image, class: 'control-label' %>
-        <%= image_tag @user.image.thumb.url,class: 'img-thumbnail' %>
+        <div ng:click="removeImage(<%= @user.id %>)"><%= image_tag @user.image.thumb.url,class: 'img-thumbnail'%></div>
         <br>
         <%= f.label :image, class: 'btn btn-default mar-top-15' do %><i class="fa fa-picture-o mar-right-6" aria-hidden="true"></i> Upload Image
         <%= f.file_field :image, style: "display:none;" %>

@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
 
   # def index
   # end
+
   def show
     @article = @zendesk.GetArticle params[:id]
   end
@@ -22,15 +23,14 @@ class ArticlesController < ApplicationController
   def market_and_city_reports
   end
 
-
   private
 
   def set_zendesk
     @zendesk = ZendeskApi::Connect.new(
-		  domain: ZENDESK_DOMAIN,
-		  username: ZENDESK_USER,
-		  token: ZENDESK_API_KEY
-		)
+      domain: ZENDESK_DOMAIN,
+      username: ZENDESK_USER,
+      token: ZENDESK_API_KEY
+    )
   end
 
   def constraints

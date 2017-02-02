@@ -21,6 +21,22 @@ Blog = {
       window.location = property_url;
     })
   },
+  removeImage: function(blog_slug){
+    $('.preview-img').on('click', function(){
+      if($(this).attr('alt') != 'No image'){
+        if(confirm('Are you sure you want to remove this Image?')){
+          $.ajax({
+            method: 'PATCH',
+            url: '/blogs/'+blog_slug,
+            data: {blog: {remove_image: true}},
+            success: function(data){
+             $('.preview-img').attr('src', data.image.thumb.url);
+            }
+          });
+        }
+      }
+    });
+  },
   documentOnReady: function(){
     this.pagintation();
     this.clickableDiv();

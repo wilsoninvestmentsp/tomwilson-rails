@@ -27,10 +27,16 @@ class BlogsController < ApplicationController
   end
 
   def update
-    if @blog.update(blog_params)
-      redirect_to @blog, flash: {success: "'#{@blog.title}' was successfully updated!"}
-    else
-      render :edit
+    respond_to do |format|
+      if params[:blog][:remove_image].present? && params[:blog][:remove_image] == 'true'
+        @blog.remove_image!
+        format.json { render json: @blog.image }
+      end
+      if @blog.update(blog_params)
+        format.html {redirect_to @blog, flash: {success: "'#{@blog.title}' was successfully updated!"}}
+      else
+        format.html {render :edit}
+      end
     end
   end
 

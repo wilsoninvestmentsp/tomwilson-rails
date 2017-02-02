@@ -1,102 +1,94 @@
 class MailchimpController < ApplicationController
+  skip_before_action :verify_authenticity_token,only: [:zendesk]
 
-	skip_before_action :verify_authenticity_token,only: [:zendesk]
+  def signup
+    url = URI.escape "https://us7.api.mailchimp.com/3.0/lists/#{MAIL_CHIMP_NEWSLETTER_ID}/members"
+    uri = URI(url)
 
-	def signup
-		
-		url = URI.escape "https://us7.api.mailchimp.com/3.0/lists/#{MAIL_CHIMP_NEWSLETTER_ID}/members"
+    http = Net::HTTP.new(uri.host,uri.port)
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    http.use_ssl = true
 
-		uri = URI(url)
+    request = Net::HTTP::Post.new(uri.path)
+    request.content_type = 'application/json'
+    request.basic_auth 'tomwilson',MAIL_CHIMP_API_KEY
+    puts "++"*30
+    puts signup_params.to_json
+    puts "++"*30
+    request.body = signup_params.to_json
+    # {
+    # 	email_address": "urist.mcvankab@freddiesjokes.com",
+    # 	"status": "subscribed",
+    # 	"merge_fields": {
+    # 		"FNAME": "Urist",
+    # 		"LNAME": "McVankab"
+    # 	}
+    # }
 
-		http = Net::HTTP.new(uri.host,uri.port)
-		http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-		http.use_ssl = true
+    response = http.request request
 
-		request = Net::HTTP::Post.new(uri.path)
-		request.content_type = 'application/json'
-		request.basic_auth 'tomwilson',MAIL_CHIMP_API_KEY
-		puts "++"*30
-		puts signup_params.to_json
-		puts "++"*30
-		request.body = signup_params.to_json
-		# {
-		# 	email_address": "urist.mcvankab@freddiesjokes.com",
-		# 	"status": "subscribed",
-		# 	"merge_fields": {
-		# 		"FNAME": "Urist",
-		# 		"LNAME": "McVankab"
-		# 	}
-		# }
+    code = response.code
+    body = response.body
 
-		response = http.request request
+    render json: JSON.parse(body),status: code
+  end
 
-		code = response.code
-		body = response.body
+  def zendesk
+    @request = Request.new name: 'mailchimp_zendesk',status: :started,data: params[:user].to_json
+    @request.save
 
-		render json: JSON.parse(body),status: code
+    names = params[:user][:name].split(' ')
+    first_name = names.first
+    last_name = 'n/a'
 
-	end
+    if names.count > 1
+      last_name = names[1] if names[1].present?
+    end
 
-	def zendesk
+    email = params[:user][:email]
+    post_data = {
+      email_address: email,
+      status: "subscribed",
+      merge_fields: {
+        "FNAME" => first_name,
+        "LNAME" => last_name
+      }
+    }
 
-		@request = Request.new name: 'mailchimp_zendesk',status: :started,data: params[:user].to_json
-		@request.save
+    @request.data = post_data.to_json
+    @request.status = :processed
+    @request.save
 
-		names = params[:user][:name].split(' ')
-		first_name = names.first
-		last_name = 'n/a'
-		if names.count > 1
+    url = URI.escape "https://us7.api.mailchimp.com/3.0/lists/#{MAIL_CHIMP_NEWSLETTER_ID}/members"
+    uri = URI(url)
 
-			last_name = names[1] if names[1].present?
+    # curl -H "Content-Type: application/json" -X POST -d '{"user":{"name":"Tiger Woods","email":"newguy@wipadmin.com.zd"}}' http://localhost:3000/api/v1/mailchimp/zendesk.json
 
-		end
-		email = params[:user][:email]
+    http = Net::HTTP.new(uri.host,uri.port)
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    http.use_ssl = true
 
-		post_data = {
-			email_address: email,
-			status: "subscribed",
-			merge_fields: {
-				"FNAME" => first_name,
-				"LNAME" => last_name
-			}
-		}
+    request = Net::HTTP::Post.new(uri.path)
+    request.content_type = 'application/json'
+    request.basic_auth 'tomwilson',MAIL_CHIMP_API_KEY
+    request.body = post_data.to_json
 
-		@request.data = post_data.to_json
-		@request.status = :processed
-		@request.save
+    response = http.request request
 
-		url = URI.escape "https://us7.api.mailchimp.com/3.0/lists/#{MAIL_CHIMP_NEWSLETTER_ID}/members"
+    code = response.code
+    body = response.body
 
-		uri = URI(url)
+    @request.status = :completed
+    @request.code = code.to_i
+    @request.save
 
-		# curl -H "Content-Type: application/json" -X POST -d '{"user":{"name":"Tiger Woods","email":"newguy@wipadmin.com.zd"}}' http://localhost:3000/api/v1/mailchimp/zendesk.json
+    render json: JSON.parse(body),status: code
+  end
 
-		http = Net::HTTP.new(uri.host,uri.port)
-		http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-		http.use_ssl = true
+  private
 
-		request = Net::HTTP::Post.new(uri.path)
-		request.content_type = 'application/json'
-		request.basic_auth 'tomwilson',MAIL_CHIMP_API_KEY
-		request.body = post_data.to_json
-
-		response = http.request request
-
-		code = response.code
-		body = response.body
-
-		@request.status = :completed
-		@request.code = code.to_i
-		@request.save
-
-		render json: JSON.parse(body),status: code
-
-	end
-
-	private
-	def signup_params
-		# params.require(:signup).permit :email_address,:status,:merge_fields
-		params[:signup]
-	end
-
+  def signup_params
+    # params.require(:signup).permit :email_address,:status,:merge_fields
+    params[:signup]
+  end
 end

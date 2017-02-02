@@ -1,5 +1,4 @@
 module PropertiesHelper
-
   def status_label_class(property)
     case property.status
     when 'for_sale'

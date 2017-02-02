@@ -4,36 +4,7 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
-          <!-- <h1>Properties</h1> -->
           <div class="box-shadow">
-            <!-- <div class="blue-bg">
-              <div class="col-md-9 col-sm-12 col-xs-12">
-                <form class="form-horizontal advance-search">
-                  <div class="form-group">
-                    <div class="col-sm-4 first">
-                      <%= select_tag :states, options_for_select(@states.all.map{ |s| [s.state, s.state]}), { include_blank: 'Select State', 'data-live-search': 'true' , default: '', 'ng:model': 'params.state', 'ng:change': 'getCities()', class: 'selectpicker
-                          '} %>
-                      </div>
-                    <div class="col-sm-4 first">
-                      <div id="filter_cities">
-                        <%= render partial: 'properties/cities', locals: {cities: @cities} %>
-                      </div>
-                    </div>
-                    <div class="col-sm-4 text-center">
-                    <input id="price-filter" type="text" class="span2" value="" data-slider-min="<%= @min_max_price[:min_price] %>" data-slider-max="<%= @min_max_price[:max_price] %>" data-slider-step="1000" data-slider-value="[<%= @min_max_price[:min_price] %>, <%= @min_max_price[:max_price] %>]" ng:model="params.offer_price">
-                      <label class="price-hint">
-                      Price: $<%= @min_max_price[:min_price] %> - $<%= @min_max_price[:max_price] %></label>
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <div class="col-md-3 hidden-sm hidden-xs social-icons">
-                <a href="http://www.meetup.com/Wilson-Investment-Properties-Inc/" class="meetup"><%= image_tag 'meetup.svg', align: 'MeetUp', class: 'img-responsive' %></a>
-                <a href="https://www.linkedin.com/company/wilson-investment-properties" class="icons"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                <a href="https://twitter.com/wilsoninvestprp" class="icons"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                <a href="https://www.facebook.com/WilsonInvestmentProperties" class="icons"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-              </div>
-            </div> -->
             <ol class="breadcrumb">
               <li><%= link_to 'Home', root_url %></li>
               <li class="active">Properties</li>
@@ -49,32 +20,19 @@
                 <a href="">{{val.label}}</a>
               </li>
             </ul>
-          <!--   <div class="sort-option">
-              <h5>Sort By Price: </h5>
-               <%= select_tag :offer_price, options_for_select(@sort_by_offer_price.map{ |k,v| [v, k]}), { include_blank: 'Default', 'ng:model': 'params.order', 'ng:change': 'getProperties()', class: 'selectpicker
-                          '} %>
-            </div> -->
-            </div>
           </div>
-        </div>
-        <div class="row property-listing", id="property-listing">
-          <%= render partial: 'properties' %>
-          <div class="col-xs-12 text-center msg-content" ng:if="properties.length == 0">
-            <h3 ng:if="loading">Loading...</h3>
-            <h3 ng:if="!loading">No {{activeMenu.label == 'All' ? '' : activeMenu.label}} Properties Found</h3>
-          </div>
-        </div>
-        <div ng:if="meta.total_pages > 1" class="col-xs-12 text-center" ng:show="meta.next_page">
-          <a href="" class="btn btn-lg border-btn space-setting" ng:click="toPage(meta.next_page)" ng:class="{'invisible':!meta.next_page}"><i class="fa fa-th" aria-hidden="true"></i> View More Offers</a>
         </div>
       </div>
-    </section>
-  </div>
-<!-- <script type="text/javascript">
- $(document).ready(function(){
-    $('.selectpicker').selectpicker();
-    $("#price-filter").slider({tooltip:'always', id: "price-filter"}).on('slideStop', function(ev){
-        angular.element('#PropertiesCtrl').scope().getProperties();
-      });
-  });
-</script> -->
+      <div class="row property-listing", id="property-listing">
+        <%= render partial: 'properties' %>
+        <div class="col-xs-12 text-center msg-content" ng:if="properties.length == 0">
+          <h3 ng:if="loading">Loading...</h3>
+          <h3 ng:if="!loading">No {{activeMenu.label == 'All' ? '' : activeMenu.label}} Properties Found</h3>
+        </div>
+      </div>
+      <div ng:if="meta.total_pages > 1" class="col-xs-12 text-center" ng:show="meta.next_page">
+        <a href="" class="btn btn-lg border-btn space-setting" ng:click="toPage(meta.next_page)" ng:class="{'invisible':!meta.next_page}"><i class="fa fa-th" aria-hidden="true"></i> View More Offers</a>
+      </div>
+    </div>
+  </section>
+</div>

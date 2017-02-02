@@ -33,7 +33,6 @@ module Api
           total_count: @properties.total_count,
           limit: (params[:limit] || 100).to_i
         }
-
       end
 
       def pagination_by_device
