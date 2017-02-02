@@ -416,6 +416,8 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .content-section h3{font-size:16px}
 .content-section .sort-row .sort-span, .content-section .sort-row .btn-span{float:none;display:block}
 .content-section .sort-row .btn-span .btn{display:block;margin-top:15px}
+.content-section .sort-row .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn){width: 100%}
+.content-section .sort-row .sort-span{margin-right:0;margin-bottom:10px}
 .resources-data .btn{margin-right:2px}
 
 /* Property Details Page CSS */
@@ -513,6 +515,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .blog-listing .listing-box{height:auto}
 .blog-listing .listing-box .status-dtls{position:relative;bottom:auto}
 .latest-blogs-section .border-btn{margin-bottom:50px}
+
 }
 
 @media(min-width:768px) and (max-width:991px){

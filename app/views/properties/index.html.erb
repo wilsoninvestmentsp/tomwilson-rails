@@ -45,7 +45,7 @@
           <h1 class="common-title">Properties</h1>
           <div class="list-selection">
             <ul class="list-unstyled">
-              <li ng:repeat="(key, val) in separate_building_types" ng:model="params.building_type" ng:click="filterPropertiesByBuildingType(val)" ng:class="{active : activeMenu === val}">
+              <li ng:repeat="(key, val) in building_types" ng:model="params.building_type" ng:click="filterPropertiesByBuildingType(val)" ng:class="{active : activeMenu === val}">
                 <a href="">{{val.label}}</a>
               </li>
             </ul>

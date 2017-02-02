@@ -13,6 +13,9 @@ module Api
 				order_link_name = params[:order_link_name] if params[:order_link_name].present?
 				params.delete :order_link_name
 
+				order_date = params[:order_date] if params[:order_date].present?
+				params.delete :order_date
+
 				q = QueryTools.query params
 
 				@jassets = Jasset.where(q)
@@ -21,6 +24,7 @@ module Api
 				.order(params[:order])
 				
 				@jassets = @jassets.order(link_name: order_link_name) if order_link_name.present?
+				@jassets = @jassets.order(created_at: order_date) if order_date.present?
 
 				respond_with @jassets,
 				meta: {
