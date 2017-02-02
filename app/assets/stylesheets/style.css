@@ -38,6 +38,10 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .form-control:hover{border-color:#66afe9}
 .form-control:focus{border-color:#66afe9;outline:0;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);-moz-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);-ms-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);-o-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)}
 
+/* Chinese Content Page */
+.flag-icon img{width:29px}
+.align-left {float:left;margin-right:25px;margin-bottom:15px}
+
 /* Index Page CSS */
 .first-section{height:500px}
 .first-section .box-content{padding:30px;color:#fff;border-radius:10px;width:80%;margin:0 10%;text-shadow:2px 2px 4px #000;-webkit-text-shadow:2px 2px 4px #000;-moz-text-shadow:2px 2px 4px #000;-ms-text-shadow:2px 2px 4px #000;-o-text-shadow:2px 2px 4px #000}
@@ -416,6 +420,8 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .content-section h3{font-size:16px}
 .content-section .sort-row .sort-span, .content-section .sort-row .btn-span{float:none;display:block}
 .content-section .sort-row .btn-span .btn{display:block;margin-top:15px}
+.content-section .sort-row .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn){width: 100%}
+.content-section .sort-row .sort-span{margin-right:0;margin-bottom:10px}
 .resources-data .btn{margin-right:2px}
 
 /* Property Details Page CSS */
@@ -513,6 +519,9 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .blog-listing .listing-box{height:auto}
 .blog-listing .listing-box .status-dtls{position:relative;bottom:auto}
 .latest-blogs-section .border-btn{margin-bottom:50px}
+
+/* Chinese Content Page CSS */
+.align-left{max-width: 100%}
 }
 
 @media(min-width:768px) and (max-width:991px){
@@ -528,6 +537,11 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 
 /* Blog Pages CSS */
 .blog-img-header img{margin-top:-140px}
+
+/* Chinese Content Page CSS */
+.align-left{max-width: 60%}
+.navbar-default .navbar-nav > li > a {padding-left:12px;padding-right:12px}
+.flag-icon img {width:21px;}
 }
 @media(max-width:991px){
 
@@ -550,4 +564,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 /* Blog Pages CSS */
 .blog-listing .listing-box{height:560px}
 .blog-img-header img{margin-top:-220px}
+
+/* Chinese Content Page CSS */
+.align-left{max-width:40%;}
 }

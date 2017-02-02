@@ -33,6 +33,10 @@ class Property < ActiveRecord::Base
  
   scope :order_by_status, -> { order(order_by_case) }
 
+  def self.order_featured_properties(properties)
+    properties.sort_by{ |p| p.status }
+  end
+
   def create_links
     links = [{title: 'Community Overview'}, {title: 'Appraisal Tax Record'}, {title: 'Parcel Map'}, {title: 'Tax Statement'}, {title: 'School District'}, {title: 'Accident'}]
     links.each do |l|
