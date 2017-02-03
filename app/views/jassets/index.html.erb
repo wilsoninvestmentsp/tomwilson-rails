@@ -15,9 +15,9 @@
         <div class="sort-row">
           <span class="sort-span mar-right-15">
             <h5>Sort By:</h5>
-              <%= select_tag :link_name, options_for_select(@resources), {title: 'Type', multiple: true, 'ng:model': 'params.link_name', 'ng:change': 'sortResourceType()', class: 'selectpicker'} %>
+              <%= select_tag :link_name, options_for_select(@resources), {title: 'Type', 'data-actions-box': true, multiple: true, 'data-selected-text-format': 'count > 4', 'ng:model': 'params.link_name', 'ng:change': 'sortResourceType()', class: 'selectpicker'} %>
           </span>
-          <span class="sort-span">
+          <span class="sort-span mar-right-15">
               <%= select_tag :order_date, options_for_select(@order_by_resource_date.map{ |k,v| [v, k] }), {include_blank: 'Date', 'ng:model': 'params.order_date', 'ng:change': 'sortResourceType()', class: 'selectpicker'} %>
           </span>
           <% if current_user %>
@@ -45,6 +45,4 @@
     </div>
   </div>
 </section>
-<script type="text/javascript">
-  $('.selectpicker').selectpicker();
-</script>
+<script>$('.selectpicker').selectpicker({dropupAuto: false});</script>

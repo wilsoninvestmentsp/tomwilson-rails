@@ -13,7 +13,7 @@ App.controller('AssetsCtrl',['$scope','$http',function($scope,$http){
 		
 		scope.assets.meta.loading = true;
 
-		var url = '/api/v1/jassets.json?order=sort DESC';
+		var url = '/api/v1/jassets.json?order=created_at DESC';
 
 		$http({
 		  method: 'GET',
@@ -40,17 +40,18 @@ App.controller('AssetsCtrl',['$scope','$http',function($scope,$http){
 		angular.forEach(scope.params,function(val,key){
 			if (!val){ delete scope.params[key]; }
 		});
-		
 		scope.assets.meta.loading = true;
-		if (scope.params.link_name == '' && !scope.params.order_date)
-		{
-			scope.params.order = 'sort DESC';
+
+		if(scope.params.link_name == '' && !scope.params.order_date){
+			scope.params.order = 'created_at DESC';
 			delete scope.params.link_name;
-		}else{
-			delete scope.params.order
-		}
+		}else{ delete scope.params.order }
+
+		if (!scope.params.order_date && !scope.params.link_name){
+			scope.params.order = 'created_at DESC';
+		}else{ delete scope.params.order }
+
 		var url = '/api/v1/jassets.json'+paramsString(scope.params);
-		
 		$http({
 		  method: 'GET',
 		  url: url

@@ -39,8 +39,8 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .form-control:focus{border-color:#66afe9;outline:0;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);-moz-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);-ms-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);-o-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)}
 
 /* Chinese Content Page */
-.flag-icon img{width:29px}
-.align-left {float:left;margin-right:25px;margin-bottom:15px}
+.chinese-content ul:first-of-type{display:inline-table;padding:0 0 0 15px}
+.chinese-content p.text-center .align-left{float:left;margin-right:25px;margin-bottom:15px}
 
 /* Index Page CSS */
 .first-section{height:500px}
@@ -329,12 +329,14 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .content-section .sort-row{display:table;width:100%}
 .content-section .sort-row .sort-span{float:left}
 .content-section .sort-row h5{font-weight:normal !important;margin:0;float:left;line-height:34px;margin-right:5px}
-.content-section .sort-row .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn){width:130px}
+.content-section .sort-row .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn){width:180px}
+.content-section .sort-row .btn-sm, .btn-group-sm > .btn{padding:5px 0}
+.content-section .sort-row .bootstrap-select.btn-group .dropdown-menu{z-index:1000}
 .content-section .sort-row .btn-span{float:right}
 .resources-data .img-thumbnail{min-width:120px;margin-top:10px;margin-bottom:10px}
 .resources-data h4{margin-top:10px !important}
 .resources-data .btn{margin-right:4px}
-
+.radio-banner .img-responsive{display:inline-block}
 /* Blog Pages CSS */
 .main-body.only-bread-crumb{margin-top:0;margin-bottom:60px}
 .main-body.only-bread-crumb.mar-btm-setting{margin-bottom:125px}
@@ -500,6 +502,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .no-wrap h4{font-size:16px;word-wrap:normal}
 .table td{white-space:normal !important}
 .resources-data .img-thumbnail{max-width:220px;margin-top:5px}
+.content-section .sort-row .sort-span.mar-right-15{margin-bottom:15px}
 
 /* Property Listing Page CSS */
 /*
@@ -521,7 +524,8 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .latest-blogs-section .border-btn{margin-bottom:50px}
 
 /* Chinese Content Page CSS */
-.align-left{max-width: 100%}
+.chinese-content p.text-center{text-align:center !important}
+.chinese-content p.text-center .align-left{max-width:100%;float:none;display:inline-block}
 }
 
 @media(min-width:768px) and (max-width:991px){
@@ -539,9 +543,8 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .blog-img-header img{margin-top:-140px}
 
 /* Chinese Content Page CSS */
-.align-left{max-width:60%;margin-bottom:25px}
-.navbar-default .navbar-nav > li > a {padding-left:12px;padding-right:12px}
-.flag-icon img {width:21px;}
+.chinese-content h3:first-of-type{margin-top:20px}
+.chinese-content p.text-center .align-left{max-width:50%;margin-bottom:25px}
 }
 @media(max-width:991px){
 

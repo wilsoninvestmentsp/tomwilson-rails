@@ -11,6 +11,7 @@
 .navbar-nav > li > .dropdown-menu .divider{margin:0}
 .navbar-nav > li > .dropdown-menu > li > a{padding:10px 20px;border-bottom:solid 1px #e5e5e5;color:#575757 !important}
 .navbar-nav > li > .dropdown-menu > li > a:hover{color:#5296d0 !important}
+.flag-icon img{width:29px}
 @media(max-width:767px){
 	.nav.navbar-nav{float:none}
 	.navbar-default{height:auto}
@@ -25,5 +26,11 @@
   .navbar-default .navbar-toggle.collapsed:focus  .icon-bar{background-color:#4c8dd2}
 }
 @media(min-width:768px) and (max-width:991px){
+  .navbar > .container .navbar-brand{padding-right:0}
   .navbar-default .navbar-nav > li > a{padding:12px 5px !important}
+  .navbar-default .navbar-nav > li.flag-icon > a{padding:15px 5px !important}
+  .flag-icon img{width:20px}
+}
+@media(min-width:768px){
+  .navbar-right{margin-right:0}
 }
