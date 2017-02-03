@@ -42,6 +42,13 @@ App.controller('AssetsCtrl',['$scope','$http',function($scope,$http){
 		});
 		
 		scope.assets.meta.loading = true;
+		if (scope.params.link_name == '' && !scope.params.order_date)
+		{
+			scope.params.order = 'sort DESC';
+			delete scope.params.link_name;
+		}else{
+			delete scope.params.order
+		}
 		var url = '/api/v1/jassets.json'+paramsString(scope.params);
 		
 		$http({
