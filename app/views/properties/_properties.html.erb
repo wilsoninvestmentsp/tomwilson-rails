@@ -1,7 +1,9 @@
 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12" ng:repeat="property in properties">
   <div class="listing-box" ng:click="clickableDiv('<%= properties_url %>', property.slug)">
 	  <div class="img-box">
-	    <a href="<%= properties_path %>/{{property.slug}}"><img ng:src="{{property.image.image.url}}" class="img-responsive"></a>
+	    <a href="<%= properties_path %>/{{property.slug}}">
+	    <img src="/custom/house-blank.png" lazy-img='{{property.image.image.url}}' class="img-responsive">
+	    </a>
 	    <span ng:class="getStatusClass(property.status)" ng:if="property.raw_status">{{property.raw_status}}</span>
 	    <span class="status-tag-right blue" ng:if="property.leased == 1">Leased</span>
 	  </div>
@@ -34,3 +36,83 @@
 	    </ul>
 	 </div>
 </div>
+<script type="text/javascript">
+
+// 	window.onload = function() {
+//   progressiveImageLoad();
+// }
+
+// function progressiveImageLoad() {
+//   var placeholder = $('.placeholder');
+//   placeholder.each(function(index) {
+//     if ($(this).children('img.loaded').length == 0) {
+//       var imgLarge = new Image();
+//       imgLarge.src = $(this).data('large');
+//       imgLarge.onload = function(){
+//         imgLarge.classList.add('loaded');
+//       };
+//       $(this).append(imgLarge);
+//     }
+// //   });
+// $(document).ready(function(){
+//  var placeholder = $('.placeholder');
+//   placeholder.each(function(index) {
+//   if ($(this).children('img.loaded').length == 0) {
+//       var imgLarge = new Image();
+//       imgLarge.src = $(this).data('large');
+//       imgLarge.onload= function(){
+//         imgLarge.addClass.add('loaded');
+//       };
+//       $(this).append(imgLarge);
+//     }
+//   })
+// });
+//   progressiveImageLoad();
+// }
+
+// function progressiveImageLoad() {
+//   var placeholder = $('.placeholder');
+//   placeholder.each(function(index) {
+//     if ($(this).children('img.loaded').length == 0) {
+//       var imgLarge = new Image();
+//       imgLarge.src = $(this).data('large');
+//       imgLarge.onload = function(){
+//         imgLarge.classList.add('loaded');
+//       };
+//       $(this).append(imgLarge);
+//     }
+//   });
+// }
+
+</script>
+
+<!-- <style type="text/css">
+.placeholder {
+  background-color: #f6f6f6;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+
+.placeholder img {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: opacity 1s linear;
+  border-radius: 100%;
+}
+
+.placeholder img.loaded {
+  opacity: 1;
+  border-radius: 100%;
+}
+
+.img-small {
+  filter: blur(50px);
+  /* this is needed so Safari keeps sharp edges */
+  transform: scale(1);
+}
+</style> -->

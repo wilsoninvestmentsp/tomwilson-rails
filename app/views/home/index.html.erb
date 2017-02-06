@@ -46,7 +46,8 @@
               <div class="propery-box">
                 <div class="img-box">
                   <%= link_to property_path(property) do %>
-                  <%= image_tag property.image.url, class: 'img-responsive'%>
+                  <%#= image_tag property.image.url, class: 'img-responsive'%>
+                  <img src="/custom/house-blank.png" lazy-img="<%= property.image.url %>" class="img-responsive">
                   <% end %>
                   <span class="status-tag top-setting <%= status_color(property.status) %>"><%= property.raw_status %></span>
                   <% if property.leased == '1' %>
@@ -77,8 +78,7 @@
                     <span data-toggle="tooltip" data-placement="top" title="Bedroom"><i class="fa fa-bed" aria-hidden="true"></i><%= property.bedrooms && property.bedrooms > 0 ? property.bedrooms.to_i : 'N/A' %></span>
                   </li>
                   <li>
-                    <span data-toggle="tooltip" data-placement="top" title="Bathroom"><i class="fa fa-bath" aria-hidden="true"></i>
-                      <%= property.bathrooms && property.bathrooms > 0 ? property.bathrooms.to_i : 'N/A' %></span>
+                    <span data-toggle="tooltip" data-placement="top" title="Bathroom"><i class="fa fa-bath" aria-hidden="true"></i><%= property.bathrooms && property.bathrooms > 0 ? property.bathrooms.to_i : 'N/A' %></span>
                   </li>
                   <li>
                     <span data-toggle="tooltip" data-placement="top" title="Garage"><i class="fa fa-car" aria-hidden="true"></i><%= property.garages && property.garages > 0 ? property.garages.to_i : 'N/A' %></span>
