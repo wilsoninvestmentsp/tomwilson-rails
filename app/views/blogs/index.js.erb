@@ -1,5 +1,6 @@
 <% if params[:page].present? %>
   $('#blog-listing').append("<%= escape_javascript(render partial: 'blogs', locals: { blogs: @blogs } ) %>");
+  $('img').unveil();
   $('.pagination').replaceWith('<%= escape_javascript paginate(@blogs, remote: true) %>');
   <% if @blogs.current_page == @blogs.num_pages %>
     $('#more_blogs').hide();

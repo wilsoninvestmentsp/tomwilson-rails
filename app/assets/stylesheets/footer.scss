@@ -2,12 +2,21 @@ html{position:relative;min-height:100%}
 body{margin-bottom:60px}
 .footer{position:absolute;bottom:0;width:100%;height:60px;display:table}
 
+/* Jumbtron CSS */
+.topfix .jumbotron.blue{background-size:cover;background-color:rgb(13,104,159);
+    padding-bottom:20px;background-position:center center}
+.topfix .owl-carousel .owl-wrapper-outer,.topfix .owl-carousel .owl-item,.topfix .owl-carousel .owl-wrapper{padding-bottom:0px}
+.topfix{margin-top:44px !important}
+.topfix .jumbotron{padding:0;margin:0;min-height:300px}
+.jumbotron{padding-top:20px !important;margin-bottom:0 !important}
+.jumbotron.first-bg{background:asset_url('bg-header-apartments.jpg')}
+.jumbotron.second-bg{background:asset_url('bg-header-building.jpg')}
+.jumbotron.third-bg{background:asset_url('bg-header-corporate.jpg')}
+.jumbotron.fourth-bg{background:asset_url('bg-header-small-house.jpg')}
+
 /* Fonts CSS */
 @font-face{font-family:'AllerRG';src:asset_url('Aller_Rg.ttf')}
 @font-face{font-family:'AllerDisplay';src:asset_url('Aller_Bd.ttf')}
-
-.topfix{margin-top:44px !important}
-.topfix .jumbotron{padding:0;margin:0;min-height:300px}
 
 /* Footer CSS */ 
 footer{background:#333 !important;padding:30px 0;font-family:'AllerRG'}
