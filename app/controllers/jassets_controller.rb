@@ -7,7 +7,8 @@ class JassetsController < ApplicationController
   # GET /jassets.json
   def index
     @jassets = Jasset.all
-    @order_by_resource_type = { asc: 'Ascending', desc: 'Descending' }
+    @resources = Jasset.pluck(:link_name).uniq.sort
+    @order_by_resource_date = { asc: 'Oldest First', desc: 'Newest First' }
   end
 
   # GET /jassets/1

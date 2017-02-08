@@ -6,7 +6,7 @@
         <div class="box-shadow">
           <ol class="breadcrumb">
             <li><%= link_to 'Home', root_url %></li>
-            <li class="active">Our Blogs</li>
+            <li class="active">Articles</li>
             <% if current_user %>
               <li><%= link_to 'New', new_blog_path %></li>
             <% end %>
@@ -16,13 +16,13 @@
     </div>
     <div class="row blog-content-section">
       <div class="col-xs-12">
-        <h1>Our Blogs</h1>
+        <h1>Our Articles</h1>
         <div class="row blog-listing" id="blog-listing">
           <% if @blogs.any? %>
             <%= render partial: 'blogs', locals: {blogs: @blogs} %>
           <% else %>
             <div class="col-xs-12 msg-content text-center">
-              <h3>No Blogs found</h3>
+              <h3>No Articles found</h3>
             </div>
           <% end %>
         </div>
@@ -32,7 +32,7 @@
     <div class="row">
       <div class="col-xs-12 text-center">
         <% if @blogs.current_page < @blogs.num_pages %>
-          <%= link_to blogs_path(page: params.fetch(:page, 2)), id: 'more_blogs', class: 'btn btn-lg border-btn space-setting', remote: true do %><i class="fa fa-th" aria-hidden="true"></i> View More Blogs
+          <%= link_to blogs_path(page: params.fetch(:page, 2)), id: 'more_blogs', class: 'btn btn-lg border-btn space-setting', remote: true do %><i class="fa fa-th" aria-hidden="true"></i> View More Articles
           <% end %>
         <%  end %>
       </div>

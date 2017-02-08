@@ -6,13 +6,14 @@ App.controller('AssetsCtrl',['$scope','$http',function($scope,$http){
 		meta: {}
 	};
 	scope.newAsset = {};
+	scope.params = toParams(window.location.search);
 
 	// Begin getAssets =====================================
 	scope.getAssets = function(){
 		
 		scope.assets.meta.loading = true;
 
-		var url = '/api/v1/jassets.json?order=sort DESC';
+		var url = '/api/v1/jassets.json?order=created_at DESC';
 
 		$http({
 		  method: 'GET',
@@ -34,15 +35,23 @@ App.controller('AssetsCtrl',['$scope','$http',function($scope,$http){
 	// End getAssets =======================================
 	scope.getAssets();
 
-	scope.getAssetsByType = function(){
+	scope.sortResourceType = function(){
+		delete scope.params.q;
+		angular.forEach(scope.params,function(val,key){
+			if (!val){ delete scope.params[key]; }
+		});
 		scope.assets.meta.loading = true;
-		
-		if($('#order_link_name').val() != ''){
-			var url = '/api/v1/jassets.json?order_link_name='+$('#order_link_name').val();
-		}else{
-			var url = '/api/v1/jassets.json?order=sort DESC';
-		}
-		
+
+		if(scope.params.link_name == '' && !scope.params.order_date){
+			scope.params.order = 'created_at DESC';
+			delete scope.params.link_name;
+		}else{ delete scope.params.order }
+
+		if (!scope.params.order_date && !scope.params.link_name){
+			scope.params.order = 'created_at DESC';
+		}else{ delete scope.params.order }
+
+		var url = '/api/v1/jassets.json'+paramsString(scope.params);
 		$http({
 		  method: 'GET',
 		  url: url
@@ -129,3 +138,25 @@ App.controller('AssetsCtrl',['$scope','$http',function($scope,$http){
 		}
 	}
 }]);
+
+function toParams(string){
+	var s = string.replace('?','');
+	var a = s.split('&');
+	var params = {};
+	angular.forEach(a,function(val,key){
+		var d = val.split('=');
+		params[d[0]] = d[1];
+	});
+	return params;
+}
+
+function paramsString(params){
+	var s = '';
+	var i = 0;
+	angular.forEach(params,function(val,key){
+		if (i == 0){s = '?';} else {s += '&';}
+		s += key+'='+val;
+		i++;
+	});
+	return s;
+}

@@ -6,8 +6,8 @@ Rails.application.routes.draw do
 
   get 'contact-us',to: 'contact#index',as: 'contact_us'
 
-  resources :articles
-  resources :blogs
+  # resources :articles
+  resources :blogs, path: 'articles'
 
   get 'api/v1/map.png',to: 'map#index',as: 'map'
   get 'api/v1/map.js',to: 'map#js',as: 'js'
@@ -96,7 +96,9 @@ Rails.application.routes.draw do
     end
 
   end
+
   root 'home#index'
+  get 'cn' => 'home#index_cn'
 
   if Rails.env.production?
     get '404',to: 'application#page_not_found'

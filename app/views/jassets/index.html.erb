@@ -13,9 +13,12 @@
       <div class="col-xs-12">
         <h1>Resources</h1>
         <div class="sort-row">
-          <span class="sort-span">
-            <h5>Sort By Resource Type:</h5>
-              <%= select_tag :order_link_name, options_for_select(@order_by_resource_type.map{ |k,v| [v, k]}), {include_blank: 'Default','ng:model': 'order_link_name', 'ng:change': 'getAssetsByType()', class: 'selectpicker'} %>
+          <span class="sort-span mar-right-15">
+            <h5>Sort By:</h5>
+              <%= select_tag :link_name, options_for_select(@resources), {title: 'Type', 'data-actions-box': true, multiple: true, 'data-selected-text-format': 'count > 4', 'ng:model': 'params.link_name', 'ng:change': 'sortResourceType()', class: 'selectpicker'} %>
+          </span>
+          <span class="sort-span mar-right-15">
+              <%= select_tag :order_date, options_for_select(@order_by_resource_date.map{ |k,v| [v, k] }), {include_blank: 'Date', 'ng:model': 'params.order_date', 'ng:change': 'sortResourceType()', class: 'selectpicker'} %>
           </span>
           <% if current_user %>
             <span class="btn-span"><%= link_to new_jasset_path, class: 'btn blue-btn' do %><i class="fa fa-plus" aria-hidden="true"></i> New<% end %>
@@ -42,6 +45,4 @@
     </div>
   </div>
 </section>
-<script type="text/javascript">
-  $('.selectpicker').selectpicker();
-</script>
+<script>$('.selectpicker').selectpicker({dropupAuto: false});</script>

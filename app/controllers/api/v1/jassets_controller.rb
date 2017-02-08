@@ -9,9 +9,9 @@ module Api
 
 			# Begin index :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
 			def index
-
-				order_link_name = params[:order_link_name] if params[:order_link_name].present?
-				params.delete :order_link_name
+				order_date = params[:order_date] if params[:order_date].present?
+				params.delete :order_date
+				params.delete :link_name if params[:link_name].blank?
 
 				q = QueryTools.query params
 
@@ -19,8 +19,9 @@ module Api
 				.page(params[:page])
 				.per((params[:limit] || 100).to_i)
 				.order(params[:order])
-				
-				@jassets = @jassets.order(link_name: order_link_name) if order_link_name.present?
+
+				@jassets = @jassets.order(link_name: :asc) if params[:link_name].present? && !order_date.present?
+				@jassets = @jassets.order(created_at: order_date) if order_date.present?
 
 				respond_with @jassets,
 				meta: {

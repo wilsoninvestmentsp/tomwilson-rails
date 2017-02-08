@@ -15,7 +15,7 @@
         <div class="box-shadow">
           <ol class="breadcrumb">
             <li><%= link_to 'Home', root_url %></li>
-            <li><%= link_to 'Blogs', blogs_path %></li>
+            <li><%= link_to 'Articles', blogs_path %></li>
             <li class="active"><%= @blog.title %></li>
             <% if current_user %>
               <li><%= link_to 'Edit', edit_blog_path(@blog) %></li>
@@ -43,14 +43,14 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12 blog-listing">
-          <h2 class="text-center">Latest Blogs</h2>
+          <h2 class="text-center">Latest Articles</h2>
           <div id="latest-blogs" class="owl-carousel owl-theme">
             <% @blogs.each do |blog| %>
               <div class="item">
                 <div class="listing-box">
                   <div class="img-box">
                     <a href="<%= blog_path(blog) %>">
-                    <%= image_tag blog.image.thumb.url, alt: '', class: 'img-responsive' %>
+                      <%= image_tag 'loading.svg', 'data-src': blog.image.thumb.url, class: 'img-responsive' %>
                     </a>
                   </div>
                   <h3><%= link_to blog.title.truncate(Settings.truncate.blog.title), blog_path(blog) %></h3>
@@ -64,15 +64,14 @@
             <% end %>
           </div>
           <div class="text-center">
-            <%= link_to blogs_path, class: 'btn border-btn btn-lg mar-top-40' do %><i class="fa fa-th" aria-hidden="true"></i>View All Blogs<% end %>
+            <%= link_to blogs_path, class: 'btn border-btn btn-lg mar-top-40' do %><i class="fa fa-th" aria-hidden="true"></i>View All Articles<% end %>
           </div>
         </div>
       </div>
     </div>
   </section>
 <% end %>
-
-<script type="text/javascript">
+<script>
   $(function(){
     var auto_play = ($('.item').length == 1) ? false : 6000;
     $("#latest-blogs").owlCarousel({autoPlay:auto_play,items:3,itemsDesktop:[1199,3],itemsDesktopSmall:[991,2],itemsTablet:[767,1],itemsMobile:[479,1],transitionStyle:"fade"});

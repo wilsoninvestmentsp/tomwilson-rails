@@ -3,9 +3,9 @@
   <article class="col-md-4 col-sm-6 col-xs-12">
     <div class="listing-box">
       <div class="img-box">
-        <a href="<%= blog_path(blog) %>">
-          <%= image_tag blog.image.thumb.url, alt: '', class: 'img-responsive' %>
-        </a>
+        <%= link_to blog_path(blog) do %>
+          <%= image_tag 'loading.svg', 'data-src': blog.image.thumb.url, class: 'img-responsive' %>
+        <% end %>
       </div>
       <h3><%= link_to blog.title.truncate(Settings.truncate.blog.title), blog_path(blog) %></h3>
       <p><%= blog.summary.truncate(Settings.truncate.blog.summary) %></p>

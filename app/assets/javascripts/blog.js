@@ -36,3 +36,6 @@ $(document).ready(function(){
 $(document).on('page:load', function(){
   Blog.pageLoad();
 });
+$(window).on('load page:load',function(){
+  $('img').unveil();
+});

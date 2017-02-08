@@ -4,18 +4,14 @@ App.controller('PropertiesCtrl',['$scope','$http',function($scope,$http){
 	scope.properties = [];
 	scope.params = toParams(window.location.search);
 	scope.meta = {};
-	scope.separate_building_types = {
+	scope.building_types = {
 		'all': {
 			label: 'All',
 			value: 'single_family%2Cduplex%2Cfourplex%2Cmultifamily%2Ccommercial'
 		},
-		'single_family': {
-			label: 'Single Family',
-			value: 'single_family'
-		},
-		'duplex_fourplex': {
-			label: 'Duplex - Fourplex',
-			value: 'duplex%2Cfourplex'
+		'investment_homes':{
+			label: 'Investment Homes',
+			value: 'single_family%2Cduplex%2Cfourplex'
 		},
 		'multifamily': {
 			label: 'Multifamily',
@@ -26,18 +22,8 @@ App.controller('PropertiesCtrl',['$scope','$http',function($scope,$http){
 			value: 'commercial'
 		}
 	};
-	scope.building_types = {
-		'single_family%2Cduplex%2Cfourplex': {
-			label: 'Rental Homes & 2-4\'s',
-			value: 'single_family%2Cduplex%2Cfourplex'
-		},
-		'multifamily%2Ccommercial': {
-			label: 'Multifamily & Commercial',
-			value: 'multifamily%2Ccommercial'
-		}
-	};
 
-	scope.activeMenu = scope.separate_building_types['all'];
+	scope.activeMenu = scope.building_types['all'];
 	scope.setActive = function(building_type){
 	  scope.activeMenu = building_type;
 	};
@@ -89,7 +75,7 @@ App.controller('PropertiesCtrl',['$scope','$http',function($scope,$http){
 			scope.meta = response.data.meta;
 			delete scope.loading;
 			$('[data-toggle="tooltip"]').tooltip();
-			
+			setTimeout(function(){$('img').unveil();},200);
 		}, function errorCallback(response){
 
 			JP('PropertiesCtrl getProperties Error!');
@@ -143,6 +129,7 @@ App.controller('PropertiesCtrl',['$scope','$http',function($scope,$http){
 			scope.properties = response.data.properties;
 			scope.meta = response.data.meta;
 			delete scope.loading;
+			setTimeout(function(){$('img').unveil();},200);
 		}, function errorCallback(response){
 			delete scope.loading;
 		});
@@ -163,6 +150,7 @@ App.controller('PropertiesCtrl',['$scope','$http',function($scope,$http){
       	  scope.properties.push(item);
     		});
 				scope.meta = response.data.meta;
+				setTimeout(function(){$('img').unveil();},200);
 		});
 	}
 
