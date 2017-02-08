@@ -494,7 +494,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 @media(max-width:767px){
 .topfix{margin-top:66px !important}
 
-.banner-bg h3{width:100%;margin-left:0;margin-right:0;margin-top:10px !important;margin-bottom:10px !important;padding:10px 0;font-size:18px !important;border-top:solid 1px #ddd;border-bottom:solid 1px #ddd;}
+.banner-bg h3{width:100%;margin-left:0;margin-right:0;margin-top:10px !important;margin-bottom:10px !important;padding:10px 0;font-size:18px !important;border-top:solid 1px #ddd;border-bottom:solid 1px #ddd;line-height:24px}
 /* Index Page CSS */
 .content-section-row ul{margin-top:15px}
 .content-section-row video, .content-section-row iframe{max-height:250px;height:100%}
