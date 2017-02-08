@@ -149,8 +149,8 @@ App.controller('PropertiesCtrl',['$scope','$http',function($scope,$http){
       	  scope.properties.push(item);
     		});
 				scope.meta = response.data.meta;
+				setTimeout(function(){$('img').unveil();},200);
 		});
-		setTimeout(function(){$('img').unveil();},200);
 	}
 
 	scope.createArray = function(i){
