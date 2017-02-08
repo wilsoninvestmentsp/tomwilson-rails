@@ -75,7 +75,7 @@ App.controller('PropertiesCtrl',['$scope','$http',function($scope,$http){
 			scope.meta = response.data.meta;
 			delete scope.loading;
 			$('[data-toggle="tooltip"]').tooltip();
-			
+			setTimeout(function(){$('img').unveil();},200);
 		}, function errorCallback(response){
 
 			JP('PropertiesCtrl getProperties Error!');
@@ -150,6 +150,7 @@ App.controller('PropertiesCtrl',['$scope','$http',function($scope,$http){
     		});
 				scope.meta = response.data.meta;
 		});
+		setTimeout(function(){$('img').unveil();},200);
 	}
 
 	scope.createArray = function(i){

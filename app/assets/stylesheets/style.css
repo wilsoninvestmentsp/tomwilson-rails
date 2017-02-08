@@ -1,3 +1,10 @@
+.banner-bg{background:rgba(231,218,181,1);background:-moz-linear-gradient(top, rgba(231,218,181,1) 0%, rgba(255,255,255,1) 45%, rgba(255,255,255,1) 55%, rgba(231,218,181,1) 100%);background:-webkit-gradient(left top, left bottom, color-stop(0%, rgba(231,218,181,1)), color-stop(45%, rgba(255,255,255,1)), color-stop(55%, rgba(255,255,255,1)), color-stop(100%, rgba(231,218,181,1)));background:-webkit-linear-gradient(top, rgba(231,218,181,1) 0%, rgba(255,255,255,1) 45%, rgba(255,255,255,1) 55%, rgba(231,218,181,1) 100%);background:-o-linear-gradient(top, rgba(231,218,181,1) 0%, rgba(255,255,255,1) 45%, rgba(255,255,255,1) 55%, rgba(231,218,181,1) 100%);background:-ms-linear-gradient(top, rgba(231,218,181,1) 0%, rgba(255,255,255,1) 45%, rgba(255,255,255,1) 55%, rgba(231,218,181,1) 100%);background:linear-gradient(to bottom, rgba(231,218,181,1) 0%, rgba(255,255,255,1) 45%, rgba(255,255,255,1) 55%, rgba(231,218,181,1) 100%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e7dab5', endColorstr='#e7dab5', GradientType=0);border-top:solid 4px #21618f;border-bottom:solid 4px #21618f;}
+.banner-bg h3{font-size:22px !important;color:#21618f;font-weight:normal !important;font-family:'AllerRG' !important;line-height:28px;width:70%;margin-left:15%;margin-right:15%}
+.banner-bg span{color:#f36c4f}
+.banner-bg h4{color:#21618f;font-size:16px !important;margin-top:10px !important;margin-bottom:0 !important;font-family:'AllerRG' !important}
+.banner-bg h4 span{display:block;margin-top:5px;font-size:14px}
+.banner-bg h4.top-heading{margin-top:0 !important;margin-bottom:15px !important;font-weight:bold !important}
+
 /* Background Video CSS */
 .background-video{background-position:top center;background-repeat:no-repeat;overflow:hidden;position:fixed;top:44px;right:0;bottom:0;left:0;z-index:-1}
 .background-video:before{content:"";position:absolute;top:0;left:0;background:rgba(0,0,0,.5);z-index:99;width:100%;height:100%}
@@ -485,6 +492,9 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .blog-img-header img{margin-top:-70px}
 }
 @media(max-width:767px){
+.topfix{margin-top:66px !important}
+
+.banner-bg h3{width:100%;margin-left:0;margin-right:0;margin-top:10px !important;margin-bottom:10px !important;padding:10px 0;font-size:18px !important;border-top:solid 1px #ddd;border-bottom:solid 1px #ddd;}
 /* Index Page CSS */
 .content-section-row ul{margin-top:15px}
 .content-section-row video, .content-section-row iframe{max-height:250px;height:100%}
@@ -532,6 +542,9 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 }
 
 @media(min-width:768px) and (max-width:991px){
+ .banner-bg h3{font-size:18px !important;line-height:24px;width:100%;margin-left:0;margin-right:0}
+
+
   .property-section .feature-property-listing{padding-left:7.5px;padding-right:7.5px}
   .property-section .item{padding:0 7.5px}
   .magazine-section .imgs, .magazine-section .col-sm-3{padding-left:7.5px;padding-right:7.5px}
@@ -571,6 +584,8 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 }
 
 @media(min-width:992px) and (max-width:1199px){
+.banner-bg h3{width:90%;margin-left:5%;margin-right:5%}
+
 /* Property Listing Page CSS */
 .list-selection .list-unstyled li a{padding:13px 22px}
 .property-listing .listing-box{height:378px}

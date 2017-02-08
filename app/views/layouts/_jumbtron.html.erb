@@ -1,16 +1,13 @@
 <div class="topfix">
   <div class="over body-content">
     <div id="jumbotron-slider" class="owl-carousel owl-theme">
-      <div class="item jumbotron blue" style="background-image: url('<%= asset_path "bg-header-apartments.jpg" %>');">
-      </div>
-      <div class="item jumbotron blue" style="background-image: url('<%= asset_path "bg-header-building.jpg" %>');"></div>
-      <div class="item jumbotron blue" style="background-image: url('<%= asset_path "bg-header-corporate.jpg" %>');">
-      </div>
-      <div class="item jumbotron blue" style="background-image: url('<%= asset_path "bg-header-small-house.jpg" %>');">
-      </div>
+      <div class="item jumbotron blue first-bg"></div>
+      <div class="item jumbotron blue second-bg"></div>
+      <div class="item jumbotron blue third-bg"></div>
+      <div class="item jumbotron blue fourth-bg"></div>
     </div>
   </div>
 </div>
-<script type="text/javascript">
+<script>
   $("#jumbotron-slider").owlCarousel({autoPlay:6000,items:1,lazyLoad:true,transitionStyle:"fade",pagination:false,mouseDrag:false,itemsDesktop:[1199,1],itemsDesktopSmall:[991,1],itemsTablet:[767,1],itemsMobile:[479,1]});
 </script>

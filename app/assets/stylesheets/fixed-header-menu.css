@@ -16,7 +16,8 @@
 	.nav.navbar-nav{float:none}
 	.navbar-default{height:auto}
 	.navbar-brand{padding:8px 15px}
-	.navbar-default  .navbar-toggle{margin-top:16px;margin-bottom:16px;
+	.navbar-brand img{height:50px}
+  .navbar-default  .navbar-toggle{margin-top:16px;margin-bottom:16px;
     border-color:#4c8dd2;background-color:#4c8dd2}
   .navbar-default  .navbar-toggle .icon-bar{background:#fff}
 

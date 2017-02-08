@@ -32,4 +32,4 @@
 //= require owl.carousel.min
 //= require jquery.youtubebackground
 //= require blog
-//= require angular-lazy-img.min.js
+//= require jquery.unveil.js
