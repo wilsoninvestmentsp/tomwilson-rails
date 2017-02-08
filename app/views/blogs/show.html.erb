@@ -50,7 +50,7 @@
                 <div class="listing-box">
                   <div class="img-box">
                     <a href="<%= blog_path(blog) %>">
-                    <img src="<%= asset_url('loading.svg') %>" data-src='<%= blog.image.thumb.url %>' class="img-responsive">
+                      <%= image_tag 'loading.svg', 'data-src': blog.image.thumb.url, class: 'img-responsive' %>
                     </a>
                   </div>
                   <h3><%= link_to blog.title.truncate(Settings.truncate.blog.title), blog_path(blog) %></h3>

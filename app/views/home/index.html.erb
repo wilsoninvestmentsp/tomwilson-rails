@@ -46,7 +46,7 @@
               <div class="propery-box">
                 <div class="img-box">
                   <%= link_to property_path(property) do %>
-                    <img src="<%= asset_url('loading.svg') %>" data-src='<%= property.image.url %>' class="img-responsive">
+                    <%= image_tag 'loading.svg', 'data-src': property.image.url, class: 'img-responsive' %>
                   <% end %>
                   <span class="status-tag top-setting <%= status_color(property.status) %>"><%= property.raw_status %></span>
                   <% if property.leased == '1' %>
@@ -102,16 +102,16 @@
      <h3>Magazine Features</h3>
      <div class="row imgs">
       <div class="col-sm-3 col-xs-12">
-      <img src="<%= asset_url('loading.svg') %>" data-src='<%= asset_url('REI-Voice-Cover-July-2015-1.jpg') %>' class="img-responsive">
+        <%= image_tag 'loading.svg', 'data-src': asset_url('REI-Voice-Cover-July-2015-1.jpg'), class: 'img-responsive' %>
       </div>
       <div class="col-sm-3 col-xs-12">
-       <img src="<%= asset_url('loading.svg') %>" data-src='<%= asset_url('Realty_Insights_July-2016_Cover_Tom_Summit.jpg') %>' class="img-responsive">
+        <%= image_tag 'loading.svg', 'data-src': asset_url('Realty_Insights_July-2016_Cover_Tom_Summit.jpg'), class: 'img-responsive' %>
       </div>
       <div class="col-sm-3 col-xs-12">
-       <img src="<%= asset_url('loading.svg') %>" data-src='<%= asset_url('REI-Voice-Cover-July-2015-2.jpg') %>' class="img-responsive">
+        <%= image_tag 'loading.svg', 'data-src': asset_url('REI-Voice-Cover-July-2015-2.jpg'), class: 'img-responsive' %>
       </div>
       <div class="col-sm-3 col-xs-12">
-      <img src="<%= asset_url('loading.svg') %>" data-src='<%= asset_url('realty-411-magazine-cover.jpg') %>' class="img-responsive last">
+        <%= image_tag 'loading.svg', 'data-src': asset_url('realty-411-magazine-cover.jpg'), class: 'img-responsive last' %>
       </div>
      </div>
     </div>

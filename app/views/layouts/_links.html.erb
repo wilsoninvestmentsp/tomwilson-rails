@@ -7,7 +7,7 @@
       <li><%= link_to 'Articles', blogs_path %></li>
       <li><%= link_to 'New Article', new_blog_path %></li>
     <% else %>
-      <li><a href="/articles">Articles</a></li>
+      <li><%= link_to 'Articles', blogs_path %></li>
     <% end %>
       <li><%= link_to 'FAQ\'s', faq_path %></li>
       <li><%= link_to 'Financing Investments', financing_investments_path %></li>

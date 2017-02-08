@@ -129,6 +129,7 @@ App.controller('PropertiesCtrl',['$scope','$http',function($scope,$http){
 			scope.properties = response.data.properties;
 			scope.meta = response.data.meta;
 			delete scope.loading;
+			setTimeout(function(){$('img').unveil();},200);
 		}, function errorCallback(response){
 			delete scope.loading;
 		});
