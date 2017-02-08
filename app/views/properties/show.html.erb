@@ -35,7 +35,7 @@
               </div>
               <% end %>
             </div>
-            <% if @property.leased == '1' %>
+            <% if @property.leased == 'yes' || property.leased == '1' %>
               <span class="status-tag-right blue">Leased</span>
             <% end %>
           </div>
@@ -73,7 +73,7 @@
                     <% if @property.building_type.present? || @property.leased.present? %>
                       <li>
                         <label><span class="title">Building Type:</span><%= @property.building_type.humanize.cap_each %></label>
-                        <label><span class="title">Leased:</span><%= @property.leased.to_i.zero? ? 'No' : 'Yes'%></label>
+                        <label><span class="title">Leased:</span><%= @property.leased == '0' || @property.leased == 'no' ? 'No' : 'Yes'%></label>
                       </li>
                     <% end %>
                     <% if @property.year_built.present? || @property.square_ft.present? %>

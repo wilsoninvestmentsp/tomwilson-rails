@@ -49,7 +49,7 @@
                     <%= image_tag 'loading.svg', 'data-src': property.image.url, class: 'img-responsive' %>
                   <% end %>
                   <span class="status-tag top-setting <%= status_color(property.status) %>"><%= property.raw_status %></span>
-                  <% if property.leased == '1' %>
+                  <% if property.leased == 'yes' || property.leased == '1' %>
                     <span class="status-tag-right blue">Leased</span>
                   <% end %>
                 </div>
