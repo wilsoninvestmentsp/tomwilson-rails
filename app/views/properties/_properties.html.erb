@@ -5,7 +5,7 @@
 	      <img src="<%= asset_url('loading.svg') %>" ng-attr-data-src="{{property.image.image.url}}" class="img-responsive">
 	    </a>
 	    <span ng:class="getStatusClass(property.status)" ng:if="property.raw_status">{{property.raw_status}}</span>
-	    <span class="status-tag-right blue" ng:if="property.leased == 'yes' || property.leased == '1'">Leased</span>
+	    <span class="status-tag-right blue" ng:if="property.leased == 'yes'">Leased</span>
 	  </div>
 	  <h3><a href="<%= properties_path %>/{{property.slug}}">{{property.raw_title | limitTo: 42 }}{{property.raw_title.length > 42 ? '...' : ''}}</a></h3>
 	  <ul class="labels">
