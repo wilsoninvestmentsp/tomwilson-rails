@@ -1,6 +1,6 @@
 <% if @blog.image.present? %>
   <section class="blog-img-header">
-    <%= image_tag @blog.image.url, class: 'img-responsive' %>
+    <%= image_tag 'loading.svg', 'data-src': @blog.image.url, class: 'img-responsive loading-img', id: 'blog_image' %>
   </section>
 <% else %>
   <div class="topfix">
@@ -72,6 +72,13 @@
   </section>
 <% end %>
 <script>
+  $(window).load(function(){
+    $('img').unveil(0, function(){
+      $(this).load(function(){
+        $('#blog_image').removeClass('loading-img');
+      })
+    });
+  });
   $(function(){
     var auto_play = ($('.item').length == 1) ? false : 6000;
     $("#latest-blogs").owlCarousel({autoPlay:auto_play,items:3,itemsDesktop:[1199,3],itemsDesktopSmall:[991,2],itemsTablet:[767,1],itemsMobile:[479,1],transitionStyle:"fade"});
