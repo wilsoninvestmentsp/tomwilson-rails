@@ -28,7 +28,8 @@
         <div class="list-group mar-top-15">
           <div class="list-group-item resources-data" ng:repeat="asset in assets.items">
             <div class="row">
-              <div class="col-md-2 col-sm-3"><img ng:src="{{asset.image.image.thumb.url}}" class="img-thumbnail" ng:if="asset.image.image.thumb.url" alt=""></div>
+              <div class="col-md-2 col-sm-3"><img src="<%= asset_url('loading.svg') %>" ng-attr-data-src="{{asset.image.image.thumb.url}}" class="img-responsive">
+              </div>
               <div class="col-md-10 col-sm-9">
                 <h4>{{asset.title}}</h4>
                 <p><span ng-bind-html="asset.description"></span></p>
