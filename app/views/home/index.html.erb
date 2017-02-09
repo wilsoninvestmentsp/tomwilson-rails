@@ -102,16 +102,24 @@
      <h3>Magazine Features</h3>
      <div class="row imgs">
       <div class="col-sm-3 col-xs-12">
-        <%= image_tag 'loading.svg', 'data-src': asset_url('REI-Voice-Cover-July-2015-1.jpg'), class: 'img-responsive' %>
+        <%= link_to blogs_path, target: '_blank' do %>
+          <%= image_tag 'loading.svg', 'data-src': asset_url('REI-Voice-Cover-July-2015-1.jpg'), class: 'img-responsive' %>
+        <% end %>
       </div>
       <div class="col-sm-3 col-xs-12">
-        <%= image_tag 'loading.svg', 'data-src': asset_url('Realty_Insights_July-2016_Cover_Tom_Summit.jpg'), class: 'img-responsive' %>
+        <%= link_to blogs_path, target: '_blank' do %>
+          <%= image_tag 'loading.svg', 'data-src': asset_url('Realty_Insights_July-2016_Cover_Tom_Summit.jpg'), class: 'img-responsive' %>
+        <% end %>
       </div>
       <div class="col-sm-3 col-xs-12">
-        <%= image_tag 'loading.svg', 'data-src': asset_url('REI-Voice-Cover-July-2015-2.jpg'), class: 'img-responsive' %>
+        <%= link_to 'https://drive.google.com/open?id=0B5kXcEhpEwUwMUxaZUVvN1JNcXc', target: '_blank' do %>
+          <%= image_tag 'loading.svg', 'data-src': asset_url('REI-Voice-Cover-July-2015-2.jpg'), class: 'img-responsive' %>
+        <% end %>
       </div>
       <div class="col-sm-3 col-xs-12">
-        <%= image_tag 'loading.svg', 'data-src': asset_url('realty-411-magazine-cover.jpg'), class: 'img-responsive last' %>
+        <%= link_to 'https://drive.google.com/open?id=0B5kXcEhpEwUwMUxaZUVvN1JNcXc', target: '_blank' do %>
+          <%= image_tag 'loading.svg', 'data-src': asset_url('realty-411-magazine-cover.jpg'), class: 'img-responsive last' %>
+        <% end %>
       </div>
      </div>
     </div>

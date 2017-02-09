@@ -23,7 +23,7 @@ App.controller('AssetsCtrl',['$scope','$http',function($scope,$http){
 			JP(response);
 			scope.assets.items = response.data.jassets;
 			delete scope.assets.meta.loading;
-
+			setTimeout(function(){$('img').unveil();},200);
 		}, function errorCallback(response){
 
 			JP(response);
@@ -58,6 +58,7 @@ App.controller('AssetsCtrl',['$scope','$http',function($scope,$http){
 		}).then(function successCallback(response){
 			scope.assets.items = response.data.jassets;
 			delete scope.assets.meta.loading;
+			setTimeout(function(){$('img').unveil();},200)
 		},function errorCallback(response){
 			delete scope.assets.meta.loading;
 		});

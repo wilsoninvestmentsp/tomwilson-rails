@@ -35,7 +35,7 @@
           </div>
           <div class="row" ng:repeat="user in team.users">
             <div class="col-md-3">
-              <img ng:src="{{user.image.thumb.url}}" class="img-thumbnail" alt="">
+              <img src="<%= asset_url('loading.svg') %>" ng-attr-data-src="{{user.image.thumb.url}}" alt="" class="img-responsive">
               <p>
                 <h6 ng:if="user.email"><a href="mailto:{{user.email}}">{{user.email}}</a></h6>
                 <h6 ng:if="user.phone"><b>Phone:</b> {{user.phone}}</h6>
@@ -77,3 +77,4 @@
     </div>
   </div>
 </section>
+<script>$(window).load(function(){$('img').unveil();});</script>
