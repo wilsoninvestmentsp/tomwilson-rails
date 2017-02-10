@@ -68,6 +68,8 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .content-section-row .bullet-text span{position:relative;padding-left:20px;padding-right:12px}
 /*.content-section-row .bullet-text span.first .bullet{width:8px;height:8px;border-radius:50%;background:#407cbb;padding:0;margin-right:16px}*/
 .content-section-row .bullet-text span:before{content:"";width:8px;height:8px;position:absolute;top:6px;left:0;border-radius:50%;background:#407cbb}
+.content-section-row .bullet-text span.first:before{display:none}
+.content-section-row .bullet-text span.first{padding-left:0}
 
 .property-section{background:#eee;padding:50px 0;font-family:'AllerRG';-webkit-box-shadow:0 0 4px 1px #ccc;-moz-box-shadow:0 0 4px 1px #ccc;-ms-box-shadow:0 0 4px 1px #ccc;-o-box-shadow:0 0 4px 1px #ccc;box-shadow:0 0 4px 1px #ccc}
 .property-section .feature-property-listing{padding-left:0;padding-right:0}
@@ -446,6 +448,10 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 
 /* Blog Pages CSS */
 .blog-img-header img{margin-top:0}
+.blog-listing .listing-box .status-dtls{width:100%}
+.blog-listing .listing-box .status-dtls li{width:auto}
+.blog-listing .listing-box .status-dtls li:nth-child(1n){float:left}
+.blog-listing .listing-box .status-dtls li:nth-child(2n){float:right}
 .blog-content-section .status-dtls li{display:block;padding-right:0}
 .blog-content-section .status-dtls li:first-of-type{padding-bottom:5px}
 }
