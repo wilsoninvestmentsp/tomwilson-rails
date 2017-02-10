@@ -328,6 +328,8 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .content-section h1{margin-top:30px;margin-bottom:15px;border-bottom:solid 1px #ddd;padding-bottom:5px;font-size:30px;color:#0288D1}
 .content-section h3{margin-top:30px;font-size:22px}
 .content-section p{color:#444;text-align:justify}
+.content-section ul{padding:0 0 0 15px}
+.content-section ol{padding:0 0 0 24px}
 .content-section.faq h4{margin-top:0;padding-top:78px}
 .content-section.faq ol{margin-bottom:78px}
 .content-section.faq article{padding-bottom:65px}
@@ -346,6 +348,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .resources-data h4{margin-top:10px !important}
 .resources-data .btn{margin-right:4px}
 .radio-banner .img-responsive{display:inline-block}
+
 /* Blog Pages CSS */
 .main-body.only-bread-crumb{margin-top:0;margin-bottom:60px}
 .main-body.only-bread-crumb.mar-btm-setting{margin-bottom:125px}
@@ -361,8 +364,13 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .latest-blogs-section .blog-listing .listing-box{margin-bottom:0}
 
 .blog-content-section h1{margin-top:30px;margin-bottom:15px;border-bottom:solid 1px #ddd;padding-bottom:5px;font-size:30px;color:#0288D1;word-wrap:break-word}
-.blog-content-section h2, .content-section h3, .content-section h4, .content-section h5, .content-section h6{margin-top:30px;margin-bottom:15px;word-wrap:break-word}
+.blog-content-section h2, .blog-content-section h3{font-size:24px}
+.blog-content-section h4{font-size:20px}
+.blog-content-section h5{font-size:18px}
+.blog-content-section h6{font-size:16px}
+.blog-content-section h2, .blog-content-section h3, .blog-content-section h4, .blog-content-section h5, .blog-content-section h6, .content-section h3, .content-section h4, .content-section h5, .content-section h6{margin-top:30px;margin-bottom:15px;word-wrap:break-word}
 .blog-content-section p{color:#444;text-align:justify;word-wrap:break-word}
+.blog-content-section ul, .blog-content-section ol{padding:0 0 0 15px}
 .blog-content-section .featured-img{margin-bottom:20px}
 .blog-content-section .status-dtls{margin-top:-5px;margin-bottom:15px}
 

@@ -64,7 +64,7 @@ footer .form-horizontal .btn:hover{border-color:#407cbb;background:#407cbb;color
 .modal.ng-isolate-scope .modal-dialog{margin-top:80px}
 @media(max-width:479px){
 	footer address{padding:0 10px}
-	#newsletter{height:350px}
+	#newsletter{height:264px}
 	#newsletter-form{width:265px;margin-right:0;margin-bottom:0}
   #newsletter-form h5{font-size:14px}
   #newsletter-tab{top:105px;left:-144px;height:40px;line-height:40px}
@@ -76,15 +76,22 @@ footer .form-horizontal .btn:hover{border-color:#407cbb;background:#407cbb;color
   #newsletter-tab{top:105px;left:-144px;height:40px;line-height:40px}
 }
 @media(min-width:480px) and (max-width:767px){
-  #newsletter{height:360px;bottom:15px}
-  #newsletter-form{width:360px;margin-right:15px}
+  #newsletter{height:251px;bottom:15px}
+  #newsletter-form{width:400px;margin-right:15px}
+  #newsletter-form h5{font-size:17px}
+  #newsletter .border-btn{padding:8px 14px;font-size:14px;line-height:17px}
 }
 @media(max-width:767px){
 	footer address{text-align:center}
 	footer .social-links{margin-top:15px;text-align:center}
   footer .social-links a.meetup{float:none;display:inline-block;margin-left:0;margin-bottom:-8px}
-  #newsletter{top:80px}
-	#newsletter-form .panel-body{padding:15px}
+  #newsletter{top:70px}
+	#newsletter-form .panel-body{padding:10px 15px}
+  #newsletter-form h5{margin-bottom:10px}
   #newsletter-form .no-pad-left{padding-right:0}
   #newsletter-form .no-pad-left-right{padding-right:0;margin-top:15px}
+  #newsletter-form .form-group{margin-bottom:5px}
+  #newsletter-form .form-group .fa{top:11px}
+  #newsletter-form .form-control{height:34px}
+  #newsletter-form .border-btn{height:34px}
 }
