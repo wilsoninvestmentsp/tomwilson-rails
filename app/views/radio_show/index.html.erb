@@ -14,13 +14,12 @@
     <div class="row content-section">
       <div class="col-xs-12">
         <h1>Radio Show</h1>
-        <%= image_tag 'radio_show_banner.jpg', class: 'img-responsive', alt: '' %>
         <div class="panel panel-default radio-banner banner-bg">
           <div class="panel-body text-center">
             <div class="row">
               <div class="col-md-2 col-sm-3 col-xs-12">
                 <h4 class="top-heading">Host</h4>
-                <%= image_tag 'tom-radio-pic.jpg', class: 'img-responsive', alt: '' %>
+                <%= image_tag 'loading.svg', 'data-src': asset_url('tom-radio-pic.jpg'), class: 'img-responsive', alt: '' %>
                 <h4>Tom K. Wilson <span>Real Estate Radio LIVE</span></h4>
               </div>
               <div class="col-md-8 col-sm-6 col-xs-12">
@@ -30,16 +29,16 @@
                 <h4 class="top-heading">Featured Guests</h4>
                 <div id="radio-show-banner" class="owl-carousel owl-theme">
                   <div class="item">
-                    <%= image_tag 'robert-kiyosaki.jpg', class: 'img-responsive', alt: '' %>
+                    <%= image_tag 'loading.svg', 'data-src': asset_url('robert-kiyosaki.jpg'), class: 'img-responsive', alt: '' %>
                     <h4>Robert Kiyosaki, Author <span>Rich Dad Poor Dad</span></h4>
                   </div>
-                  <div class="item"><%= image_tag 'bruce-norris.jpg', class: 'img-responsive', alt: '' %>
+                  <div class="item"><%= image_tag 'loading.svg', 'data-src': asset_url('bruce-norris.jpg'), class: 'img-responsive', alt: '' %>
                     <h4>Bruce Norris, Founder <span>The Norris Group</span></h4>
                   </div>
-                  <div class="item"><%= image_tag 'sean-otoole.jpg', class: 'img-responsive', alt: '' %>
+                  <div class="item"><%= image_tag 'loading.svg', 'data-src': asset_url('sean-otoole.jpg'), class: 'img-responsive', alt: '' %>
                     <h4>Sean O’Toole, Founder <span>Property Radar</span></h4>
                   </div>
-                  <div class="item"><%= image_tag 'dr-doug-duncan.jpg', class: 'img-responsive', alt: '' %>
+                  <div class="item"><%= image_tag 'loading.svg', 'data-src': asset_url('dr-doug-duncan.jpg'), class: 'img-responsive', alt: '' %>
                     <h4>Dr. Doug Duncan <span>Senior VP &amp; Chief Economist Fannie Mae</span></h4>
                   </div>
                 </div>
@@ -77,6 +76,7 @@
   </div>
 </section>
 <script>
+  $(window).load(function(){$('img').unveil();});
   var auto_play = ($('.item').length == 1) ? false : 3000;
   $("#radio-show-banner").owlCarousel({autoPlay:auto_play,pagination:false,items:1,itemsDesktop:[1199,1],itemsDesktopSmall:[991,1],itemsTablet:[767,1],itemsMobile:[479,1],transitionStyle:"fade"});
 </script>
