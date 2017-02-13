@@ -33,3 +33,4 @@
 //= require jquery.youtubebackground
 //= require blog
 //= require jquery.unveil.js
+//= require cocoon

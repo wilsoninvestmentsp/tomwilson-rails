@@ -1,0 +1,20 @@
+<%= render 'layouts/jumbtron' %>
+<section class="main-body without-search-feature pad-btm-55">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="box-shadow">
+          <ol class="breadcrumb">
+            <li><%= link_to 'Home', root_url %></li>
+            <li class="active">Investor Performance</li>
+            <% if current_user %>
+            <li><%= link_to 'New', new_syndication_path %></li>
+            <% end %>
+          </ol>
+        </div>
+        <h1 class="common-title">Investor Performance</h1>
+        <%= render 'syndications' %>
+      </div>
+    </div>
+  </div>
+</section>

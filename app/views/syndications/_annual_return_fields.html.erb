@@ -1,0 +1,17 @@
+<div class='new_annual_return'>
+  <%= f.label :year %>
+  <%= f.text_field :year %><br>
+  <%= f.label :projected_annual_return %>
+  <%= f.text_field :projected_annual_return %><br>
+  <%= f.label :actual_annual_return %>
+  <%= f.text_field :actual_annual_return %><br>
+  <%= f.label :quarter_1 %>
+  <%= f.text_field :quarter_1 %><br>
+  <%= f.label :quarter_2 %>
+  <%= f.text_field :quarter_2 %><br>
+  <%= f.label :quarter_3 %>
+  <%= f.text_field :quarter_3 %><br>
+  <%= f.label :quarter_4 %>
+  <%= f.text_field :quarter_4 %><br>
+  <%= link_to_remove_association 'Remove Year', f, { wrapper_class: 'new_annual_return' } %>
+</div>

@@ -1,0 +1,6 @@
+<% @syndications.each do |syndication| %>
+  <%= image_tag syndication.image.thumb.url %><br>
+  <%= syndication.title %>
+  <%= link_to 'Edit', edit_syndication_path(syndication) %>
+  <%= link_to 'Delete', syndication_path(syndication), method: :delete, data: {confirm: 'Are you sure you want to delete this syndication?'} %>
+<% end %>

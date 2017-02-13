@@ -74,3 +74,4 @@ gem 'bootstrap-select-rails'
 gem 'font-awesome-rails'
 gem 'config'
 gem 'browser'
+gem "cocoon"
