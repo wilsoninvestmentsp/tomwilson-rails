@@ -29,7 +29,7 @@
   </div>
   <div class="form-group">
     <%= f.label :close_date, class: 'control-label' %>
-    <%= f.date_field :close_date, class: 'form-control' %>    
+    <%= f.date_field :close_date, value: @syndication.close_date.strftime('%m/%d/%Y'), class: 'form-control datepicker' %>    
   </div>
   <div class="form-group">
     <%= f.label :price_per_share, class: 'control-label' %>

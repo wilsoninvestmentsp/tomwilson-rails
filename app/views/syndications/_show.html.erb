@@ -34,7 +34,7 @@
           <li><span class="left"><b>IRR:</b></span> <span class="right"><%= "#{syndication.irr} %" %></span></li>
         <% end %>
         <% if syndication.close_date.present? %>
-          <li><span class="left"><b>Close Date:</b></span> <span class="right"><%= syndication.close_date %></span></li>
+          <li><span class="left"><b>Close Date:</b></span> <span class="right"><%= syndication.close_date.strftime('%d %b %Y') %></span></li>
         <% end %>
         <% if syndication.price_per_share.present? %>
           <li><span class="left"><b>Price Per Share:</b></span> <span class="right"><%= raw_price(syndication.price_per_share) %></span></li>

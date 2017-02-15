@@ -17,6 +17,9 @@ Syndication = {
       });
     });
   },
+  datepicker: function(){
+    $('.datepicker').datepicker({format: 'mm/dd/yyyy'})
+  },
   disableMouseClick: function(){
     $('#learn_more, #syndication_title').on('click contextmenu',function(e){
       if(e.which == 2){e.preventDefault();};
@@ -26,10 +29,12 @@ Syndication = {
   documentOnReady: function(){
     this.pagintation();
     this.disableMouseClick();
+    this.datepicker();
   },
   pageLoad: function(){
     this.pagintation();
     this.disableMouseClick();
+    this.datepicker();
   }
 }
 $(document).ready(function(){

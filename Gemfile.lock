@@ -55,6 +55,8 @@ GEM
     bcrypt (3.1.11)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-datepicker-rails (1.6.4.1)
+      railties (>= 3.0)
     bootstrap-select-rails (1.6.3)
     bootstrap-slider-rails (9.2.0)
       railties (>= 3.2, < 6.0)
@@ -233,6 +235,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers (~> 0.8.3)
   bcrypt (~> 3.1.7)
+  bootstrap-datepicker-rails
   bootstrap-select-rails
   bootstrap-slider-rails
   browser
