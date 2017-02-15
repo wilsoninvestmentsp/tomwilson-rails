@@ -13,7 +13,7 @@ class CreateSyndications < ActiveRecord::Migration
       t.integer :price_per_share
       t.integer :loan_amount
       t.float :loan_rate
-      t.integer :year_built
+      t.string :year_built
       t.integer :building_size
       t.float :lot_size
       t.integer :number_of_buildings

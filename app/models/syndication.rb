@@ -10,7 +10,7 @@ class Syndication < ActiveRecord::Base
 
   validates_presence_of :title, :purchase_price
   validates :purchase_price, :raise_amount, :preferred_return, :average_annual_return,
-    :irr, :price_per_share, :loan_amount, :loan_rate, :year_built, :building_size,
+    :irr, :price_per_share, :loan_amount, :loan_rate, :building_size,
     :lot_size, :number_of_buildings, :number_of_tenants, numericality: { greater_than_or_equal_to: 0, allow_blank: true }
 
   def self.by_user(user)
