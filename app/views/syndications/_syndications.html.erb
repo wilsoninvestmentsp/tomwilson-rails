@@ -2,9 +2,7 @@
 <div class="col-md-4 col-sm-6 col-xs-12">
   <div class="listing-box">
     <div class="img-box"><%= image_tag 'loading.svg', 'data-src': syndication.image.thumb.url, alt: '', class: 'img-responsive' %></div>
-    <h3>
-    <%= link_to syndication.title, syndication_path(syndication), remote: true, id: 'syndication_title' %>
-    </h3>
+    <h3><%= link_to syndication.title, syndication_path(syndication), remote: true, id: 'syndication_title' %></h3>
     <ul class="list-unstyled">
       <% syndication.annual_returns.by_latest_year.each do |annual_return| %>
         <% if annual_return.projected_annual_return.present? %><li><span class="left"><b>Projected Annual Return*:</b></span><span class="right"><%= raw_price(annual_return.projected_annual_return) %></span></li><% end %>
@@ -20,15 +18,15 @@
           </li>
         <% end %>
       <% end %>
-      <% if syndication.purchase_price.present? %><li><span class="left"><b>Purchase Price + Cap Ex:</b></span> <span class="right"><%= raw_price(syndication.purchase_price) %></span></li><% end %>
-      <% if syndication.raise_amount.present? %><li><span class="left"><b>Raise Amount:</b></span> <span class="right"><%= raw_price(syndication.raise_amount) %></span></li><% end %>
+      <% if syndication.purchase_price.present? %><li><span class="left"><b>Purchase Price + Cap Ex:</b></span><span class="right"><%= raw_price(syndication.purchase_price) %></span></li><% end %>
+      <% if syndication.raise_amount.present? %><li><span class="left"><b>Raise Amount:</b></span><span class="right"><%= raw_price(syndication.raise_amount) %></span></li><% end %>
     </ul>
     <div class="button-links-row">
     <%= link_to 'More Info', syndication_path(syndication), remote: true, class: 'btn border-btn', id: 'learn_more' %>
     <% if current_user %>
       <%= link_to 'Edit', edit_syndication_path(syndication), class: 'btn border-btn' %>
-    </div> 
     <% end %>
+    </div> 
   </div>
 </div>
 <div id="report-card-details" class="modal fade" role="dialog"></div>
