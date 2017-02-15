@@ -4,69 +4,84 @@
     <%= f.text_field :title, class: 'form-control' %>    
   </div>
   <div class="form-group">
-    <%= f.label :purchase_price, class: 'control-label' %>
-    <%= f.number_field :purchase_price, min: 0, class: 'form-control' %>
+    <%= f.label :purchase_price, 'Purchase Price', class: 'control-label' %>
+    <div class="input-group">
+      <div class="input-group-addon">$</div>
+      <%= f.number_field :purchase_price, min: 0, class: 'form-control' %>
+    </div>
   </div>
   <div class="form-group">
-    <%= f.label :raise_amount, class: 'control-label' %>
-    <%= f.number_field :raise_amount, min: 0, class: 'form-control' %>    
+    <%= f.label :raise_amount, 'Raise Amount', class: 'control-label' %>
+    <div class="input-group">
+      <div class="input-group-addon">$</div>
+      <%= f.number_field :raise_amount, min: 0, class: 'form-control' %>
+    </div>
   </div>
   <div class="form-group">
-    <%= f.label :hold_period, class: 'control-label' %>
+    <%= f.label :hold_period, 'Hold Period', class: 'control-label' %>
     <%= f.text_field :hold_period, class: 'form-control' %>    
   </div>
   <div class="form-group">
-    <%= f.label :preferred_return, class: 'control-label' %>
+    <%= f.label :preferred_return, 'Preferred Return', class: 'control-label' %>
     <%= f.number_field :preferred_return, min: 0, step: :any, class: 'form-control' %>    
   </div>
   <div class="form-group">
-    <%= f.label :average_annual_return, class: 'control-label' %>
+    <%= f.label :average_annual_return, 'Average Annual Return', class: 'control-label' %>
     <%= f.number_field :average_annual_return, min: 0, step: :any, class: 'form-control' %>    
   </div>
   <div class="form-group">
     <%= f.label :irr, 'IRR', class: 'control-label' %>
-    <%= f.number_field :irr, min: 0, step: :any, class: 'form-control' %>    
+    <%= f.number_field :irr, min: 0, step: :any, class: 'form-control' %>
+  </div>
+  <div class="form-group datepicker-main">
+    <%= f.label :close_date, 'Close Date', class: 'control-label' %>
+    <div class="input-group">
+      <div class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></div>
+      <%= f.date_field :close_date, class: 'form-control' %>
+    </div>
   </div>
   <div class="form-group">
-    <%= f.label :close_date, class: 'control-label' %>
-    <%= f.date_field :close_date, value: @syndication.close_date.strftime('%m/%d/%Y'), class: 'form-control datepicker' %>    
+    <%= f.label :price_per_share, 'Price Per Share', class: 'control-label' %>
+    <div class="input-group">
+      <div class="input-group-addon">$</div>
+      <%= f.number_field :price_per_share, min: 0, class: 'form-control' %>
+    </div>    
   </div>
   <div class="form-group">
-    <%= f.label :price_per_share, class: 'control-label' %>
-    <%= f.number_field :price_per_share, min: 0, class: 'form-control' %>    
+    <%= f.label :loan_amount, 'Loan Amount', class: 'control-label' %>
+    <div class="input-group">
+      <div class="input-group-addon">$</div>
+      <%= f.number_field :loan_amount, min: 0, class: 'form-control' %>
+    </div>
   </div>
   <div class="form-group">
-    <%= f.label :loan_amount, class: 'control-label' %>
-    <%= f.number_field :loan_amount, min: 0, class: 'form-control' %>    
-  </div>
-  <div class="form-group">
-    <%= f.label :loan_rate, class: 'control-label' %>
+    <%= f.label :loan_rate, 'Loan Rate', class: 'control-label' %>
     <%= f.number_field :loan_rate, min: 0, step: :any, class: 'form-control' %>    
   </div>
 </div>
 <div class="col-md-6 col-sm-12 col-xs-12 left-col">
   <div class="form-group">
-    <%= f.label :year_built, class: 'control-label' %>
+    <%= f.label :year_built, 'Year Built', class: 'control-label' %>
     <%= f.number_field :year_built, min: 0, class: 'form-control' %>    
   </div>
   <div class="form-group">
-    <%= f.label :building_size, class: 'control-label' %>
+    <%= f.label :building_size, 'Building Size', class: 'control-label' %>
     <%= f.number_field :building_size, min: 0, class: 'form-control' %>    
   </div>
   <div class="form-group">
-    <%= f.label :lot_size, class: 'control-label' %>
+    <%= f.label :lot_size, 'Lot Size', class: 'control-label' %>
     <%= f.number_field :lot_size, min: 0, step: :any, class: 'form-control' %>    
   </div>
   <div class="form-group">
-    <%= f.label :number_of_buildings, class: 'control-label' %>
+    <%= f.label :number_of_buildings, 'Number Of Buildings', class: 'control-label' %>
     <%= f.number_field :number_of_buildings, min: 0, class: 'form-control' %>    
   </div>
   <div class="form-group">
-    <%= f.label :property_type, class: 'control-label' %>
+    <%= f.label :property_type, 'Property Type', class: 'control-label' %>
     <%= f.text_field :property_type, class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.label :number_of_tenants, class: 'control-label' %>
+    <%= f.label :number_of_tenants, 'Number Of Tenants', class: 'control-label' %>
     <%= f.number_field :number_of_tenants, min: 0, class: 'form-control' %> 
   </div>
   <div class="form-group">

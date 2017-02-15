@@ -26,6 +26,7 @@
 .fixed-admin-body .year-value-fields .del-link{text-align:right;margin-top:20px}
 .fixed-admin-body .year-value-fields .qtr-fields{padding-left:10px;padding-right:10px}
 .fixed-admin-body .year-value-fields .qtr-fields .col-sm-3{padding-left:5px;padding-right:5px}
+.fixed-admin-body .form-group.datepicker-main{position:relative}
 
 /* Add - Edit Property CSS */
 .add-property-form .form-row{margin-bottom:30px}

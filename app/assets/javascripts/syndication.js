@@ -17,24 +17,24 @@ Syndication = {
       });
     });
   },
-  datepicker: function(){
-    $('.datepicker').datepicker({format: 'mm/dd/yyyy'})
-  },
   disableMouseClick: function(){
     $('#learn_more, #syndication_title').on('click contextmenu',function(e){
       if(e.which == 2){e.preventDefault();};
       e.preventDefault();
     });
   },
+  datePicker: function(){
+    $('#syndication_close_date').datepicker({container: '.datepicker-main'});
+  },
   documentOnReady: function(){
     this.pagintation();
     this.disableMouseClick();
-    this.datepicker();
+    this.datePicker();
   },
   pageLoad: function(){
     this.pagintation();
     this.disableMouseClick();
-    this.datepicker();
+    this.datePicker();
   }
 }
 $(document).ready(function(){
