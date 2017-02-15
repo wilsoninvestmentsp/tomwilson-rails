@@ -1,0 +1,70 @@
+<div class="modal-dialog">
+  <div class="modal-content report-card">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <div class="listing-box">
+      <div class="img-box"><%= image_tag syndication.image.thumb.url, alt: '', class: 'img-responsive' %></div>
+      <h3><%= syndication.title %></h3>
+      <ul class="list-unstyled">
+        <% if @syndication_years.present? %>
+        <li class="dropdown-row">
+          <span class="left drop-label"><b>Data by Year:</b></span>
+          <span class="right">
+            <%= hidden_field_tag 'slug_id', syndication.slug %>
+            <%= select_tag 'syndication_years', options_for_select(@syndication_years, @syndication_years.last), {class: 'selectpicker'} %>
+          </span>
+        </li>
+        <% end %>
+        <div id='annual_return_detail'></div>
+        <% if syndication.purchase_price.present? %>
+          <li><span class="left"><b>Purchase Price + Cap Ex:</b></span> <span class="right"><%= raw_price(syndication.purchase_price) %></span></li>
+        <% end %>
+        <% if syndication.raise_amount.present? %>
+        <li><span class="left"><b>Raise Amount:</b></span> <span class="right"><%= raw_price(syndication.raise_amount) %></span></li>
+        <% end %>
+        <% if syndication.hold_period.present? %>
+          <li><span class="left"><b>Hold Period:</b></span> <span class="right"><%= syndication.hold_period %></span></li>
+        <% end %>
+        <% if syndication.preferred_return.present? %>
+          <li><span class="left"><b>Preferred Return:</b></span><span class="right"><%= "#{syndication.preferred_return} %" if syndication.preferred_return.present? %></span></li>
+        <% end %>
+        <% if syndication.average_annual_return.present? %>
+          <li><span class="left"><b>Average Annual Return:</b></span> <span class="right"><%= "#{syndication.average_annual_return} %" if syndication.average_annual_return.present? %></span></li>
+        <% end %>
+        <% if syndication.irr.present? %>
+          <li><span class="left"><b>IRR:</b></span> <span class="right"><%= "#{syndication.irr} %" %></span></li>
+        <% end %>
+        <% if syndication.close_date.present? %>
+          <li><span class="left"><b>Close Date:</b></span> <span class="right"><%= syndication.close_date %></span></li>
+        <% end %>
+        <% if syndication.price_per_share.present? %>
+          <li><span class="left"><b>Price Per Share:</b></span> <span class="right"><%= raw_price(syndication.price_per_share) %></span></li>
+        <% end %>
+        <% if syndication.loan_amount.present? %>
+          <li><span class="left"><b>Loan Amount:</b></span> <span class="right"><%= raw_price(syndication.loan_amount) %></span></li>
+        <% end %>
+        <% if syndication.loan_rate.present? %>
+          <li><span class="left"><b>Loan Rate:</b></span> <span class="right"><%= "#{syndication.loan_rate} %" %></span></li>
+        <% end %>
+        <% if syndication.year_built.present? %>
+          <li><span class="left"><b>Year Built:</b></span> <span class="right"><%= syndication.year_built %></span></li>
+        <% end %>
+        <% if syndication.building_size.present? %>
+          <li><span class="left"><b>Building Size:</b></span><% if syndication.building_size.present? %><span class="right"><%= number_with_precision(syndication.building_size, precision: 0, delimiter: ',') %><sup> Sqft</sup></span><% end %></li>
+        <% end %>
+        <% if syndication.lot_size.present? %>
+          <li><span class="left"><b>Lot Size:</b></span><% if syndication.lot_size.present? %><span class="right"><%= number_with_precision(syndication.lot_size, precision: 0, delimiter: ',') %> Acres</span><% end %></li>
+        <% end %>
+        <% if syndication.number_of_buildings.present? %>
+          <li><span class="left"><b>Number of Buildings:</b></span> <span class="right"><%= syndication.number_of_buildings %></span></li>
+        <% end %>
+        <% if syndication.property_type.present? %>
+          <li><span class="left"><b>Property Type:</b></span> <span class="right"><%= syndication.property_type %></span></li>
+        <% end %>
+        <% if syndication.number_of_tenants.present? %>
+          <li><span class="left"><b>Number of Tenants:</b></span><span class="right"><%= syndication.number_of_tenants %></span></li>
+        <% end %>
+        <% if syndication.notes.present? %><li class="notes-text">Notes: <%= syndication.notes %></li><% end %>
+      </ul>
+    </div>
+  </div>
+</div>

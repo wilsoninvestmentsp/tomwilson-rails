@@ -32,5 +32,6 @@
 //= require owl.carousel.min
 //= require jquery.youtubebackground
 //= require blog
+//= require syndication
 //= require jquery.unveil.js
 //= require cocoon

@@ -3,7 +3,7 @@ class SyndicationsController < ApplicationController
   before_action :set_syndication, only: [:show, :edit, :update, :destroy]
 
   def index
-    @syndications = Syndication.all
+    @syndications = Syndication.by_user(current_user).page(params[:page]).per(Settings.pagination.syndication.per_page)
   end
 
   def new
@@ -14,13 +14,16 @@ class SyndicationsController < ApplicationController
   def create
     @syndication = Syndication.new(syndication_params)
     if @syndication.save
-      redirect_to @syndication, flash: {success: "'#{@syndication.title}' was successfully created!"}
+      redirect_to syndications_path, flash: {success: "'#{@syndication.title}' was successfully created!"}
     else
       render :new
     end
   end
 
   def show
+    @syndication_years = @syndication.annual_returns.pluck(:year).uniq.sort
+    @annual_return = @syndication.annual_returns.by_latest_year
+    @annual_return = @syndication.annual_returns.by_year(params[:year]) if params[:year].present?
   end
 
   def edit
@@ -28,7 +31,7 @@ class SyndicationsController < ApplicationController
 
   def update
     if @syndication.update(syndication_params)
-      redirect_to @syndication, flash: {success: "'#{@syndication.title}' was successfully updated!"}
+      redirect_to syndications_path, flash: {success: "'#{@syndication.title}' was successfully updated!"}
     else
       render :edit
     end

@@ -1,40 +1,90 @@
-<%= f.label :title %>
-<%= f.text_field :title %><br>
-<%= f.label :purchase_price %>
-<%= f.text_field :purchase_price %><br>
-<%= f.label :raise_amount %>
-<%= f.text_field :raise_amount %><br>
-<%= f.label :hold_period %>
-<%= f.text_field :hold_period %><br>
-<%= f.label :preferred_return %>
-<%= f.text_field :preferred_return %><br>
-<%= f.label :average_annual_return %>
-<%= f.text_field :average_annual_return %><br>
-<%= f.label :irr %>
-<%= f.text_field :irr %><br>
-<%= f.label :close_date %>
-<%= f.date_field :close_date %><br>
-<%= f.label :price_per_share %>
-<%= f.text_field :price_per_share %><br>
-<%= f.label :loan_amount %>
-<%= f.text_field :loan_amount %><br>
-<%= f.label :loan_rate %>
-<%= f.text_field :loan_rate %><br>
-<%= f.label :year_built %>
-<%= f.text_field :year_built %><br>
-<%= f.label :building_size %>
-<%= f.text_field :building_size %><br>
-<%= f.label :lot_size %>
-<%= f.text_field :lot_size %><br>
-<%= f.label :number_of_buildings %>
-<%= f.text_field :number_of_buildings %><br>
-<%= f.label :property_type %>
-<%= f.text_field :property_type %><br>
-<%= f.label :number_of_tenants %>
-<%= f.text_field :number_of_tenants %><br>
-<%= f.label :image %>
-<%= f.file_field :image %><br>
-<%= f.label :notes %>
-<%= f.text_field :notes %><br>
-<%= f.label :active %>
-<%= f.text_field :active %><br>
+<div class="col-md-6 col-sm-12 col-xs-12 left-col">
+  <div class="form-group">
+    <%= f.label :title, class: 'control-label' %>
+    <%= f.text_field :title, class: 'form-control' %>    
+  </div>
+  <div class="form-group">
+    <%= f.label :purchase_price, class: 'control-label' %>
+    <%= f.number_field :purchase_price, min: 0, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :raise_amount, class: 'control-label' %>
+    <%= f.number_field :raise_amount, min: 0, class: 'form-control' %>    
+  </div>
+  <div class="form-group">
+    <%= f.label :hold_period, class: 'control-label' %>
+    <%= f.text_field :hold_period, class: 'form-control' %>    
+  </div>
+  <div class="form-group">
+    <%= f.label :preferred_return, class: 'control-label' %>
+    <%= f.number_field :preferred_return, min: 0, step: :any, class: 'form-control' %>    
+  </div>
+  <div class="form-group">
+    <%= f.label :average_annual_return, class: 'control-label' %>
+    <%= f.number_field :average_annual_return, min: 0, step: :any, class: 'form-control' %>    
+  </div>
+  <div class="form-group">
+    <%= f.label :irr, 'IRR', class: 'control-label' %>
+    <%= f.number_field :irr, min: 0, step: :any, class: 'form-control' %>    
+  </div>
+  <div class="form-group">
+    <%= f.label :close_date, class: 'control-label' %>
+    <%= f.date_field :close_date, class: 'form-control' %>    
+  </div>
+  <div class="form-group">
+    <%= f.label :price_per_share, class: 'control-label' %>
+    <%= f.number_field :price_per_share, min: 0, class: 'form-control' %>    
+  </div>
+  <div class="form-group">
+    <%= f.label :loan_amount, class: 'control-label' %>
+    <%= f.number_field :loan_amount, min: 0, class: 'form-control' %>    
+  </div>
+  <div class="form-group">
+    <%= f.label :loan_rate, class: 'control-label' %>
+    <%= f.number_field :loan_rate, min: 0, step: :any, class: 'form-control' %>    
+  </div>
+</div>
+<div class="col-md-6 col-sm-12 col-xs-12 left-col">
+  <div class="form-group">
+    <%= f.label :year_built, class: 'control-label' %>
+    <%= f.number_field :year_built, min: 0, class: 'form-control' %>    
+  </div>
+  <div class="form-group">
+    <%= f.label :building_size, class: 'control-label' %>
+    <%= f.number_field :building_size, min: 0, class: 'form-control' %>    
+  </div>
+  <div class="form-group">
+    <%= f.label :lot_size, class: 'control-label' %>
+    <%= f.number_field :lot_size, min: 0, step: :any, class: 'form-control' %>    
+  </div>
+  <div class="form-group">
+    <%= f.label :number_of_buildings, class: 'control-label' %>
+    <%= f.number_field :number_of_buildings, min: 0, class: 'form-control' %>    
+  </div>
+  <div class="form-group">
+    <%= f.label :property_type, class: 'control-label' %>
+    <%= f.text_field :property_type, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :number_of_tenants, class: 'control-label' %>
+    <%= f.number_field :number_of_tenants, min: 0, class: 'form-control' %> 
+  </div>
+  <div class="form-group">
+    <%= f.label :image, class: 'control-label' %>
+    <%= f.label :image, class: 'btn btn-default' do %>
+    <i class="fa fa-picture-o" aria-hidden="true"></i> Upload Image
+    <%= f.file_field :image, style: 'display:none;' %>
+    <% end %>
+    <%= image_tag @syndication.image.thumb.url, class: 'img-responsive mar-top-15 preview-img' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :notes, class: 'control-label' %>
+    <%= f.text_area :notes, class: 'form-control', rows: 2 %> 
+  </div>
+  <div class="form-group">
+    <div class="checkbox">
+      <label><%= f.check_box :active %><span class="cr"><i class="cr-icon fa fa-check"></i></span> Check to Active / Uncheck to Inactive</label>
+    </div>
+  </div>
+</div>
+<div class="col-xs-12"><hr></div>

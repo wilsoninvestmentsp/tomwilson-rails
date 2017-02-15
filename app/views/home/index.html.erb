@@ -43,7 +43,7 @@
           <div id="featured-properties-slider" class="owl-carousel owl-theme">
             <% @properties.each do |property| %>
             <div class="item">
-              <div class="propery-box">
+              <div class="propery-box clickable_div">
                 <div class="img-box">
                   <%= link_to property_path(property) do %>
                     <%= image_tag 'loading.svg', 'data-src': property.image.url, class: 'img-responsive' %>

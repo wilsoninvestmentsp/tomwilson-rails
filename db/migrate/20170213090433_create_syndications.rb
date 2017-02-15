@@ -5,8 +5,8 @@ class CreateSyndications < ActiveRecord::Migration
       t.string :slug, unique: true, index: true
       t.integer :purchase_price
       t.integer :raise_amount
-      t.integer :hold_period
-      t.integer :preferred_return
+      t.string :hold_period
+      t.float :preferred_return
       t.float :average_annual_return
       t.float :irr
       t.date :close_date
@@ -14,7 +14,7 @@ class CreateSyndications < ActiveRecord::Migration
       t.integer :loan_amount
       t.float :loan_rate
       t.integer :year_built
-      t.float :building_size
+      t.integer :building_size
       t.float :lot_size
       t.integer :number_of_buildings
       t.string :property_type
