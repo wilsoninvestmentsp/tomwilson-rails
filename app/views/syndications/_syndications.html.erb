@@ -2,7 +2,7 @@
 <div class="col-md-4 col-sm-6 col-xs-12">
   <div class="listing-box">
     <div class="img-box"><%= image_tag 'loading.svg', 'data-src': syndication.image.thumb.url, alt: '', class: 'img-responsive' %></div>
-    <h3><%= link_to syndication.title, syndication_path(syndication), remote: true, id: 'syndication_title' %></h3>
+    <h3><%= link_to syndication.title.truncate(Settings.truncate.syndication.title), syndication_path(syndication), remote: true, id: 'syndication_title' %></h3>
     <ul class="list-unstyled">
       <% syndication.annual_returns.by_latest_year.each do |annual_return| %>
       <div class="notes-term"><span class="text-red">*</span> on $100,000 investment</div>

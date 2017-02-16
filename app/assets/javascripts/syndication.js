@@ -24,7 +24,12 @@ Syndication = {
     });
   },
   datePicker: function(){
-    $('#syndication_close_date').datepicker({container: '.datepicker-main'});
+    $('#syndication_close_date').datepicker({
+      container: '.datepicker-main',
+      dateFormat: 'mm/dd/yyyy',
+      autoclose: true,
+      todayHighlight: true
+    });
   },
   documentOnReady: function(){
     this.pagintation();

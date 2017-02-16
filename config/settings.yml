@@ -14,3 +14,5 @@ truncate:
     summary: 370
   property:
     title: 30
+  syndication:
+    title: 35

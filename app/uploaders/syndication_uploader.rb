@@ -1,7 +1,7 @@
 class SyndicationUploader < CarrierWave::Uploader::Base
   include Cloudinary::CarrierWave
   version :thumb do
-    process resize_to_fill: [768]
+    process resize_to_fill: [768,427]
   end
 
   def extension_white_list

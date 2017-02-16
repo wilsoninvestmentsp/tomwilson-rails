@@ -627,8 +627,8 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .report-card .list-unstyled{padding:0 10px;margin:10px 5px;text-align:left}
 .report-card .list-unstyled li{padding:5px 0;display:table;width:100%}
 .report-card .list-unstyled li b{font-weight:normal}
-.report-card .list-unstyled li .left{float:left;text-align:left;width:70%;display:inline-block}
-.report-card .list-unstyled li .right{float:left;text-align:right;width:30%;display:inline-block}
+.report-card .list-unstyled li .left{float:left;text-align:left;width:65%;display:inline-block}
+.report-card .list-unstyled li .right{float:left;text-align:right;width:35%;display:inline-block}
 .report-card .qtr-data{padding:8px 0 0 0;margin:0;list-style:none;display:table;width:100%;color:#fff;text-align:center}
 .report-card .qtr-data li{width:25%;float:left;padding:0 !important}
 .report-card .qtr-data li.q1{background:#e57373}

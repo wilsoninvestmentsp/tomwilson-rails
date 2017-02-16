@@ -12,9 +12,10 @@ class SyndicationsController < ApplicationController
   end
 
   def create
-    @syndication = Syndication.new(syndication_params)
+    close_date = Date.strptime(params[:syndication][:close_date], '%m/%d/%Y').to_date
+    @syndication = Syndication.new(syndication_params.merge!(close_date: close_date))
     if @syndication.save
-      redirect_to syndications_path, flash: {success: "'#{@syndication.title}' was successfully created!"}
+      redirect_to syndications_path, flash: {success: "#{@syndication.title} was successfully created!"}
     else
       render :new
     end
@@ -30,8 +31,9 @@ class SyndicationsController < ApplicationController
   end
 
   def update
-    if @syndication.update(syndication_params)
-      redirect_to syndications_path, flash: {success: "'#{@syndication.title}' was successfully updated!"}
+    close_date = Date.strptime(params[:syndication][:close_date], '%m/%d/%Y').to_date
+    if @syndication.update(syndication_params.merge!(close_date: close_date))
+      redirect_to syndications_path, flash: {success: "#{@syndication.title} was successfully updated!"}
     else
       render :edit
     end
@@ -39,7 +41,7 @@ class SyndicationsController < ApplicationController
 
   def destroy
     @syndication.destroy
-    redirect_to syndications_path, flash: {danger: "'#{@syndication.title}' was successfully deleted."}
+    redirect_to syndications_path, flash: {danger: "#{@syndication.title} was successfully deleted."}
   end
 
   private
@@ -50,7 +52,7 @@ class SyndicationsController < ApplicationController
 
   def syndication_params
     params.require(:syndication).permit(:title, :purchase_price, :raise_amount, :hold_period,
-    :preferred_return, :average_annual_return, :irr, :close_date, :price_per_share, :loan_amount,
+    :preferred_return, :average_annual_return, :irr, :price_per_share, :loan_amount,
     :loan_rate, :year_built, :building_size, :lot_size, :number_of_buildings, :property_type, :number_of_tenants,
     :image, :notes, :active, annual_returns_attributes: [:year, :projected_annual_return, :actual_annual_return,
     :quarter_1, :quarter_2, :quarter_3, :quarter_4, :id, :_destroy])
