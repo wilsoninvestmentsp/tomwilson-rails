@@ -12,7 +12,7 @@ class SyndicationsController < ApplicationController
   end
 
   def create
-    close_date = Date.strptime(params[:syndication][:close_date], '%m/%d/%Y').to_date
+    close_date = Date.strptime(params[:syndication][:close_date], '%m/%d/%Y').to_date if params[:date].present?
     @syndication = Syndication.new(syndication_params.merge!(close_date: close_date))
     if @syndication.save
       redirect_to syndications_path, flash: {success: "#{@syndication.title} was successfully created!"}
@@ -31,7 +31,7 @@ class SyndicationsController < ApplicationController
   end
 
   def update
-    close_date = Date.strptime(params[:syndication][:close_date], '%m/%d/%Y').to_date
+    close_date = Date.strptime(params[:syndication][:close_date], '%m/%d/%Y').to_date if params[:date].present?
     if @syndication.update(syndication_params.merge!(close_date: close_date))
       redirect_to syndications_path, flash: {success: "#{@syndication.title} was successfully updated!"}
     else
