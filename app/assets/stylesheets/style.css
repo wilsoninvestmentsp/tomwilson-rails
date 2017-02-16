@@ -613,7 +613,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .align-left{max-width:40%;}
 }
 
-.report-card .listing-box{display:table;position:relative;width:100%;background:#fff;-webkit-box-shadow:0 0 4px #999;-moz-box-shadow:0 0 4px #999;-ms-box-shadow:0 0 4px #999;-o-box-shadow:0 0 4px #999;box-shadow:0 0 4px #999;margin-bottom:30px;height:570px;overflow:hidden;text-align:center}
+.report-card .listing-box{display:table;position:relative;width:100%;background:#fff;-webkit-box-shadow:0 0 4px #999;-moz-box-shadow:0 0 4px #999;-ms-box-shadow:0 0 4px #999;-o-box-shadow:0 0 4px #999;box-shadow:0 0 4px #999;margin-bottom:30px;height:590px;overflow:hidden;text-align:center}
 .report-card .listing-box:hover{-webkit-box-shadow:0 0 4px#454545;-moz-box-shadow:0 0 4px #454545;-ms-box-shadow:0 0 4px #454545;-o-box-shadow:0 0 4px #454545;box-shadow:0 0 4px #454545}
 .report-card .listing-box:hover h3 a{color:#525252}
 .report-card .listing-box .img-box{position:relative;overflow:hidden;background:#fff}
@@ -637,7 +637,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .report-card .btn.border-btn{min-width:90px}
 .report-card .btn.border-btn:nth-child(2n){margin-left:5px}
 
-#report-card-details .modal-dialog{width:500px}
+#report-card-details .modal-dialog{width:620px}
 #report-card-details .modal-dialog .report-card{height:auto}
 #report-card-details .modal-dialog .report-card .listing-box{box-shadow:none;height:auto;margin-bottom:0}
 #report-card-details .modal-dialog .modal-content{border-radius:0}
@@ -662,6 +662,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
   .report-card, #syndication-listing .col-xs-12{padding-left:7.5px;padding-right:7.5px}
   .report-card .listing-box{min-height:620px}
   #syndication-listing .col-xs-12{width:50%}
+  #syndication-listing .two-col-list .col-xs-12{width:100%}
   .report-card .list-unstyled li .left{width:55%}
   .report-card .list-unstyled li .right{width:45%}
   /*.report-card .border-btn{position:absolute;bottom:15px;left:50%;width:100px;margin-left:-50px}*/
@@ -669,13 +670,20 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
   .report-card .btn.border-btn{padding:6px 12px;font-size:14px}
 }
 @media(min-width:768px) and (max-width:991px){
-  .report-card .listing-box{height:564px}
+  .report-card .listing-box{height:584px}
 }
 @media(min-width:992px) and (max-width:1199px){
-  .report-card .listing-box{height:550px}
+  .report-card .listing-box{height:570px}
 }
 @media(max-width:1199px){
   .report-card, #syndication-listing .col-sm-6{padding-left:7.5px;padding-right:7.5px}
+  #syndication-listing .two-col-list .col-sm-6 {padding-left: 15px; padding-right: 15px;}
   .report-card.modal-content{padding-left:0;padding-right:0}
   .report-card .listing-box{margin-bottom:15px}
 }
+.two-col-list{font-size:13px}
+.notes-term{background:#efefef;padding:5px;border-bottom:solid 1px #ddd}
+.two-col-list dl{padding:5px 0;margin:0;border-bottom:1px solid #ddd}
+.two-col-list dl:last-child{border-bottom:none}
+.two-col-list dt{float:left;margin-right:12px}
+.two-col-list dd{display:block;margin:0;text-align:right;overflow:hidden}

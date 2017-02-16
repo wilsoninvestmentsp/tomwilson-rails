@@ -1,5 +1,5 @@
 module SyndicationsHelper
-  def Quarterly_Price(quarter)
+  def quarterly_price(quarter)
     quarter.present? ? raw_price(quarter) : '-' 
   end
 end

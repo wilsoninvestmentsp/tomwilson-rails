@@ -15,55 +15,70 @@
         </li>
         <% end %>
         <div id='annual_return_detail'></div>
-        <% if syndication.purchase_price.present? %>
-          <li><span class="left"><b>Purchase Price + Cap Ex:</b></span> <span class="right"><%= raw_price(syndication.purchase_price) %></span></li>
-        <% end %>
-        <% if syndication.raise_amount.present? %>
-        <li><span class="left"><b>Raise Amount:</b></span> <span class="right"><%= raw_price(syndication.raise_amount) %></span></li>
-        <% end %>
-        <% if syndication.hold_period.present? %>
-          <li><span class="left"><b>Hold Period:</b></span> <span class="right"><%= syndication.hold_period %></span></li>
-        <% end %>
-        <% if syndication.preferred_return.present? %>
-          <li><span class="left"><b>Preferred Return:</b></span><span class="right"><%= "#{syndication.preferred_return} %" if syndication.preferred_return.present? %></span></li>
-        <% end %>
-        <% if syndication.average_annual_return.present? %>
-          <li><span class="left"><b>Average Annual Return:</b></span> <span class="right"><%= "#{syndication.average_annual_return} %" if syndication.average_annual_return.present? %></span></li>
-        <% end %>
-        <% if syndication.irr.present? %>
-          <li><span class="left"><b>IRR:</b></span> <span class="right"><%= "#{syndication.irr} %" %></span></li>
-        <% end %>
-        <% if syndication.close_date.present? %>
-          <li><span class="left"><b>Close Date:</b></span> <span class="right"><%= syndication.close_date.strftime('%d %b %Y') %></span></li>
-        <% end %>
-        <% if syndication.price_per_share.present? %>
-          <li><span class="left"><b>Price Per Share:</b></span> <span class="right"><%= raw_price(syndication.price_per_share) %></span></li>
-        <% end %>
-        <% if syndication.loan_amount.present? %>
-          <li><span class="left"><b>Loan Amount:</b></span> <span class="right"><%= raw_price(syndication.loan_amount) %></span></li>
-        <% end %>
-        <% if syndication.loan_rate.present? %>
-          <li><span class="left"><b>Loan Rate:</b></span> <span class="right"><%= "#{syndication.loan_rate} %" %></span></li>
-        <% end %>
-        <% if syndication.year_built.present? %>
-          <li><span class="left"><b>Year Built:</b></span> <span class="right"><%= syndication.year_built %></span></li>
-        <% end %>
-        <% if syndication.building_size.present? %>
-          <li><span class="left"><b>Building Size:</b></span><% if syndication.building_size.present? %><span class="right"><%= number_with_precision(syndication.building_size, precision: 0, delimiter: ',') %><sup> Sqft</sup></span><% end %></li>
-        <% end %>
-        <% if syndication.lot_size.present? %>
-          <li><span class="left"><b>Lot Size:</b></span><% if syndication.lot_size.present? %><span class="right"><%= number_with_precision(syndication.lot_size, precision: 0, delimiter: ',') %> Acres</span><% end %></li>
-        <% end %>
-        <% if syndication.number_of_buildings.present? %>
-          <li><span class="left"><b>Number of Buildings:</b></span> <span class="right"><%= syndication.number_of_buildings %></span></li>
-        <% end %>
-        <% if syndication.property_type.present? %>
-          <li><span class="left"><b>Property Type:</b></span> <span class="right"><%= syndication.property_type %></span></li>
-        <% end %>
-        <% if syndication.number_of_tenants.present? %>
-          <li><span class="left"><b>Number of Tenants:</b></span><span class="right"><%= syndication.number_of_tenants %></span></li>
-        <% end %>
-        <% if syndication.notes.present? %><li class="notes-text">Notes: <%= syndication.notes %></li><% end %>
+        <div class="row two-col-list">
+          <div class="col-sm-6 col-xs-12">
+            <h4>Financial Data</h4>
+            <dl>
+              <dt>Close Date:</dt>
+              <dd><%= syndication.close_date.present? ? syndication.close_date.strftime('%d %b %Y') : 'N/A' %></dd>
+            </dl>
+            <dl>
+              <dt>Purchase Price + Cap Ex:</dt>
+              <dd><%= syndication.purchase_price.present? ? raw_price(syndication.purchase_price) : 'N/A' %></dd>
+            </dl>
+            <dl>
+              <dt>Hold Period:</dt>
+              <dd><%= syndication.hold_period.present? ? syndication.hold_period : 'N/A' %></dd>
+            </dl>
+            <dl>
+              <dt>Preferred return:</dt>
+              <dd><%= syndication.preferred_return.present? ? "#{syndication.preferred_return} %" : 'N/A' %></dd>
+            </dl>
+            <dl>
+              <dt>Average Annual Return:</dt>
+              <dd><%= syndication.average_annual_return.present? ? "#{syndication.average_annual_return} %" : 'N/A' %></dd>
+            </dl>
+            <dl>
+              <dt>IRR:</dt>
+              <dd><%= syndication.irr.present? ? "#{syndication.irr} %" : 'N/A' %></dd>
+            </dl>
+            <dl>
+              <dt>Loan Amount:</dt>
+              <dd><%= syndication.loan_amount.present? ? raw_price(syndication.loan_amount) : 'N/A' %></dd>
+            </dl>
+            <dl>
+              <dt>Loan Rate:</dt>
+              <dd><%= syndication.loan_rate.present? ? "#{syndication.loan_rate} %" : 'N/A' %></dd>
+            </dl>
+          </div>
+          <div class="col-sm-6 col-xs-12">
+            <h4>Property Facts</h4>
+            <dl>
+              <dt>Property Type:</dt>
+              <dd><%= syndication.property_type.present? ? syndication.property_type : 'N/A' %></dd>
+            </dl>
+            <dl>
+              <dt>Year Built:</dt>
+              <dd><%= syndication.year_built.present? ? syndication.year_built : 'N/A' %></dd>
+            </dl>
+            <dl>
+              <dt>Building Size:</dt>
+              <dd><% if syndication.building_size.present? %><%= number_with_precision(syndication.building_size, precision: 0, delimiter: ',') %><sup> Sqft</sup><% else %>N/A<% end %></dd>
+            </dl>
+            <dl>
+              <dt>Lot Size:</dt>
+              <dd><%= syndication.lot_size.present? ? "#{number_with_precision(syndication.lot_size, precision: 0, delimiter: ',')} Acres" : 'N/A' %></span></dd>
+            </dl>
+            <dl>
+              <dt>Number Of Buildings:</dt>
+              <dd><%= syndication.number_of_buildings.present? ? syndication.number_of_buildings : 'N/A' %></dd>
+            </dl>
+            <dl>
+              <dt>Number Of Tenants:</dt>
+              <dd><%= syndication.number_of_tenants.present? ? syndication.number_of_tenants : 'N/A' %></dd>
+            </dl>
+          </div>
+        </div>
       </ul>
     </div>
   </div>
