@@ -1,0 +1,39 @@
+<%= render 'layouts/jumbtron' %>
+<section class="main-body without-search-feature pad-btm-55">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="box-shadow">
+          <ol class="breadcrumb">
+            <li><%= link_to 'Home', root_url %></li>
+            <li class="active">Investor Performance</li>
+            <% if current_user %>
+            <li><%= link_to 'New', new_syndication_path %></li>
+            <% end %>
+          </ol>
+        </div>
+        <h1 class="common-title">Investor Performance</h1>
+        <div class="row report-card" id="syndication-listing">
+          <% if @syndications.any? %>
+            <%= render partial: 'syndications', locals: {syndications: @syndications} %>
+          <% else %>
+            <div class="col-xs-12 msg-content text-center">
+              <h3>No Investor Performance found</h3>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <% if @syndications.any? %>
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        <% if @syndications.current_page < @syndications.num_pages %>
+        <%= link_to syndications_path, id: 'more_syndication', class: 'btn btn-lg border-btn space-setting', remote: true do %><i class="fa fa-th" aria-hidden="true"></i> List More
+        <% end %>
+        <%  end %>
+      </div>
+    </div>
+    <%= paginate @syndications %>
+    <% end %>
+  </div>
+</section>

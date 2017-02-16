@@ -1,0 +1,10 @@
+<% if params[:page].present? %>
+  $('#syndication-listing').append("<%= escape_javascript(render partial: 'syndications', locals: { syndications: @syndications } ) %>");
+  $('img').unveil();
+  $('#syndication_years').selectpicker();
+  Syndication.disableMouseClick();
+  $('.pagination').replaceWith('<%= escape_javascript paginate(@syndications, remote: true) %>');
+  <% if @syndications.current_page == @syndications.num_pages %>
+    $('#more_syndication').hide();
+  <% end %>
+<% end %>

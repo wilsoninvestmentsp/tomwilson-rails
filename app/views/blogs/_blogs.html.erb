@@ -1,7 +1,7 @@
 <% if blogs.present? %>
   <% blogs.each do |blog| %>
   <article class="col-md-4 col-sm-6 col-xs-12">
-    <div class="listing-box">
+    <div class="listing-box clickable_div">
       <div class="img-box">
         <%= link_to blog_path(blog) do %>
           <%= image_tag 'loading.svg', 'data-src': blog.image.thumb.url, class: 'img-responsive' %>

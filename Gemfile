@@ -74,3 +74,5 @@ gem 'bootstrap-select-rails'
 gem 'font-awesome-rails'
 gem 'config'
 gem 'browser'
+gem "cocoon"
+gem 'bootstrap-datepicker-rails'

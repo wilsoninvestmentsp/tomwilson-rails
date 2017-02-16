@@ -6,6 +6,8 @@ pagination:
       default: 16
       tablet: 15
       mobile: 10
+  syndication:
+    per_page: 9
 truncate:
   blog:
     title: 60

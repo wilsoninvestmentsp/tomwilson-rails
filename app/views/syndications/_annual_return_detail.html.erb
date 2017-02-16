@@ -1,0 +1,19 @@
+<div class="notes-term"><span class="text-red">*</span> on $100,000 investment</div>
+<% annual_return.each do |annual_return| %>
+  <% if annual_return.projected_annual_return.present? %>
+    <li><span class="left"><b>Projected Annual Return*:</b></span><span class="right"><%= raw_price(annual_return.projected_annual_return) %></span></li>
+  <% end %>
+  <% if annual_return.actual_annual_return.present? %>
+    <li><span class="left"><b>Actual Annual Return*:</b></span> <span class="right"><%= raw_price(annual_return.actual_annual_return) %></span></li>
+  <% end %>
+  <% if annual_return.quarter_1.present? || annual_return.quarter_2.present? || annual_return.quarter_3.present? || annual_return.quarter_4.present? %>
+    <li><span class="left"><b>Quarterly Disbursement Amount*:</b></span> <span class="right"><%= annual_return.year %></span>
+      <ul class="qtr-data">
+        <li class="q1"><b>Q1</b><%= quarterly_price(annual_return.quarter_1) %></li>
+        <li class="q2"><b>Q2</b><%= quarterly_price(annual_return.quarter_2) %></li>
+        <li class="q3"><b>Q3</b><%= quarterly_price(annual_return.quarter_3) %></li>
+        <li class="q4"><b>Q4</b> <%= quarterly_price(annual_return.quarter_4) %></li>
+      </ul>
+    </li>
+  <% end %>
+<% end %>
