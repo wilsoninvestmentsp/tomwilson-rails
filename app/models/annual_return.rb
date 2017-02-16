@@ -7,7 +7,9 @@ class AnnualReturn < ActiveRecord::Base
   validate :unique_year
 
   def unique_year
-    errors.add(:year, 'Annual Report Year Should Be Unique') if self.syndication.annual_returns.pluck(:year).include?(self.year)
+    if self.syndication.present? && self.syndication.annual_returns.pluck(:year).include?(self.year)
+      errors.add(:year, 'Annual Report Year Should Be Unique')
+    end
   end
 
   validates :year, :projected_annual_return, :actual_annual_return, :quarter_1, :quarter_2, 
