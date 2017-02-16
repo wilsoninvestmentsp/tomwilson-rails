@@ -27,6 +27,14 @@
               <dd><%= syndication.purchase_price.present? ? raw_price(syndication.purchase_price) : 'N/A' %></dd>
             </dl>
             <dl>
+              <dt>Raise Amount:</dt>
+              <dd><%= syndication.raise_amount.present? ? raw_price(syndication.raise_amount) : 'N/A' %></dd>
+            </dl>
+            <dl>
+              <dt>Price Per Share:</dt>
+              <dd><%= syndication.price_per_share.present? ? raw_price(syndication.price_per_share) : 'N/A' %></dd>
+            </dl>
+            <dl>
               <dt>Hold Period:</dt>
               <dd><%= syndication.hold_period.present? ? syndication.hold_period : 'N/A' %></dd>
             </dl>
@@ -79,6 +87,7 @@
             </dl>
           </div>
         </div>
+        <% if syndication.notes.present? %><li class="notes-text">Notes: <%= syndication.notes %></li><% end %>
       </ul>
     </div>
   </div>
