@@ -444,12 +444,15 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 #report-card-details button.close{position:absolute;z-index:9;top:-12px;right:-12px;background:#ddd;color:#525252;opacity:1;border-radius:50%;height:24px;width:24px;line-height:24px}
 #report-card-details .dropdown-row{border-bottom:solid 1px #ddd;padding-bottom:10px;padding-top:0}
 #report-card-details .notes-text{padding-top:8px}
+#report-card-details .notes-text .title{float:left;width:50px}
+#report-card-details .notes-text .text{float:left}
 #report-card-details .drop-label{line-height:30px}
 #report-card-details .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn){width:90px}
 #report-card-details .btn.dropdown-toggle{padding:4px 12px}
 #report-card-details .report-card .list-unstyled li .left{width:60%}
 #report-card-details .report-card .list-unstyled li .right{width:40%}
 #report-card-details .report-card .listing-box h3{color:#407cbb;height:auto;padding:20px 10px}
+
 
 .two-col-list{font-size:13px}
 .notes-term{padding:5px 0;border-bottom:solid 1px #ddd}
