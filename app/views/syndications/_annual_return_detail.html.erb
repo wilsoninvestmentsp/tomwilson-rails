@@ -1,5 +1,7 @@
-<div class="notes-term"><span class="text-red">*</span> on $100,000 investment</div>
 <% annual_return.each do |annual_return| %>
+  <% if annual_return.projected_annual_return.present? || annual_return.actual_annual_return.present? %>
+    <div class="notes-term"><span class="text-red">*</span> on $100,000 investment</div>
+  <% end %>
   <% if annual_return.projected_annual_return.present? %>
     <li><span class="left"><b>Projected Annual Return*:</b></span><span class="right"><%= raw_price(annual_return.projected_annual_return) %></span></li>
   <% end %>

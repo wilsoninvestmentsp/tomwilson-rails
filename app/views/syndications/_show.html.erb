@@ -87,7 +87,9 @@
             </dl>
           </div>
         </div>
-        <% if syndication.notes.present? %><li class="notes-text">Notes: <%= syndication.notes %></li><% end %>
+        <% if @syndication_years.present? || @syndication.notes.present? %>
+          <li class="notes-text">Notes: <%= 'Q1 was prorated preferred returns based on closing.' if @syndication_years.present? %><%= raw("<br> #{syndication.notes}") if syndication.notes.present? %></li>
+        <% end %>
       </ul>
     </div>
   </div>
