@@ -3,14 +3,14 @@
     <button type="button" class="close" data-dismiss="modal">&times;</button>
     <div class="listing-box">
       <div class="img-box"><%= image_tag syndication.image.thumb.url, alt: '', class: 'img-responsive' %></div>
-      <h3><%= syndication.title.truncate(Settings.truncate.syndication.title) %></h3>
+      <h3><%= syndication.title %></h3>
       <ul class="list-unstyled">
         <% if @syndication_years.present? %>
         <li class="dropdown-row">
           <span class="left drop-label"><b>Data by Year:</b></span>
           <span class="right">
             <%= hidden_field_tag 'slug_id', syndication.slug %>
-            <%= select_tag 'syndication_years', options_for_select(@syndication_years, @syndication_years.last), {class: 'selectpicker'} %>
+            <%= select_tag 'syndication_years', options_for_select(@syndication_years, @syndication_years.first), {class: 'selectpicker'} %>
           </span>
         </li>
         <% end %>

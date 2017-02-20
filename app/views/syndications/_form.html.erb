@@ -34,13 +34,14 @@
           <%= render partial: 'annual_return_fields', locals: {f: ff} %>
           <% end %>
           <div class="col-xs-12 links text-right">
-            <%= link_to_add_association 'Add Year', f, :annual_returns, class: 'btn blue-btn' %>
+            <%= link_to_add_association 'Add Year Data', f, :annual_returns, class: 'btn blue-btn common' %>
           </div>
-          <%= button_tag(type: 'submit', class: 'btn blue-btn btn-lg mar-btm-30') do %><i class="fa fa-check" aria-hidden="true"></i> Submit
-          <% end %>
-          <% if !@syndication.new_record? %>
-          <%= link_to syndication_path(@syndication), method: :delete, class: 'btn btn-danger btn-lg mar-btm-30', data: {confirm: 'Are you sure you want to delete this syndication?'} do %><i class="fa fa-times" aria-hidden="true"></i> Delete<% end %>
-          <% end %>
+          <div class="col-xs-12">
+            <%= button_tag(type: 'submit', class: 'btn blue-btn btn-lg mar-btm-30') do %><i class="fa fa-check" aria-hidden="true"></i> Submit<% end %>
+            <% if !@syndication.new_record? %>
+            <%= link_to syndication_path(@syndication), method: :delete, class: 'btn btn-danger btn-lg mar-btm-30', data: {confirm: 'Are you sure you want to delete this syndication?'} do %><i class="fa fa-times" aria-hidden="true"></i> Delete<% end %>
+            <% end %>
+          </div>
         </div>
         <% end %>
       </div>

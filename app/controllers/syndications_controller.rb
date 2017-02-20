@@ -12,7 +12,7 @@ class SyndicationsController < ApplicationController
   end
 
   def create
-    close_date = Date.strptime(params[:syndication][:close_date], '%m/%d/%Y').to_date if params[:date].present?
+    close_date = Date.strptime(params[:syndication][:close_date], '%m/%d/%Y').to_date if params[:syndication][:close_date].present?
     @syndication = Syndication.new(syndication_params.merge!(close_date: close_date))
     if @syndication.save
       redirect_to syndications_path, flash: {success: "#{@syndication.title} was successfully created!"}
@@ -22,7 +22,7 @@ class SyndicationsController < ApplicationController
   end
 
   def show
-    @syndication_years = @syndication.annual_returns.pluck(:year).uniq.sort
+    @syndication_years = @syndication.annual_returns.pluck(:year).uniq.sort.reverse
     @annual_return = @syndication.annual_returns.by_latest_year
     @annual_return = @syndication.annual_returns.by_year(params[:year]) if params[:year].present?
   end
@@ -31,7 +31,7 @@ class SyndicationsController < ApplicationController
   end
 
   def update
-    close_date = Date.strptime(params[:syndication][:close_date], '%m/%d/%Y').to_date if params[:date].present?
+    close_date = Date.strptime(params[:syndication][:close_date], '%m/%d/%Y').to_date if params[:syndication][:close_date].present?
     if @syndication.update(syndication_params.merge!(close_date: close_date))
       redirect_to syndications_path, flash: {success: "#{@syndication.title} was successfully updated!"}
     else
