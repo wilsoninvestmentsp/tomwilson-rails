@@ -62,6 +62,6 @@ class MailchimpController < ApplicationController
   private
 
   def signup_params
-    params[:signup]
+    params.require(:signup).permit(:email, :first_name, :last_name, :phone)
   end
 end

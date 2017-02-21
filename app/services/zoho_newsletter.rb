@@ -7,7 +7,8 @@ class ZohoNewsletter
     begin
       contact = RubyZoho::Crm::Contact.new(email: email, first_name: first_name, last_name: last_name, phone: phone)
       contact.save
-    rescue
+    rescue => error
+      Rails.logger.error "Something Went Wrong while Saving Newsletter Details for Email: #{email}, Exception: #{error}"
       false
     end
   end
