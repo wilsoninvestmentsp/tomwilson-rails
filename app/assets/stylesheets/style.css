@@ -49,8 +49,8 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .form-control:focus{border-color:#66afe9;outline:0;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);-moz-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);-ms-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);-o-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)}
 
 /* Chinese Content Page */
-.chinese-content ul:first-of-type{display:inline-table;padding:0 0 0 15px}
-.chinese-content p.text-center .align-left{float:left;margin-right:25px;margin-bottom:15px}
+.chinese-content .second-img .img-responsive{max-height:411.75px}
+.chinese-content p.text-center{text-align:center !important}
 
 /* Index Page CSS */
 .first-section{height:500px}
@@ -627,8 +627,9 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .latest-blogs-section .item{padding-left:7.5px;padding-right:7.5px}
 
 /* Chinese Content Page CSS */
-.chinese-content p.text-center{text-align:center !important}
-.chinese-content p.text-center .align-left{max-width:100%;float:none;display:inline-block}
+.chinese-content .col-sm-5.col-xs-12, .chinese-content .col-sm-7.col-xs-12{text-align:center}
+.chinese-content .col-sm-5.col-xs-12 .img-responsive, .chinese-content .col-sm-7.col-xs-12 .img-responsive{display:inline-block}
+.chinese-content .second-img .img-responsive{margin-top:30px;width:100%;max-width:550px;max-height:auto}
 
 /* Investor Performance CSS */
   .two-col-list dl:last-child{border-bottom:solid 1px #ddd}
@@ -659,8 +660,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
   .blog-img-header img{margin-top:-140px}
 
   /* Chinese Content Page CSS */
-  .chinese-content h3:first-of-type{margin-top:20px}
-  .chinese-content p.text-center .align-left{max-width:50%;margin-bottom:25px}
+  .chinese-content .second-img .img-responsive{max-height:254.25px}
 
   /* Investor Performance CSS */
   .report-card .listing-box{height:576px}
@@ -690,7 +690,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .blog-img-header img{margin-top:-220px}
 
 /* Chinese Content Page CSS */
-.align-left{max-width:40%}
+.chinese-content .second-img .img-responsive{max-height:336.75px}
 
 /* Investor Performance CSS */
   .report-card .listing-box{height:546px}
