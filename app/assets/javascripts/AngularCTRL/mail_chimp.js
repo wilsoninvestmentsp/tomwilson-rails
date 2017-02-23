@@ -1,7 +1,7 @@
 App.controller('MailChimpCtrl',['$scope','$interval','$upload','$routeParams','$http','$uibModal',function($scope,$interval,$upload,$routeParams,$http,$uibModal){
   var scope = $scope;
   scope.events = [];
-  scope.signup = {};
+  scope.signup = {investor_source: 'Website'};
 
   scope.submitForm = function(){
     if(scope.signup_form.$valid){
