@@ -7,12 +7,42 @@ class ApplicationController < ActionController::Base
   	protect_from_forgery with: :exception if !Rails.env.development?
 
   	after_filter :set_csrf_cookie_for_ng
+    before_action :prepare_meta_tags, if: 'request.get?'
 
     http_basic_authenticate_with name: STAGING_USERNAME,password: STAGING_PASSWORD if Rails.env.test?
 
   	def set_csrf_cookie_for_ng
   	  cookies['XSRF-TOKEN'] = form_authenticity_token if protect_against_forgery?
   	end
+
+    def prepare_meta_tags(options={})
+      title       = controller_name
+      description = 'Find the best investment properties in texas and california. Wilson investment properties is the premier turnkey provider of investment properties.'
+      image       = options[:image] || '/assets/bg-header-apartments.jpg'
+      current_url = request.url
+
+      # Let's prepare a nice set of defaults
+      defaults = {
+        title:       title,
+        image:       image,
+        description: description,
+        twitter: {
+          site: '@wilsoninvestprp',
+          card: 'summary',
+          description: description,
+          image: image
+        },
+        og: {
+          url: current_url,
+          title: title,
+          image: image,
+          description: description,
+          type: 'website'
+        }
+      }
+      options.reverse_merge!(defaults)
+      set_meta_tags options
+    end
 
     # ERROR PAGES
     # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:

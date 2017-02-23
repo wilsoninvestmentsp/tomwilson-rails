@@ -2,12 +2,12 @@
   <div class="listing-box" ng:click="clickableDiv('<%= properties_url %>', property.slug)">
 	  <div class="img-box">
 	    <a href="<%= properties_path %>/{{property.slug}}">
-	      <img src="<%= asset_url('loading.svg') %>" ng-attr-data-src="{{property.image.image.url}}" class="img-responsive">
+	      <img src="<%= asset_url('loading.svg') %>" ng-attr-data-src="{{property.image.image.url}}" alt="Property Image - {{property.raw_title}}" class="img-responsive">
 	    </a>
 	    <span ng:class="getStatusClass(property.status)" ng:if="property.raw_status">{{property.raw_status}}</span>
 	    <span class="status-tag-right blue" ng:if="property.leased == 'yes'">Leased</span>
 	  </div>
-	  <h3><a href="<%= properties_path %>/{{property.slug}}">{{property.raw_title | limitTo: 42 }}{{property.raw_title.length > 42 ? '...' : ''}}</a></h3>
+	  <h3><a href="<%= properties_path %>/{{property.slug}}" title="{{property.raw_title}}">{{property.raw_title | limitTo: 42 }}{{property.raw_title.length > 42 ? '...' : ''}}</a></h3>
 	  <ul class="labels">
 	    <li class="price">${{property.raw_offer_price}}
 	      <span ng:if="property.offer_price_label"> / {{property.offer_price_label}}</span>

@@ -26,12 +26,10 @@
 
           <div class="col-md-6 col-sm-12 col-xs-12">
             <div id="property-images-slider" class="owl-carousel owl-theme">
-            <div class="item">
-              <%= image_tag @property.image.url, class: 'img-responsive' %>   
-            </div>
+            <div class="item"><%= image_tag @property.image.url, class: 'img-responsive', alt: "Property Image - #{@property.raw_title}" %></div>
             <% @property.images.each do |property| %>
               <div class="item">
-                <%= image_tag property.image.url, class: 'img-responsive' %>   
+                <%= image_tag property.image.url, class: 'img-responsive', alt: "Property Image - #{@property.raw_title}" %>   
               </div>
               <% end %>
             </div>

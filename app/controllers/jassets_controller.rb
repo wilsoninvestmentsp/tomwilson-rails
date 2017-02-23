@@ -9,6 +9,13 @@ class JassetsController < ApplicationController
     @jassets = Jasset.all
     @resources = Jasset.pluck(:link_name).uniq.sort
     @order_by_resource_date = { asc: 'Oldest First', desc: 'Newest First' }
+
+    title = 'Helpful Resources of Real Estate Investment Properties'
+    description = 'A property investment resource of market updates, expo, presentations, videos and tips. Visit Wilson Investment Properties resources section for help.'
+    prepare_meta_tags(title: title, description: description,
+                      twitter: {title: title, description: description},
+                      og: {title: title, description: description}
+                     )
   end
 
   # GET /jassets/1

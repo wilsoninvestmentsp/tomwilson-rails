@@ -337,7 +337,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .content-section.faq ol{margin-bottom:78px}
 .content-section.faq article{padding-bottom:65px}
 .content-section.faq hr{margin-top:0;margin-bottom:0}
-.content-section h4.list-group-item-heading{margin-top:0;margin-bottom:0}
+.content-section h3.list-group-item-heading{margin-top:0;margin-bottom:0}
 .top-zero{color:#0288D1}
 .top-zero img{margin-left:10px}
 .content-section .sort-row{display:table;width:100%}
@@ -351,6 +351,9 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .resources-data h4{margin-top:10px !important}
 .resources-data .btn{margin-right:4px}
 .radio-banner .img-responsive{display:inline-block}
+.radio-show-video h4{margin-top:10px !important;margin-bottom:5px !important}
+.profile h2{margin-top:0 !important}
+.profile h3{margin-top:0 !important;margin-bottom:15px !important;color:#777}
 
 /* Blog Pages CSS */
 .main-body.only-bread-crumb{margin-top:0;margin-bottom:60px}
@@ -533,6 +536,8 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .table td{white-space:normal !important}
 .resources-data .img-thumbnail{max-width:220px;margin-top:5px}
 .content-section .sort-row .sort-span.mar-right-15{margin-bottom:15px}
+.radio-show-video{text-align:center}
+.radio-show-video .img-thumbnail{width:233px}
 
 /* Property Listing Page CSS */
 /*

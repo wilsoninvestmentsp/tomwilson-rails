@@ -15,8 +15,8 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <h2 class="text-center">Multi-Family and Commercial Syndications</h2>
-        <h4 class="text-center">High Quality, Investment Opportunities</h4>
+        <h2 class="text-center">Multifamily and Commercial Real Estate Syndications</h2>
+        <h4 class="text-center">High Quality, Real Estate Investment Opportunities</h4>
         <div class="row opportunities-content">
           <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12 text-center">
             <iframe width="1366" height="768" src="https://www.youtube.com/embed/bQ-VFrY5ZGg" frameborder="0" allowfullscreen></iframe>
@@ -39,14 +39,14 @@
     <div class="row">
       <div class="col-xs-12 feature-property-listing">
         <div ng:controller="FeaturedCtrl">
-          <h3 class="text-center">Featured Properties</h3>
+          <h3 class="text-center">Featured Investment Properties</h3>
           <div id="featured-properties-slider" class="owl-carousel owl-theme">
             <% @properties.each do |property| %>
             <div class="item">
               <div class="propery-box">
                 <div class="img-box">
                   <%= link_to property_path(property) do %>
-                    <%= image_tag 'loading.svg', 'data-src': property.image.url, class: 'img-responsive' %>
+                    <%= image_tag 'loading.svg', 'data-src': property.image.url, alt: "Property Image - #{property.raw_title}", class: 'img-responsive' %>
                   <% end %>
                   <span class="status-tag top-setting <%= status_color(property.status) %>"><%= property.raw_status %></span>
                   <% if property.leased == 'yes' %>
@@ -89,7 +89,7 @@
           </div>
         </div>
         <div class="text-center">
-          <%= link_to properties_path, class: 'btn border-btn btn-lg' do %><i class="fa fa-th" aria-hidden="true"></i>View More Offers<% end %>
+          <%= link_to properties_path, class: 'btn border-btn btn-lg', title: 'View All Investment Properties' do %><i class="fa fa-th" aria-hidden="true"></i>View More Offers<% end %>
         </div>
       </div>
     </div>
@@ -103,22 +103,22 @@
      <div class="row imgs">
       <div class="col-sm-3 col-xs-12">
         <%= link_to blogs_path, target: '_blank' do %>
-          <%= image_tag 'loading.svg', 'data-src': asset_url('REI-Voice-Cover-July-2015-1.jpg'), class: 'img-responsive' %>
+          <%= image_tag 'loading.svg', 'data-src': asset_url('REI-Voice-Cover-July-2015-1.jpg'), alt: 'REI Voice Magazine Cover (July 2015)', class: 'img-responsive' %>
         <% end %>
       </div>
       <div class="col-sm-3 col-xs-12">
         <%= link_to blogs_path, target: '_blank' do %>
-          <%= image_tag 'loading.svg', 'data-src': asset_url('Realty_Insights_July-2016_Cover_Tom_Summit.jpg'), class: 'img-responsive' %>
+          <%= image_tag 'loading.svg', 'data-src': asset_url('Realty_Insights_July-2016_Cover_Tom_Summit.jpg'), alt: 'Realty Insights Magazine Cover (Summer 2016)', class: 'img-responsive' %>
         <% end %>
       </div>
       <div class="col-sm-3 col-xs-12">
         <%= link_to 'https://drive.google.com/open?id=0B5kXcEhpEwUwMUxaZUVvN1JNcXc', target: '_blank' do %>
-          <%= image_tag 'loading.svg', 'data-src': asset_url('REI-Voice-Cover-July-2015-2.jpg'), class: 'img-responsive' %>
+          <%= image_tag 'loading.svg', 'data-src': asset_url('REI-Voice-Cover-July-2015-2.jpg'), alt: 'REI Voice Magazine Cover (July 2015)', class: 'img-responsive' %>
         <% end %>
       </div>
       <div class="col-sm-3 col-xs-12">
         <%= link_to 'https://drive.google.com/open?id=0B5kXcEhpEwUwMUxaZUVvN1JNcXc', target: '_blank' do %>
-          <%= image_tag 'loading.svg', 'data-src': asset_url('realty-411-magazine-cover.jpg'), class: 'img-responsive last' %>
+          <%= image_tag 'loading.svg', 'data-src': asset_url('realty-411-magazine-cover.jpg'), alt: 'Realty 411 Magazine Cover', class: 'img-responsive last' %>
         <% end %>
       </div>
      </div>
@@ -131,6 +131,7 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-12 text-center">
+            <h3 class="text-center">Testimonials</h3>
             <div id="testimonials-slider" class="owl-carousel owl-theme">
               <% @testimonies.each do |testimony| %>
               <div class = "item">
@@ -148,7 +149,7 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-12">
-            <h3 class="text-center">Testimonies</h3>
+            <h3 class="text-center">Testimonials</h3>
             <div class="table-responsive">
               <div ng:controller="TestimoniesCtrl">
                 <table class="table table-condensed table-striped">

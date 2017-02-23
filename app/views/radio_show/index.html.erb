@@ -13,14 +13,14 @@
     </div>
     <div class="row content-section">
       <div class="col-xs-12">
-        <h1>Radio Show</h1>
+        <h1>Real Estate Radio Show</h1>
         <div class="panel panel-default radio-banner banner-bg">
           <div class="panel-body text-center">
             <div class="row">
               <div class="col-md-2 col-sm-3 col-xs-12">
                 <h4 class="top-heading">Host</h4>
-                <%= image_tag 'loading.svg', 'data-src': asset_url('tom-radio-pic.jpg'), class: 'img-responsive', alt: '' %>
-                <h4>Tom K. Wilson <span>Real Estate Radio Power Investing</span></h4>
+                <%= image_tag 'loading.svg', 'data-src': asset_url('tom-radio-pic.jpg'), class: 'img-responsive', alt: 'Tom K. Wilson' %>
+                <h4>Tom K. Wilson <span>Real Estate Radio LIVE</span></h4>
               </div>
               <div class="col-md-8 col-sm-6 col-xs-12">
                 <h3>Real Estate Radio Power Investing, <span class="orange-text">the premier real estate investment radio show</span>, is hosted <span class="orange-text">by Tom K. Wilson weekly on KDOW 1220AM</span>. He brings market experts to share professional advice on everything from real estate markets, the economy, and market trends happening today.</h3>
@@ -29,16 +29,16 @@
                 <h4 class="top-heading">Featured Guests</h4>
                 <div id="radio-show-banner" class="owl-carousel owl-theme">
                   <div class="item">
-                    <%= image_tag 'loading.svg', 'data-src': asset_url('robert-kiyosaki.jpg'), class: 'img-responsive', alt: '' %>
+                    <%= image_tag 'loading.svg', 'data-src': asset_url('robert-kiyosaki.jpg'), class: 'img-responsive', alt: 'Robert Kiyosaki' %>
                     <h4>Robert Kiyosaki, Author <span>Rich Dad Poor Dad</span></h4>
                   </div>
-                  <div class="item"><%= image_tag 'loading.svg', 'data-src': asset_url('bruce-norris.jpg'), class: 'img-responsive', alt: '' %>
+                  <div class="item"><%= image_tag 'loading.svg', 'data-src': asset_url('bruce-norris.jpg'), class: 'img-responsive', alt: 'Bruce Norris' %>
                     <h4>Bruce Norris, Founder <span>The Norris Group</span></h4>
                   </div>
-                  <div class="item"><%= image_tag 'loading.svg', 'data-src': asset_url('sean-otoole.jpg'), class: 'img-responsive', alt: '' %>
+                  <div class="item"><%= image_tag 'loading.svg', 'data-src': asset_url('sean-otoole.jpg'), class: 'img-responsive', alt: "Sean O'toole" %>
                     <h4>Sean O’Toole, Founder <span>Property Radar</span></h4>
                   </div>
-                  <div class="item"><%= image_tag 'loading.svg', 'data-src': asset_url('dr-doug-duncan.jpg'), class: 'img-responsive', alt: '' %>
+                  <div class="item"><%= image_tag 'loading.svg', 'data-src': asset_url('dr-doug-duncan.jpg'), class: 'img-responsive', alt: 'Dr. Doug Duncan' %>
                     <h4>Dr. Doug Duncan <span>Senior VP &amp; Chief Economist Fannie Mae</span></h4>
                   </div>
                 </div>
@@ -49,13 +49,14 @@
         <h3 class="text-muted" ng:if="loading">Loading...</h3>
         <h3 class="text-muted" ng:if="!loading && videos.length == 0">No episodes found</h3>
         <div class="list-group">
-          <div class="list-group-item" ng:repeat="video in videos">
+          <div class="list-group-item radio-show-video" ng:repeat="video in videos">
             <div class="row">
-              <div class="col-sm-2">
-                <img ng:src="{{video.snippet.thumbnails.high.url}}" class="img-thumbnail" alt="">
+              <div class="col-md-2 col-sm-3 col-xs-12">
+                <img src="<%= asset_url('loading.svg') %>" ng-attr-data-src="{{video.snippet.thumbnails.high.url}}" class="img-thumbnail" alt="">
               </div>
-              <div class="col-sm-10">
-                <h4>{{video.snippet.title}}<br><small>{{video.snippet.description}}</small></h4>
+              <div class="col-md-10 col-sm-9 col-xs-12">
+                <h4>{{video.snippet.title}}</h4>
+                <p>{{video.snippet.description}}</p>
                 <a href="" ng:click="getVideo($index)" ng:if="!video.loading && !video.more && video.snippet.description">More</a>
                 <a href="" ng:disabled="true" ng:if="video.loading">Loading...</a>
                 <span ng:if="!video.more && video.snippet.description">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
@@ -64,12 +65,8 @@
             </div>
           </div>
         </div>
-        <div class="text-center pad-btm-5">
-          <nav>
-            <ul class="pager">
-              <li ng:show="nextPage"><a href="" ng:click="getVideos()" ng:disabled="video.loading"><i class="fa fa-th" aria-hidden="true"></i> Load More</a></li>
-            </ul>
-          </nav>
+        <div class="text-center pad-btm-5" ng:show="nextPage">
+          <a href="" ng:click="getVideos()" ng:disabled="video.loading" class="btn btn-lg border-btn space-setting"><i class="fa fa-th" aria-hidden="true"></i> Load More</a>
         </div>
       </div>
     </div>

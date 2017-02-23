@@ -55,6 +55,8 @@ GEM
     bcrypt (3.1.11)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-datepicker-rails (1.6.4.1)
+      railties (>= 3.0)
     bootstrap-select-rails (1.6.3)
     bootstrap-slider-rails (9.2.0)
       railties (>= 3.2, < 6.0)
@@ -70,6 +72,7 @@ GEM
     cloudinary (1.2.0)
       aws_cf_signer
       rest-client
+    cocoon (1.2.9)
     coderay (1.1.1)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
@@ -121,6 +124,8 @@ GEM
       actionmailer (>= 3.2.13)
       json (>= 1.7.7)
       rest-client (>= 1.6.7)
+    meta-tags (2.4.0)
+      actionpack (>= 3.2.0, <= 5.1.0)
     method_source (0.8.2)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
@@ -248,12 +253,14 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers (~> 0.8.3)
   bcrypt (~> 3.1.7)
+  bootstrap-datepicker-rails
   bootstrap-select-rails
   bootstrap-slider-rails
   browser
   byebug
   carrierwave
   cloudinary
+  cocoon
   coffee-rails (~> 4.1.0)
   config
   figaro
@@ -263,6 +270,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   mailgun_rails
+  meta-tags
   mysql2 (~> 0.3.18)
   pry
   pry-rails

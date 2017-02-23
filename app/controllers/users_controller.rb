@@ -7,6 +7,12 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    title = 'Our Team Members - Wilson Investment Properties Inc.'
+    description = 'Meet our California and Texas team members. A small biography about great team are growing all the time. Wilson Investment Properties Inc.'
+    prepare_meta_tags(title: title, description: description,
+                      twitter: {title: title, description: description},
+                      og: {title: title, description: description}
+                     )
 
     con = {public: true}
     con = {} if current_user

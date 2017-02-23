@@ -4,6 +4,13 @@ class BlogsController < ApplicationController
 
   def index
     @blogs = Blog.blogs_by_user(current_user).page(params[:page]).per(Settings.pagination.blogs.per_page)
+    title = 'Articles on Real Estate Syndication and Property Investment'
+    description = 'By our articles we guide how to invest in property and how investors can make profit through syndication of real estate.'
+    prepare_meta_tags(title: title,
+                      description: description,
+                      twitter: {title: title, description: description},
+                      og: {title: title, description: description}
+                      )
   end
 
   def new
@@ -21,6 +28,9 @@ class BlogsController < ApplicationController
 
   def show
     @blogs = Blog.recent_blogs_by_user(current_user, @blog.id)
+    prepare_meta_tags(title: @blog.title,
+                      image: @blog.image.thumb.url
+                      )
   end
 
   def edit
