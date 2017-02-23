@@ -125,6 +125,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .magazine-section h3{margin-top:0;margin-bottom:50px;font-size:32px;line-height:1;color:#525252}
 
 .feedback-section{padding:50px 0;font-family:'AllerRG';margin-bottom:60px;border-top:solid 1px #ddd}
+.feedback-section h3{margin-top:0;margin-bottom:25px;font-size:32px;line-height:1;color:#525252}
 .feedback-section .comment{font-size:26px;padding-top:0;margin-top:0;color:#525252}
 .feedback-section .user{font-size:16px;color:#407cbb}
 .feedback-section .table{background:#fff}
@@ -423,7 +424,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .first-section .box-content{width:100%;margin:0}
 .first-section .box-content h1{font-size:24px}
 .first-section .box-content p,.content-section-row h4{font-size:16px}
-.content-section-row h2,.property-section h3,.magazine-section h3,.latest-blogs-section h2{font-size:22px}
+.content-section-row h2,.property-section h3,.magazine-section h3,.latest-blogs-section h2,.feedback-section h3{font-size:22px}
 .property-details h1,.blog-content-section h1{font-size:18px}
 .content-section-row ul{font-size:14px}
 .feature-property-listing .col-xs-12{width:100%;text-align:center}
@@ -477,7 +478,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .first-section .box-content{width:90%;margin:0 5%}
 .first-section .box-content h1{font-size:28px}
 .first-section .box-content p,.content-section-row h4{font-size:18px}
-.content-section-row h2,.property-section h3,.magazine-section h3,.latest-blogs-section h2{font-size:26px}
+.content-section-row h2,.property-section h3,.magazine-section h3,.latest-blogs-section h2,.feedback-section h3{font-size:26px}
 .property-details h1, .blog-content-section h1{font-size:24px}
 .feature-property-listing .admin-body{padding-left:7.5px;padding-right:7.5px}
 .feature-property-listing .col-xs-12{width:50%;padding-left:7.5px;padding-right:7.5px}
