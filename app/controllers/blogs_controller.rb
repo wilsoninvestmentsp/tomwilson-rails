@@ -15,6 +15,7 @@ class BlogsController < ApplicationController
 
   def new
     @blog = Blog.new
+    prepare_meta_tags(title: 'Add Article - Wilson Investment Properties, Inc.')
   end
 
   def create
@@ -28,12 +29,17 @@ class BlogsController < ApplicationController
 
   def show
     @blogs = Blog.recent_blogs_by_user(current_user, @blog.id)
+    description =  @blog.summary.truncate(Settings.truncate.blog.meta_description).tr('“,”,"', '')
     prepare_meta_tags(title: @blog.title,
-                      image: @blog.image.thumb.url
+                      description: description,
+                      image: @blog.image.thumb.url,
+                      twitter: {title: @blog.title, description: description, image: @blog.image.thumb.url},
+                      og: {title: @blog.title, description: description, image: @blog.image.thumb.url}
                       )
   end
 
   def edit
+    prepare_meta_tags(title: 'Edit Article - Wilson Investment Properties, Inc.')
   end
 
   def update

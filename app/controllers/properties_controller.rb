@@ -15,7 +15,7 @@ class PropertiesController < ApplicationController
     @sort_by_offer_price = { asc: 'Low to High', desc: 'High to Low' }
 
     title = 'Investment Properties - Commercial & Residential Property, US'
-    description = 'Real Estate Investment Properties for lease and sale. Find homes, duplex, fourplex, single family, multifamily and commercial property for investment in United State.'
+    description = 'Real Estate Investment Properties for sale and lease. Find homes, duplex, fourplex, single family, multifamily and commercial property for investment in United State.'
     image = '/assets/bg-header-corporate.jpg'
     prepare_meta_tags(title: title, description: description, image: image,
                       twitter: {title: title, description: description, image: image},
@@ -41,10 +41,12 @@ class PropertiesController < ApplicationController
   def new
     @property = Property.new
     @images = []
+    prepare_meta_tags(title: 'Add Property - Wilson Investment Properties, Inc.')
   end
 
   # GET /properties/1/edit
   def edit
+    prepare_meta_tags(title: 'Edit Property - Wilson Investment Properties, Inc.')
   end
 
   # POST /properties

@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
   end
 
   def financing_investments
-    title = 'Advice on Financing Investment in Property by various ways'
+    title = 'Helpful Advice on Financing Investment in Property'
     description = 'Wilson Investment Properties has experts to help you determine what source is the best to get income after financing in property investment.'
     prepare_meta_tags(title: title, description: description,
                       twitter: {title: title, description: description},
@@ -26,8 +26,8 @@ class ArticlesController < ApplicationController
   end
 
   def faq
-    title = 'Real Estate Investing FAQs for Buyers, Sellers and Investors'
-    description =  'By our frequently asked questions (FAQs) about real estate investing we help to get success in property investment for buyers, sellers and investors.'
+    title = 'Real Estate Investment FAQs for Buyers, Sellers and Investors'
+    description =  'By our frequently asked questions (FAQs) about investing in real estate we help to get success in property investment for buyers, sellers and investors.'
     image = '/assets/bg-header-small-house.jpg'
     prepare_meta_tags(title: title, description: description, image: image,
                       twitter: {title: title, description: description, image: image},
@@ -36,7 +36,7 @@ class ArticlesController < ApplicationController
   end
 
   def property_management
-    title = 'Best Property Management Services Comapny in United State'
+    title = 'Best Property Management Services Company in United State'
     description =  'Get full property management services by purchasing investment property from Wilson Investment Properties Inc. Our Managers are ready any time to help you.'
     image = '/assets/bg-header-corporate.jpg'
     prepare_meta_tags(title: title, description: description, image: image,

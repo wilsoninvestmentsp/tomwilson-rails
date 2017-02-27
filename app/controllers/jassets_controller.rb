@@ -26,10 +26,12 @@ class JassetsController < ApplicationController
   # GET /jassets/new
   def new
     @jasset = Jasset.new
+    prepare_meta_tags(title: 'Add Resource - Wilson Investment Properties, Inc.')
   end
 
   # GET /jassets/1/edit
   def edit
+    prepare_meta_tags(title: 'Edit Resource - Wilson Investment Properties, Inc.')
   end
 
   # POST /jassets

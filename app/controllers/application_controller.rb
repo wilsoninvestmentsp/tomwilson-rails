@@ -16,8 +16,8 @@ class ApplicationController < ActionController::Base
   	end
 
     def prepare_meta_tags(options={})
-      title       = controller_name
-      description = 'Find the best investment properties in texas and california. Wilson investment properties is the premier turnkey provider of investment properties.'
+      title       = "#{controller_name} | #{action_name}".titleize
+      description = ''
       image       = options[:image] || '/assets/bg-header-apartments.jpg'
       current_url = request.url
 
@@ -25,20 +25,7 @@ class ApplicationController < ActionController::Base
       defaults = {
         title:       title,
         image:       image,
-        description: description,
-        twitter: {
-          site: '@wilsoninvestprp',
-          card: 'summary',
-          description: description,
-          image: image
-        },
-        og: {
-          url: current_url,
-          title: title,
-          image: image,
-          description: description,
-          type: 'website'
-        }
+        description: description
       }
       options.reverse_merge!(defaults)
       set_meta_tags options

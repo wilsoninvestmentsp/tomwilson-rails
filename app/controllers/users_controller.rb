@@ -29,10 +29,12 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    prepare_meta_tags(title: 'Add User - Wilson Investment Properties, Inc.')
   end
 
   # GET /users/1/edit
   def edit
+    prepare_meta_tags(title: 'Edit User - Wilson Investment Properties, Inc.')
   end
 
   # POST /users
