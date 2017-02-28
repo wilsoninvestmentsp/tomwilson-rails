@@ -28,6 +28,11 @@
   $(function(){
     $("#newsletter-tab").click(function() {
       $("#newsletter-form").toggle("slide");
+      $("#inquiry-form").hide("slide");
+    });
+    $("#inquiry-tab").click(function() {
+      $("#inquiry-form").toggle("slide");
+      $("#newsletter-form").hide("slide");
     });
     $(document).on('scroll',function(){
       if($(window).scrollTop()>200){

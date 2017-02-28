@@ -1,26 +1,67 @@
 <div id="newsletter" ng:controller="MailChimpCtrl">
   <div id="newsletter-form" class="panel panel-default">
     <form name="signup_form" ng:submit="submitForm()" novalidate class="form panel-body">
-      <div class="form-group"><h5>Get FREE Access to Exclusive Deals and News</h5></div>
+      <h5>Get FREE Access to Exclusive Deals and News</h5>
       <div class="form-group">
-        <i class="fa fa-user input-icons" aria-hidden="true"></i>
-        <input type="text" ng:model="signup.first_name" class="form-control" placeholder="First Name" required>
+        <div class="col-xs-6 left-col"><i class="fa fa-user input-icons" aria-hidden="true"></i>
+          <input type="text" ng:model="signup.first_name" class="form-control" placeholder="First Name" required>
+        </div>
+        <div class="col-xs-6 right-col">
+          <i class="fa fa-user input-icons" aria-hidden="true"></i>
+          <input type="text" ng:model="signup.last_name" class="form-control" placeholder="Last Name" required>
+        </div>
       </div>
       <div class="form-group">
-        <i class="fa fa-user input-icons" aria-hidden="true"></i>
-        <input type="text" ng:model="signup.last_name" class="form-control" placeholder="Last Name" required>
-      </div>
-      <div class="form-group">
-        <i class="fa fa-envelope" aria-hidden="true"></i>
-        <input type="email" ng:model="signup.email" class="form-control" placeholder="Email" required>
-      </div>
-      <div class="form-group">
-        <i class="fa fa-phone" aria-hidden="true"></i>
-        <input type="text" ng:model="signup.phone" class="form-control" placeholder="Phone" required>
+        <div class="col-xs-6 left-col">
+          <i class="fa fa-envelope" aria-hidden="true"></i>
+          <input type="email" ng:model="signup.email" class="form-control" placeholder="Email" required>
+        </div>
+        <div class="col-xs-6 right-col">
+          <i class="fa fa-phone" aria-hidden="true"></i>
+          <input type="text" ng:model="signup.phone" class="form-control" placeholder="Phone" required>
+        </div>
       </div>
       <button type="submit" class="btn border-btn" ng:if="!loading"><i class="fa fa-check-square-o" aria-hidden="true"></i> Sign Up</button>
       <button type="submit" class="btn border-btn" disabled="disabled" ng:if="loading"><i class="fa fa-check-square-o" aria-hidden="true"></i> Submitting...</button>
     </form>
   </div>
-  <div id="newsletter-tab"><i class="fa fa-envelope" aria-hidden="true"></i> Get Exclusive Deal Access</div>
+  <div id="newsletter-tab"><i class="fa fa-envelope" aria-hidden="true"></i> <span>Get</span> Exclusive Deals</div>
+</div>
+
+<div id="inquiry" ng:controller="TicketCtrl">
+  <div id="inquiry-form" class="panel panel-default">
+    <form name="ticket_form" ng:submit="submitForm()" novalidate class="form panel-body">
+      <uib-alert ng:repeat="alert in alerts" type="{{alert.type}}">{{alert.message}}</uib-alert>
+      <div class="form-group">
+        <div class="col-xs-6 left-col"><i class="fa fa-user input-icons" aria-hidden="true"></i>
+          <input type="text" ng:model="inquiry.first_name" class="form-control" placeholder="First Name" required>
+        </div>
+        <div class="col-xs-6 right-col">
+          <i class="fa fa-user input-icons" aria-hidden="true"></i>
+          <input type="text" ng:model="inquiry.last_name" class="form-control" placeholder="Last Name" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-xs-6 left-col">
+          <i class="fa fa-envelope" aria-hidden="true"></i>
+          <input type="email" ng:model="inquiry.email" class="form-control" placeholder="Email" required>
+        </div>
+        <div class="col-xs-6 right-col">
+          <i class="fa fa-phone" aria-hidden="true"></i>
+          <input type="text" ng:model="inquiry.phone" class="form-control" placeholder="Phone" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <i class="fa fa-pencil-square-o input-icons" aria-hidden="true"></i>
+        <input id="subject" type="text" class="form-control" ng:model="inquiry.subject" placeholder="A brief description of the inquiry" required>
+      </div>
+      <div class="form-group">
+        <i class="fa fa-pencil-square-o input-icons" aria-hidden="true"></i>
+        <textarea id="description" rows="3" class="form-control" ng:model="inquiry.description" placeholder="Please descripbe the nature of your inquiry" required></textarea>
+      </div>
+      <button type="submit" class="btn border-btn" ng:disabled="!ticket_form.$valid" ng:if="!loading"><i class="fa fa-check-square-o" aria-hidden="true"></i> Submit</button>
+      <button type="submit" class="btn btn-warning" ng:disabled="true" ng:if="loading"><i class="fa fa-ellipsis-h" aria-hidden="true"></i> Submitting</button>
+    </form>
+  </div>
+  <div id="inquiry-tab"><i class="fa fa-envelope" aria-hidden="true"></i> Contact <span>Us</span></div>
 </div>

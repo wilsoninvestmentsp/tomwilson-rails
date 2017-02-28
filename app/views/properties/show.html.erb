@@ -178,13 +178,23 @@
             ng:show="show_form"
             >
             <div class="form-group">
-              <div class="col-xs-12">
+              <div class="col-sm-6 col-xs-12 pad-right-0">
                 <i class="fa fa-user input-icons" aria-hidden="true"></i>
                 <input
                 type="text"
                 class="form-control"
-                ng:model="inquiry.name"
-                placeholder="Your Name *"
+                ng:model="inquiry.first_name"
+                placeholder="First Name *"
+                required
+                />
+              </div>
+              <div class="col-sm-6 col-xs-12">
+                <i class="fa fa-user input-icons" aria-hidden="true"></i>
+                <input
+                type="text"
+                class="form-control"
+                ng:model="inquiry.last_name"
+                placeholder="Last Name *"
                 required
                 />
               </div>

@@ -36,20 +36,40 @@ footer .form-horizontal .form-control:focus{border-bottom-color:#407cbb}
 footer .form-horizontal .btn{width:100%;background:transparent;border:solid 1px #666;color:#999}
 footer .form-horizontal .btn:hover{border-color:#407cbb;background:#407cbb;color:#fff}
 
-/* Newsletter Box CSS */ #newsletter-form{display:none}
+/* Newsletter Box CSS */ 
 #newsletter-form{display:none}
-#newsletter{position:fixed;right:0;top:120px;height:345px;margin-left:-3px;margin-bottom:-3px;z-index:1000;font-family:'AllerRG';max-width:470px}
-#newsletter-form{font-size:12px;float:right;width:450px;height:100%;z-index:1000;padding-left:0;padding-right:0;margin-right:20px;border:1px solid rgba(0,0,0,.2);-moz-border-radius:0;-webkit-border-radius:0;border-radius:0;-webkit-box-shadow:0 5px 10px rgba(0,0,0,.2);-moz-box-shadow:0 5px 10px rgba(0,0,0,.2);box-shadow:0 0 4px #aaa;-webkit-box-shadow:0 0 4px #aaa;-moz-box-shadow:0 0 4px #aaa;-ms-box-shadow:0 0 4px #aaa;-o-box-shadow:0 0 4px #aaa}
-#newsletter-form .panel-body{padding:20px}
-#newsletter-form .form-group{position:relative}
-#newsletter-form .form-group .fa{position:absolute;left:10px;top:14px;color:#999}
-#newsletter-form .form-control{box-shadow:none;padding:0 12px 0 30px;height:40px}
+#newsletter{position:fixed;right:0;top:70px;height:205px;margin-left:-3px;margin-bottom:-3px;z-index:1000;font-family:'AllerRG';max-width:470px}
+#newsletter-form{font-size:12px;float:right;width:450px;height:100%;z-index:1000;padding-left:0;padding-right:0;border:1px solid rgba(0,0,0,.2);-moz-border-radius:0;-webkit-border-radius:0;border-radius:0;-webkit-box-shadow:0 5px 10px rgba(0,0,0,.2);-moz-box-shadow:0 5px 10px rgba(0,0,0,.2);box-shadow:0 0 4px #aaa;-webkit-box-shadow:0 0 4px #aaa;-moz-box-shadow:0 0 4px #aaa;-ms-box-shadow:0 0 4px #aaa;-o-box-shadow:0 0 4px #aaa;margin-bottom:0}
+#newsletter-form .panel-body{padding:10px 20px}
+#newsletter-form .form-group{position:relative;display:inline-table;width:100%}
+#newsletter-form .form-group .left-col{padding-left:0;padding-right:7.5px}
+#newsletter-form .form-group .right-col{padding-left:7.5px;padding-right:0}
+#newsletter-form .form-group .fa{position:absolute;left:10px;top:11px;color:#999}
+#newsletter-form .form-group .right-col .fa{left:17.5px}
+#newsletter-form .form-control{box-shadow:none;padding:0 12px 0 30px}
 #newsletter-form .form-control:hover{border-color:#66afe9}
 #newsletter-form .form-control:focus{border-color:#66afe9;outline:0;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);-moz-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);-ms-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);-o-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)}
 #newsletter-form h5{margin-top:0;margin-bottom:15px;color:#407cbb;font-size:18px;border-bottom:solid 1px #ddd;padding-bottom:10px}
-#newsletter-form .border-btn{height:40px}
-#newsletter-tab{position:absolute;top:100px;left:-149px;color:#fff;font-size:16px;line-height:50px;cursor:pointer;text-align:center;width:250px;height:50px;background:#FB8C00;border-radius:3px;border-top-right-radius:0;border-top-left-radius:0;-webkit-transform:rotate(90deg);-moz-transform:rotate(90deg);-ms-transform:rotate(90deg);-o-transform:rotate(90deg);transform:rotate(90deg)}
+#newsletter-tab{position:absolute;top:77px;left:-127px;color:#fff;font-size:16px;line-height:50px;cursor:pointer;text-align:center;width:205px;height:50px;background:#FB8C00;border-radius:3px;border-top-right-radius:0;border-top-left-radius:0;-webkit-transform:rotate(90deg);-moz-transform:rotate(90deg);-ms-transform:rotate(90deg);-o-transform:rotate(90deg);transform:rotate(90deg)}
 #newsletter-tab .fa{margin-right:4px}
+
+/* Inquiry Form */
+#inquiry-form{display:none}
+#inquiry{position:fixed;right:0;top:70px;height:344px;margin-left:-3px;margin-bottom:-3px;z-index:1000;font-family:'AllerRG';max-width:470px}
+#inquiry-form{font-size:12px;float:right;width:450px;height:100%;z-index:1000;padding-left:0;padding-right:0;margin-right:0;border:1px solid rgba(0,0,0,.2);-moz-border-radius:0;-webkit-border-radius:0;border-radius:0;-webkit-box-shadow:0 5px 10px rgba(0,0,0,.2);-moz-box-shadow:0 5px 10px rgba(0,0,0,.2);box-shadow:0 0 4px #aaa;-webkit-box-shadow:0 0 4px #aaa;-moz-box-shadow:0 0 4px #aaa;-ms-box-shadow:0 0 4px #aaa;-o-box-shadow:0 0 4px #aaa;margin-bottom:0}
+#inquiry-form .panel-body{padding:20px}
+#inquiry-form .form-group{position:relative;display:inline-table;width:100%}
+#inquiry-form .form-group .left-col{padding-left:0;padding-right:7.5px}
+#inquiry-form .form-group .right-col{padding-left:7.5px;padding-right:0}
+#inquiry-form .form-group .fa{position:absolute;left:10px;top:11px;color:#999}
+#inquiry-form .form-group .right-col .fa{left:18.5px}
+#inquiry-form .form-control{box-shadow:none;padding:0 12px 0 30px}
+#inquiry-form .form-control:hover{border-color:#66afe9}
+#inquiry-form .form-control:focus{border-color:#66afe9;outline:0;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);-moz-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);-ms-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);-o-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)}
+#inquiry-form textarea.form-control{padding-top:5px;resize:none}
+#inquiry-form h5{margin-top:0;margin-bottom:15px;color:#407cbb;font-size:18px;border-bottom:solid 1px #ddd;padding-bottom:10px}
+#inquiry-tab{position:absolute;top:254px;left:-89px;color:#fff;font-size:16px;line-height:50px;cursor:pointer;text-align:center;width:130px;height:50px;background:#407cbb;border-radius:3px;border-top-right-radius:0;border-top-left-radius:0;-webkit-transform:rotate(90deg);-moz-transform:rotate(90deg);-ms-transform:rotate(90deg);-o-transform:rotate(90deg);transform:rotate(90deg)}
+#inquiry-tab .fa{margin-right:4px}
 
 /* Scroll Top CSS */
 .scroll-top-wrapper{position:fixed;opacity:0;visibility:hidden;overflow:hidden;text-align:center;z-index:1000;right:0;bottom:0;box-shadow:0 0 4px #090909;-webkit-box-shadow:0 0 4px #090909;-moz-box-shadow:0 0 4px #090909;-ms-box-shadow:0 0 4px #090909;-o-box-shadow:0 0 4px #090909}
@@ -64,34 +84,31 @@ footer .form-horizontal .btn:hover{border-color:#407cbb;background:#407cbb;color
 .modal.ng-isolate-scope .modal-dialog{margin-top:80px}
 @media(max-width:479px){
 	footer address{padding:0 10px}
-	#newsletter{height:264px}
-	#newsletter-form{width:265px;margin-right:0;margin-bottom:0}
-  #newsletter-form h5{font-size:14px}
-  #newsletter-tab{top:105px;left:-144px;height:40px;line-height:40px}
+  #inquiry-tab{top:194px}
 }
-@media(max-height:480px) and (orientation: landscape){
-  #newsletter{top:70px}
-  #newsletter-form{height:250px;overflow:hidden;overflow-y:auto}
-  #newsletter-form h5{font-size:14px}
-  #newsletter-tab{top:105px;left:-144px;height:40px;line-height:40px}
+@media(max-height:480px) and (orientation:landscape){
+  #inquiry-tab{top:177px !important}
+  #inquiry-form{max-height:241px;overflow-x:none;overflow-y:auto}
 }
 @media(min-width:480px) and (max-width:767px){
-  #newsletter{height:251px;bottom:15px}
-  #newsletter-form{width:400px;margin-right:15px}
-  #newsletter-form h5{font-size:17px}
-  #newsletter .border-btn{padding:8px 14px;font-size:14px;line-height:17px}
-}
+  #inquiry-tab{top:194px}
+} 
 @media(max-width:767px){
 	footer address{text-align:center}
 	footer .social-links{margin-top:15px;text-align:center}
   footer .social-links a.meetup{float:none;display:inline-block;margin-left:0;margin-bottom:-8px}
-  #newsletter{top:70px}
-	#newsletter-form .panel-body{padding:10px 15px}
-  #newsletter-form h5{margin-bottom:10px}
-  #newsletter-form .no-pad-left{padding-right:0}
-  #newsletter-form .no-pad-left-right{padding-right:0;margin-top:15px}
-  #newsletter-form .form-group{margin-bottom:5px}
-  #newsletter-form .form-group .fa{top:11px}
-  #newsletter-form .form-control{height:34px}
-  #newsletter-form .border-btn{height:34px}
+
+  #newsletter-form h5{font-size:16px}
+  #newsletter-tab span, #inquiry-tab span{display:none}
+  #newsletter-tab{line-height:40px;width:144px;height:40px;font-size:15px;left:-92px;top:52px}
+  #newsletter-form .panel-body, #inquiry-form .panel-body{padding:10px 15px}
+
+  #inquiry{height:314px}
+  #inquiry-tab{left:-64px;line-height:40px;height:40px;font-size:14px;width:88px}
+
+  #newsletter, #inquiry{max-width:100%;margin-left:54px;height:auto}
+  #newsletter-form, #inquiry-form{width:100%}
+
+  #newsletter .border-btn,
+  #inquiry .border-btn{height:34px;font-size:13px;padding:8px;line-height:16px}
 }
