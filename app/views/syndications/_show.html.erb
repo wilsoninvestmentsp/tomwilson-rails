@@ -91,7 +91,7 @@
           <li class="notes-text">
             <span class="title">Notes:</span>
             <span class="text"><%= raw("#{syndication.notes}<br>") if syndication.notes.present? %>
-            <%= 'Q1 was prorated preferred returns based on closing.' if @syndication_years.present? %></span>
+            <%= '# Q1 was prorated preferred returns based on closing.' if @syndication_years.present? %></span>
           </li>
         <% end %>
       </ul>
