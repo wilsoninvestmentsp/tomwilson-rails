@@ -1,3 +1,4 @@
+<% set_meta_tags(title: @blog.title, description: @description, image: @blog.image.thumb.url, twitter: {title: @blog.title, description: @description, image: @blog.image.thumb.url}, og: {title: @blog.title, description: @description, image: @blog.image.thumb.url}) %>
 <% if @blog.image.present? %>
   <section class="blog-img-header">
     <%= image_tag 'loading.svg', 'data-src': @blog.image.url, class: 'img-responsive loading-img', alt: "Article Image - #{@blog.title}", id: 'blog_image' %>

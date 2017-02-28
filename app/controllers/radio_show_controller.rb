@@ -4,13 +4,7 @@ class RadioShowController < ApplicationController
 	before_action :set_directory
 
 	def index
-		title = 'Real Estate Radio Show on KDOW by Tom K. Wilson'
-		description = 'Hear professional and latest advice on real estate markets, trends and economy by expert Real Estate Investor Tom K. Wilson on KDOW - The Business Radio Show.'
-		prepare_meta_tags(title: title, description: description,
-                     	twitter: {title: title, description: description},
-                     	og: {title: title, description: description}
-                     )
-
+		
 		@content = Content.find_by_key :radio_show_summary
 		@content = Content.new key: :radio_show_summary,body: 'Blank text' if !@content
 

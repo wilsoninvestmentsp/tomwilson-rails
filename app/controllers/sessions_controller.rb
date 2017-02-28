@@ -3,8 +3,6 @@ class SessionsController < ApplicationController
 	before_action :check_login, only: [:index]
 
 	def index
-		prepare_meta_tags(title: 'Login - Wilson Investment Properties, Inc.',
-		                  noindex: true, follow: true, robots: 'noarchive, nosnippet')
 	end
 
 	def create

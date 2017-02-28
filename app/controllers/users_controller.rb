@@ -7,12 +7,6 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    title = 'Our Team Members - Wilson Investment Properties Inc.'
-    description = 'Meet our California and Texas team members. A small biography about great team are growing all the time. Wilson Investment Properties Inc.'
-    prepare_meta_tags(title: title, description: description,
-                      twitter: {title: title, description: description},
-                      og: {title: title, description: description}
-                     )
 
     con = {public: true}
     con = {} if current_user
@@ -29,12 +23,10 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
-    prepare_meta_tags(title: 'Add User - Wilson Investment Properties, Inc.')
   end
 
   # GET /users/1/edit
   def edit
-    prepare_meta_tags(title: 'Edit User - Wilson Investment Properties, Inc.')
   end
 
   # POST /users

@@ -13,14 +13,6 @@ class PropertiesController < ApplicationController
     max_price = Property.maximum(:offer_price)
     @min_max_price = { min_price: min_price, max_price: max_price }
     @sort_by_offer_price = { asc: 'Low to High', desc: 'High to Low' }
-
-    title = 'Investment Properties - Commercial & Residential Property, US'
-    description = 'Real Estate Investment Properties for sale and lease. Find homes, duplex, fourplex, single family, multifamily and commercial property for investment in United State.'
-    image = '/assets/bg-header-corporate.jpg'
-    prepare_meta_tags(title: title, description: description, image: image,
-                      twitter: {title: title, description: description, image: image},
-                      og: {title: title, description: description, image: image}
-                     )
   end
 
   def get_cities
@@ -29,24 +21,18 @@ class PropertiesController < ApplicationController
   # GET /properties/1
   # GET /properties/1.json
   def show
-    title = "Property In #{@property.raw_state} - #{@property.raw_title}"
-    description = @property.meta_description
-    image = @property.image.thumb.url
-    prepare_meta_tags(title: title, description: description, image: image,
-                      twitter: {title: title, description: description, image: image},
-                      og: {title: title, description: description, image: image})
+    @title = "Property In #{@property.raw_state} - #{@property.raw_title}"
+    @description = @property.meta_description
   end
 
   # GET /properties/new
   def new
     @property = Property.new
     @images = []
-    prepare_meta_tags(title: 'Add Property - Wilson Investment Properties, Inc.')
   end
 
   # GET /properties/1/edit
   def edit
-    prepare_meta_tags(title: 'Edit Property - Wilson Investment Properties, Inc.')
   end
 
   # POST /properties

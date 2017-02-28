@@ -1,3 +1,4 @@
+<% set_meta_tags(title: @title, description: @description, image: @property.image.thumb.url, twitter: {title: @title, description: @description, image: @property.image.thumb.url}, og: {title: @title, description: @description, image: @property.image.thumb.url}) %>
 <%= render 'layouts/jumbtron' %>
 <div ng:controller="PropertyCtrl">
     <section class="main-body without-search-feature">
