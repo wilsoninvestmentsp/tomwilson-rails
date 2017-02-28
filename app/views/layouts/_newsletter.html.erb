@@ -19,7 +19,7 @@
         <input type="text" ng:model="signup.merge_fields.MMERGE3" class="form-control" placeholder="<%= t('newsletter.phone') %>" required>
       </div>
       <button type="submit" class="btn border-btn" ng:if="!loading"><i class="fa fa-check-square-o" aria-hidden="true"></i> <%= t('newsletter.sign_up') %></button>
-      <button type="submit" class="btn border-btn" disabled="disabled" ng:if="loading"><i class="fa fa-check-square-o" aria-hidden="true"></i> Submitting...</button>
+      <button type="submit" class="btn border-btn" disabled="disabled" ng:if="loading"><i class="fa fa-check-square-o" aria-hidden="true"></i> <%= t('newsletter.submitting') %></button>
     </form>
   </div>
   <div id="newsletter-tab"><i class="fa fa-envelope" aria-hidden="true"></i> <%= t('newsletter.button_title') %></div>

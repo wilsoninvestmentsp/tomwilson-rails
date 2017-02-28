@@ -29,6 +29,7 @@ en:
     last_name: Last Name
     phone: Phone
     sign_up: Sign Up
+    submitting: Submitting...
   helpers:
     label:
       property:
