@@ -21,8 +21,6 @@ class PropertiesController < ApplicationController
   # GET /properties/1
   # GET /properties/1.json
   def show
-    @title = "Property In #{@property.raw_state} - #{@property.raw_title}"
-    @description = @property.meta_description
   end
 
   # GET /properties/new

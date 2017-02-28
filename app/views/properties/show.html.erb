@@ -1,4 +1,4 @@
-<% set_meta_tags(title: @title, description: @description, image: @property.image.thumb.url, twitter: {title: @title, description: @description, image: @property.image.thumb.url}, og: {title: @title, description: @description, image: @property.image.thumb.url}) %>
+<% set_meta_tags(title: "Property In #{@property.raw_state} - #{@property.raw_title}", description: meta_description(@property), image: @property.image.thumb.url, twitter: {image: @property.image.thumb.url}, og: {image: @property.image.thumb.url}) %>
 <%= render 'layouts/jumbtron' %>
 <div ng:controller="PropertyCtrl">
     <section class="main-body without-search-feature">

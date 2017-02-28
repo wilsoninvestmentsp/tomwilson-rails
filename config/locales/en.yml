@@ -27,10 +27,10 @@ en:
         offer_price: Offer Price
   seo:
     site_title: Wilson Investment Properties, Inc.
-    image_1: /assets/bg-header-small-house.jpg
-    image_2: /assets/bg-header-corporate.jpg
-    image_3: /assets/bg-header-building.jpg
-    image_4: /assets/bg-header-apartments.jpg
+    image_1: bg-header-small-house.jpg
+    image_2: bg-header-corporate.jpg
+    image_3: bg-header-building.jpg
+    image_4: bg-header-apartments.jpg
     session: Login
     home:
       title: Real Estate Investing - Property Investment Company, US

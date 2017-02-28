@@ -1,4 +1,4 @@
-<% set_meta_tags(title: t('seo.event.title'), description: t('seo.event.description'), image: t('seo.image_1'), twitter: {title: t('seo.event.title'), description: t('seo.event.description'), image: t('seo.image_1')}, og: {title: t('seo.event.title'), description: t('seo.event.description'), image: t('seo.image_1')}) %>
+<% set_meta_tags(title: t('seo.event.title'), description: t('seo.event.description'), image: asset_url(t('seo.image_1')), twitter: {image: asset_url(t('seo.image_1'))}, og: {image: asset_url(t('seo.image_1'))}) %>
 <%= render 'layouts/jumbtron' %>
 <section class="main-body without-search-feature">
   <div class="container" ng:controller="EventsCtrl">
