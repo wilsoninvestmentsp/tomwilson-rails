@@ -21,8 +21,15 @@
 
 en:
   hello: "Hello world"
-
-helpers:
-  label:
-    property:
-      offer_price: Offer Price
+  newsletter:
+    button_title: Get Exclusive Deal Access
+    title: Get FREE Access to Exclusive Deals and News
+    email: Email
+    first_name: First Name
+    last_name: Last Name
+    phone: Phone
+    sign_up: Sign Up
+  helpers:
+    label:
+      property:
+        offer_price: Offer Price

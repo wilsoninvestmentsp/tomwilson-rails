@@ -7,6 +7,7 @@ class HomeController < ApplicationController
   end
 
   def index_cn
+    I18n.locale = :cn
   end
 end
 
