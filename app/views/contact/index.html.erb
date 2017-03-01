@@ -1,3 +1,4 @@
+<% set_meta_tags(title: "#{t('seo.contact_us.title')} - #{t('seo.site_title')}", description: t('seo.contact_us.description'), image: asset_url(t('seo.image_1')), twitter: {image: asset_url(t('seo.image_2'))}, og: {image: asset_url(t('seo.image_2'))}) %>
 <%= render 'layouts/jumbtron' %>
 <section class="main-body without-search-feature">
   <div class="container" ng:controller="TicketCtrl">
@@ -11,7 +12,7 @@
         </div>
       </div>
       <div class="col-xs-12">
-        <h1>Contact Us</h1>
+        <h1>Contact Us for Investing in Real Estate</h1>
         <uib-alert ng:repeat="alert in alerts" type="{{alert.type}}">{{alert.message}}</uib-alert>
         <address>
           <b>Wilson Investment Properties, Inc.</b><br>

@@ -1,3 +1,4 @@
+<% set_meta_tags(title: "Property In #{@property.raw_state} - #{@property.raw_title}", description: meta_description(@property), image: @property.image.thumb.url, twitter: {image: @property.image.thumb.url}, og: {image: @property.image.thumb.url}) %>
 <%= render 'layouts/jumbtron' %>
 <div ng:controller="PropertyCtrl">
     <section class="main-body without-search-feature">
@@ -26,12 +27,10 @@
 
           <div class="col-md-6 col-sm-12 col-xs-12">
             <div id="property-images-slider" class="owl-carousel owl-theme">
-            <div class="item">
-              <%= image_tag @property.image.url, class: 'img-responsive' %>   
-            </div>
+            <div class="item"><%= image_tag @property.image.url, class: 'img-responsive', alt: "Property Image - #{@property.raw_title}" %></div>
             <% @property.images.each do |property| %>
               <div class="item">
-                <%= image_tag property.image.url, class: 'img-responsive' %>   
+                <%= image_tag property.image.url, class: 'img-responsive', alt: "Property Image - #{@property.raw_title}" %>   
               </div>
               <% end %>
             </div>

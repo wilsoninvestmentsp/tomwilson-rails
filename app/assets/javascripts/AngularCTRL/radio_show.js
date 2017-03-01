@@ -19,7 +19,7 @@ App.controller('RadioShowCtrl',['$scope','$interval','$upload','$routeParams','$
 
 			scope.videos = scope.videos.concat(response.data.items);
 			scope.nextPage = response.data.nextPageToken;
-
+			setTimeout(function(){$('img').unveil();},200);
 		}, function errorCallback(response){
 
 			JP('Error!');
@@ -44,6 +44,7 @@ App.controller('RadioShowCtrl',['$scope','$interval','$upload','$routeParams','$
 			video.snippet.description = response.data.items[0].snippet.description;
 			delete video.loading;
 			video.more = true;
+			setTimeout(function(){$('img').unveil();},200);
 
 		}, function errorCallback(response){
 

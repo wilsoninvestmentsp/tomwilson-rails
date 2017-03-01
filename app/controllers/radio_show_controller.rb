@@ -4,7 +4,7 @@ class RadioShowController < ApplicationController
 	before_action :set_directory
 
 	def index
-
+		
 		@content = Content.find_by_key :radio_show_summary
 		@content = Content.new key: :radio_show_summary,body: 'Blank text' if !@content
 

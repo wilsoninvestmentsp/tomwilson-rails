@@ -1,3 +1,4 @@
+<% set_meta_tags(title: t('seo.blog.index.title'), description: t('seo.blog.index.description'), image: asset_url(t('seo.image_1')), twitter: {image: asset_url(t('seo.image_1'))}, og: {image: asset_url(t('seo.image_1'))}) %>
 <%= render 'layouts/jumbtron' %>
 <section class="main-body without-search-feature pad-btm-55">
   <div class="container">
@@ -16,7 +17,7 @@
     </div>
     <div class="row blog-content-section">
       <div class="col-xs-12">
-        <h1>Our Articles</h1>
+        <h1>Property Investment and Real Estate Syndication Articles</h1>
         <div class="row blog-listing" id="blog-listing">
           <% if @blogs.any? %>
             <%= render partial: 'blogs', locals: {blogs: @blogs} %>

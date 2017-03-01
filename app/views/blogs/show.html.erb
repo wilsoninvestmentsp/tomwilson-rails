@@ -1,6 +1,7 @@
+<% set_meta_tags(title: @blog.title, description: @description, image: @blog.image.thumb.url, twitter: { image: @blog.image.thumb.url}, og: {image: @blog.image.thumb.url}) %>
 <% if @blog.image.present? %>
   <section class="blog-img-header">
-    <%= image_tag 'loading.svg', 'data-src': @blog.image.url, class: 'img-responsive loading-img', id: 'blog_image' %>
+    <%= image_tag 'loading.svg', 'data-src': @blog.image.url, class: 'img-responsive loading-img', alt: "Article Image - #{@blog.title}", id: 'blog_image' %>
   </section>
 <% else %>
   <div class="topfix">
@@ -50,7 +51,7 @@
                 <div class="listing-box">
                   <div class="img-box">
                     <a href="<%= blog_path(blog) %>">
-                      <%= image_tag 'loading.svg', 'data-src': blog.image.thumb.url, class: 'img-responsive' %>
+                      <%= image_tag 'loading.svg', 'data-src': blog.image.thumb.url, class: 'img-responsive', alt: "Article Image - #{@blog.title}" %>
                     </a>
                   </div>
                   <h3><%= link_to blog.title.truncate(Settings.truncate.blog.title), blog_path(blog) %></h3>
