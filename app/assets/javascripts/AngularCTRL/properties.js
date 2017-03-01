@@ -72,8 +72,7 @@ App.controller('PropertiesCtrl',['$scope','$http',function($scope,$http){
 
 		$http({
 			method: 'GET',
-			url: url,
-			cache: true
+			url: url
 		}).then(function successCallback(response){
 
 			scope.properties = response.data.properties;
