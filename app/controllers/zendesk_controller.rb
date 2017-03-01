@@ -5,6 +5,8 @@ class ZendeskController < ApplicationController
 	def ticket
 
 		p = params.require(:inquiry)
+		ZohoNewsletter.signup(p.merge(investor_source: 'Website'))
+		
 		if p[:property].present?
 
 			PropertyMailer.user_email(p).deliver_later

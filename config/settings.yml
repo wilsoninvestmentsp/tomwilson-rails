@@ -12,6 +12,7 @@ truncate:
   blog:
     title: 60
     summary: 370
+    meta_description: 165
   property:
     title: 30
   syndication:

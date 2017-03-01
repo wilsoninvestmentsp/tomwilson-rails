@@ -6,13 +6,13 @@ class CreateSyndications < ActiveRecord::Migration
       t.integer :purchase_price
       t.integer :raise_amount
       t.string :hold_period
-      t.float :preferred_return
-      t.float :average_annual_return
-      t.float :irr
+      t.string :preferred_return
+      t.string :average_annual_return
+      t.string :irr
       t.date :close_date
       t.integer :price_per_share
       t.integer :loan_amount
-      t.float :loan_rate
+      t.string :loan_rate
       t.string :year_built
       t.integer :building_size
       t.float :lot_size

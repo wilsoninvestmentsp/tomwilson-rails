@@ -1,3 +1,4 @@
+<% set_meta_tags(title: "#{t('seo.contact_us.title')} - #{t('seo.site_title')}", description: t('seo.contact_us.description'), image: asset_url(t('seo.image_1')), twitter: {image: asset_url(t('seo.image_2'))}, og: {image: asset_url(t('seo.image_2'))}) %>
 <%= render 'layouts/jumbtron' %>
 <section class="main-body without-search-feature">
   <div class="container" ng:controller="TicketCtrl">
@@ -11,7 +12,7 @@
         </div>
       </div>
       <div class="col-xs-12">
-        <h1>Contact Us</h1>
+        <h1>Contact Us for Investing in Real Estate</h1>
         <uib-alert ng:repeat="alert in alerts" type="{{alert.type}}">{{alert.message}}</uib-alert>
         <address>
           <b>Wilson Investment Properties, Inc.</b><br>
@@ -23,8 +24,12 @@
           <div class="col-md-6 contact-us">
             <form name="ticket_form" ng:submit="submitForm()" novalidate>
               <div class="form-group">
-                <label for="name">Full Name</label><br>
-                <input id="name" type="text" class="form-control" ng:model="inquiry.name" placeholder="Full Name" required>
+                <label for="first_name">First Name</label><br>
+                <input id="first_name" type="text" class="form-control" ng:model="inquiry.first_name" placeholder="First Name" required>
+              </div>
+              <div class="form-group">
+                <label for="last_name">Last Name</label><br>
+                <input id="last_name" type="text" class="form-control" ng:model="inquiry.last_name" placeholder="Last Name" required>
               </div>
               <div class="form-group">
                 <label for="email">Email</label><br>

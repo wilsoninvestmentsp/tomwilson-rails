@@ -7,19 +7,23 @@ App.controller('PropertiesCtrl',['$scope','$http',function($scope,$http){
 	scope.building_types = {
 		'all': {
 			label: 'All',
-			value: 'single_family%2Cduplex%2Cfourplex%2Cmultifamily%2Ccommercial'
+			value: 'single_family%2Cduplex%2Cfourplex%2Cmultifamily%2Ccommercial',
+			title: 'All Investment Properties'
 		},
 		'investment_homes':{
 			label: 'Investment Homes',
-			value: 'single_family%2Cduplex%2Cfourplex'
+			value: 'single_family%2Cduplex%2Cfourplex',
+			title: 'Investment Homes'
 		},
 		'multifamily': {
 			label: 'Multifamily',
-			value: 'multifamily'
+			value: 'multifamily',
+			title: 'Multifamily Investment Properties'
 		},
 		'commercial': {
 			label: 'Commercial',
-			value: 'commercial'
+			value: 'commercial',
+			title: 'Commercial Investment Properties'
 		}
 	};
 

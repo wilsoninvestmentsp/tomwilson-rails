@@ -1,3 +1,4 @@
+<% set_meta_tags(title: t('seo.resource.index.title'), description: t('seo.resource.index.description'), image: asset_url(t('seo.image_1')), twitter: {image: asset_url(t('seo.image_1'))}, og: {image: asset_url(t('seo.image_1'))}) %>
 <%= render 'layouts/jumbtron' %>
 <section class="main-body without-search-feature">
   <div class="container" ng:controller="AssetsCtrl">
@@ -11,7 +12,7 @@
         </div>
       </div>
       <div class="col-xs-12">
-        <h1>Resources</h1>
+        <h1>Resources of Real Estate Investment Properties</h1>
         <div class="sort-row">
           <span class="sort-span mar-right-15">
             <h5>Sort By:</h5>
@@ -28,7 +29,7 @@
         <div class="list-group mar-top-15">
           <div class="list-group-item resources-data" ng:repeat="asset in assets.items">
             <div class="row">
-              <div class="col-md-2 col-sm-3"><img src="<%= asset_url('loading.svg') %>" ng-attr-data-src="{{asset.image.image.thumb.url}}" class="img-responsive">
+              <div class="col-md-2 col-sm-3"><img src="<%= asset_url('loading.svg') %>" ng-attr-data-src="{{asset.image.image.thumb.url}}" class="img-responsive" alt="">
               </div>
               <div class="col-md-10 col-sm-9">
                 <h4>{{asset.title}}</h4>

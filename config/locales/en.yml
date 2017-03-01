@@ -34,3 +34,59 @@ en:
     label:
       property:
         offer_price: Offer Price
+  seo:
+    site_title: Wilson Investment Properties, Inc.
+    image_1: bg-header-small-house.jpg
+    image_2: bg-header-corporate.jpg
+    image_3: bg-header-building.jpg
+    image_4: bg-header-apartments.jpg
+    session: Login
+    home:
+      title: Real Estate Investing - Property Investment Company, US
+      description: Investing in Real Estate? TomWilson is best property investment company in United State. We are specialising in residential & commercial real estate syndication.
+    resource:
+      index:
+        title: Helpful Resources of Real Estate Investment Properties 
+        description: A property investment resource of market updates, expo, presentations, videos and tips. Visit Wilson Investment Properties resources section for help.
+      new: New Resource
+      edit: Edit Resource
+    import: Import Properties
+    contact_us:
+      title: Contact Us
+      description: Worried about financing in real estate investment? Feel free to contact us for help and buy residential and commercial properties in United State.
+    blog:
+      index:
+        title: Articles on Real Estate Syndication and Property Investment
+        description: By our articles we guide how to invest in property and how investors can make profit through syndication of real estate.
+      new: New Article
+      edit: Edit Article
+    faq:
+      title: Real Estate Investment FAQs for Buyers, Sellers and Investors
+      description: By our frequently asked questions (FAQs) about investing in real estate we help to get success in property investment for buyers, sellers and investors.
+    financing_investments:
+      title: Helpful Advice on Financing Investment in Property
+      description: Wilson Investment Properties has experts to help you determine what source is the best to get income after financing in property investment.
+    property_management:
+      title: Best Property Management Services Company in United State
+      description: Get full property management services by purchasing investment property from Wilson Investment Properties Inc. Our Managers are ready any time to help you. 
+    our_difference:
+      title: Our Difference - A Strategies for Success in Investment Properties
+      description: We use our decades of experience to maximize your return while selecting high quality properties in strong cities. We follow best strategies for success.
+    our_team:
+      index:
+        title: Our Team Members
+        description: Meet our California and Texas team members. A small biography about great team are growing all the time. Wilson Investment Properties Inc.
+      new: New Member
+      edit: Editing
+    event:
+      title: Real Estate Investing Events - Wilson Investment Properties
+      description: Join our events about Real Estate Investing. We guide peoples who are interested to get tips about how to make profit by investing finance in property.
+    radio_show:
+      title: Real Estate Radio Show on KDOW by Tom K. Wilson
+      description: Hear professional and latest advice on real estate markets, trends and economy by expert Real Estate Investor Tom K. Wilson on KDOW - The Business Radio Show.
+    property:
+      index: 
+        title: Investment Properties - Commercial & Residential Property, US
+        description: Real Estate Investment Properties for sale and lease. Find homes, duplex, fourplex, single family, multifamily and commercial property for investment in United State.
+      new: Add Property
+      edit: Editing

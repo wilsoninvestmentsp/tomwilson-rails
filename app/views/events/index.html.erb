@@ -1,3 +1,4 @@
+<% set_meta_tags(title: t('seo.event.title'), description: t('seo.event.description'), image: asset_url(t('seo.image_3')), twitter: {image: asset_url(t('seo.image_3'))}, og: {image: asset_url(t('seo.image_3'))}) %>
 <%= render 'layouts/jumbtron' %>
 <section class="main-body without-search-feature">
   <div class="container" ng:controller="EventsCtrl">
@@ -11,7 +12,7 @@
         </div>
       </div>
       <div class="col-xs-12">
-        <h1>Events</h1>
+        <h1>Events for Investing in Real Estate</h1>
         <div class="list-group">
           <h3 class="text-muted" ng:if="loading">Loading...</h3>
           <h3 class="text-muted" ng:if="!loading && events.length == 0">No upcoming events</h3>

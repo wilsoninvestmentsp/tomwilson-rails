@@ -1,7 +1,7 @@
 <%= @inquiry[:subject] %>
 ===============================================
 
-<%= @inquiry[:name] %>
+<%= "#{@inquiry[:first_name]} #{@inquiry[:last_name]}" %>
 <%= @inquiry[:email] %>
 <%= @inquiry[:phone] %>
 <%= @inquiry[:newsletter] ? 'Yes' : 'No' %>

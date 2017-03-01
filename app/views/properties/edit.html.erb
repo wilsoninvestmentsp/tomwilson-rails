@@ -1,3 +1,4 @@
+<% set_meta_tags(title: "#{t('seo.property.edit')} #{@property.raw_title} - #{t('seo.site_title')}") %>
 <%= content_for :breadcrumb_link, "#{link_to @property.raw_title, @property}" %>
 <%= content_for :page_title, "Editing: #{@property.raw_title}" %>
 <div ng:controller="PropertyCtrl">

@@ -76,3 +76,5 @@ gem 'config'
 gem 'browser'
 gem "cocoon"
 gem 'bootstrap-datepicker-rails'
+gem 'meta-tags'
+gem 'rubyzoho'

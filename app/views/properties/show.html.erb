@@ -1,3 +1,4 @@
+<% set_meta_tags(title: "Property In #{@property.raw_state} - #{@property.raw_title}", description: meta_description(@property), image: @property.image.thumb.url, twitter: {image: @property.image.thumb.url}, og: {image: @property.image.thumb.url}) %>
 <%= render 'layouts/jumbtron' %>
 <div ng:controller="PropertyCtrl">
     <section class="main-body without-search-feature">
@@ -26,12 +27,10 @@
 
           <div class="col-md-6 col-sm-12 col-xs-12">
             <div id="property-images-slider" class="owl-carousel owl-theme">
-            <div class="item">
-              <%= image_tag @property.image.url, class: 'img-responsive' %>   
-            </div>
+            <div class="item"><%= image_tag @property.image.url, class: 'img-responsive', alt: "Property Image - #{@property.raw_title}" %></div>
             <% @property.images.each do |property| %>
               <div class="item">
-                <%= image_tag property.image.url, class: 'img-responsive' %>   
+                <%= image_tag property.image.url, class: 'img-responsive', alt: "Property Image - #{@property.raw_title}" %>   
               </div>
               <% end %>
             </div>
@@ -178,13 +177,23 @@
             ng:show="show_form"
             >
             <div class="form-group">
-              <div class="col-xs-12">
+              <div class="col-sm-6 col-xs-12 pad-right-0">
                 <i class="fa fa-user input-icons" aria-hidden="true"></i>
                 <input
                 type="text"
                 class="form-control"
-                ng:model="inquiry.name"
-                placeholder="Your Name *"
+                ng:model="inquiry.first_name"
+                placeholder="First Name *"
+                required
+                />
+              </div>
+              <div class="col-sm-6 col-xs-12">
+                <i class="fa fa-user input-icons" aria-hidden="true"></i>
+                <input
+                type="text"
+                class="form-control"
+                ng:model="inquiry.last_name"
+                placeholder="Last Name *"
                 required
                 />
               </div>

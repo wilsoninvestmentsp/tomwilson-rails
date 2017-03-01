@@ -11,8 +11,7 @@ class Syndication < ActiveRecord::Base
   scope :active_syndications, -> { all_syndications.where(active: true) }
 
   validates_presence_of :title, :purchase_price
-  validates :purchase_price, :raise_amount, :preferred_return, :average_annual_return,
-    :irr, :price_per_share, :loan_amount, :loan_rate, :building_size,
+  validates :purchase_price, :raise_amount, :price_per_share, :loan_amount, :building_size,
     :lot_size, :number_of_buildings, :number_of_tenants, numericality: { greater_than_or_equal_to: 0, allow_blank: true }, length: { maximum: 10,
     too_long: '%{count} digits is the maximum allowed' }
 
