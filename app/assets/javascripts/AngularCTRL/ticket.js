@@ -10,8 +10,6 @@ App.controller('TicketCtrl',['$scope','$interval','$upload','$routeParams','$htt
     $("#home-contact").find(':checkbox').trigger('click');
   };
 
-	scope.alerts = [];
-
 	scope.moment = moment;
 	scope.submitForm = function(){
 
@@ -23,22 +21,30 @@ App.controller('TicketCtrl',['$scope','$interval','$upload','$routeParams','$htt
 			data: { inquiry: scope.inquiry }
 		})
 		.then(function(response) {
+			scope.inquiry = null;
+			$('#home-contact').modal('hide');
+			scope.openPopup('success', 'Thank You! Your ticket was successfully submitted!');
 
-			scope.alerts = [];
-			scope.alerts.push({
-				type: 'success',
-				message: 'Thank You! Your ticket was successfully submitted!'
-			});
 			delete scope.show_form;
 			delete scope.loading;
 
 		},
 		function(response){
-
+			$('#home-contact').modal('hide');
+			scope.openPopup('danger', 'Something Went Wrong!');
 			delete scope.loading;
+			scope.submitForm = null;
 
 		});
 
 	};
+	scope.openPopup = function(type,message){
+		var modalInstance = $uibModal.open({
+			animation: $scope.animationsEnabled,
+			templateUrl: '/angular?page=newsletter&type='+type+'&message='+message,
+			controller: 'VideoCtrl',
+			size: 'lg'
+		});
+	}
 
 }]);

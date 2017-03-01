@@ -460,6 +460,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .property-details .status-tag-right:after{left:-29px;border-width:30px 30px 0 0}
 .property-details .status-price-details li.links{text-align:left}
 .property-details .status-price-details li.links span{width:50%}
+.property-contact-popup .modal-title{font-size:16px}
 
 /* Blog Pages CSS */
 .blog-img-header img{margin-top:0}
@@ -524,6 +525,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .property-section .item{padding:0 7.5px}
 .magazine-section .img-responsive{margin-bottom:15px}
 .feedback-section{margin-bottom:108px}
+.col-xs-12.last-name{margin-top:15px}
 
 /* Common Body CSS */
 .main-body{margin-top:-193px;margin-bottom:125px}
@@ -552,7 +554,10 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 
 /*.list-selection{height:auto;border:none}*/
 /*.list-selection .list-unstyled{border:none;display:table;width:100%}*/
-.list-selection .list-unstyled li{border-radius:0;}
+.list-selection .list-unstyled li{border-radius:0}
+
+/* Property Details CSS */
+.property-contact-popup .pad-right-0{padding-right:15px;margin-bottom:15px}
 
 /* Blog Pages CSS */
 .blog-listing .listing-box, .blog-listing .listing-box .img-box{height:auto}

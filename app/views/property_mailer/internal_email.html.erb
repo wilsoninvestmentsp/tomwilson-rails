@@ -5,7 +5,7 @@
   </head>
   <body>
     <p>
-      Name: <%= @inquiry[:name] %><br>
+      Name: <%= "#{@inquiry[:first_name]} #{@inquiry[:last_name]}" %><br>
       Email: <%= @inquiry[:email] %><br>
       Phone: <%= @inquiry[:phone] %><br>
       Newsletter: <%= @inquiry[:newsletter] ? 'Yes' : 'No' %>

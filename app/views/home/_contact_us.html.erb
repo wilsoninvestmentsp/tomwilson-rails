@@ -1,4 +1,4 @@
-<div id="home-contact" class="modal fade" role="dialog">
+<div id="home-contact" class="modal fade" role="dialog" ng:controller="TicketCtrl">
   <div class="modal-dialog property-contact-popup">
     <div class="modal-content"> 
       <div class="modal-header">
@@ -6,12 +6,16 @@
         <uib-alert ng:repeat="alert in alerts" type="{{alert.type}}">{{alert.message}}</uib-alert>
         <h4 class="modal-title"><i class="fa fa-envelope" aria-hidden="true"></i> Contact Us</h4>
       </div>
-      <div class="modal-body" ng:controller="TicketCtrl">
+      <div class="modal-body">
         <form name="ticket_form" ng:submit="submitForm()" class="form-horizontal" novalidate>
           <div class="form-group">
-            <div class="col-xs-12">
+            <div class="col-sm-6 col-xs-12">
               <i class="fa fa-user input-icons" aria-hidden="true"></i>
-              <input id="name" type="text" class="form-control" ng:model="inquiry.name" placeholder="Full Name" required>
+              <input id="first_name" type="text" class="form-control" ng:model="inquiry.first_name" placeholder="First Name" required>
+            </div>
+            <div class="col-sm-6 col-xs-12 last-name">
+              <i class="fa fa-user input-icons" aria-hidden="true"></i>
+              <input id="last_name" type="text" class="form-control" ng:model="inquiry.last_name" placeholder="Last Name" required>
             </div>
           </div>
           <div class="form-group">
