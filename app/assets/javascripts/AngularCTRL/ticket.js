@@ -10,8 +10,6 @@ App.controller('TicketCtrl',['$scope','$interval','$upload','$routeParams','$htt
     $("#home-contact").find(':checkbox').trigger('click');
   };
 
-	scope.alerts = [];
-
 	scope.moment = moment;
 	scope.submitForm = function(){
 
@@ -23,12 +21,7 @@ App.controller('TicketCtrl',['$scope','$interval','$upload','$routeParams','$htt
 			data: { inquiry: scope.inquiry }
 		})
 		.then(function(response) {
-
-			// scope.alerts = [];
-			// scope.alerts.push({
-			// 	type: 'success',
-			// 	message: 'Thank You! Your ticket was successfully submitted!'
-			// });
+			scope.inquiry = null;
 			$('#home-contact').modal('hide');
 			scope.openPopup('success', 'Thank You! Your ticket was successfully submitted!');
 
