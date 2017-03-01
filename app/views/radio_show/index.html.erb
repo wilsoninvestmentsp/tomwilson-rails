@@ -1,4 +1,4 @@
-<% set_meta_tags title: t('seo.radio_show.title'), description: t('seo.radio_show.description') %>
+<% set_meta_tags(title: t('seo.radio_show.title'), description: t('seo.radio_show.description'), image: asset_url(t('seo.image_3')), twitter: {image: asset_url(t('seo.image_3'))}, og: {image: asset_url(t('seo.image_3'))}) %>
 <%= render 'layouts/jumbtron' %>
 <section class="main-body without-search-feature">
   <div class="container" ng:controller="RadioShowCtrl">

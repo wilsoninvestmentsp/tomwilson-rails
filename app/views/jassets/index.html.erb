@@ -1,4 +1,4 @@
-<% set_meta_tags title: t('seo.resource.index.title'), description: t('seo.resource.index.description') %>
+<% set_meta_tags(title: t('seo.resource.index.title'), description: t('seo.resource.index.description'), image: asset_url(t('seo.image_1')), twitter: {image: asset_url(t('seo.image_1'))}, og: {image: asset_url(t('seo.image_1'))}) %>
 <%= render 'layouts/jumbtron' %>
 <section class="main-body without-search-feature">
   <div class="container" ng:controller="AssetsCtrl">
