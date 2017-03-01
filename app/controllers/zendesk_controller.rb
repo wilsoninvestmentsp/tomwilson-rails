@@ -7,17 +7,17 @@ class ZendeskController < ApplicationController
 		p = params.require(:inquiry)
 		ZohoNewsletter.signup(p.merge(investor_source: 'Website'))
 		
-		# if p[:property].present?
+		if p[:property].present?
 
-		# 	PropertyMailer.user_email(p).deliver_later
-		# 	PropertyMailer.internal_email(p).deliver_later
+			PropertyMailer.user_email(p).deliver_later
+			PropertyMailer.internal_email(p).deliver_later
 
-		# else
+		else
 
-		# 	PropertyMailer.contact_user(p).deliver_later
-		# 	PropertyMailer.contact_internal(p).deliver_later
+			PropertyMailer.contact_user(p).deliver_later
+			PropertyMailer.contact_internal(p).deliver_later
 
-		# end
+		end
 
 		render json: params,status: 200
 
