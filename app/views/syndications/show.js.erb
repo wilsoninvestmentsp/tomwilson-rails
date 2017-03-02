@@ -1,0 +1,9 @@
+<% if params[:year].present? %>
+  $('#annual_return_detail').html("<%= escape_javascript(render partial: 'annual_return_detail', locals: {annual_return: @annual_return}) %>");
+<% else %>
+  $('#report-card-details').html("<%= escape_javascript(render partial: 'show', locals: {syndication: @syndication}) %>");
+  $('#annual_return_detail').html("<%= escape_javascript(render partial: 'annual_return_detail', locals: {annual_return: @annual_return}) %>");
+  $('#report-card-details').modal('show');
+<% end %>
+$('#syndication_years').selectpicker();
+Syndication.databyYear();

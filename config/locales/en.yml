@@ -21,6 +21,15 @@
 
 en:
   hello: "Hello world"
+  newsletter:
+    button_title: <span>Get</span> Exclusive Deals
+    title: Get FREE Access to Exclusive Deals and News
+    email: Email
+    first_name: First Name
+    last_name: Last Name
+    phone: Phone
+    sign_up: Sign Up
+    submitting: Submitting...
   helpers:
     label:
       property:

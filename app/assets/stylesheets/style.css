@@ -49,8 +49,9 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .form-control:focus{border-color:#66afe9;outline:0;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);-moz-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);-ms-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);-o-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)}
 
 /* Chinese Content Page */
-.chinese-content ul:first-of-type{display:inline-table;padding:0 0 0 15px}
-.chinese-content p.text-center .align-left{float:left;margin-right:25px;margin-bottom:15px}
+.chinese-content .second-img .img-responsive{max-height:411.75px}
+.chinese-content p.text-center{text-align:center !important}
+.chinese-content h3{font-weight:bold}
 
 /* Index Page CSS */
 .first-section{height:500px}
@@ -416,6 +417,59 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .contact-us .checkbox label input[type="checkbox"]:disabled + .cr{opacity:.5}
 .contact-us textarea{resize:none}
 
+/* Investor Performance CSS */
+.report-card .listing-box{display:table;position:relative;width:100%;background:#fff;-webkit-box-shadow:0 0 4px #999;-moz-box-shadow:0 0 4px #999;-ms-box-shadow:0 0 4px #999;-o-box-shadow:0 0 4px #999;box-shadow:0 0 4px #999;margin-bottom:30px;height:590px;overflow:hidden;text-align:center}
+.report-card .listing-box:hover{-webkit-box-shadow:0 0 4px#454545;-moz-box-shadow:0 0 4px #454545;-ms-box-shadow:0 0 4px #454545;-o-box-shadow:0 0 4px #454545;box-shadow:0 0 4px #454545}
+.report-card .listing-box:hover h3 a{color:#525252}
+.report-card .listing-box .img-box{position:relative;overflow:hidden;background:#fff}
+.report-card .listing-box .img-box img{display:inline-block;transition:all .2s ease-in-out;-webkit-transition:all .2s ease-in-out;-moz-transition:all .2s ease-in-out;-ms-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out}
+.report-card .listing-box:hover .img-box img{transform:scale(1.1);-webkit-transform:scale(1.1);-moz-transform:scale(1.1);-ms-transform:scale(1.1);-o-transform:scale(1.1)}
+.report-card .listing-box h3{margin:0;font-size:16px;height:60px;padding:20px 10px 0 10px;border-bottom:solid 1px #ddd;background:#f5f5f5;word-wrap:break-word}
+.report-card .listing-box h3 a{color:#407cbb;text-decoration:none;width:100%;display:inline-table}
+.report-card .list-unstyled{padding:0 10px;margin:10px 5px;text-align:left}
+.report-card .list-unstyled li{padding:5px 0;display:table;width:100%}
+.report-card .list-unstyled li b{font-weight:normal}
+.report-card .list-unstyled li .left{float:left;text-align:left;width:65%;display:inline-block}
+.report-card .list-unstyled li .right{float:left;text-align:right;width:35%;display:inline-block}
+.report-card .qtr-data{padding:8px 0 0 0;margin:0;list-style:none;display:table;width:100%;color:#fff;text-align:center}
+.report-card .qtr-data li{width:25%;float:left;padding:0 !important}
+.report-card .qtr-data li.q1{background:#e57373}
+.report-card .qtr-data li.q2{background:#29B6F6}
+.report-card .qtr-data li.q3{background:#8BC34A}
+.report-card .qtr-data li.q4{background:#FDD835}
+.report-card .qtr-data li b{display:block}
+.report-card .button-links-row{position:absolute;bottom:15px;width:100%}
+.report-card .btn.border-btn{min-width:90px}
+.report-card .btn.border-btn:nth-child(2n){margin-left:5px}
+
+#report-card-details .modal-dialog{width:620px}
+#report-card-details .modal-dialog .report-card{height:auto}
+#report-card-details .modal-dialog .report-card .listing-box{box-shadow:none;height:auto;margin-bottom:0}
+#report-card-details .modal-dialog .modal-content{border-radius:0}
+#report-card-details button.close{position:absolute;z-index:9;top:-12px;right:-12px;background:#ddd;color:#525252;opacity:1;border-radius:50%;height:24px;width:24px;line-height:24px}
+#report-card-details .dropdown-row{border-bottom:solid 1px #ddd;padding-bottom:10px;padding-top:0}
+#report-card-details .notes-text{padding-top:8px}
+#report-card-details .notes-text .title{float:left;width:50px}
+#report-card-details .notes-text .text{float:left}
+#report-card-details .drop-label{line-height:30px}
+#report-card-details .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn){width:90px}
+#report-card-details .btn.dropdown-toggle{padding:4px 12px}
+#report-card-details .report-card .list-unstyled li .left{width:60%}
+#report-card-details .report-card .list-unstyled li .right{width:40%}
+#report-card-details .report-card .listing-box h3{color:#407cbb;height:auto;padding:20px 10px}
+
+
+.two-col-list{font-size:13px}
+.notes-term{padding:5px 0;border-bottom:solid 1px #ddd}
+.two-col-list dl{padding:5px 0;margin:0;border-top:1px solid #ddd}
+.two-col-list dt{float:left;margin-right:12px}
+.two-col-list dd{display:block;margin:0;text-align:right;overflow:hidden}
+.two-col-list h4{color:#a0a0a0}
+
+/* Validation UI CSS */
+.alert{padding:10px 35px 10px 10px;margin-bottom:0}
+.alert ul{margin-bottom:0}
+
 @media(max-width:479px){
 .border-btn{padding:8px;font-size:13px}
 .border-btn .fa{margin-right:4px}
@@ -470,6 +524,13 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .blog-listing .listing-box .status-dtls li:nth-child(2n){float:right}
 .blog-content-section .status-dtls li{display:block;padding-right:0}
 .blog-content-section .status-dtls li:first-of-type{padding-bottom:5px}
+
+/* Investor Performance CSS */
+  .report-card .listing-box{height:auto;padding-bottom:15px;margin-bottom:30px !important}
+  #syndication-listing .col-xs-12{width:100%}
+  #report-card-details .modal-dialog{width:90%;margin:0 auto;margin-top:30px;margin-bottom:30px}
+  #report-card-details .report-card .listing-box{margin-bottom:0 !important;padding-bottom:0}
+  .report-card .button-links-row{position:relative;bottom:auto}
 }
 @media(min-width:480px) and (max-width:767px){
 /* Common CSS */
@@ -513,7 +574,19 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 
 /* Blog Pages CSS */
 .blog-img-header img{margin-top:-70px}
+
+/* Investor Performance CSS */
+  .report-card, #syndication-listing .col-xs-12{padding-left:7.5px;padding-right:7.5px}
+  .report-card .listing-box{min-height:612px}
+  #syndication-listing .col-xs-12{width:50%}
+  #syndication-listing .two-col-list .col-xs-12{width:100%}
+  .report-card .list-unstyled li .left{width:55%}
+  .report-card .list-unstyled li .right{width:45%}
+  /*.report-card .border-btn{position:absolute;bottom:15px;left:50%;width:100px;margin-left:-50px}*/
+  #report-card-details .modal-dialog{width:450px;margin:0 auto;margin-top:50px;margin-bottom:50px}
+  .report-card .btn.border-btn{padding:6px 12px;font-size:14px}
 }
+
 @media(max-width:767px){
 .topfix{margin-top:66px !important}
 
@@ -566,38 +639,43 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .latest-blogs-section .item{padding-left:7.5px;padding-right:7.5px}
 
 /* Chinese Content Page CSS */
-.chinese-content p.text-center{text-align:center !important}
-.chinese-content p.text-center .align-left{max-width:100%;float:none;display:inline-block}
+.chinese-content .col-sm-5.col-xs-12, .chinese-content .col-sm-7.col-xs-12{text-align:center}
+.chinese-content .col-sm-5.col-xs-12 .img-responsive, .chinese-content .col-sm-7.col-xs-12 .img-responsive{display:inline-block}
+.chinese-content .second-img .img-responsive{margin-top:30px;width:100%;max-width:550px;max-height:auto}
+
+/* Investor Performance CSS */
+  .two-col-list dl:last-child{border-bottom:solid 1px #ddd}
+  .two-col-list h4{font-size:16px}
 }
 
 @media(min-width:768px) and (max-width:991px){
- .banner-bg h3{font-size:18px !important;line-height:24px;width:100%;margin-left:0;margin-right:0}
-
-
+  .banner-bg h3{font-size:18px !important;line-height:24px;width:100%;margin-left:0;margin-right:0}
   .property-section .feature-property-listing{padding-left:7.5px;padding-right:7.5px}
   .property-section .item{padding:0 7.5px}
   .magazine-section .imgs, .magazine-section .col-sm-3{padding-left:7.5px;padding-right:7.5px}
 
-/* Property Listing Page CSS */
-/*.list-selection{height:54px}*/
-/*.list-selection .list-unstyled li a{padding:16px 10px}*/
-/*
-.list-selection .sort-option h5{display:block;line-height:inherit}
-*/
-.property-listing, .property-listing .col-sm-4,
-.blog-listing, .blog-listing .col-sm-6,
-.latest-blogs-section .blog-listing, .latest-blogs-section .item{padding-left:7.5px;padding-right:7.5px}
-.property-listing .listing-box{height:339px;margin-bottom:15px}
-/*.advance-search .form-group .first{padding-left:15px}*/
-.content-section h1{font-size:28px}
+  /* Property Listing Page CSS */
+  /*.list-selection{height:54px}*/
+  /*.list-selection .list-unstyled li a{padding:16px 10px}*/
+  /*
+  .list-selection .sort-option h5{display:block;line-height:inherit}
+  */
+  .property-listing, .property-listing .col-sm-4,
+  .blog-listing, .blog-listing .col-sm-6,
+  .latest-blogs-section .blog-listing, .latest-blogs-section .item{padding-left:7.5px;padding-right:7.5px}
+  .property-listing .listing-box{height:339px;margin-bottom:15px}
+  /*.advance-search .form-group .first{padding-left:15px}*/
+  .content-section h1{font-size:28px}
 
-/* Blog Pages CSS */
-.blog-listing .listing-box{margin-bottom:15px}
-.blog-img-header img{margin-top:-140px}
+  /* Blog Pages CSS */
+  .blog-listing .listing-box{margin-bottom:15px}
+  .blog-img-header img{margin-top:-140px}
 
-/* Chinese Content Page CSS */
-.chinese-content h3:first-of-type{margin-top:20px}
-.chinese-content p.text-center .align-left{max-width:50%;margin-bottom:25px}
+  /* Chinese Content Page CSS */
+  .chinese-content .second-img .img-responsive{max-height:254.25px}
+
+  /* Investor Performance CSS */
+  .report-card .listing-box{height:576px}
 }
 @media(max-width:991px){
 
@@ -624,5 +702,16 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .blog-img-header img{margin-top:-220px}
 
 /* Chinese Content Page CSS */
-.align-left{max-width:40%;}
+.chinese-content .second-img .img-responsive{max-height:336.75px}
+
+/* Investor Performance CSS */
+  .report-card .listing-box{height:546px}
+}
+
+@media(max-width:1199px){
+  /* Investor Performance CSS */
+  .report-card, #syndication-listing .col-sm-6{padding-left:7.5px;padding-right:7.5px}
+  #syndication-listing .two-col-list .col-sm-6 {padding-left:15px;padding-right:15px}
+  .report-card.modal-content{padding-left:0;padding-right:0}
+  .report-card .listing-box{margin-bottom:15px}
 }

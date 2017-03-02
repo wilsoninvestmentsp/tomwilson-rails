@@ -6,7 +6,7 @@
 /* Body Section CSS */
 
 .fixed-admin-body{margin-top:30px;margin-bottom:30px;display:table;width:100%;background:#fff;padding-left:15px;padding-right:15px;-webkit-box-shadow:0 0 4px #999;-moz-box-shadow:0 0 4px #999;-ms-box-shadow:0 0 4px #999;-o-box-shadow:0 0 4px #999;box-shadow:0 0 4px #999}
-.fixed-admin-body h1{margin-top:20px;margin-bottom:-1px;padding-bottom:15px;font-size:30px;color:#0288D1;border-bottom:solid 1px #ddd}
+.fixed-admin-body h1{margin-top:20px;margin-bottom:-1px;padding-bottom:15px;font-size:30px;color:#0288D1;border-bottom:solid 1px #ddd;word-wrap:break-word}
 .fixed-admin-body h1 .fa{margin-right:6px}
 .fixed-admin-body textarea{resize:none}
 .fixed-admin-body .left-col{padding-right:20px}
@@ -21,6 +21,12 @@
 .fixed-admin-body .no-pad-left{padding-left:0}
 .fixed-admin-body .no-pad-right{padding-right:0}
 .fixed-admin-body .preview-img{width:60%}
+
+.fixed-admin-body .year-value-fields{display:inline-table;width:100%}
+.fixed-admin-body .year-value-fields .del-link{text-align:right;margin-top:20px}
+.fixed-admin-body .year-value-fields .qtr-fields{padding-left:10px;padding-right:10px}
+.fixed-admin-body .year-value-fields .qtr-fields .col-sm-3{padding-left:5px;padding-right:5px}
+.fixed-admin-body .form-group.datepicker-main{position:relative}
 
 /* Add - Edit Property CSS */
 .add-property-form .form-row{margin-bottom:30px}
@@ -81,6 +87,7 @@
   .fixed-admin-body .blue-btn,
   .fixed-admin-body .btn-danger,
   .import-file .btn-default{font-size:14px;padding:8px 14px}
+  .fixed-admin-body .col-xs-12.links{margin-bottom:15px}
 
   /* Add - Edit Property CSS */
   .add-property-form .form-group.btype-dropdown,
@@ -110,6 +117,8 @@
   .fixed-admin-body .btn-sm.input-btns{padding:5px 10px;font-size:12px}
   .fixed-admin-body .btn-danger.btn-sm, .fixed-admin-body .btn-success.btn-sm{font-size:12px;padding:5px 10px}
   .fixed-admin-body .blue-btn.btn-sm{font-size:12px;padding:5px 9px}
+  .fixed-admin-body .blue-btn.common,
+  .fixed-admin-body .btn-danger.common{font-size:14px;padding:6px 12px}
 
   /* Add - Edit Property CSS */
   .add-property-form table tr td{white-space:normal !important}
@@ -130,6 +139,7 @@
   .fixed-admin-body .left-col, .add-property-form .left-col{padding-right:15px}
   .fixed-admin-body .right-col, .add-property-form .right-col{padding-left:15px}  
   .table .btn-success.btn-sm, .table .btn-danger.btn-sm{margin-bottom:4px}
+  .fixed-admin-body .year-value-fields .del-link{text-align:left;margin-top:15px}
 }
 @media(min-width:992px) and (max-width:1199px){
   /* Add - Edit Property CSS */

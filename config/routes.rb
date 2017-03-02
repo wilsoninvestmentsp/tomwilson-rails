@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   # resources :articles
   resources :blogs, path: 'articles'
+  resources :syndications, path: 'investor-performance'
 
   get 'api/v1/map.png',to: 'map#index',as: 'map'
   get 'api/v1/map.js',to: 'map#js',as: 'js'
@@ -98,7 +99,7 @@ Rails.application.routes.draw do
   end
 
   root 'home#index'
-  # get 'cn' => 'home#index_cn'
+  get 'cn' => 'home#index_cn'
 
   if Rails.env.production?
     get '404',to: 'application#page_not_found'

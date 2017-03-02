@@ -33,7 +33,7 @@
     <div class="row">
       <div class="col-xs-12 text-center">
         <% if @blogs.current_page < @blogs.num_pages %>
-          <%= link_to blogs_path(page: params.fetch(:page, 2)), id: 'more_blogs', class: 'btn btn-lg border-btn space-setting', remote: true do %><i class="fa fa-th" aria-hidden="true"></i> View More Articles
+          <%= link_to blogs_path, id: 'more_blogs', class: 'btn btn-lg border-btn space-setting', remote: true do %><i class="fa fa-th" aria-hidden="true"></i> View More Articles
           <% end %>
         <%  end %>
       </div>

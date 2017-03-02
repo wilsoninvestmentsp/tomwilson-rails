@@ -48,7 +48,7 @@
           <div id="latest-blogs" class="owl-carousel owl-theme">
             <% @blogs.each do |blog| %>
               <div class="item">
-                <div class="listing-box">
+                <div class="listing-box clickable_div">
                   <div class="img-box">
                     <a href="<%= blog_path(blog) %>">
                       <%= image_tag 'loading.svg', 'data-src': blog.image.thumb.url, class: 'img-responsive', alt: "Article Image - #{@blog.title}" %>

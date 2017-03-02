@@ -1,0 +1,36 @@
+<% syndications.each do |syndication| %>
+<div class="col-md-4 col-sm-6 col-xs-12">
+  <div class="listing-box">
+    <div class="img-box"><%= image_tag 'loading.svg', 'data-src': syndication.image.thumb.url, alt: '', class: 'img-responsive' %></div>
+    <h3><%= link_to syndication.title.truncate(Settings.truncate.syndication.title), syndication_path(syndication), remote: true, id: 'syndication_title' %></h3>
+    <ul class="list-unstyled">
+      <% syndication.annual_returns.by_latest_year.each do |annual_return| %>
+        <% if annual_return.projected_annual_return.present? || annual_return.actual_annual_return.present? %>
+          <div class="notes-term"><span class="text-red">*</span> on $100,000 investment</div>
+        <% end %>
+        <% if annual_return.projected_annual_return.present? %><li><span class="left"><b>Projected Annual Return*:</b></span><span class="right"><%= raw_price(annual_return.projected_annual_return) %></span></li><% end %>
+        <% if annual_return.actual_annual_return.present? %><li><span class="left"><b>Actual Annual Return*:</b></span><span class="right"><%= annual_return.actual_annual_return %></span></li><% end %>
+        <% if annual_return.quarter_1.present? || annual_return.quarter_2.present? || annual_return.quarter_3.present? || annual_return.quarter_4.present? %>
+          <li><span class="left"><b>Quarterly Disbursement Amount*:</b></span> <span class="right"><%= annual_return.year %></span>
+            <ul class="qtr-data">
+              <li class="q1"><b>Q1</b><%= quarterly_price(annual_return.quarter_1) %></li>
+              <li class="q2"><b>Q2</b><%= quarterly_price(annual_return.quarter_2) %></li>
+              <li class="q3"><b>Q3</b><%= quarterly_price(annual_return.quarter_3) %></li>
+              <li class="q4"><b>Q4</b><%= quarterly_price(annual_return.quarter_4) %></li>
+            </ul>
+          </li>
+        <% end %>
+      <% end %>
+      <% if syndication.purchase_price.present? %><li><span class="left"><b>Purchase Price + Cap Ex:</b></span><span class="right"><%= raw_price(syndication.purchase_price) %></span></li><% end %>
+      <% if syndication.raise_amount.present? %><li><span class="left"><b>Raise Amount:</b></span><span class="right"><%= raw_price(syndication.raise_amount) %></span></li><% end %>
+    </ul>
+    <div class="button-links-row">
+    <%= link_to 'More Info', syndication_path(syndication), remote: true, class: 'btn border-btn', id: 'learn_more' %>
+    <% if current_user %>
+      <%= link_to 'Edit', edit_syndication_path(syndication), class: 'btn border-btn' %>
+    <% end %>
+    </div> 
+  </div>
+</div>
+<div id="report-card-details" class="modal fade" role="dialog"></div>
+<% end %>

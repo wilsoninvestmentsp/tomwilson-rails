@@ -1,4 +1,5 @@
 <ul class="nav navbar-nav navbar-right">
+  <li><%= link_to 'Investor Performance', syndications_path %></li>
   <li><%= link_to 'Properties', properties_path %></li>
   <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Investor Education<span class="caret"></span></a>
@@ -15,8 +16,13 @@
       <li><%= link_to 'Resources', jassets_path %></li>
     </ul>
   </li>
-  <li><a href="/events">Events</a></li>
-  <li><a href="/radio-show">Radio Show</a></li>
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Events<span class="caret"></span></a>
+    <ul class="dropdown-menu">
+      <li><%= link_to 'Events', events_path %></li>
+      <li><%= link_to 'Radio Show', radio_show_path %></li>
+    </ul>
+  </li>
   <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About Us<span class="caret"></span></a>
     <ul class="dropdown-menu">
@@ -35,9 +41,9 @@
     </ul>
   </li>
   <% end %>
- <!--  <li class="flag-icon">
-    <%#= link_to cn_path do %>
-      <%#= image_tag 'chinese-flag.gif', title: 'Chinese Investor', alt: '', class: 'img-responsive' %>
-    <%# end %>
-  </li> -->
+  <li class="flag-icon">
+    <%= link_to cn_path do %>
+      <%= image_tag 'chinese-flag.gif', title: 'Chinese Investor', alt: '', class: 'img-responsive' %>
+    <% end %>
+  </li>
 </ul>

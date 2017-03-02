@@ -1,0 +1,57 @@
+<div class="clearfix"></div>
+<div class="new_annual_return">
+  <div class="year-value-fields mar-top-15">
+    <div class="col-md-3 col-sm-12 col-xs-12">
+      <div class="form-group">
+        <%= f.label :year, class: 'control-label' %>
+        <%= f.number_field :year, min: 0, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-12 col-xs-12">
+      <div class="form-group">
+        <%= f.label :projected_annual_return, 'Projected Annual Return', class: 'control-label' %>
+        <div class="input-group">
+          <div class="input-group-addon">$</div>
+          <%= f.number_field :projected_annual_return, min: 0, class: 'form-control' %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-12 col-xs-12">
+      <div class="form-group">
+        <%= f.label :actual_annual_return, 'Actual Annual Return', class: 'control-label' %>
+        <div class="input-group">
+          <div class="input-group-addon">$</div>
+          <%= f.number_field :actual_annual_return, min: 0, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="row qtr-fields">
+        <div class="col-sm-3 col-xs-12">
+          <div class="form-group">
+            <%= f.label :quarter_1, 'Q1 ($)', class: 'control-label' %>
+            <%= f.number_field :quarter_1, min: 0, class: 'form-control' %>
+          </div>
+        </div>
+        <div class="col-sm-3 col-xs-12">
+          <div class="form-group">
+            <%= f.label :quarter_2, 'Q2 ($)', class: 'control-label' %>
+            <%= f.number_field :quarter_2, min: 0, class: 'form-control' %>
+          </div>
+        </div>
+        <div class="col-sm-3 col-xs-12">
+          <div class="form-group">
+            <%= f.label :quarter_3, 'Q3 ($)', class: 'control-label' %>
+            <%= f.number_field :quarter_3, min: 0, class: 'form-control' %>
+          </div>
+        </div>
+        <div class="col-sm-3 col-xs-12">
+          <div class="form-group">
+            <%= f.label :quarter_4, 'Q4 ($)', class: 'control-label' %>
+            <%= f.number_field :quarter_4, min: 0, class: 'form-control' %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 col-sm-12 col-xs-12 del-link"><%= link_to_remove_association 'Delete', f, { wrapper_class: 'new_annual_return', class: 'btn btn-danger common' } %></div>
+    <div class="col-xs-12"><hr></div>
+  </div>
+</div>
