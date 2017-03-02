@@ -1,33 +1,29 @@
 <div id="newsletter" ng:controller="MailChimpCtrl">
   <div id="newsletter-form" class="panel panel-default">
     <form name="signup_form" ng:submit="submitForm()" novalidate class="form panel-body">
-      <h5>Get FREE Access to Exclusive Deals and News</h5>
+      <div class="form-group"><h5><%= t('newsletter.title') %></h5></div>
       <div class="form-group">
-        <div class="col-xs-6 left-col"><i class="fa fa-user input-icons" aria-hidden="true"></i>
-          <input type="text" ng:model="signup.first_name" class="form-control" placeholder="First Name" required>
-        </div>
-        <div class="col-xs-6 right-col">
-          <i class="fa fa-user input-icons" aria-hidden="true"></i>
-          <input type="text" ng:model="signup.last_name" class="form-control" placeholder="Last Name" required>
-        </div>
+        <i class="fa fa-user input-icons" aria-hidden="true"></i>
+        <input type="text" ng:model="signup.merge_fields.FNAME" class="form-control" placeholder="<%= t('newsletter.first_name') %>" required>
       </div>
       <div class="form-group">
-        <div class="col-xs-6 left-col">
-          <i class="fa fa-envelope" aria-hidden="true"></i>
-          <input type="email" ng:model="signup.email" class="form-control" placeholder="Email" required>
-        </div>
-        <div class="col-xs-6 right-col">
-          <i class="fa fa-phone" aria-hidden="true"></i>
-          <input type="text" ng:model="signup.phone" class="form-control" placeholder="Phone" required>
-        </div>
+        <i class="fa fa-user input-icons" aria-hidden="true"></i>
+        <input type="text" ng:model="signup.merge_fields.LNAME" class="form-control" placeholder="<%= t('newsletter.last_name') %>" required>
       </div>
-      <button type="submit" class="btn border-btn" ng:if="!loading"><i class="fa fa-check-square-o" aria-hidden="true"></i> Sign Up</button>
-      <button type="submit" class="btn border-btn" disabled="disabled" ng:if="loading"><i class="fa fa-check-square-o" aria-hidden="true"></i> Submitting...</button>
+      <div class="form-group">
+        <i class="fa fa-envelope" aria-hidden="true"></i>
+        <input type="email" ng:model="signup.merge_fields.EMAIL" class="form-control" placeholder="<%= t('newsletter.email') %>" ng:change="signup.email_address = signup.merge_fields.EMAIL" required>
+      </div>
+      <div class="form-group">
+        <i class="fa fa-phone" aria-hidden="true"></i>
+        <input type="text" ng:model="signup.merge_fields.MMERGE3" class="form-control" placeholder="<%= t('newsletter.phone') %>" required>
+      </div>
+      <button type="submit" class="btn border-btn" ng:if="!loading"><i class="fa fa-check-square-o" aria-hidden="true"></i> <%= t('newsletter.sign_up') %></button>
+      <button type="submit" class="btn border-btn" disabled="disabled" ng:if="loading"><i class="fa fa-check-square-o" aria-hidden="true"></i> <%= t('newsletter.submitting') %></button>
     </form>
   </div>
-  <div id="newsletter-tab"><i class="fa fa-envelope" aria-hidden="true"></i> <span>Get</span> Exclusive Deals</div>
+  <div id="newsletter-tab"><i class="fa fa-envelope" aria-hidden="true"></i> <%= raw(t('newsletter.button_title')) %></div>
 </div>
-
 <div id="inquiry" ng:controller="TicketCtrl">
   <div id="inquiry-form" class="panel panel-default">
     <form name="ticket_form" ng:submit="submitForm()" novalidate class="form panel-body">
