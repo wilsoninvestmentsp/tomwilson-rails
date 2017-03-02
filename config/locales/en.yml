@@ -90,3 +90,9 @@ en:
         description: Real Estate Investment Properties for sale and lease. Find homes, duplex, fourplex, single family, multifamily and commercial property for investment in United State.
       new: Add Property
       edit: Editing
+    syndication:
+      index:
+        title: Investor Performance
+        description: Get all performance details about of investment by our investor at TomWilson Investment Properties.
+      new: New Investor Performance
+      edit: Edit Investor Performance
