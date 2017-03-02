@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  after_filter :reset_locale, only: :index_cn
   def index
     @testimonies = Testimony.all
     properties = Property.active.for_sale_and_reserved.limit(6)
@@ -7,5 +8,11 @@ class HomeController < ApplicationController
 
   def index_cn
     I18n.locale = :cn
+  end
+
+  private
+
+  def reset_locale
+    I18n.locale = :en
   end
 end
