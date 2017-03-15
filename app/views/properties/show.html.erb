@@ -206,7 +206,7 @@
 </div>
 <script type="text/javascript">
    $(document).ready(function(){
-    var auto_play = ($('.item').length == 1) ? false : 4000;
+    var auto_play = ($('#property-images-slider .item').length == 1) ? false : 4000;
     $("#property-images-slider").owlCarousel({autoPlay:auto_play,items:1,itemsDesktop:[1199,1],itemsTablet:[991,1],itemsMobile:[767,1],transitionStyle:"fade"});
     });
 </script>

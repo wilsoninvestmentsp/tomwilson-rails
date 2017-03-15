@@ -84,6 +84,7 @@ Rails.application.routes.draw do
   get 'youtube/:id',to: 'youtube#show'
 
   get 'radio-show',to: 'radio_show#index',as: 'radio_show'
+  get 'real-estate-radio-live' => redirect('/radio-show')
   put 'radio-show',to: 'radio_show#update'
 
   resources :images
@@ -107,4 +108,5 @@ Rails.application.routes.draw do
     get '500',to: 'application#server_error'
   end
 
+  get '*path' => redirect('/')
 end
