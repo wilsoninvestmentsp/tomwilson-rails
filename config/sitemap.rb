@@ -1,5 +1,6 @@
 SitemapGenerator::Sitemap.default_host = 'http://www.tomwilsonproperties.com'
 SitemapGenerator::Sitemap.compress = false
+SitemapGenerator::Sitemap.public_path = 'tmp/'
 SitemapGenerator::Sitemap.create do
   add syndications_path, priority: 0.7
   add properties_path, priority: 0.7
@@ -23,3 +24,5 @@ SitemapGenerator::Sitemap.create do
     add property_path(property), lastmod: property.updated_at, priority: 0.9
   end
 end
+cloud_sitemap = Cloudinary::Uploader.upload('tmp/sitemap.xml', resource_type: :auto, use_filename: true, use_root_path: true, unique_filename: false)
+SitemapGenerator::Sitemap.sitemaps_host = cloud_sitemap[:url]
