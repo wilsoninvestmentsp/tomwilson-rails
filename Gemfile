@@ -78,3 +78,4 @@ gem "cocoon"
 gem 'bootstrap-datepicker-rails'
 gem 'meta-tags'
 gem 'rubyzoho'
+gem 'sitemap_generator'

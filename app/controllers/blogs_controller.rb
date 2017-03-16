@@ -44,8 +44,9 @@ class BlogsController < ApplicationController
 
   def set_blog
     @blog = Blog.where(slug: params[:id]).first
+    redirect_to blogs_path, flash: {danger: "Article '#{params[:id]}' not found"} if @blog.nil?
   end
-
+ 
   def blog_params
     params.require(:blog).permit(:title, :content, :summary, :author, :status, :image)
   end

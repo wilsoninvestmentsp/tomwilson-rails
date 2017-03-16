@@ -93,7 +93,8 @@ class PropertiesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_property
-      @property = Property.where(slug: params[:id],active: true).first
+      @property = Property.where(slug: params[:id], active: true).first
+      redirect_to properties_path, flash: {danger: "Property '#{params[:id]}' not found"} if @property.nil?
     end
 
     def set_status_options
