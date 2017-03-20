@@ -20,6 +20,7 @@ class Property < ActiveRecord::Base
   scope :not_sold, -> { where.not(:status => 'sold') }
   scope :by_status, -> (status) { where(:status => status) }
   scope :for_sale_and_reserved, -> { where status: [:for_sale, :reserved] }
+  scope :by_building_type, -> (building_type) { where(building_type: building_type) }
 
   STATUS_ORDER = ['for_sale', 'reserved', 'sale_pending', 'sold', 'coming_soon']
 

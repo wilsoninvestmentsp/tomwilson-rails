@@ -1,0 +1,15 @@
+<% if params[:page].present? %>
+  $('#property-listing').append("<%= escape_javascript(render partial: 'properties', locals: { properties: @properties } ) %>");
+  $('.pagination').replaceWith('<%= escape_javascript paginate(@properties, remote: true) %>');
+<% end %>
+<% if params[:building_type].present? && !params[:page].present? %>
+  $('#property-listing').html("<%= escape_javascript(render partial: 'properties', locals: { properties: @properties } ) %>");
+  $('.pagination').html('<%= escape_javascript paginate(@properties, remote: true) %>');
+<% end %>
+<% if @properties.current_page == @properties.num_pages || @properties.num_pages == 0 %>
+  $('#more_properties').hide();
+<% else %>
+  $('#more_properties').show();
+<% end %>
+$('img').unveil();
+Properties.clickableDiv();

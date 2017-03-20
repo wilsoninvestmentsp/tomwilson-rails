@@ -29,9 +29,10 @@
 //= require tinymce-jquery
 //= require bootstrap-slider
 //= require bootstrap-select
-//= require bootstrap-datepicker
+//= require bootstrap-datepicker/core
 //= require owl.carousel.min
 //= require jquery.youtubebackground
+//= require properties
 //= require blog
 //= require syndication
 //= require jquery.unveil.js
