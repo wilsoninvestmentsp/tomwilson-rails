@@ -84,13 +84,12 @@
                   <% if user.phone.present? %>
                     <b>Phone:</b> <%= user.phone %>
                   <% end %>
-                  <h6><b>Public:</b> <b><%= user.public %></b></h6>
                 </div>
                 <div class="col-sm-9 col-xs-12 profile">
                   <h2><%= user.name %></h2>
                   <h3><%= user.role %></h3>
                   <% if user.description.present? %>
-                    <div><%= raw(user.description) %></div>
+                    <%= raw(user.description) %>
                   <% end %>
                 </div>
                 <div class="col-xs-12"><hr></div>
