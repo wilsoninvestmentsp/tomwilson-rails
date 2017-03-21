@@ -10,8 +10,29 @@ var App = angular.module('App',[
 ]);
 App.value('$anchorScroll',angular.noop);
 $(document).on('ready page:load', function(arguments) {
+	$('[data-toggle="tooltip"]').tooltip();
   angular.bootstrap(document.body, ['App'])
+  $(document).ajaxStart(function () {
+  	applyLoader();
+  }).ajaxStop(function () {
+  	$.unblockUI();
+  });
 });
+
+function applyLoader(){
+  $.blockUI({message: '<img src="/ring-alt.svg" width="75px" />',
+		css: {
+			border: 'none',
+			padding: '15px',
+			backgroundColor: 'transparent',
+			'-webkit-border-radius': '10px',
+			'-moz-border-radius': '10px',
+			opacity: .5,
+			color: '#fff'
+  	}
+  });
+ };
+
 App.config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider){
 
 	html5Mode: true;

@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.blockUI
 //= require turbolinks
 //= require ./bootstrap.js
 //= require ./AngularJS/angular.js

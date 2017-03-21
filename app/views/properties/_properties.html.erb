@@ -10,35 +10,24 @@
           <% if property.leased == 'yes' %><span class="status-tag-right blue">Leased</span><% end %>
         </div>
         <h3><%= link_to property.raw_title.truncate(Settings.truncate.property.listing_title), property_path(property.slug) %></h3>
-      <ul class="labels">
-        <li class="price"><%= "$#{property.raw_offer_price}" %>
-          <% if property.offer_price_label.present? %><span><%= "/ #{property.offer_price_label}" %></span><% end %>
+        <ul class="labels">
+          <li class="price"><span class="hidden">Price:</span><%= raw_price(property.offer_price) %><% if property.offer_price_label.present? %><span><%= "/ #{property.offer_price_label}" %></span><% end %>
           </li>
           <li class="person"><%= property.raw_building_type %></li>
         </ul>
         <ul class="price-flow">
           <li>
             Cash Flow: 
-            <span class="blue-text"><%= property.raw_cash_flow && property.cash_flow > 0 ? "$#{property.raw_cash_flow}" : 'N/A' %></span>
+            <span class="blue-text"><%= property.raw_cash_flow && property.cash_flow > 0 ? raw_price(property.raw_cash_flow) : 'N/A' %></span>
           </li>
           <li>Rent: 
-            <span class="blue-text"><%= property.raw_rent && property.rent > 0 ? "$#{property.raw_rent}" : 'N/A' %></span>
+            <span class="blue-text"><%= property.raw_rent && property.rent > 0 ? raw_price(property.raw_rent) : 'N/A' %></span>
           </li>
         </ul>
         <ul class="numbers-details">
-          <li>
-            <span data-toggle="tooltip" data-placement="top" title="Bedroom"><i class="fa fa-bed" aria-hidden="true"></i>
-            <%= property.bedrooms && property.bedrooms > 0 ? property.bedrooms.to_i : 'N/A' %>
-            </span>
-          </li>
-          <li>
-            <span data-toggle="tooltip" data-placement="top" title="Bathroom"><i class="fa fa-bath" aria-hidden="true"></i>
-            <%= property.bathrooms && property.bathrooms > 0 ? property.bathrooms.to_i : 'N/A' %></span>
-          </li>
-          <li>
-            <span data-toggle="tooltip" data-placement="top" title="Garage"><i class="fa fa-car" aria-hidden="true"></i>
-            <%= property.garages && property.garages > 0 ? property.garages.to_i : 'N/A' %></span>
-          </li>
+          <li><span data-toggle="tooltip" data-placement="top" title="Bedroom"><i class="fa fa-bed" aria-hidden="true"></i><span class="hidden">Bedrooms:</span><%= property.bedrooms && property.bedrooms > 0 ? property.bedrooms.to_i : 'N/A' %></span></li>
+          <li><span data-toggle="tooltip" data-placement="top" title="Bathroom"><i class="fa fa-bath" aria-hidden="true"></i><span class="hidden">Bathrooms:</span><%= property.bathrooms && property.bathrooms > 0 ? property.bathrooms.to_i : 'N/A' %></span></li>
+          <li><span data-toggle="tooltip" data-placement="top" title="Garage"><i class="fa fa-car" aria-hidden="true"></i><span class="hidden">Garages:</span><%= property.garages && property.garages > 0 ? property.garages.to_i : 'N/A' %></span></li>
         </ul>
       </div> 
     </div>

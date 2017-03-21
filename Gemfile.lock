@@ -10,6 +10,13 @@ GIT
   specs:
     rails_log_stdout (0.0.1)
 
+GIT
+  remote: https://github.com/BoTreeConsultingTeam/blockuijs-rails.git
+  revision: 56e727429fa876fa03eade459404c98d74bf32e8
+  specs:
+    blockuijs-rails (0.1.0)
+      rails (>= 3.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -255,6 +262,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers (~> 0.8.3)
   bcrypt (~> 3.1.7)
+  blockuijs-rails!
   bootstrap-datepicker-rails
   bootstrap-select-rails
   bootstrap-slider-rails

@@ -25,11 +25,11 @@
     </div>
     <div class="row property-listing" id="property-listing">
       <% if @properties.any? %>
-      <%= render partial: 'properties', locals: {properties: @properties} %>
+        <%= render partial: 'properties', locals: {properties: @properties} %>
       <% else %>
-      <div class="col-xs-12 msg-content text-center">
-        <h3>No properties found</h3>
-      </div>
+        <div class="col-xs-12 msg-content text-center">
+          <h3>No properties found</h3>
+        </div>
       <% end %>
     </div>
     <% if @properties.any? %>
