@@ -35,6 +35,7 @@
 //= require jquery.youtubebackground
 //= require properties
 //= require blog
+//= require assets
 //= require syndication
 //= require jquery.unveil.js
 //= require cocoon

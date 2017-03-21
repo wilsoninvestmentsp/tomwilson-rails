@@ -35,12 +35,9 @@
           <%= @jasset.link_uri %>
         </p>
         <p>
-          <b>Sort:</b>
-          <%= @jasset.sort %>
-        </p>
-        <p>
           <b>Image:</b>
-          <%= @jasset.image %>
+          <div class='row'><div class="col-md-4 col-sm-3"><%= image_tag @jasset.image.thumb.url, class: 'img-responsive' %></div>
+          </div>
         </p>
         <%= link_to edit_jasset_path(@jasset), class: 'btn btn-success' do %><i class="fa fa-pencil" aria-hidden="true"></i> Edit<% end %>
         <%= link_to jassets_path, class: 'btn blue-btn' do %><i class="fa fa-chevron-left" aria-hidden="true"></i> Back<% end %>
