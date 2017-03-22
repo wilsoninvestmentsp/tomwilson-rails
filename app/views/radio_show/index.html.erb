@@ -48,7 +48,7 @@
           </div>
         </div>
         <% if @videos.present? %>
-          <div class="list-group" id='radio-show-listing' ng:controller='RadioShowCtrl'>
+          <div class="list-group" id='radio-show-listing'>
             <%= render partial: 'radio_shows', locals: {videos: @videos} %>
           </div>
         <% else %>
@@ -64,6 +64,7 @@
     </div>
   </div>
 </section>
+<div id="play_youtube_video" class="modal fade" role="dialog"></div>
 <script>
 $(window).load(function(){$('img').unveil();});
   var auto_play = ($('.item').length == 1) ? false : 3000;

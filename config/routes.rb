@@ -96,6 +96,7 @@ Rails.application.routes.draw do
 
   get 'youtube',to: 'youtube#index',as: 'youtube'
   get 'youtube/:id',to: 'youtube#show'
+  get 'play_video/:videoId' => 'youtube#play_video', as: 'play_video'
 
   get 'radio-show',to: 'radio_show#index',as: 'radio_show'
   get 'real-estate-radio-live' => redirect('radio-show')
@@ -122,5 +123,5 @@ Rails.application.routes.draw do
     get '500',to: 'application#server_error'
   end
 
-  get '*path' => redirect('/')
+  # get '*path' => redirect('/')
 end
