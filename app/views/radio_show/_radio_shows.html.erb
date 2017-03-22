@@ -9,7 +9,8 @@
         <% if video['snippet']['description'].present? %>
           <p id="description_<%= video['id']['videoId'] %>"><%= video['snippet']['description'] %></p>
           <%= link_to 'More', '#', class: 'load_more_description', value: video['id']['videoId'], remote: true %>
-        <% end %><span>|</span>
+          <span>|</span>
+        <% end %>
         <%= link_to 'Play Now', play_video_path(video['id']['videoId']), remote: true %>
       </div>
     </div>
