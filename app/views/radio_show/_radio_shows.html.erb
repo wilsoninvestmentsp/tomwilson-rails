@@ -1,0 +1,17 @@
+<% videos.each do |video| %>
+  <div class="list-group-item radio-show-video">
+    <div class="row">
+      <div class="col-md-2 col-sm-3 col-xs-12">
+        <%= image_tag 'loading.svg', 'data-src': video['snippet']['thumbnails']['high']['url'], class: 'img-thumbnail', alt: video['snippet']['title'] %>
+      </div>
+      <div class="col-md-10 col-sm-9 col-xs-12">
+        <h4><%= video['snippet']['title'] %></h4>
+        <% if video['snippet']['description'].present? %>
+          <p id="description_<%= video['id']['videoId'] %>"><%= video['snippet']['description'] %></p>
+          <a href="" ng:click="getVideo('<%= video['id']['videoId'] %>')">More</a>
+        <% end %>
+        <a href="" ng:click="openVideo('<%= video['id']['videoId'] %>')">Play Now</a>
+      </div>
+    </div>
+  </div>
+<% end %>
