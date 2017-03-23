@@ -13,7 +13,7 @@
    $('#property-listing').html("<div class='col-xs-12 msg-content text-center'><h3>No "+building_type+" properties found</h3></div>");
   <% end %>
 <% end %>
-<% if @properties.current_page == @properties.num_pages || @properties.num_pages == 0 %>
+<% if (@properties.current_page == @properties.num_pages) || @properties.num_pages == 0 %>
   $('#more_properties').hide();
 <% else %>
   $('#more_properties').show();
