@@ -17,8 +17,8 @@ RadioShow = {
         url: '/youtube/'+id+'.json',
         success: function(response){
           $('#description_'+id).text(response.items[0].snippet.description);
-          $('#description_'+id).next('a').remove();
-          $('#description_'+id).next('span').remove();
+          $('#description_'+id).next('a:contains("More")').remove();
+          $('#description_'+id).next('span:contains("|")').remove();
         }
       });
     });
