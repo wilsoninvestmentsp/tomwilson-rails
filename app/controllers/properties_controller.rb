@@ -93,10 +93,6 @@ class PropertiesController < ApplicationController
     @property = Property.where(slug: params[:id], active: true).first
     redirect_to properties_path, flash: {danger: "Property '#{params[:id]}' not found"} if @property.nil?
   end
-  
-  def set_property
-    @property = Property.where(slug: params[:id],active: true).first
-  end
 
   def detect_device
     user_agent = request.user_agent
