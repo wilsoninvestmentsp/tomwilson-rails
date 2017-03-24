@@ -3,7 +3,7 @@ Syndication = {
     if ($('.pagination').length){
       $('#more_syndication').on('click', function(){
         var url = $('.pagination .next').children('a').attr('href');
-        if(url){return $.getScript(url);}
+        if(url){$.getScript(url);return false;}
       });
     }
   },

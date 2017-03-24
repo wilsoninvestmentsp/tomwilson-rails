@@ -1,10 +1,9 @@
 Properties = {
   pagintation: function(){
     if ($('.pagination').length){
-      $('#more_properties').on('click', function(e) {
-        e.preventDefault();
+      $('#more_properties').on('click', function(){
         var url = $('.pagination .next').children('a').attr('href');
-        if(url){return $.getScript(url);}
+        if(url){$.getScript(url);return false;}
       });
     }
   },
@@ -35,10 +34,7 @@ Properties = {
     this.defaultActiveBuildingType();
   },
   pageLoad: function () {
-    this.pagintation();
-    this.filterByBuildingType();
-    this.clickableDiv();
-    this.defaultActiveBuildingType();
+    Properties.documentOnReady();
   }
 }
 $(document).ready(function(){

@@ -6,8 +6,8 @@ class JassetsController < ApplicationController
   def index
     @resources = Jasset.pluck(:link_name).uniq.sort
     @order_by_resource_date = { asc: 'Oldest First', desc: 'Newest First' }
-    order = params[:order_date].present? ? params[:order_date] : :desc 
-    @jassets = Jasset.all.order(created_at: order)    
+    order = params[:order_date].present? ? params[:order_date] : :desc
+    @jassets = Jasset.all.order(created_at: order)
     @jassets = @jassets.where(link_name: params[:link_name]) if params[:link_name].present?
     @jassets = @jassets.order(created_at: params[:order_date]) if params[:order_date].present?
   end
@@ -23,7 +23,7 @@ class JassetsController < ApplicationController
   end
 
   def create
-    @jasset = Jasset.new(jasset_params)
+    @jasset = Jasset.new(jasset_params.merge!(link_name: params[:jasset][:link_name].upcase))
     respond_to do |format|
       if @jasset.save
         format.html { redirect_to @jasset, flash: {success: "#{@jasset.title} was successfully created."} }
@@ -62,6 +62,6 @@ class JassetsController < ApplicationController
   end
 
   def jasset_params
-    params.require(:jasset).permit(:title, :description, :link_name, :link_uri, :sort, :image, :remote_image_url)
+    params.require(:jasset).permit(:title, :description, :link_uri, :sort, :image, :remote_image_url)
   end
 end

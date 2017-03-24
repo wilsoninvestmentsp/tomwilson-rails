@@ -3,7 +3,7 @@ Blog = {
     if ($('.pagination').length){
       $('#more_blogs').on('click', function() {
         var url = $('.pagination .next').children('a').attr('href');
-        if(url){return $.getScript(url);}
+        if(url){$.getScript(url);return false;}
       });
     }
   },

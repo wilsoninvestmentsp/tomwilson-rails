@@ -86,3 +86,9 @@ App.controller('MainCtrl',['$scope','$http','$interval',function($scope,$http,$i
 	},4000);
 
 }]);
+
+App.controller('VideoCtrl',['$scope','$interval','$upload','$routeParams','$http',function($scope,$interval,$upload,$routeParams,$http){
+
+	var scope = $scope;
+
+}]);
