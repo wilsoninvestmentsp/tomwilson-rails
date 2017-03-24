@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     con = {public: true}
     con = {} if current_user
     @users = User.where(con).order(:team,:sort)
-    @teams = User.all.group_by(&:team)
+    @teams = User.all.order(:sort).group_by(&:team)
   end
 
   # GET /users/1
