@@ -7,11 +7,6 @@ Properties = {
       });
     }
   },
-  clickableDiv: function(){
-    $('.clickable_div').on('click', function(){
-      window.location = $(this).find('a')[1]['href'];
-    });
-  },
   defaultActiveBuildingType: function(){
     $('a:contains("All")').parent('li').addClass('active');
   },
@@ -30,7 +25,6 @@ Properties = {
   documentOnReady: function(){
     this.pagintation();
     this.filterByBuildingType();
-    this.clickableDiv();
     this.defaultActiveBuildingType();
   },
   pageLoad: function () {

@@ -65,8 +65,6 @@ GEM
     bootstrap-datepicker-rails (1.6.4.1)
       railties (>= 3.0)
     bootstrap-select-rails (1.6.3)
-    bootstrap-slider-rails (9.2.0)
-      railties (>= 3.2, < 6.0)
     browser (2.3.0)
     builder (3.2.2)
     byebug (9.0.5)
@@ -265,7 +263,6 @@ DEPENDENCIES
   blockuijs-rails!
   bootstrap-datepicker-rails
   bootstrap-select-rails
-  bootstrap-slider-rails
   browser
   byebug
   carrierwave

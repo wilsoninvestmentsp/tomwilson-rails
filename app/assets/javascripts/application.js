@@ -27,12 +27,12 @@
 //= require ./Utilities/moment.js
 //= require ./Utilities/parse-address.js
 //= require ./Utilities/google-chart.js
-//= require tinymce-jquery
-//= require bootstrap-slider
 //= require bootstrap-select
+//= require tinymce-jquery
 //= require bootstrap-datepicker/core
 //= require owl.carousel.min
 //= require jquery.youtubebackground
+//= require common
 //= require properties
 //= require blog
 //= require assets

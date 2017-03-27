@@ -10,13 +10,7 @@ var App = angular.module('App',[
 ]);
 App.value('$anchorScroll',angular.noop);
 $(document).on('ready page:load', function(arguments) {
-	$('[data-toggle="tooltip"]').tooltip();
   angular.bootstrap(document.body, ['App'])
-  $(document).ajaxStart(function () {
-  	applyLoader();
-  }).ajaxStop(function () {
-  	$.unblockUI();
-  });
 });
 
 function applyLoader(){

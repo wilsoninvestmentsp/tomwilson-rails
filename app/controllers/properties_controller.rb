@@ -12,7 +12,7 @@ class PropertiesController < ApplicationController
       @properties = @properties.by_building_type(building_types)
     end
     pagination_by_device
-    @properties = @properties.order_by_status.page(params[:page]).per(Settings.pagination.properties.per_page.default)
+    @properties = @properties.order_by_status.page(params[:page]).per(@per_page)
   end
 
   def pagination_by_device
