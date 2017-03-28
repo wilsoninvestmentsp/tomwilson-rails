@@ -22,7 +22,11 @@ module ApplicationHelper
     field.to_i > 0 ? true : false
   end
 
-  def validate_listing_field(field)
+  def validate_price_field(field)
     field.to_i > 0 ? raw_price(field) : 'N/A'
+  end
+
+  def validate_listing_field(field)
+    field.to_i > 0 ? field.to_i : 'N/A'
   end
 end
