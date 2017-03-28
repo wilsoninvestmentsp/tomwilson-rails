@@ -16,7 +16,7 @@
         <h1 class="common-title">Real Estate Investment Properties</h1>
         <div class="list-selection">
           <ul class="list-unstyled" id="building_type_menu">
-            <% @building_types.each do |key, value| %>
+            <% Property::BUILDING_TYPES.each do |key, value| %>
               <li building_type="<%= value %>"><a href="javascript:;"><%= "#{key}" %></a></li>
             <% end %>
           </ul>

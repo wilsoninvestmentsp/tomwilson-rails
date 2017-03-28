@@ -13,12 +13,13 @@ RadioShow = {
   loadMoreDescription: function(){
     $('.load_more_description').on('click', function(){
       var id = $(this).attr('value');
+      var selector = '#description_'+id
       $.ajax({
         url: '/youtube/'+id+'.json',
         success: function(response){
-          $('#description_'+id).text(response.items[0].snippet.description);
-          $('#description_'+id).next('a:contains("More")').remove();
-          $('#description_'+id).next('span:contains("|")').remove();
+          $(selector).text(response.items[0].snippet.description);
+          $(selector).next('a:contains("More")').remove();
+          $(selector).next('span:contains("|")').remove();
         }
       });
     });

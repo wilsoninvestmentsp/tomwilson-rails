@@ -60,10 +60,12 @@
                   <% if validate_field(@property.bedrooms) %><li><label><span class="title">Bedrooms:</span><%= number_with_precision(@property.bedrooms,precision: 0,delimiter: ',') %></label></li><% end %>
                   <% if validate_field(@property.bathrooms) %><li><label><span class="title">Bathrooms:</span><%= number_with_precision(@property.bathrooms,precision: 0,delimiter: ',') %></label></li><% end %>
                   <% if validate_field(@property.garages) %><li><label><span class="title">Garages:</span><%= number_with_precision(@property.garages,precision: 0,delimiter: ',') %></label></li><% end %>
-                  <% if @property.links.present? %>
+                </ul>
+                <% if @property.links.present? %>
+                  <ul class="links-data">
                     <li class="links">
                       <% if @property.school_district.present? && false %>
-                      <span><%= link_to "School District: #{@property.raw_school_district}","http://www.greatschools.org/search/search.page?q=#{@property.raw_school_district}&state=#{@property.state}",target: '_blank' %></span>
+                        <span><%= link_to "School District: #{@property.raw_school_district}","http://www.greatschools.org/search/search.page?q=#{@property.raw_school_district}&state=#{@property.state}",target: '_blank' %></span>
                       <% end %>
                       <% @property.links.each do |link| %>
                         <% if link.link.present? %>
@@ -71,8 +73,8 @@
                         <% end %>
                       <% end %>
                     </li>
-                  <% end %>
-                </ul>
+                  </ul>
+                <% end %>
               </div>
               <% if @property.description.present? %>
                 <div id="description" class="tab-pane description-content">

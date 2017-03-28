@@ -1,7 +1,7 @@
 class PropertiesController < ApplicationController
   before_action :authorize,except: [:index,:show,:get_cities]
   before_action :set_property, only: [:show, :edit, :update, :destroy]
-  before_action :set_status_options
+  # before_action :set_status_options
   before_action :detect_device, only: [:index]
 
   def index
@@ -100,32 +100,6 @@ class PropertiesController < ApplicationController
   end
 
   def set_status_options
-    @building_types = [
-      ['All','single_family,duplex,fourplex,multifamily,commercial,townhouse'],
-      ['Investment Homes', 'single_family,duplex,fourplex'],
-      ['Multifamily','multifamily'],
-      ['Commercial','commercial']
-    ]
-
-    @status_options = [
-      ['Select One',nil],
-      ['Coming Soon',:coming_soon],
-      ['For Sale',:for_sale],
-      ['Reserved',:reserved],
-      ['Sale Pending',:sale_pending],
-      ['Sold',:sold],
-      ['Not Active',:not_active]
-    ]
-
-    @building_type_options = [
-      ['Select One',nil],
-      ['Single Family',:single_family],
-      ['Duplex',:duplex],
-      ['Fourplex',:fourplex],
-      ['Multifamily',:multifamily],
-      ['Commercial',:commercial]
-    ]
-
     @leased_options = [
       ['Yes',:yes],
       ['No',:no],
