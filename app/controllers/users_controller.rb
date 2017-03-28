@@ -7,12 +7,10 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-
     con = {public: true}
     con = {} if current_user
-
     @users = User.where(con).order(:team,:sort)
-    
+    @teams = User.all.order(:sort).group_by(&:team)
   end
 
   # GET /users/1

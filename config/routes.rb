@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :jassets,path: :resources
+  get 'market-resources' => redirect('resources')
 
   get :import,to: 'jobs#index',as: :import
 
@@ -8,6 +9,10 @@ Rails.application.routes.draw do
 
   # resources :articles
   resources :blogs, path: 'articles'
+  get 'blog' => redirect('articles')
+  get 'category/blog' => redirect('articles')
+  get 'blog/*path' => redirect('articles')
+
   resources :syndications, path: 'investor-performance'
 
   get 'api/v1/map.png',to: 'map#index',as: 'map'
@@ -21,6 +26,7 @@ Rails.application.routes.draw do
 
   link = 'FAQ'
   get link.parameterize, to: 'articles#faq', as: link.parameterize.underscore
+  get 'faqs' => redirect('faq')
 
   link = 'Financing Investments'
   get link.parameterize, to: 'articles#financing_investments', as: link.parameterize.underscore
@@ -62,6 +68,10 @@ Rails.application.routes.draw do
 
     end
   end
+  get 'properties-search-results' => redirect('properties')
+  get 'my-properties' => redirect('properties')
+  get 'MyListings' => redirect('properties')
+  get 'PropertyDetails' => redirect('properties')
 
   post 'api/v1/zendesk/ticket',to: 'zendesk#ticket'
   get 'api/v1/zendesk/articles',to: 'zendesk#articles'
@@ -75,15 +85,21 @@ Rails.application.routes.draw do
   post 'api/v1/mailchimp/signup',to: 'mailchimp#signup'
   post 'api/v1/mailchimp/zendesk',to: 'mailchimp#zendesk'
 
-  resources :events
+  resources :events, only: :index
   get 'api/v1/meetup',to: 'events#meetup'
+  get 'presentations' => redirect('events')
+  get 'wipevents' => redirect('events')
+  get 'Dallaspresentation' => redirect('events')
+  get 'events/*path' => redirect('events')
 
   get 'angular',to: 'angular#index'
 
   get 'youtube',to: 'youtube#index',as: 'youtube'
   get 'youtube/:id',to: 'youtube#show'
+  get 'play_video/:videoId' => 'youtube#play_video', as: 'play_video'
 
   get 'radio-show',to: 'radio_show#index',as: 'radio_show'
+  get 'real-estate-radio-live' => redirect('radio-show')
   put 'radio-show',to: 'radio_show#update'
 
   resources :images
@@ -107,4 +123,5 @@ Rails.application.routes.draw do
     get '500',to: 'application#server_error'
   end
 
+  # get '*path' => redirect('/')
 end

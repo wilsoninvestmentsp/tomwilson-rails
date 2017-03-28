@@ -16,8 +16,7 @@ class YoutubeController < ApplicationController
 
 		code = response.code.to_f.round
 		body = response.body
-
-		render json: JSON.parse(body),status: code
+		@videos = JSON.parse(body)
 
 	end
 

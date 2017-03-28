@@ -20,6 +20,7 @@ class Property < ActiveRecord::Base
   scope :not_sold, -> { where.not(:status => 'sold') }
   scope :by_status, -> (status) { where(:status => status) }
   scope :for_sale_and_reserved, -> { where status: [:for_sale, :reserved] }
+  scope :by_building_type, -> (building_type) { where(building_type: building_type) }
 
   STATUS_ORDER = ['for_sale', 'reserved', 'sale_pending', 'sold', 'coming_soon']
 
@@ -35,6 +36,32 @@ class Property < ActiveRecord::Base
             PR: 'Puerto Rico', RI: 'Rhode Island',  SC: 'South Carolina', SD: 'South Dakota', TN: 'Tennessee',
             TX: 'Texas', UT: 'Utah', VT: 'Vermont',  VI: 'Virgin Islands', VA: 'Virginia',
             WA: 'Washington', WV: 'West Virginia', WI: 'Wisconsin', WY: 'Wyoming'}
+
+  BUILDING_TYPES = [
+    ['All','single_family,duplex,fourplex,multifamily,commercial,townhouse'],
+    ['Investment Homes', 'single_family,duplex,fourplex'],
+    ['Multifamily','multifamily'],
+    ['Commercial','commercial']
+  ]
+
+  STATUS_OPTIONS = [
+    ['Select One',nil],
+    ['Coming Soon',:coming_soon],
+    ['For Sale',:for_sale],
+    ['Reserved',:reserved],
+    ['Sale Pending',:sale_pending],
+    ['Sold',:sold],
+    ['Not Active',:not_active]
+  ]
+
+  BUILDING_TYPE_OPTIONS = [
+    ['Select One',nil],
+    ['Single Family',:single_family],
+    ['Duplex',:duplex],
+    ['Fourplex',:fourplex],
+    ['Multifamily',:multifamily],
+    ['Commercial',:commercial]
+  ]
 
   def self.order_by_case
     query = "CASE"

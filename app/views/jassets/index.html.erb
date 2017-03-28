@@ -1,7 +1,7 @@
 <% set_meta_tags(title: t('seo.resource.index.title'), description: t('seo.resource.index.description'), image: asset_url(t('seo.image_1')), twitter: {image: asset_url(t('seo.image_1'))}, og: {image: asset_url(t('seo.image_1'))}) %>
 <%= render 'layouts/jumbtron' %>
 <section class="main-body without-search-feature">
-  <div class="container" ng:controller="AssetsCtrl">
+  <div class="container">
     <div class="row content-section">
       <div class="col-xs-12">
         <div class="box-shadow">
@@ -16,35 +16,26 @@
         <div class="sort-row">
           <span class="sort-span mar-right-15">
             <h5>Sort By:</h5>
-              <%= select_tag :link_name, options_for_select(@resources), {title: 'Type', 'data-actions-box': true, multiple: true, 'data-selected-text-format': 'count > 4', 'ng:model': 'params.link_name', 'ng:change': 'sortResourceType()', class: 'selectpicker'} %>
+            <%= select_tag :link_name, options_for_select(@resources), {title: 'Type', 'data-actions-box': true, multiple: true, 'data-selected-text-format': 'count > 4', class: 'selectpicker'} %>
           </span>
           <span class="sort-span mar-right-15">
-              <%= select_tag :order_date, options_for_select(@order_by_resource_date.map{ |k,v| [v, k] }), {include_blank: 'Date', 'ng:model': 'params.order_date', 'ng:change': 'sortResourceType()', class: 'selectpicker'} %>
+            <%= select_tag :order_date, options_for_select(@order_by_resource_date.map{ |k,v| [v, k] }), {include_blank: 'Date', class: 'selectpicker'} %>
           </span>
           <% if current_user %>
-            <span class="btn-span"><%= link_to new_jasset_path, class: 'btn blue-btn' do %><i class="fa fa-plus" aria-hidden="true"></i> New<% end %>
-            </span>
+          <span class="btn-span"><%= link_to new_jasset_path, class: 'btn blue-btn' do %><i class="fa fa-plus" aria-hidden="true"></i> New<% end %>
+          </span>
           <% end %>
         </div>
-        <div class="list-group mar-top-15">
-          <div class="list-group-item resources-data" ng:repeat="asset in assets.items">
-            <div class="row">
-              <div class="col-md-2 col-sm-3"><img src="<%= asset_url('loading.svg') %>" ng-attr-data-src="{{asset.image.image.thumb.url}}" class="img-responsive" alt="">
-              </div>
-              <div class="col-md-10 col-sm-9">
-                <h4>{{asset.title}}</h4>
-                <p><span ng-bind-html="asset.description"></span></p>
-                <a href="{{asset.link_uri}}" target="_blank" class="btn blue-btn"><i class="fa fa-download fa-lg" aria-hidden="true"></i> {{asset.link_name}}</a>
-                <% if current_user %>
-                  <a href="<%= jassets_path %>/{{asset.id}}/edit" class="btn btn-success" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-                  <button type="button" class="btn btn-danger" ng:click="removeAsset(asset,$index)" ng:disabled="assets.meta.removeLoading[asset.id]" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
-                <% end %>
-              </div>
-            </div>
+        <% if @jassets.present? %>
+          <div class="list-group mar-top-15" id='jasset-listing'>
+            <%= render partial: 'jassets', locals: {jassets: @jassets} %>
           </div>
-        </div>
+        <% else %>
+          <div class="col-xs-12 msg-content text-center">
+            <h3>No resources found</h3>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
 </section>
-<script>$('.selectpicker').selectpicker({dropupAuto: false});</script>

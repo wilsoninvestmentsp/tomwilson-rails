@@ -15,5 +15,6 @@ truncate:
     meta_description: 165
   property:
     title: 30
+    listing_title: 42
   syndication:
     title: 48

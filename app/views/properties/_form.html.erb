@@ -38,11 +38,11 @@
             <h3>Information</h3>
             <div class="form-group btype-dropdown">
               <%= f.label :building_type, 'Building Type', class: 'control-label' %>
-              <%= f.select :building_type, @building_type_options, {}, class: 'selectpicker' %>
+              <%= f.select :building_type, Property::BUILDING_TYPE_OPTIONS, {}, class: 'selectpicker' %>
             </div>
             <div class="form-group status-dropdown">
               <%= f.label :status, class: 'control-label' %>
-              <%= f.select :status, @status_options, {}, class: 'selectpicker' %>
+              <%= f.select :status, Property::STATUS_OPTIONS, {}, class: 'selectpicker' %>
             </div>
             <% unless @property.new_record? %>
               <div class="form-group">

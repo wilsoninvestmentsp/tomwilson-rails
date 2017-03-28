@@ -1,0 +1,13 @@
+<% if @videos.present? %>
+  $('#radio-show-listing').append("<%= escape_javascript(render partial: 'radio_show/radio_shows', locals: { videos: @videos['items'] } ) %>");
+  <% if @videos['nextPageToken'].present? %>
+    $('#next_page_token').attr('value', "<%= @videos['nextPageToken'] %>");
+  <% else %>
+    $('.load_more_radio_show').hide();
+  <% end %>
+<% else %>
+  $('#radio-show-listing').html("<div class='col-xs-12 msg-content text-center'><h3>No episodes found</h3></div>");
+  $('.load_more_radio_show').hide();
+<% end %>
+RadioShow.loadMoreDescription();
+$('img').unveil();

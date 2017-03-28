@@ -21,7 +21,7 @@ class BlogsController < ApplicationController
 
   def show
     @blogs = Blog.recent_blogs_by_user(current_user, @blog.id)
-    @description =  @blog.summary.truncate(Settings.truncate.blog.meta_description).tr('“,”,"', '')
+    @description = @blog.summary.truncate(Settings.truncate.blog.meta_description).tr('“,”,"', '')
   end
 
   def edit
@@ -44,8 +44,9 @@ class BlogsController < ApplicationController
 
   def set_blog
     @blog = Blog.where(slug: params[:id]).first
+    redirect_to blogs_path, flash: {danger: "Article '#{params[:id]}' not found"} if @blog.nil?
   end
-
+ 
   def blog_params
     params.require(:blog).permit(:title, :content, :summary, :author, :status, :image)
   end

@@ -11,7 +11,7 @@
   </uib-alert>
 </div>
 <% end %>
-<div class="row" ng:init="jasset = <%= JassetSerializer.new(@jasset,root: false).to_json %>">
+<div class="row">
   <div class="col-md-6">
     <div class="form-group required">
       <%= f.label :title %><br>
@@ -31,15 +31,11 @@
     </div>
     <div class="form-group">
       <%= f.label :image %><br>
-      <div ng:controller="AssetsCtrl" ng:show="jasset.image.image.thumb.url", ng:click="removeImage(jasset)"><%= image_tag @jasset.image.thumb.url,class: 'img-thumbnail' %></div>
+      <%= image_tag @jasset.image.thumb.url,class: 'img-thumbnail' %>
       <%= f.label :image, class: 'btn btn-default mar-top-15' do %><i class="fa fa-picture-o mar-right-6" aria-hidden="true"></i> Choose File
-      <%= f.file_field :image, style: "display:none;" %>
+        <%= f.file_field :image, style: "display:none;" %>
       <% end %>
     </div>
-<!--     <div class="form-group">
-      <%#= f.label :sort, 'Priority' %><br>
-      <%#= f.number_field :sort,class: 'form-control',placeholder: '' %>
-    </div> -->
     <div class="form-group">
       <%= button_tag class: 'btn blue-btn btn-lg', type: 'submit' do %><i class="fa fa-check" aria-hidden="true"></i> Submit<% end %> 
     </div>

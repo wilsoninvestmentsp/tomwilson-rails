@@ -1,3 +1,4 @@
+.blockUI.blockOverlay{z-index:1100 !important}
 .banner-bg{background:rgba(231,218,181,1);background:-moz-linear-gradient(top, rgba(231,218,181,1) 0%, rgba(255,255,255,1) 45%, rgba(255,255,255,1) 55%, rgba(231,218,181,1) 100%);background:-webkit-gradient(left top, left bottom, color-stop(0%, rgba(231,218,181,1)), color-stop(45%, rgba(255,255,255,1)), color-stop(55%, rgba(255,255,255,1)), color-stop(100%, rgba(231,218,181,1)));background:-webkit-linear-gradient(top, rgba(231,218,181,1) 0%, rgba(255,255,255,1) 45%, rgba(255,255,255,1) 55%, rgba(231,218,181,1) 100%);background:-o-linear-gradient(top, rgba(231,218,181,1) 0%, rgba(255,255,255,1) 45%, rgba(255,255,255,1) 55%, rgba(231,218,181,1) 100%);background:-ms-linear-gradient(top, rgba(231,218,181,1) 0%, rgba(255,255,255,1) 45%, rgba(255,255,255,1) 55%, rgba(231,218,181,1) 100%);background:linear-gradient(to bottom, rgba(231,218,181,1) 0%, rgba(255,255,255,1) 45%, rgba(255,255,255,1) 55%, rgba(231,218,181,1) 100%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e7dab5', endColorstr='#e7dab5', GradientType=0);border-top:solid 4px #21618f;border-bottom:solid 4px #21618f;}
 .banner-bg .panel-body{padding:10px 15px}
 .banner-bg .panel-body .owl-wrapper-outer{padding-bottom:0}
@@ -68,9 +69,9 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .content-section-row .opportunities-content{margin-top:50px}
 .content-section-row .opportunities-content .btn{margin-left:5px;margin-top:15px}
 .content-section-row .opportunities-content .btn:first-of-type{margin-left:0}
-.content-section-row .bullet-text{font-size:18px;text-align:center}
+.content-section-row .bullet-text{margin:0;padding:15px 0 0 0;list-style:none;font-size:18px;text-align:center}
+.content-section-row .bullet-text li{display:inline}
 .content-section-row .bullet-text span{position:relative;padding-left:20px;padding-right:12px}
-/*.content-section-row .bullet-text span.first .bullet{width:8px;height:8px;border-radius:50%;background:#407cbb;padding:0;margin-right:16px}*/
 .content-section-row .bullet-text span:before{content:"";width:8px;height:8px;position:absolute;top:6px;left:0;border-radius:50%;background:#407cbb}
 .content-section-row .bullet-text span.first:before{display:none}
 .content-section-row .bullet-text span.first{padding-left:0}
@@ -261,10 +262,16 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .property-details .status-tag-right.blue:after{border-color:transparent #407cbb transparent transparent}
 
 .property-details .property-info-tabs a{font-size:16px}
-.property-details .status-price-details{margin:2px 0 0 0;padding:0;list-style:none;color:#525252}
-.property-details .status-price-details li{padding:10px 15px;border-bottom:solid 1px #ddd;display:table;width:100%}
-.property-details .status-price-details li label{float:left;width:50%;font-weight:normal;margin-bottom:0}
-.property-details .status-price-details li:nth-child(2n){background:#f5f5f5}
+.property-details .status-price-details{margin:2px 0 0 0;padding:0;list-style:none;color:#525252;display:inline-table;width:100%}
+.property-details .status-price-details li{padding:10px 15px;border-bottom:solid 1px #ddd;display:table;width:50%;float:left}
+.property-details .status-price-details li label{width:100%;font-weight:normal;margin-bottom:0}
+.property-details .status-price-details li:nth-child(3){background:#f5f5f5}
+.property-details .status-price-details li:nth-child(4){background:#f5f5f5}
+.property-details .status-price-details li:nth-child(7){background:#f5f5f5}
+.property-details .status-price-details li:nth-child(8){background:#f5f5f5}
+.property-details .status-price-details li:nth-child(11){background:#f5f5f5}
+.property-details .status-price-details li:nth-child(12){background:#f5f5f5}
+
 .property-details .status-price-details li .title{float:left;width:110px}
 .property-details .status-price-details li .label{font-size:14px;font-weight:normal}
 .property-details .status-price-details li .label-yellow{background:#ffb300}
@@ -273,10 +280,11 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .property-details .status-price-details li .label-red{background:#b71c1c}
 .property-details .status-price-details li .label-orange{background:#f57c00}
 .property-details .status-price-details li .label-skyblue{background:#00bcd4}
-.property-details .status-price-details li.links{text-align:center}
-.property-details .status-price-details li.links span{width:33%;float:left}
-.property-details .status-price-details li.links a{color:#5296d0;text-decoration:none}
-.property-details .status-price-details li.links a:hover{color:#444}
+.property-details .links-data{margin:-6px 0 0 0;padding:0;list-style:none;color:#525252;display:inline-table;width:100%;border-top:solid 1px #ddd}
+.property-details .links-data li.links{width:100%;text-align:center;border-bottom:solid 1px #ddd;display:table;padding:10px 15px}
+.property-details .links-data li.links span{width:33%;float:left}
+.property-details .links-data li.links a{color:#5296d0;text-decoration:none}
+.property-details .links-data li.links a:hover{color:#444}
 
 .property-details .description-content{padding:15px 0;color:#525252;border-bottom:solid 1px #ddd;word-wrap:break-word}
 .property-details .description-content ul{padding:0;margin:0;list-style:none}
