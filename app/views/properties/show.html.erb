@@ -61,7 +61,7 @@
                   <% if validate_field(@property.bathrooms) %><li><label><span class="title">Bathrooms:</span><%= number_with_precision(@property.bathrooms,precision: 0,delimiter: ',') %></label></li><% end %>
                   <% if validate_field(@property.garages) %><li><label><span class="title">Garages:</span><%= number_with_precision(@property.garages,precision: 0,delimiter: ',') %></label></li><% end %>
                 </ul>
-                <% if @property.links.present? %>
+                <% if @property.links.present? && @property.links.pluck(:link).compact.present? %>
                   <ul class="links-data">
                     <li class="links">
                       <% if @property.school_district.present? && false %>

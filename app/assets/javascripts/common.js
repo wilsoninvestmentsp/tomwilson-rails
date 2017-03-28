@@ -3,7 +3,7 @@ TomWilson.Common = {
   bindToolTip: function(){
     $('[data-toggle="tooltip"]').tooltip();
   },
-  applyLoader: function () {
+  applyLoader: function(){
     $.blockUI({message: '<img src="/ring-alt.svg" width="75px" />',
       css: {
         border: 'none',
