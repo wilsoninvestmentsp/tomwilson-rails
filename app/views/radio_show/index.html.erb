@@ -1,7 +1,7 @@
 <% set_meta_tags(title: t('seo.radio_show.title'), description: t('seo.radio_show.description'), image: asset_url(t('seo.image_3')), twitter: {image: asset_url(t('seo.image_3'))}, og: {image: asset_url(t('seo.image_3'))}) %>
 <%= render 'layouts/jumbtron' %>
-<section class="main-body without-search-feature">
-  <div class="container" ng:controller="RadioShowCtrl">
+<section class="main-body without-search-feature" >
+  <div class="container">
     <div class="row">
       <div class="col-xs-12">
         <div class="box-shadow">
@@ -47,34 +47,26 @@
             </div>
           </div>
         </div>
-        <h3 class="text-muted" ng:if="loading">Loading...</h3>
-        <h3 class="text-muted" ng:if="!loading && videos.length == 0">No episodes found</h3>
-        <div class="list-group">
-          <div class="list-group-item radio-show-video" ng:repeat="video in videos">
-            <div class="row">
-              <div class="col-md-2 col-sm-3 col-xs-12">
-                <img src="<%= asset_url('loading.svg') %>" ng-attr-data-src="{{video.snippet.thumbnails.high.url}}" class="img-thumbnail" alt="">
-              </div>
-              <div class="col-md-10 col-sm-9 col-xs-12">
-                <h4>{{video.snippet.title}}</h4>
-                <p>{{video.snippet.description}}</p>
-                <a href="" ng:click="getVideo($index)" ng:if="!video.loading && !video.more && video.snippet.description">More</a>
-                <a href="" ng:disabled="true" ng:if="video.loading">Loading...</a>
-                <span ng:if="!video.more && video.snippet.description">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
-                <a href="" ng:click="openVideo(video.id.videoId)">Play Now</a>
-              </div>
-            </div>
+        <% if @videos.present? %>
+          <div class="list-group" id='radio-show-listing'>
+            <%= render partial: 'radio_shows', locals: {videos: @videos} %>
           </div>
-        </div>
-        <div class="text-center pad-btm-5" ng:show="nextPage">
-          <a href="" ng:click="getVideos()" ng:disabled="video.loading" class="btn btn-lg border-btn space-setting"><i class="fa fa-th" aria-hidden="true"></i> Load More</a>
-        </div>
+        <% else %>
+          <h3 class="text-muted">No episodes found</h3>
+        <% end %>
+        <% if @next_page.present? %>
+          <div class="text-center pad-btm-5 load_more_radio_show">
+            <%= hidden_field_tag 'next_page_token', @next_page %>
+            <%= button_tag id: 'load_more_radio_show', class: 'btn btn-lg border-btn space-setting' do %><i class="fa fa-th" aria-hidden="true"></i> Load More<% end %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
 </section>
+<div id="play_youtube_video" class="modal fade" role="dialog"></div>
 <script>
-  $(window).load(function(){$('img').unveil();});
+$(window).load(function(){$('img').unveil();});
   var auto_play = ($('.item').length == 1) ? false : 3000;
   $("#radio-show-banner").owlCarousel({autoPlay:auto_play,pagination:false,items:1,itemsDesktop:[1199,1],itemsDesktopSmall:[991,1],itemsTablet:[767,1],itemsMobile:[479,1],transitionStyle:"fade"});
 </script>

@@ -17,4 +17,12 @@ module ApplicationHelper
   def raw_price(field)
     number_to_currency(field, precision: 0)
   end
+
+  def validate_field(field)
+    field.to_i > 0 ? true : false
+  end
+
+  def validate_listing_field(field)
+    field.to_i > 0 ? raw_price(field) : 'N/A'
+  end
 end

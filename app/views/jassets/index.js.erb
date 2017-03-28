@@ -1,0 +1,6 @@
+<% if @jassets.present? %>
+  $('#jasset-listing').html("<%= escape_javascript(render partial: 'jassets', locals: { jassets: @jassets } ) %>");
+<% else %>
+  $('#jasset-listing').html("<div class='col-xs-12 msg-content text-center'><h3>No resources found</h3></div>");
+<% end %>
+$('img').unveil();

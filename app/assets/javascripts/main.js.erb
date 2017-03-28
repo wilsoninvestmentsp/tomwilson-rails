@@ -12,6 +12,22 @@ App.value('$anchorScroll',angular.noop);
 $(document).on('ready page:load', function(arguments) {
   angular.bootstrap(document.body, ['App'])
 });
+
+function applyLoader(){
+  $.blockUI({message: '<img src="/ring-alt.svg" width="75px" />',
+    css: {
+      border: 'none',
+      padding: '15px',
+      backgroundColor: 'transparent',
+      '-webkit-border-radius': '10px',
+      '-moz-border-radius': '10px',
+      opacity: .5,
+      color: '#fff',
+      'z-index': '9999'
+    }
+  });
+};
+
 App.config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider){
 
 	html5Mode: true;

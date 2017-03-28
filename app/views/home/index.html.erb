@@ -67,23 +67,23 @@
                 </ul>
                 <ul class="price-flow">
                   <li>Cash Flow: <span class="blue-text">
-                    <%= property.raw_cash_flow && property.cash_flow > 0 ? "$#{ property.raw_cash_flow}" : 'N/A' %>
+                    <%= validate_listing_field(property.cash_flow) %>
                     </span>
                   </li>
                   <li>Rent: <span class="blue-text">
-                    <%= property.raw_rent && property.rent > 0 ? "$#{property.raw_rent}" : 'N/A' %>
+                    <%= validate_listing_field(property.rent) %>
                     </span>
                   </li>
                 </ul>
                 <ul class="numbers-details">
                   <li>
-                    <span data-toggle="tooltip" data-placement="top" title="Bedroom"><i class="fa fa-bed" aria-hidden="true"></i><span class="hidden">Bedrooms:</span><%= property.bedrooms && property.bedrooms > 0 ? property.bedrooms.to_i : 'N/A' %></span>
+                    <span data-toggle="tooltip" data-placement="top" title="Bedroom"><i class="fa fa-bed" aria-hidden="true"></i><span class="hidden">Bedrooms:</span><%= validate_listing_field(property.bedrooms) %></span>
                   </li>
                   <li>
-                    <span data-toggle="tooltip" data-placement="top" title="Bathroom"><i class="fa fa-bath" aria-hidden="true"></i><span class="hidden">Bathrooms:</span><%= property.bathrooms && property.bathrooms > 0 ? property.bathrooms.to_i : 'N/A' %></span>
+                    <span data-toggle="tooltip" data-placement="top" title="Bathroom"><i class="fa fa-bath" aria-hidden="true"></i><span class="hidden">Bathrooms:</span><%= validate_listing_field(property.bathrooms) %></span>
                   </li>
                   <li>
-                    <span data-toggle="tooltip" data-placement="top" title="Garage"><i class="fa fa-car" aria-hidden="true"></i><span class="hidden">Garages:</span><%= property.garages && property.garages > 0 ? property.garages.to_i : 'N/A' %></span>
+                    <span data-toggle="tooltip" data-placement="top" title="Garage"><i class="fa fa-car" aria-hidden="true"></i><span class="hidden">Garages:</span><%= validate_listing_field(property.garages) %></span>
                   </li>
                 </ul>
               </div>

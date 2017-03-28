@@ -29,7 +29,7 @@ class RadioShowController < ApplicationController
 			@videos = []
 
 		end
-
+		@next_page = JSON.parse(body)['nextPageToken']
 	end
 
 	def update

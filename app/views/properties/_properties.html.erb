@@ -1,39 +1,35 @@
-<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12" ng:repeat="property in properties">
-  <div class="listing-box" ng:click="clickableDiv('<%= properties_url %>', property.slug)">
-	  <div class="img-box">
-	    <a href="<%= properties_path %>/{{property.slug}}">
-	      <img src="<%= asset_url('loading.svg') %>" ng-attr-data-src="{{property.image.image.url}}" alt="Property Image - {{property.raw_title}}" class="img-responsive">
-	    </a>
-	    <span ng:class="getStatusClass(property.status)" ng:if="property.raw_status">{{property.raw_status}}</span>
-	    <span class="status-tag-right blue" ng:if="property.leased == 'yes'">Leased</span>
-	  </div>
-	  <h3><a href="<%= properties_path %>/{{property.slug}}" title="{{property.raw_title}}">{{property.raw_title | limitTo: 42 }}{{property.raw_title.length > 42 ? '...' : ''}}</a></h3>
-	  <ul class="labels">
-	    <li class="price"><span class="hidden">Price:</span>
-	    	${{property.raw_offer_price}}
-	      <span ng:if="property.offer_price_label"> / {{property.offer_price_label}}</span>
-	      </li>
-	      <li class="person">{{property.raw_building_type}}</li>
-	    </ul>
-	    <ul class="price-flow">
-	      <li>
-	      	Cash Flow: 
-	      	<span class="blue-text">{{property.raw_cash_flow && property.cash_flow > 0 ? '$'+property.raw_cash_flow : 'N/A'}}</span>
-	      </li>
-	      <li>Rent: 
-	      	<span class="blue-text">{{property.raw_rent && property.rent > 0 ? '$'+property.raw_rent : 'N/A'}}</span>
-	      </li>
-	    </ul>
-	    <ul class="numbers-details">
-	      <li>
-	      	<span data-toggle="tooltip" data-placement="top" title="Bedroom"><i class="fa fa-bed" aria-hidden="true"></i><span class="hidden">Bedrooms:</span>{{property.bedrooms && property.bedrooms > 0 ? (property.bedrooms | number: 0) : 'N/A' }}</span>
-	      </li>
-	      <li>
-	      	<span data-toggle="tooltip" data-placement="top" title="Bathroom"><i class="fa fa-bath" aria-hidden="true"></i><span class="hidden">Bathrooms:</span>{{property.bathrooms && property.bathrooms > 0 ? (property.bathrooms | number: 0) : 'N/A'}}</span>
-	      </li>
-	      <li>
-	      	<span data-toggle="tooltip" data-placement="top" title="Garage"><i class="fa fa-car" aria-hidden="true"></i><span class="hidden">Garages:</span>{{property.garages && property.garages > 0 ? (property.garages | number: 0) : 'N/A'}}</span>
-	      </li>
-	    </ul>
-	 </div>
-</div>
+<% if properties.present? %>
+  <% properties.each do |property| %>
+    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+      <div class="listing-box clickable_div">
+        <div class="img-box">
+          <%= link_to property_path(property.slug) do %><%= image_tag 'loading.svg', 'data-src': property.image.url, alt: "Property Image - #{property.raw_title}", class: 'img-responsive' %><% end %>
+          <% if property.raw_status.present? %>
+            <span class="status-tag-top <%= status_label_class(property.status) %>"><%= property.raw_status %></span>
+          <% end %>
+          <% if property.leased == 'yes' %><span class="status-tag-right blue">Leased</span><% end %>
+        </div>
+        <h3><%= link_to property.raw_title.truncate(Settings.truncate.property.listing_title), property_path(property.slug) %></h3>
+        <ul class="labels">
+          <li class="price"><span class="hidden">Price:</span> <%= raw_price(property.offer_price) %><% if property.offer_price_label.present? %><span><%= "/ #{property.offer_price_label}" %></span><% end %>
+          </li>
+          <li class="person"><%= property.raw_building_type %></li>
+        </ul>
+        <ul class="price-flow">
+          <li>
+            Cash Flow: 
+            <span class="blue-text"><%= validate_listing_field(property.cash_flow) %></span>
+          </li>
+          <li>Rent: 
+            <span class="blue-text"><%= validate_listing_field(property.rent) %></span>
+          </li>
+        </ul>
+        <ul class="numbers-details">
+          <li><span data-toggle="tooltip" data-placement="top" title="Bedroom"><i class="fa fa-bed" aria-hidden="true"></i><span class="hidden">Bedrooms:</span> <%= validate_listing_field(property.bedrooms) %></span></li>
+          <li><span data-toggle="tooltip" data-placement="top" title="Bathroom"><i class="fa fa-bath" aria-hidden="true"></i><span class="hidden">Bathrooms:</span> <%= validate_listing_field(property.bathrooms) %></span></li>
+          <li><span data-toggle="tooltip" data-placement="top" title="Garage"><i class="fa fa-car" aria-hidden="true"></i><span class="hidden">Garages:</span> <%= validate_listing_field(property.garages) %></span></li>
+        </ul>
+      </div> 
+    </div>
+  <% end %>
+<% end %>

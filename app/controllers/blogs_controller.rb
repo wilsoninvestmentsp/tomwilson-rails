@@ -21,7 +21,7 @@ class BlogsController < ApplicationController
 
   def show
     @blogs = Blog.recent_blogs_by_user(current_user, @blog.id)
-    @description =  @blog.summary.truncate(Settings.truncate.blog.meta_description).tr('“,”,"', '')
+    @description = @blog.summary.truncate(Settings.truncate.blog.meta_description).tr('“,”,"', '')
   end
 
   def edit

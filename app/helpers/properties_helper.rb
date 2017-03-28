@@ -1,20 +1,19 @@
 module PropertiesHelper
-  def status_label_class(property)
-    case property.status
+  def status_label_class(property_status)
+    case property_status
     when 'for_sale'
-      status_class = "label-green"
+      'green'
     when 'sold'
-      status_class = "label-red"
+      'red'
     when 'sale_pending'
-      status_class = "label-orange"
+      'orange'
     when 'comming_soon'
-      status_class = "label-skyblue"
+      'skyblue'
     when 'reserved'
-      status_class = "label-yellow"
+      'yellow'
     else
-      status_class = "label-green"
+      'green'
     end
-    status_class
   end
 
   def meta_description(property)
@@ -22,5 +21,5 @@ module PropertiesHelper
     bathrooms = property.bathrooms.to_i > 0 ? ", Bathroom: #{property.bathrooms.to_i}" : ''
     garages = property.garages.to_i > 0 ? ", Garage: #{property.garages.to_i}" : ''
     "Buy or Lease #{property.raw_building_type} Property in #{property.city}, #{property.raw_state}. #{property.raw_title}#{bedrooms}#{bathrooms}#{garages}"
-  end  
+  end
 end

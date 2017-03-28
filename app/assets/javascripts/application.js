@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.blockUI
 //= require turbolinks
 //= require ./bootstrap.js
 //= require ./AngularJS/angular.js
@@ -26,13 +27,16 @@
 //= require ./Utilities/moment.js
 //= require ./Utilities/parse-address.js
 //= require ./Utilities/google-chart.js
-//= require tinymce-jquery
-//= require bootstrap-slider
 //= require bootstrap-select
-//= require bootstrap-datepicker
+//= require tinymce-jquery
+//= require bootstrap-datepicker/core
 //= require owl.carousel.min
 //= require jquery.youtubebackground
+//= require common
+//= require properties
 //= require blog
+//= require assets
 //= require syndication
+//= require radio_show
 //= require jquery.unveil.js
 //= require cocoon
