@@ -123,5 +123,5 @@ Rails.application.routes.draw do
     get '500',to: 'application#server_error'
   end
 
-  # get '*path' => redirect('/')
+  get '*path' => redirect('/')
 end
