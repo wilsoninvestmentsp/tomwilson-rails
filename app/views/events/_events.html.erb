@@ -1,0 +1,28 @@
+<% if events.present? %>
+  <% events.each do |event| %>
+    <%= link_to event['event_url'], target: '_blank', class: 'list-group-item' do %>
+      <h3><%= event['name'] %><br><small><%= Time.at(event['time'].to_s.first(10).to_i).strftime('%B %d, %Y %l %M %p') %></small></h3>
+      <div class="row">
+        <% if event['venue'].present? %>
+          <div class="col-md-5">
+            <div class="list-group">
+              <div class="list-group-item active">
+                <h4 class="list-group-item-heading"><%= event['venue']['name'] %></h4>
+              </div>
+              <div class="list-group-item">
+                <p class="list-group-item-text">
+                  <%= event['venue']['address_1'] %><br>
+                  <%= "#{event['venue']['city']}, #{event['venue']['state']}" %>
+                </p>
+                <%= image_tag 'loading.svg', 'data-src': "/api/v1/map.png?address=#{event['venue']['address_1']},#{event['venue']['city']},#{event['venue']['state']}&width=600&height=300", class: 'img-thumbnail img-responsive' %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <div class="col-md-7">
+          <span><%= raw event['description'] %></span>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

@@ -51,10 +51,10 @@ class SyndicationsController < ApplicationController
   end
 
   def syndication_params
-    params.require(:syndication).permit(:title, :purchase_price, :raise_amount, :hold_period,
+    params.require(:syndication).permit(:title, :status, :purchase_price, :raise_amount, :hold_period,
     :preferred_return, :average_annual_return, :irr, :price_per_share, :loan_amount,
     :loan_rate, :year_built, :building_size, :lot_size, :number_of_buildings, :property_type, :number_of_tenants,
-    :image, :notes, :active, annual_returns_attributes: [:year, :projected_annual_return, :actual_annual_return,
+    :image, :notes, :location, :active, annual_returns_attributes: [:year, :projected_annual_return, :actual_annual_return,
     :quarter_1, :quarter_2, :quarter_3, :quarter_4, :id, :_destroy])
   end
 end

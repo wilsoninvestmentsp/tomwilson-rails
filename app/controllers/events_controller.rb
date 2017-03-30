@@ -1,29 +1,38 @@
 class EventsController < ApplicationController
+  before_action :set_params, only: [:index, :more_events]
 
-	def index
-	end
+  def index
+    get_events(@params)
+  end
 
-	def meetup
+  def more_events
+    if params[:offset].present?
+      get_events(@params.merge(offset: params[:offset]))
+    end
+  end
 
-		string = "https://api.meetup.com/wilson-investment-properties-inc/events?key=#{MEETUP_API_KEY}"
-		string << "&page=#{params[:page]}" if params[:page].present?
-		url = URI.escape(string)
-		uri = URI.parse url
+  def get_events(params)
+    @meetup_api = MeetupApi.new
+    events = @meetup_api.events(params)
+    if events['meta']['next'].present?
+      url = events['meta']['next']
+      uri = URI.parse(url)
+      params = CGI.parse(uri.query)
+      @next_page = params['offset'].first      
+    end
+    @events = events['results']
+  end
 
-		http = Net::HTTP.new(uri.host,443)
-		http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-		http.use_ssl = true
+  private
 
-		request = Net::HTTP::Get.new(uri.path+'?'+uri.query)
-		request.content_type = 'application/json'
-
-		response = http.request request
-
-		code = response.code.to_f.round
-		body = response.body
-
-		render json: JSON.parse(body),status: code,root: false
-
-	end
-
+  def set_params
+    @params = {
+      group_urlname: Settings.meetup.group_urlname,
+      scroll: 'future_or_past',
+      status: 'upcoming,past', 
+      format: 'json', 
+      page: Settings.meetup.per_page,
+      desc: true
+    }
+  end
 end

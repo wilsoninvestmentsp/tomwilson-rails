@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'category/blog' => redirect('articles')
   get 'blog/*path' => redirect('articles')
 
-  resources :syndications, path: 'investor-performance'
+  resources :syndications, path: 'track-record'
 
   get 'api/v1/map.png',to: 'map#index',as: 'map'
   get 'api/v1/map.js',to: 'map#js',as: 'js'
@@ -91,6 +91,7 @@ Rails.application.routes.draw do
   get 'wipevents' => redirect('events')
   get 'Dallaspresentation' => redirect('events')
   get 'events/*path' => redirect('events')
+  get 'more_events' => 'events#more_events'
 
   get 'angular',to: 'angular#index'
 

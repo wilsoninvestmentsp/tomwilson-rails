@@ -3,6 +3,10 @@
     <%= f.label :title, class: 'control-label' %>
     <%= f.text_field :title, class: 'form-control' %>    
   </div>
+  <div class="form-group status-dropdown">
+    <%= f.label :status, class: 'control-label' %>
+    <%= f.select :status, Syndication::STATUS_OPTIONS, {}, class: 'selectpicker' %>
+  </div>
   <div class="form-group">
     <%= f.label :purchase_price, 'Purchase Price', class: 'control-label' %>
     <div class="input-group">
@@ -99,6 +103,10 @@
   <div class="form-group">
     <%= f.label :notes, class: 'control-label' %>
     <%= f.text_area :notes, class: 'form-control', rows: 2 %> 
+  </div>
+  <div class="form-group">
+    <%= f.label :location, class: 'control-label' %>
+    <%= f.text_field :location, class: 'form-control' %> 
   </div>
   <div class="form-group">
     <div class="checkbox">

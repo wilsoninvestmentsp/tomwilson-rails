@@ -11,7 +11,7 @@ Syndication = {
     $('#syndication_years').on('change', function(){
       var year = $(this).val();
       $.ajax({
-        url: '/investor-performance/'+$('#slug_id').val(),
+        url: '/track-record/'+$('#slug_id').val(),
         data: {year: year},
         dataType: 'script'
       });
@@ -50,4 +50,5 @@ $(document).on('page:load', function(){
 });
 $(window).on('load page:load',function(){
   $('img').unveil();
+  $('#syndication_status').selectpicker();
 });

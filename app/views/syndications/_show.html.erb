@@ -31,7 +31,7 @@
               <dd><%= syndication.raise_amount.present? ? raw_price(syndication.raise_amount) : 'N/A' %></dd>
             </dl>
             <dl>
-              <dt>Price Per Share:</dt>
+              <dt>Minimum Investment:</dt>
               <dd><%= syndication.price_per_share.present? ? raw_price(syndication.price_per_share) : 'N/A' %></dd>
             </dl>
             <dl>
@@ -43,11 +43,11 @@
               <dd><%= syndication.preferred_return.present? ? "#{syndication.preferred_return} %" : 'N/A' %></dd>
             </dl>
             <dl>
-              <dt>Average Annual Return:</dt>
+              <dt>Projected Avg Annual Return:</dt>
               <dd><%= syndication.average_annual_return.present? ? "#{syndication.average_annual_return} %" : 'N/A' %></dd>
             </dl>
             <dl>
-              <dt>IRR:</dt>
+              <dt>Projected IRR:</dt>
               <dd><%= syndication.irr.present? ? "#{syndication.irr} %" : 'N/A' %></dd>
             </dl>
             <dl>

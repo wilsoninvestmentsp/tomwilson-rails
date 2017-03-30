@@ -7,13 +7,20 @@ class Syndication < ActiveRecord::Base
 
   before_save :unique_year
 
-  scope :all_syndications, -> { all.order('created_at DESC') }
+  scope :all_syndications, -> { all.order('close_date DESC') }
   scope :active_syndications, -> { all_syndications.where(active: true) }
 
   validates_presence_of :title, :purchase_price
   validates :purchase_price, :raise_amount, :price_per_share, :loan_amount, :building_size,
     :lot_size, :number_of_buildings, :number_of_tenants, numericality: { greater_than_or_equal_to: 0, allow_blank: true }, length: { maximum: 10,
     too_long: '%{count} digits is the maximum allowed' }
+
+  STATUS_OPTIONS = [
+    ['Select Status',nil],
+    ['Sold',:sold],
+    ['Currently Held',:currently_held],
+    ['Active',:active],
+  ]
 
   def unique_year
     years = annual_returns.map(&:year)

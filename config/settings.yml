@@ -18,3 +18,6 @@ truncate:
     listing_title: 42
   syndication:
     title: 48
+meetup:
+  group_urlname: wilson-investment-properties-inc
+  per_page: 20
