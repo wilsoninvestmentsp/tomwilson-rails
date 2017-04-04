@@ -1,7 +1,8 @@
 <% if events.present? %>
   <% events.each do |event| %>
-    <%= link_to event['event_url'], target: '_blank', class: 'list-group-item' do %>
-      <h3><%= event['name'] %><br><small><%= Time.at(event['time'].to_s.first(10).to_i).strftime('%B %d, %Y %l %M %p') %></small></h3>
+    <div class='list-group-item event_list'>
+      <%= hidden_field_tag :event_url, event['event_url'] %> 
+      <h3><%= event['name'] %><br><small><%= Time.at(event['time'].to_s.first(10).to_i).strftime('%B %d, %Y %l:%M %p') %></small></h3>
       <div class="row">
         <% if event['venue'].present? %>
           <div class="col-md-5">
@@ -23,6 +24,6 @@
           <span><%= raw event['description'] %></span>
         </div>
       </div>
-    <% end %>
+    </div>
   <% end %>
 <% end %>

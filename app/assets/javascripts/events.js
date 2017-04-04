@@ -10,8 +10,14 @@ TomWilson.Events = {
       }
     });
   },
+  clickableEvent: function(){
+    $('#event-listing').on('click', '.event_list', function(){
+      window.open($(this).children('#event_url').val(), '_blank');
+    });
+  },
   documentOnReady: function(){
     this.loadMoreEvents();
+    this.clickableEvent();
   },
   pageLoad: function () {
     TomWilson.Events.documentOnReady();

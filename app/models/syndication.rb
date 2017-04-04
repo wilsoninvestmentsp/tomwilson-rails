@@ -33,4 +33,8 @@ class Syndication < ActiveRecord::Base
   def self.by_user(user)
     user ? all_syndications : active_syndications
   end
+
+  def raw_status
+    self.status.present? ? self.status.humanize.cap_each : nil
+  end
 end

@@ -2,7 +2,9 @@
   <div class="modal-content report-card">
     <button type="button" class="close" data-dismiss="modal">&times;</button>
     <div class="listing-box">
-      <div class="img-box"><%= image_tag syndication.image.thumb.url, alt: '', class: 'img-responsive' %></div>
+      <div class="img-box"><%= image_tag syndication.image.thumb.url, alt: '', class: 'img-responsive' %>
+        <% if syndication.status.present? %><span class="status-tag top-setting <%= track_record_status_color(syndication.status) %>"><%= syndication.raw_status %></span><% end %>
+      </div>
       <h3><%= syndication.title %></h3>
       <ul class="list-unstyled">
         <% if @syndication_years.present? %>
@@ -87,11 +89,10 @@
             </dl>
           </div>
         </div>
-        <% if @syndication_years.present? || @syndication.notes.present? %>
+        <% if @syndication.notes.present? %>
           <li class="notes-text">
             <span class="title">Notes:</span>
-            <span class="text"><%= raw("#{syndication.notes}<br>") if syndication.notes.present? %>
-            <%= '# Q1 was prorated preferred returns based on closing.' if @syndication_years.present? %></span>
+            <span class="text"><%= raw("#{syndication.notes}") %></span>
           </li>
         <% end %>
       </ul>
