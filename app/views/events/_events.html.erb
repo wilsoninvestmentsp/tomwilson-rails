@@ -2,7 +2,7 @@
   <% events.each do |event| %>
     <div class='list-group-item event_list'>
       <%= hidden_field_tag :event_url, event['event_url'] %> 
-      <h3><%= event['name'] %><br><small><%= event_time(event['time']) %></small></h3>
+      <h3><%= event['name'] %><br><small><%= event_time(event['time'], event['utc_offset']) %></small></h3>
       <div class="row">
         <% if event['venue'].present? %>
           <div class="col-md-5">
