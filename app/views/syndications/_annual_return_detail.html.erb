@@ -6,7 +6,7 @@
     <li><span class="left"><b>Projected Annual Return*:</b></span><span class="right"><%= raw_price(annual_return.projected_annual_return) %></span></li>
   <% end %>
   <% if annual_return.actual_annual_return.present? %>
-    <li><span class="left"><b>Annual Dividend Paid*:</b></span> <span class="right"><%= raw_price(annual_return.actual_annual_return) %></span></li>
+    <li><span class="left"><b>Annual Disbursements Paid*:</b></span> <span class="right"><%= raw_price(annual_return.actual_annual_return) %></span></li>
   <% end %>
   <% if annual_return.quarter_1.present? || annual_return.quarter_2.present? || annual_return.quarter_3.present? || annual_return.quarter_4.present? %>
     <li><span class="left"><b>Quarterly Dividend Amount*:</b></span> <span class="right"><%= annual_return.year %></span>
