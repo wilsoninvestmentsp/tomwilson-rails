@@ -6,19 +6,21 @@ class EventsController < ApplicationController
   end
 
   def more_events
-    if params[:offset].present?
-      get_events(@params.merge(offset: params[:offset]))
-    end
+    get_events(@params.merge(offset: params[:offset])) if params[:offset].present?
   end
 
   def get_events(params)
     @meetup_api = MeetupApi.new
     events = @meetup_api.events(params)
+    events(events)  
+  end
+
+  def events(events)
     if events['meta']['next'].present?
       url = events['meta']['next']
       uri = URI.parse(url)
       url_params = CGI.parse(uri.query)
-      @next_page = url_params['offset'].first      
+      @next_page = url_params['offset'].first
     end
     @events = events['results']
   end
