@@ -11,3 +11,6 @@ cn:
   seo:
     site_title: 威尔逊投资物业
     image: bg-header-corporate.jpg
+    syndication:
+      index:
+        title: Track Record

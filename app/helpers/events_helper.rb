@@ -6,4 +6,8 @@ module EventsHelper
     time = DateTime.strptime(event_t.to_s, '%Q').new_offset(hours)
     time.strftime('%B %d, %Y %l:%M %p')
   end
+
+  def event_address(event_venue)
+    "/api/v1/map.png?address=#{event_venue['address_1']},#{event_venue['city']},#{event_venue['state']}&width=600&height=300"
+  end
 end

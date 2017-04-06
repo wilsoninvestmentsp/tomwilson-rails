@@ -5,17 +5,18 @@
       <h3><%= event['name'] %><br><small><%= event_time(event['time'], event['utc_offset']) %></small></h3>
       <div class="row">
         <% if event['venue'].present? %>
+          <% event_venue = event['venue'] %>
           <div class="col-md-5">
             <div class="list-group">
               <div class="list-group-item active">
-                <h4 class="list-group-item-heading"><%= event['venue']['name'] %></h4>
+                <h4 class="list-group-item-heading"><%= event_venue['name'] %></h4>
               </div>
               <div class="list-group-item">
                 <p class="list-group-item-text">
-                  <%= event['venue']['address_1'] %><br>
-                  <%= "#{event['venue']['city']}, #{event['venue']['state']}" %>
+                  <%= event_venue['address_1'] %><br>
+                  <%= "#{event_venue['city']}, #{event_venue['state']}" %>
                 </p>
-                <%= image_tag 'loading.svg', 'data-src': "/api/v1/map.png?address=#{event['venue']['address_1']},#{event['venue']['city']},#{event['venue']['state']}&width=600&height=300", class: 'img-thumbnail img-responsive' %>
+                <%= image_tag 'loading.svg', 'data-src': event_address(event_venue), class: 'img-thumbnail img-responsive' %>
               </div>
             </div>
           </div>
