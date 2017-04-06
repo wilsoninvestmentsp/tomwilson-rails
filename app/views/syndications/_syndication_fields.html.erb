@@ -3,6 +3,10 @@
     <%= f.label :title, class: 'control-label' %>
     <%= f.text_field :title, class: 'form-control' %>    
   </div>
+  <div class="form-group status-dropdown">
+    <%= f.label :status, class: 'control-label' %>
+    <%= f.select :status, Syndication::STATUS_OPTIONS, {}, class: 'selectpicker' %>
+  </div>
   <div class="form-group">
     <%= f.label :purchase_price, 'Purchase Price', class: 'control-label' %>
     <div class="input-group">
@@ -26,11 +30,11 @@
     <%= f.text_field :preferred_return, class: 'form-control' %>    
   </div>
   <div class="form-group">
-    <%= f.label :average_annual_return, 'Average Annual Return (%)', class: 'control-label' %>
+    <%= f.label :average_annual_return, 'Projected Avg Annual Return (%)', class: 'control-label' %>
     <%= f.text_field :average_annual_return, class: 'form-control' %>    
   </div>
   <div class="form-group">
-    <%= f.label :irr, 'IRR (%)', class: 'control-label' %>
+    <%= f.label :irr, 'Projected IRR (%)', class: 'control-label' %>
     <%= f.text_field :irr, class: 'form-control' %>
   </div>
   <div class="form-group datepicker-main">
@@ -45,7 +49,7 @@
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :price_per_share, 'Price Per Share', class: 'control-label' %>
+    <%= f.label :price_per_share, 'Minimum Investment', class: 'control-label' %>
     <div class="input-group">
       <div class="input-group-addon">$</div>
       <%= f.number_field :price_per_share, min: 0, class: 'form-control' %>
@@ -99,6 +103,10 @@
   <div class="form-group">
     <%= f.label :notes, class: 'control-label' %>
     <%= f.text_area :notes, class: 'form-control', rows: 2 %> 
+  </div>
+  <div class="form-group">
+    <%= f.label :location, class: 'control-label' %>
+    <%= f.text_field :location, class: 'form-control' %> 
   </div>
   <div class="form-group">
     <div class="checkbox">

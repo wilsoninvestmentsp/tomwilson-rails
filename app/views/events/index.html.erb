@@ -1,7 +1,7 @@
 <% set_meta_tags(title: t('seo.event.title'), description: t('seo.event.description'), image: asset_url(t('seo.image_3')), twitter: {image: asset_url(t('seo.image_3'))}, og: {image: asset_url(t('seo.image_3'))}) %>
 <%= render 'layouts/jumbtron' %>
 <section class="main-body without-search-feature">
-  <div class="container" ng:controller="EventsCtrl">
+  <div class="container">
     <div class="row content-section">
       <div class="col-xs-12">
         <div class="box-shadow">
@@ -13,32 +13,19 @@
       </div>
       <div class="col-xs-12">
         <h1>Events for Investing in Real Estate</h1>
-        <div class="list-group">
-          <h3 class="text-muted" ng:if="loading">Loading...</h3>
-          <h3 class="text-muted" ng:if="!loading && events.length == 0">No upcoming events</h3>
-          <a href="{{event.link}}" target="_blank" class="list-group-item" ng:repeat="event in events">
-            <h3>{{event.name}}<br><small>{{moment(event.time).format('MMM D, YYYY h:mm a')}}</small></h3>
-            <div class="row">
-              <div class="col-md-5" ng:if="event.venue">
-                <div class="list-group">
-                  <div class="list-group-item active">
-                    <h4 class="list-group-item-heading">{{event.venue.name}}</h4>
-                  </div>
-                  <div class="list-group-item">
-                    <p class="list-group-item-text">
-                      {{event.venue.address_1}}<br>
-                      {{event.venue.city}}, {{event.venue.state}}
-                    </p>
-                    <img ng:src="/api/v1/map.png?address={{event.venue.address_1}}, {{event.venue.city}}, {{event.venue.state}}&width=600&height=300" class="img-thumbnail" />
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-7">
-                <span ng-bind-html="event.description"></span>
-              </div>
-            </div>
-          </a>
+        <div id='event-listing'>
+          <% if @events.present? %>
+            <%= render partial: 'events', locals: {events: @events} %>
+          <% else %>
+            <h3 class="text-muted">No upcoming events</h3>
+          <% end %>
         </div>
+        <% if @next_page.present? %>
+          <div class="text-center pad-btm-5 load_more_events">
+            <%= hidden_field_tag 'next_page', @next_page %>
+            <%= button_tag id: 'load_more_events', class: 'btn btn-lg border-btn space-setting' do %><i class="fa fa-th" aria-hidden="true"></i> Load More<% end %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

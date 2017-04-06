@@ -1,0 +1,11 @@
+<% if @events.present? %>
+  $('#event-listing').append("<%= escape_javascript(render partial: 'events', locals: { events: @events } ) %>");
+  <% if @next_page.present? %>
+    $('#next_page').attr('value', "<%= @next_page %>");
+  <% else %>
+    $('.load_more_events').hide();
+  <% end %>
+<% else %>
+  $('.load_more_events').hide();
+<% end %>
+$('img').unveil();

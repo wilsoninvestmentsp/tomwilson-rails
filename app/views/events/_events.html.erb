@@ -1,0 +1,30 @@
+<% if events.present? %>
+  <% events.each do |event| %>
+    <div class='list-group-item event_list'>
+      <%= hidden_field_tag :event_url, event['event_url'] %> 
+      <h3><%= event['name'] %><br><small><%= event_time(event['time'], event['utc_offset']) %></small></h3>
+      <div class="row">
+        <% if event['venue'].present? %>
+          <% event_venue = event['venue'] %>
+          <div class="col-md-5">
+            <div class="list-group">
+              <div class="list-group-item active">
+                <h4 class="list-group-item-heading"><%= event_venue['name'] %></h4>
+              </div>
+              <div class="list-group-item">
+                <p class="list-group-item-text">
+                  <%= event_venue['address_1'] %><br>
+                  <%= "#{event_venue['city']}, #{event_venue['state']}" %>
+                </p>
+                <%= image_tag 'loading.svg', 'data-src': event_address(event_venue), class: 'img-thumbnail img-responsive' %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <div class="col-md-7">
+          <span><%= raw event['description'] %></span>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

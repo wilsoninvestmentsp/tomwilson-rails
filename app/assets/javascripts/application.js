@@ -38,5 +38,6 @@
 //= require assets
 //= require syndication
 //= require radio_show
+//= require events
 //= require jquery.unveil.js
 //= require cocoon

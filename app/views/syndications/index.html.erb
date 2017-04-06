@@ -7,19 +7,19 @@
         <div class="box-shadow">
           <ol class="breadcrumb">
             <li><%= link_to 'Home', root_url %></li>
-            <li class="active">Investor Performance</li>
+            <li class="active"><%= t('seo.syndication.index.title') %></li>
             <% if current_user %>
             <li><%= link_to 'New', new_syndication_path %></li>
             <% end %>
           </ol>
         </div>
-        <h1 class="common-title">Investor Performance</h1>
+        <h1 class="common-title"><%= t('seo.syndication.index.title') %></h1>
         <div class="row report-card" id="syndication-listing">
           <% if @syndications.any? %>
             <%= render partial: 'syndications', locals: {syndications: @syndications} %>
           <% else %>
             <div class="col-xs-12 msg-content text-center">
-              <h3>No Investor Performance found</h3>
+              <h3>No Track Record found</h3>
             </div>
           <% end %>
         </div>
