@@ -444,7 +444,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .report-card .list-unstyled li .left{float:left;text-align:left;width:65%;display:inline-block}
 .report-card .list-unstyled li .right{float:left;text-align:right;width:35%;display:inline-block}
 .report-card .qtr-data{padding:8px 0 0 0;margin:0;list-style:none;display:table;width:100%;color:#fff;text-align:center}
-.report-card .qtr-data li{width:25%;float:left;padding:0 !important;border-bottom:none}
+.report-card .qtr-data li{width:25%;float:right;padding:0 !important;border-bottom:none}
 .report-card .qtr-data li.q1{background:#e57373}
 .report-card .qtr-data li.q2{background:#29B6F6}
 .report-card .qtr-data li.q3{background:#8BC34A}
