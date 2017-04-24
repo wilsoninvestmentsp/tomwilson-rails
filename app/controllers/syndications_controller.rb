@@ -48,6 +48,7 @@ class SyndicationsController < ApplicationController
 
   def set_syndication
     @syndication = Syndication.where(slug: params[:id]).first
+    redirect_to syndications_path, flash: {danger: "Track Record '#{params[:id]}' not found"} if @syndication.nil?
   end
 
   def syndication_params

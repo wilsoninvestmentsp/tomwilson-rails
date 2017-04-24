@@ -18,8 +18,8 @@ Syndication = {
     });
   },
   disableMouseClick: function(){
-    $('#learn_more, #syndication_title').on('click contextmenu',function(e){
-      if(e.which == 2){e.preventDefault();};
+    $('#learn_more, #syndication_title').on('click contextmenu mouseup',function(e){
+      if(e.which == 2){e.preventDefault()};
       e.preventDefault();
     });
   },
