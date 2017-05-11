@@ -1,7 +1,7 @@
 SitemapGenerator::Sitemap.default_host = 'http://www.tomwilsonproperties.com'
 SitemapGenerator::Sitemap.compress = false
 SitemapGenerator::Sitemap.public_path = 'tmp/'
-SitemapGenerator::Sitemap.sitemaps_host = "http://res.cloudinary.com/#{CLOUDINARY_CLOUD_NAME}"
+SitemapGenerator::Sitemap.sitemaps_host = "http://res.cloudinary.com/#{ENV['CLOUDINARY_CLOUD_NAME']}"
 SitemapGenerator::Sitemap.create do
   add syndications_path, priority: 0.7
   add properties_path, priority: 0.7
