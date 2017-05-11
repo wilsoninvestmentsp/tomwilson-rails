@@ -125,4 +125,5 @@ Rails.application.routes.draw do
   end
 
   get '*path' => redirect('/')
+  get '/sitemap.xml', to: redirect('http://res.cloudinary.com/wilsoninvestments/raw/upload/v1494498777/sitemap.xml', status: 301)
 end
