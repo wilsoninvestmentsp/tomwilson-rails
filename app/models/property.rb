@@ -71,14 +71,14 @@ class Property < ActiveRecord::Base
     query << " END"
   end
  
-  scope :order_by_status, -> { order(order_by_case) }
+  scope :order_by_status, -> { order(order_by_case).order('updated_at DESC') }
 
   def raw_state
     STATES[self.state.to_sym]
   end
 
   def self.order_featured_properties(properties)
-    properties.sort_by{ |p| p.status }
+    properties.order('status ASC', 'updated_at DESC')
   end
 
   def create_links

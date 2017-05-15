@@ -25,4 +25,4 @@ SitemapGenerator::Sitemap.create do
     add property_path(property), lastmod: property.updated_at, priority: 0.9
   end
 end
-Cloudinary::Uploader.upload('tmp/sitemap.xml', resource_type: :auto, use_filename: true, use_root_path: true, unique_filename: false)
+Cloudinary::Uploader.upload('tmp/sitemap.xml', resource_type: :auto, use_filename: true, use_root_path: true, unique_filename: false, overwrite: true)
