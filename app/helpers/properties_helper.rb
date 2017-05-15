@@ -1,18 +1,18 @@
 module PropertiesHelper
   def status_label_class(property_status)
     case property_status
-    when 'for_sale'
-      'green'
-    when 'sold'
-      'red'
-    when 'sale_pending'
-      'orange'
-    when 'comming_soon'
-      'skyblue'
-    when 'reserved'
-      'yellow'
-    else
-      'green'
+      when 'for_sale'
+        'green'
+      when 'sold'
+        'red'
+      when 'sale_pending'
+        'orange'
+      when 'comming_soon'
+        'skyblue'
+      when 'reserved'
+        'yellow'
+      else
+        'green'
     end
   end
 
