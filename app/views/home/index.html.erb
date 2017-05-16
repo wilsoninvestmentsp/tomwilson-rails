@@ -79,68 +79,70 @@
   </section>
   <div id="report-card-details" class="modal fade" role="dialog"></div>
 <% end %>
-<section class="white-bg property-section">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 feature-property-listing">
-        <h3 class="text-center">Featured Investment Properties</h3>
-        <p class="tag-line-text">Wilson Investment Properties has provided over 600 rental homes to investors</p>
-        <div id="featured-properties-slider" class="owl-carousel owl-theme">
-          <% @properties.each do |property| %>
-          <div class="item">
-            <div class="propery-box clickable_div">
-              <div class="img-box">
-                <%= link_to property_path(property) do %>
-                  <%= image_tag 'loading.svg', 'data-src': property.image.url, alt: "Property Image - #{property.raw_title}", class: 'img-responsive' %>
-                <% end %>
-                <span class="status-tag top-setting <%= status_color(property.status) %>"><%= property.raw_status %></span>
-                <% if property.leased == 'yes' %>
-                  <span class="status-tag-right blue">Leased</span>
-                <% end %>
+<% if @properties.any? %>
+  <section class="white-bg property-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 feature-property-listing">
+          <h3 class="text-center">Featured Investment Properties</h3>
+          <p class="tag-line-text">Wilson Investment Properties has provided over 600 rental homes to investors</p>
+          <div id="featured-properties-slider" class="owl-carousel owl-theme">
+            <% @properties.each do |property| %>
+            <div class="item">
+              <div class="propery-box clickable_div">
+                <div class="img-box">
+                  <%= link_to property_path(property) do %>
+                    <%= image_tag 'loading.svg', 'data-src': property.image.url, alt: "Property Image - #{property.raw_title}", class: 'img-responsive' %>
+                  <% end %>
+                  <span class="status-tag top-setting <%= status_color(property.status) %>"><%= property.raw_status %></span>
+                  <% if property.leased == 'yes' %>
+                    <span class="status-tag-right blue">Leased</span>
+                  <% end %>
+                </div>
+                <h4><%= link_to property.raw_title.truncate(Settings.truncate.property.title), property_path(property) %></h4>
+                <ul class="info">
+                  <li class="price">
+                    <span class="hidden">Price:</span>
+                    $<%= number_with_precision(property.offer_price,precision: 2,delimiter: ',') %>
+                  </li>
+                  <li class="person">
+                    <%= property.raw_building_type %>
+                  </li>
+                </ul>
+                <ul class="price-flow">
+                  <li>Cash Flow: <span class="blue-text">
+                    <%= validate_price_field(property.cash_flow) %>
+                    </span>
+                  </li>
+                  <li>Rent: <span class="blue-text">
+                    <%= validate_price_field(property.rent) %>
+                    </span>
+                  </li>
+                </ul>
+                <ul class="numbers-details">
+                  <li>
+                    <span data-toggle="tooltip" data-placement="top" title="Bedroom"><i class="fa fa-bed" aria-hidden="true"></i><span class="hidden">Bedrooms:</span><%= validate_listing_field(property.bedrooms) %></span>
+                  </li>
+                  <li>
+                    <span data-toggle="tooltip" data-placement="top" title="Bathroom"><i class="fa fa-bath" aria-hidden="true"></i><span class="hidden">Bathrooms:</span><%= validate_listing_field(property.bathrooms) %></span>
+                  </li>
+                  <li>
+                    <span data-toggle="tooltip" data-placement="top" title="Garage"><i class="fa fa-car" aria-hidden="true"></i><span class="hidden">Garages:</span><%= validate_listing_field(property.garages) %></span>
+                  </li>
+                </ul>
               </div>
-              <h4><%= link_to property.raw_title.truncate(Settings.truncate.property.title), property_path(property) %></h4>
-              <ul class="info">
-                <li class="price">
-                  <span class="hidden">Price:</span>
-                  $<%= number_with_precision(property.offer_price,precision: 2,delimiter: ',') %>
-                </li>
-                <li class="person">
-                  <%= property.raw_building_type %>
-                </li>
-              </ul>
-              <ul class="price-flow">
-                <li>Cash Flow: <span class="blue-text">
-                  <%= validate_price_field(property.cash_flow) %>
-                  </span>
-                </li>
-                <li>Rent: <span class="blue-text">
-                  <%= validate_price_field(property.rent) %>
-                  </span>
-                </li>
-              </ul>
-              <ul class="numbers-details">
-                <li>
-                  <span data-toggle="tooltip" data-placement="top" title="Bedroom"><i class="fa fa-bed" aria-hidden="true"></i><span class="hidden">Bedrooms:</span><%= validate_listing_field(property.bedrooms) %></span>
-                </li>
-                <li>
-                  <span data-toggle="tooltip" data-placement="top" title="Bathroom"><i class="fa fa-bath" aria-hidden="true"></i><span class="hidden">Bathrooms:</span><%= validate_listing_field(property.bathrooms) %></span>
-                </li>
-                <li>
-                  <span data-toggle="tooltip" data-placement="top" title="Garage"><i class="fa fa-car" aria-hidden="true"></i><span class="hidden">Garages:</span><%= validate_listing_field(property.garages) %></span>
-                </li>
-              </ul>
             </div>
+            <% end %>
           </div>
-          <% end %>
-        </div>
-        <div class="text-center">
-          <%= link_to properties_path, class: 'btn border-btn btn-lg', title: 'View All Investment Properties' do %><i class="fa fa-th" aria-hidden="true"></i>View More Offers<% end %>
+          <div class="text-center">
+            <%= link_to properties_path, class: 'btn border-btn btn-lg', title: 'View All Investment Properties' do %><i class="fa fa-th" aria-hidden="true"></i>View More Offers<% end %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-<section class="grey-bg bdr-top-btm magazine-section">
+  </section>
+<% end %>
+<section class="<%= section_bg_class(@properties.any?, 'magazine') %> magazine-section">
   <div class="container">
    <div class="row">
     <div class="col-sm-12 text-center">
@@ -172,7 +174,7 @@
   </div>
 </section>
   <% if !current_user %>
-    <section class="white-bg feedback-section">
+    <section class="<%= section_bg_class(@properties.any?, 'feedback') %> feedback-section">
       <div class="container">
         <div class="row">
           <div class="col-xs-12 text-center">
@@ -190,7 +192,7 @@
       </div>
     </section>
   <% else %>
-    <section class="white-bg feedback-table-section">
+    <section class="<%= section_bg_class(@properties.any?, 'feedback') %> feedback-table-section">
       <div class="container">
         <div class="row">
           <div class="col-xs-12">
