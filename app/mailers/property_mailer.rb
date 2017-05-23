@@ -32,4 +32,8 @@ class PropertyMailer < ApplicationMailer
 		
 	end
 
+	def notify_subscriber subscriber_email
+		mail to: subscriber_email, subject: 'Newsletter Subscription'
+	end
+
 end

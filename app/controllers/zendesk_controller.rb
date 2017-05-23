@@ -19,6 +19,10 @@ class ZendeskController < ApplicationController
 
 		end
 
+		if p[:newsletter].present? && p[:newsletter] == true
+			PropertyMailer.notify_subscriber(p[:email]).deliver_later
+		end
+
 		render json: params,status: 200
 
 	end

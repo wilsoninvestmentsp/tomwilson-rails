@@ -5,6 +5,7 @@ class MailchimpController < ApplicationController
   def signup
     if ZohoNewsletter.signup(signup_params)
       render json: 200
+      PropertyMailer.notify_subscriber(signup_params[:email]).deliver_later
     end
   end
 
