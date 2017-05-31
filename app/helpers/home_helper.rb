@@ -22,7 +22,7 @@ module HomeHelper
         if properties
           'white-bg'
         else
-          'grey-bg'
+          'grey-bg bdr-top-btm'
         end
     end
   end
