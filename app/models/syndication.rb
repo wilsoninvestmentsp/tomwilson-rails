@@ -7,7 +7,7 @@ class Syndication < ActiveRecord::Base
 
   before_save :unique_year
 
-  scope :all_syndications, -> { all.order('close_date ASC') }
+  scope :all_syndications, -> { all.order('close_date DESC') }
   scope :active_syndications, -> { all_syndications.where(active: true) }
 
   validates_presence_of :title, :purchase_price
