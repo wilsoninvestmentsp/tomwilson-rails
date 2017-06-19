@@ -29,4 +29,8 @@ module ApplicationHelper
   def validate_listing_field(field)
     field.to_i > 0 ? field.to_i : 'N/A'
   end
+
+  def javascript_void
+    'javascript:;'
+  end
 end

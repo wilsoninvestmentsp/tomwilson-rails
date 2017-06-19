@@ -25,12 +25,10 @@ RadioShow = {
     });
   },
   playVideo: function(){
-    $('.play_now_video').on('click', function(){
-      var id = $(this).attr('value');
+    $('#radio-show-listing').on('click', '.play_video_now', function(){
+      var videoId = $(this).attr('value');
       $.ajax({
-        url: 'play_video',
-        data: {videoId: id},
-        dataType: 'script'
+        url: '/play_video/'+videoId
       });
     });
   },

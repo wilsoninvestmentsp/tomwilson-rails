@@ -11,7 +11,7 @@
           <%= link_to 'More', '#', class: 'load_more_description', value: video['id']['videoId'], remote: true %>
           <span>|</span>
         <% end %>
-        <%= link_to 'Play Now', play_video_path(video['id']['videoId']), remote: true %>
+        <%= link_to 'Play Now', javascript_void, value: video['id']['videoId'], class: 'play_video_now' %>
       </div>
     </div>
   </div>
