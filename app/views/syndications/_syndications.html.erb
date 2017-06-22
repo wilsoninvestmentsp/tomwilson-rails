@@ -4,7 +4,7 @@
     <div class="img-box"><%= image_tag 'loading.svg', 'data-src': syndication.image.thumb.url, alt: '', class: 'img-responsive' %>
       <% if syndication.status.present? %><span class="status-tag top-setting <%= track_record_status_color(syndication.status) %>"><%= syndication.raw_status %></span><% end %>
     </div>
-    <h3><%= link_to syndication.title.truncate(Settings.truncate.syndication.title), syndication_path(syndication), remote: true, id: 'syndication_title' %></h3>
+    <h3><%= link_to syndication.title.truncate(Settings.truncate.syndication.title), javascript_void, value: syndication.slug, class: 'open_track_record', id: 'syndication_title' %></h3>
     <ul class="list-unstyled">
       <% if syndication.close_date.present? %><li><span class="left"><b>Close Date:</b></span><span class="right"><%= syndication.close_date.strftime('%d %b %Y') %></span></li><% end %>
       <% if syndication.purchase_price.present? %><li><span class="left"><b>Purchase Price + Cap Ex:</b></span><span class="right"><%= raw_price(syndication.purchase_price) %></span></li><% end %>
@@ -12,7 +12,7 @@
       <% if syndication.location.present? %><li><b>Location:</b> <%= syndication.location %></li><% end %>
     </ul>
     <div class="button-links-row">
-    <%= link_to 'Financial Details', syndication_path(syndication), remote: true, class: 'btn border-btn', id: 'learn_more' %>
+    <%= link_to 'Financial Details', javascript_void, value: syndication.slug, class: 'open_track_record btn border-btn', id: 'learn_more' %>
     <% if current_user %>
       <%= link_to 'Edit', edit_syndication_path(syndication), class: 'btn border-btn' %>
     <% end %>

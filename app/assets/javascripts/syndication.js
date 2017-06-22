@@ -31,15 +31,25 @@ Syndication = {
       todayHighlight: true
     });
   },
+  openTrackRecord: function(){
+    $('#syndication-listing, #syndication-slider').on('click', '.open_track_record', function(){
+      var trackRecordId = $(this).attr('value');
+      $.ajax({
+        url: '/track-record/'+trackRecordId
+      });
+    });
+  },
   documentOnReady: function(){
     this.pagintation();
     this.disableMouseClick();
     this.datePicker();
+    this.openTrackRecord();
   },
   pageLoad: function(){
     this.pagintation();
     this.disableMouseClick();
     this.datePicker();
+    this.openTrackRecord();
   }
 }
 $(document).ready(function(){
