@@ -26,7 +26,7 @@ video,source{bottom:0;left:0;min-height:100%;min-width:100%;position:absolute}
 .mar-top-15{margin-top:15px}
 .mar-top-30{margin-top:30px}
 .mar-top-40{margin-top:40px}
-.mar-btm-15{margin-bottom:15px}
+.mar-btm-15{margin-bottom:15px!important}
 .mar-btm-30{margin-bottom:30px}
 .mar-right-15{margin-right:15px}
 .pad-top-70{padding-top:70px}
@@ -132,7 +132,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .magazine-section{padding:50px 0 100px 0;font-family:'AllerRG'}
 .magazine-section h3{margin-top:0;margin-bottom:50px;font-size:30px;line-height:1;color:#525252}
 
-.feedback-section{padding:50px 0;font-family:'AllerRG';margin-bottom:60px}
+.feedback-section{padding:50px 0;font-family:'AllerRG'}
 .feedback-section h3{margin-top:0;margin-bottom:25px;font-size:30px;line-height:1;color:#525252}
 .feedback-section .comment{font-size:26px;padding-top:0;margin-top:0;color:#525252}
 .feedback-section .user{font-size:16px;color:#407cbb}
@@ -141,6 +141,12 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .feedback-table-section h3{font-size:32px;margin-bottom:50px;margin-top:0;line-height:1}
 
 .feature-property-listing .tag-line-text{text-align:center;font-size:16px}
+
+.company-content{margin-bottom:60px;padding:50px 0}
+.company-content ul,
+.company-content p{font-size:18px;text-align:justify}
+.company-content ul,
+.company-content p{margin-bottom:30px}
 
 /* Common Body CSS */
 .main-body{font-family:'AllerRG';margin-top:-136px;margin-bottom:65px}

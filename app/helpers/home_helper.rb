@@ -24,6 +24,12 @@ module HomeHelper
         else
           'grey-bg bdr-top-btm'
         end
+      when 'company-content'
+        if properties
+          'grey-bg bdr-top-btm'
+        else
+          'white-bg'
+        end
     end
   end
 end
