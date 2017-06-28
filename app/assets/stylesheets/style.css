@@ -138,7 +138,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .feedback-section .comment{font-size:26px;padding-top:0;margin-top:0;color:#525252}
 .feedback-section .user{font-size:16px;color:#407cbb}
 .feedback-section .table{background:#fff}
-.feedback-table-section{padding:50px 0;margin-bottom:60px;border-top:solid 1px #ddd}
+.feedback-table-section{padding:50px 0;border-top:solid 1px #ddd}
 .feedback-table-section h3{font-size:32px;margin-bottom:50px;margin-top:0;line-height:1}
 
 .feature-property-listing .tag-line-text{text-align:center;font-size:16px}
