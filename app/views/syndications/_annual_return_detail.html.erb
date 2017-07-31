@@ -11,10 +11,10 @@
   <% if annual_return.quarter_1.present? || annual_return.quarter_2.present? || annual_return.quarter_3.present? || annual_return.quarter_4.present? %>
     <li><span class="left"><b>Quarterly Dividend Amount*:</b></span> <span class="right"><%= annual_return.year %></span>
       <ul class="qtr-data">
-        <% if annual_return.quarter_4.to_i > 0 %><li class="q4"><b>Q4</b> <%= quarterly_price(annual_return.quarter_4) %></li><% end %>
-        <% if annual_return.quarter_3.to_i > 0 %><li class="q3"><b>Q3</b><%= quarterly_price(annual_return.quarter_3) %></li><% end %>
+        <% if annual_return.quarter_1.to_i > 0 %><li class="q1"><b>Q1</b><%= quarterly_price(annual_return.quarter_1) %></li><% end %>
         <% if annual_return.quarter_2.to_i > 0 %><li class="q2"><b>Q2</b><%= quarterly_price(annual_return.quarter_2) %></li><% end %>
-        <% if annual_return.quarter_1.to_i > 0 %><li class="q1"><b>Q1#</b><%= quarterly_price(annual_return.quarter_1) %></li><% end %>
+        <% if annual_return.quarter_3.to_i > 0 %><li class="q3"><b>Q3</b><%= quarterly_price(annual_return.quarter_3) %></li><% end %>
+        <% if annual_return.quarter_4.to_i > 0 %><li class="q4"><b>Q4</b> <%= quarterly_price(annual_return.quarter_4) %></li><% end %>
       </ul>
       <span class="text"><%= '# Q1 was prorated preferred returns based on closing.' if annual_return.quarter_1.to_i > 0 %></span>
     </li>
