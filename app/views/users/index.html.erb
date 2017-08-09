@@ -1,5 +1,7 @@
 <% set_meta_tags(title: "#{t('seo.our_team.index.title')} - #{t('seo.site_title')}", description: t('seo.our_team.index.description'), image: asset_url(t('seo.image_4')), twitter: {image: asset_url(t('seo.image_4'))}, og: {image: asset_url(t('seo.image_4'))}) %>
-<%= render 'layouts/jumbtron' %>
+<div class="topfix twp-team">
+  <%= image_tag 'twp_team.jpg', class: 'img-responsive' %>
+</div>
 <section class="main-body without-search-feature">
   <div class="container" ng:controller="UsersCtrl">
     <div class="row content-section">
@@ -101,4 +103,9 @@
     </div>
   </div>
 </section>
-<script>$(window).load(function(){$('img').unveil();});</script>
+<script>
+  $(window).load(function(){$('img').unveil();});
+  $(function(){
+    $("#jumbotron-slider").owlCarousel({autoPlay:6000,items:1,transitionStyle:"fade",pagination:false,mouseDrag:false});
+  });
+</script>
