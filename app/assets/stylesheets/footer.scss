@@ -19,7 +19,7 @@ body{margin-bottom:60px}
 @font-face{font-family:'AllerRG';src:asset_url('Aller_Rg.ttf')}
 @font-face{font-family:'AllerDisplay';src:asset_url('Aller_Bd.ttf')}
 
-/* Footer CSS */ 
+/* Footer CSS */
 footer{background:#333 !important;padding:30px 0;font-family:'AllerRG'}
 footer address{color:#fff}
 footer address h5{margin-top:0}
@@ -39,7 +39,7 @@ footer .form-horizontal .form-control:focus{border-bottom-color:#407cbb}
 footer .form-horizontal .btn{width:100%;background:transparent;border:solid 1px #666;color:#999}
 footer .form-horizontal .btn:hover{border-color:#407cbb;background:#407cbb;color:#fff}
 
-/* Newsletter Box CSS */ 
+/* Newsletter Box CSS */
 #newsletter-form{display:none}
 #newsletter{position:fixed;right:0;top:70px;height:205px;margin-left:-3px;margin-bottom:-3px;z-index:1000;font-family:'AllerRG';max-width:470px}
 #newsletter-form{font-size:12px;float:right;width:450px;height:100%;z-index:1000;padding-left:0;padding-right:0;border:1px solid rgba(0,0,0,.2);-moz-border-radius:0;-webkit-border-radius:0;border-radius:0;-webkit-box-shadow:0 5px 10px rgba(0,0,0,.2);-moz-box-shadow:0 5px 10px rgba(0,0,0,.2);box-shadow:0 0 4px #aaa;-webkit-box-shadow:0 0 4px #aaa;-moz-box-shadow:0 0 4px #aaa;-ms-box-shadow:0 0 4px #aaa;-o-box-shadow:0 0 4px #aaa;margin-bottom:0}
@@ -100,7 +100,7 @@ footer .form-horizontal .btn:hover{border-color:#407cbb;background:#407cbb;color
 @media(min-width:480px) and (max-width:767px){
   #inquiry-tab{top:194px}
   .twp-team img{margin-top:-30px}
-} 
+}
 @media(max-width:767px){
 	footer address{text-align:center}
 	footer .social-links{margin-top:15px;text-align:center}
@@ -120,27 +120,34 @@ footer .form-horizontal .btn:hover{border-color:#407cbb;background:#407cbb;color
   #newsletter .border-btn,
   #inquiry .border-btn{height:34px;font-size:13px;padding:8px;line-height:16px}
 }
+@media(min-width:320px) and (max-width:479px){
+  .twp-team{height:300px}
+}
+@media(min-width:480px) and (max-width:767px){
+ .twp-team{height:300px}
+}
 @media(min-width:768px) and (max-width:991px){
-  .twp-team img{margin-top:-50px} 
+  .twp-team{height:350px}
+  .twp-team img{margin-top:-70px}
 }
 @media(min-width:992px) and (max-width:1199px){
-  .twp-team img{margin-top:-100px}
-}
-@media(min-width:1199px){
   .twp-team{height:350px}
+  .twp-team img{margin-top:-125px}
 }
 @media(min-width:1200px) and (max-width:1399px){
-  .twp-team img{margin-top:-125px} 
-}
-@media(min-width:1400px) and (max-width:1599px){
+  .twp-team{height:350px}
   .twp-team img{margin-top:-150px}
 }
+@media(min-width:1400px) and (max-width:1599px){
+  .twp-team{height:450px}
+  .twp-team img{margin-top:-180px}
+}
 @media(min-width:1600px) and (max-width:1899px){
-  .twp-team img{margin-top:-165px}
-  .twp-team{height:400px}
+  .twp-team{height:500px}
+  .twp-team img{margin-top:-210px}
 }
 @media(min-width:1900px){
-  .twp-team img{margin-top:-200px}
-  .twp-team{height:450px}
+  .twp-team{height:500px}
+  .twp-team img{margin-top:-250px}
 }
 .twp-team{overflow:hidden}
