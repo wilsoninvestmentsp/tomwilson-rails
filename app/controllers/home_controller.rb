@@ -5,7 +5,7 @@ class HomeController < ApplicationController
     @testimonies = Testimony.order(:sort).limit(6)
     properties = Property.active.for_sale_and_reserved.limit(6)
     @properties = Property.order_featured_properties(properties)
-    @syndications = Syndication.by_user(current_user).limit(4)
+    @syndications = Syndication.where(status: ['active', 'currently_held']).order(:status).by_user(current_user).limit(4)
   end
 
   def index_cn

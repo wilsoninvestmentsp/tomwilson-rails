@@ -3,7 +3,7 @@ class SyndicationsController < ApplicationController
   before_action :set_syndication, only: [:show, :edit, :update, :destroy]
 
   def index
-    @syndications = Syndication.by_user(current_user).page(params[:page]).per(Settings.pagination.syndication.per_page)
+    @syndications = Syndication.where(status: ['active', 'currently_held']).order(:status).by_user(current_user).page(params[:page]).per(Settings.pagination.syndication.per_page)
   end
 
   def new

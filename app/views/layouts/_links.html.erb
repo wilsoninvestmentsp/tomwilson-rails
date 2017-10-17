@@ -37,8 +37,12 @@
   </li>
   <% end %>
   <li class="flag-icon">
-    <%= link_to cn_path do %>
-      <%= image_tag 'chinese-flag.gif', title: 'Chinese Investor', alt: 'Chinese Investor', class: 'img-responsive' %>
+    <% if I18n.locale == :cn %>
+      <%= link_to 'EN', '/'%>
+    <% else %>
+      <%= link_to '中文', cn_path %>
+        <%#= image_tag 'chinese-flag.gif', title: 'Chinese Investor', alt: 'Chinese Investor', class: 'img-responsive' %>
+      <%# end %>
     <% end %>
   </li>
 </ul>

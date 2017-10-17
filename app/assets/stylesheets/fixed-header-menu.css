@@ -12,6 +12,7 @@
 .navbar-nav > li > .dropdown-menu > li > a{padding:10px 20px;border-bottom:solid 1px #e5e5e5;color:#575757 !important}
 .navbar-nav > li > .dropdown-menu > li > a:hover{color:#5296d0 !important}
 .flag-icon img{width:29px}
+
 @media(max-width:767px){
 	.nav.navbar-nav{float:none}
 	.navbar-default{height:auto}
@@ -22,9 +23,12 @@
   .navbar-default  .navbar-toggle .icon-bar{background:#fff}
 
   .navbar-default .navbar-toggle.collapsed{border-color:#4c8dd2;background-color:#fff}
-  .navbar-default .navbar-toggle.collapsed .icon-bar, 
-  .navbar-default .navbar-toggle.collapsed:hover .icon-bar, 
+  .navbar-default .navbar-toggle.collapsed .icon-bar,
+  .navbar-default .navbar-toggle.collapsed:hover .icon-bar,
   .navbar-default .navbar-toggle.collapsed:focus  .icon-bar{background-color:#4c8dd2}
+}
+@media(min-width:768px){
+  .navbar-right{margin-right:0}
 }
 @media(min-width:768px) and (max-width:991px){
 /*  .navbar > .container .navbar-brand{padding-right:0}
@@ -53,8 +57,8 @@
     border-color:#4c8dd2;background-color:#4c8dd2}
   .navbar-default  .navbar-toggle .icon-bar{background:#fff}
   .navbar-default .navbar-toggle.collapsed{border-color:#4c8dd2;background-color:#fff}
-  .navbar-default .navbar-toggle.collapsed .icon-bar, 
-  .navbar-default .navbar-toggle.collapsed:hover .icon-bar, 
+  .navbar-default .navbar-toggle.collapsed .icon-bar,
+  .navbar-default .navbar-toggle.collapsed:hover .icon-bar,
   .navbar-default .navbar-toggle.collapsed:focus  .icon-bar{background-color:#4c8dd2}
 
   .navbar-nav .open .dropdown-menu{position:static;float:none;width:auto;margin-top:0;background-color:transparent;border:0;-webkit-box-shadow:none;box-shadow:none}
@@ -67,7 +71,4 @@
   .navbar-default .navbar-nav > li > a{
     padding:12px 10px !important;
   }
-}
-@media(min-width:768px){
-  .navbar-right{margin-right:0}
 }
