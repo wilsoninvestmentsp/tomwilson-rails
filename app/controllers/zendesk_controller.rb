@@ -5,8 +5,9 @@ class ZendeskController < ApplicationController
 	def ticket
 
 		p = params.require(:inquiry)
-		ZohoNewsletter.signup(p.merge(investor_source: 'Website', contact_type: 'Investor'))
-		
+		investor_source = p[:pv_param].present? ? 'Web-Paradise Valley' : 'Website'
+		ZohoNewsletter.signup(p.merge(investor_source: investor_source, contact_type: 'Investor'))
+
 		if p[:property].present?
 
 			PropertyMailer.user_email(p).deliver_later

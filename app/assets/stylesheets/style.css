@@ -26,6 +26,7 @@ video,source{bottom:0;left:0;min-height:100%;min-width:100%;position:absolute}
 .mar-top-15{margin-top:15px}
 .mar-top-30{margin-top:30px}
 .mar-top-40{margin-top:40px}
+.mar-top-50{margin-top:50px}
 .mar-btm-10{margin-bottom:10px!important}
 .mar-btm-15{margin-bottom:15px!important}
 .mar-btm-30{margin-bottom:30px}
@@ -56,6 +57,8 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .chinese-content p.text-center{text-align:center !important}
 .chinese-content h3{font-weight:bold}
 .chinese-content video, .chinese-content iframe{display:inline-block;width:100%;max-width:627px;max-height:312px}
+.paradise-valley-banner img{display:inline-block;max-width:540px;border:solid 1px #ddd;margin-right:-2px}
+
 
 /* Index Page CSS */
 .first-section{height:500px}

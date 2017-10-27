@@ -29,7 +29,12 @@ en:
     last_name: Last Name
     phone: Phone
     sign_up: Sign Up
+    submit: Submit
     submitting: Submitting...
+    subject: A brief description of the inquiry
+    description: Please describe the nature of your inquiry
+    subscribe: Sign up for our Newsletter
+    header_title: Please send me more information about Paradise Valley
   helpers:
     label:
       property:
@@ -46,7 +51,7 @@ en:
       description: Looking for passive real estate investments? Wilson Investment Properties specializes in providing turnkey commercial & multifamily real estate syndications.
     resource:
       index:
-        title: Helpful Resources of Real Estate Investment Properties 
+        title: Helpful Resources of Real Estate Investment Properties
         description: A property investment resource of market updates, expo, presentations, videos and tips. Visit Wilson Investment Properties resources section for help.
       new: New Resource
       edit: Edit Resource
@@ -68,7 +73,7 @@ en:
       description: Wilson Investment Properties has experts to help you determine what source is the best to get income after financing in property investment.
     property_management:
       title: Best Property Management Services Company in United State
-      description: Get full property management services by purchasing investment property from Wilson Investment Properties Inc. Our Managers are ready any time to help you. 
+      description: Get full property management services by purchasing investment property from Wilson Investment Properties Inc. Our Managers are ready any time to help you.
     our_difference:
       title: Our Difference - A Strategies for Success in Investment Properties
       description: We use our decades of experience to maximize your return while selecting high quality properties in strong cities. We follow best strategies for success.
@@ -85,7 +90,7 @@ en:
       title: Real Estate Radio Show on KDOW by Tom K. Wilson
       description: Hear professional and latest advice on real estate markets, trends and economy by expert Real Estate Investor Tom K. Wilson on KDOW - The Business Radio Show.
     property:
-      index: 
+      index:
         title: Investment Properties - Commercial & Residential Property, US
         description: Real Estate Investment Properties for sale and lease. Find homes, duplex, fourplex, single family, multifamily and commercial property for investment in United State.
       new: Add Property

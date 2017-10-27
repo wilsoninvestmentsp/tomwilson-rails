@@ -7,7 +7,12 @@ cn:
     last_name: 姓
     phone: 电话号码
     sign_up: 注册
+    submit: 提交
     submitting: 正在提交...
+    subject: 查询的简要说明
+    description: 请描述您的查询的性质
+    subscribe: 注册我们的通讯
+    header_title: 请给我更多的信息 Paradise Valley
   seo:
     site_title: 威尔逊投资物业
     image: bg-header-corporate.jpg
