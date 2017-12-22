@@ -13,7 +13,15 @@
             <% end %>
           </ol>
         </div>
-        <h1 class="common-title"><%= t('seo.syndication.index.title') %></h1>
+        <h1 class="common-title mar-btm-20"><%= t('seo.syndication.index.title') %></h1>
+        <div class="list-selection">
+          <ul class="list-unstyled" id="building_type_menu">
+              <li class="active" building_type="single_family,duplex,fourplex,multifamily,commercial,townhouse" class=""><a href="javascript:;">Syndications</a></li>
+              <li><a href="<%=properties_path%>">Rental Homes</a></li>
+          </ul>
+        </div>
+
+
         <div class="row report-card" id="syndication-listing">
           <% if @syndications.any? %>
             <%= render partial: 'syndications', locals: {syndications: @syndications} %>

@@ -17,9 +17,8 @@
         <p class="tag-line-text">Wilson Investment Properties has provided over 600 rental homes to investors</p>
         <div class="list-selection">
           <ul class="list-unstyled" id="building_type_menu">
-            <% Property::BUILDING_TYPES.each do |key, value| %>
-              <li building_type="<%= value %>"><a href="javascript:;"><%= "#{key}" %></a></li>
-            <% end %>
+            <li building_type="single_family,duplex,fourplex,multifamily,commercial,townhouse" class=""><a href="<%=syndications_path%>">Syndications</a></li>
+            <li class="active"><a href="javascript:;">Rental Homes</a></li>
           </ul>
         </div>
       </div>

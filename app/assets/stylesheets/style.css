@@ -34,6 +34,7 @@ video,source{bottom:0;left:0;min-height:100%;min-width:100%;position:absolute}
 .pad-top-70{padding-top:70px}
 .pad-btm-5{padding-bottom:5px}
 .pad-btm-55{padding-bottom:55px}
+.text-bold{font-weight:600}
 
 a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .border-btn, .border-btn:focus{border:solid 1px #407cbb;font-family:'AllerRG';background:transparent;color:#407cbb;box-shadow:none !important}
