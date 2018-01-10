@@ -62,7 +62,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 
 
 /* Index Page CSS */
-.first-section{height:500px}
+.first-section{height:600px}
 .first-section .box-content{padding:30px;color:#fff;border-radius:10px;width:80%;margin:0 10%;text-shadow:2px 2px 4px #000;-webkit-text-shadow:2px 2px 4px #000;-moz-text-shadow:2px 2px 4px #000;-ms-text-shadow:2px 2px 4px #000;-o-text-shadow:2px 2px 4px #000}
 .first-section .box-content h1{margin-top:0;font-size:36px;font-family:'AllerDisplay'}
 .first-section .box-content p{color:#ffdf90;font-size:20px;font-family:'AllerRG'}
@@ -147,17 +147,35 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 
 .feature-property-listing .tag-line-text{text-align:center;font-size:16px}
 
-.company-content{margin-bottom:60px;padding:50px 0;color:#727272;}
+.company-content{margin-bottom:60px;padding:50px 0;color:#727272}
 .company-content ul,
 .company-content p{font-size:15px;text-align:justify}
 .company-content ul,
 .company-content p{margin-bottom:20px}
 
-.paradise-valley-content h2{margin-bottom:50px}
-.paradise-valley-content ul{font-size:18px;list-style:none;margin:0;padding-left:15px}
+.paradise-valley-content .img-box{margin:30px 0}
+.paradise-valley-content{text-align:justify}
+.paradise-valley-content .left{padding-right:45px}
+.paradise-valley-content .right{padding-left:45px}
+.paradise-valley-content h2,
+.paradise-valley-content h4{margin-bottom:15px;text-align:center}
+.paradise-valley-content h3{font-size:22px;margin:0 0 25px 0;color:#727272;padding-left:70px}
+.paradise-valley-content ul{font-size:16px;list-style:none;margin:0 0 25px 0;padding-left:15px}
 .paradise-valley-content ul li{position:relative;padding-left:25px}
 .paradise-valley-content ul li:before{content:"";width:8px;height:8px;position:absolute;top:8.5px;left:0;border-radius:50%;background:#407cbb}
 .paradise-valley-content hr{margin-top:50px;margin-bottom:50px}
+.paradise-valley-content .img-box img{width:120px;height:120px;margin-bottom:10px;border-radius:100%}
+.paradise-valley-content .img-box ul{margin:0;padding:0}
+.paradise-valley-content .img-box ul li{float:left;width:50%;margin:0;text-align:center}
+.paradise-valley-content .img-box ul li:first-child{padding-left:160px;padding-right:40px}
+.paradise-valley-content .img-box ul li:last-child{padding-right:160px;padding-left:40px}
+.paradise-valley-content .img-box li:before{display:none}
+.paradise-valley-content .img-box h5{display:block;font-size:18px;margin:0 0 10px 0}
+.paradise-valley-content .event-data .fa{margin-right:5px}
+.paradise-valley-content time{border-radius:6px;border:solid 1px rgba(46,62,72,.12);background:#f6f7f8;padding:5px 15px;position:absolute;left:45px;top:0}
+.paradise-valley-content time span{display:block}
+.paradise-valley-content time span:first-child{font-size:18px;font-weight:bold;color:#407cbb}
+.paradise-valley-content time span:last-child, .paradise-valley-content p{color:#999}
 
 /* Common Body CSS */
 .main-body{font-family:'AllerRG';margin-top:-136px;margin-bottom:65px}
@@ -530,7 +548,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 @media(max-width:479px){
 .content-section-row video, .content-section-row iframe{min-height:220px}
 
-.border-btn{padding:8px;font-size:13px}
+.border-btn, .blue-btn{padding:8px;font-size:13px}
 .border-btn .fa{margin-right:4px}
 
 /* Index Page CSS */
@@ -650,6 +668,22 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 }
 
 @media(max-width:767px){
+
+.paradise-valley-content time{left:15px}
+.paradise-valley-content h3{font-size:20px}
+.paradise-valley-content .left{padding-right:15px}
+.paradise-valley-content .right{padding-left:15px}
+.paradise-valley-content h2{line-height:normal}
+.paradise-valley-content h2,
+.paradise-valley-content .mar-top-30{text-align:center}
+.paradise-valley-content .img-box{margin:15px 0 0 0}
+.paradise-valley-content .img-box ul li{width:100%;float:none}
+.paradise-valley-content .img-box ul li:first-child{padding-left:0;padding-right:0}
+.paradise-valley-content .img-box ul li:last-child{padding-right:0;padding-left:0}
+.paradise-valley-content ul{margin-top:0!important}
+.paradise-valley-content ul li{margin-bottom:10px}
+.paradise-valley-content .img-box p{margin-bottom:30px}
+
 .row.opportunities-content .col-sm-6.col-xs-12.text-center.first{margin-bottom:15px}
 
 .topfix{margin-top:66px !important}
@@ -726,6 +760,10 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
   .property-section .item{padding:0 7.5px}
   .magazine-section .imgs, .magazine-section .col-sm-3{padding-left:7.5px;padding-right:7.5px}
 
+
+  .paradise-valley-content .img-box ul li:first-child{padding-left:80px}
+  .paradise-valley-content .img-box ul li:last-child{padding-right:80px}
+
   /* Property Listing Page CSS */
   /*.list-selection{height:54px}*/
   /*.list-selection .list-unstyled li a{padding:16px 10px}*/
@@ -734,7 +772,8 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
   */
   .property-listing, .property-listing .col-sm-4,
   .blog-listing, .blog-listing .col-sm-6,
-  .latest-blogs-section .blog-listing, .latest-blogs-section .item{padding-left:7.5px;padding-right:7.5px}
+  .latest-blogs-section .blog-listing,
+  .latest-blogs-section .item{padding-left:7.5px;padding-right:7.5px}
   .property-listing .listing-box{height:339px;margin-bottom:15px}
   /*.advance-search .form-group .first{padding-left:15px}*/
   .content-section h1{font-size:28px}
@@ -776,6 +815,8 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 @media(min-width:992px) and (max-width:1199px){
 .banner-bg h3{width:90%;margin-left:5%;margin-right:5%}
 .content-section-row video, .content-section-row iframe{max-height:256px}
+.paradise-valley-content .img-box ul li:first-child{padding-left:100px}
+.paradise-valley-content .img-box ul li:last-child{padding-right:100px}
 
 /* Property Listing Page CSS */
 .list-selection .list-unstyled li a{padding:13px 22px}
