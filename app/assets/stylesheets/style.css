@@ -12,7 +12,7 @@
 /* Background Video CSS */
 .background-video{background-position:top center;background-repeat:no-repeat;overflow:hidden;position:fixed;top:44px;right:0;bottom:0;left:0;z-index:-1}
 .background-video:before{content:"";position:absolute;top:0;left:0;background:rgba(0,0,0,.5);z-index:99;width:100%;height:100%}
-video,source{bottom:0;left:0;min-height:100%;min-width:100%;position:absolute}
+#background-video video, #background-video source{bottom:0;left:0;min-height:100%;min-width:100%;position:absolute}
 .loaded .ytplayer-container{display:block}
 .loaded .placeholder-image{opacity:0}
 .ytplayer-container{bottom:0;height:100%;left:0;min-width:100%;overflow:hidden;position:absolute;right:0;top:0;z-index:3}
@@ -75,10 +75,13 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .content-section-row h4{margin-top:0;margin-bottom:15px;font-size:20px;line-height:1;color:#aaa}
 .content-section-row ul{font-family:'AllerRG';font-size:16px;padding:0 0 0 15px;margin:-5px 0 0 15px}
 .content-section-row video, .content-section-row iframe{display:inline-block;width:100%;max-width:627px;max-height:312px}
-.content-section-row .opportunities-content{margin-top:50px}
+.content-section-row .opportunities-content{margin-top:30px}
 .content-section-row .opportunities-content .btn{margin-left:5px;margin-top:15px}
 .content-section-row .opportunities-content .btn:first-of-type{margin-left:0}
-.content-section-row .bullet-text{margin:0;padding:15px 0 0 0;list-style:none;font-size:18px;text-align:center}
+.content-section-row .opportunities-content .video-box{display:inline-table;margin-bottom:30px}
+.content-section-row .opportunities-content .video-box h4{color:#aaa;font-size:17px;margin:0;padding:15px 0}
+.content-section-row .opportunities-content .video-box video{border:solid 1px #efefef;box-shadow:0 9px 18px rgba(0,0,0,.18)}
+.content-section-row .bullet-text{margin:0;padding:15px 0 15px 0;list-style:none;font-size:18px;text-align:center}
 .content-section-row .bullet-text li{display:inline}
 .content-section-row .bullet-text span{position:relative;padding-left:20px;padding-right:12px}
 .content-section-row .bullet-text span:before{content:"";width:8px;height:8px;position:absolute;top:6px;left:0;border-radius:50%;background:#407cbb}
@@ -668,7 +671,10 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 }
 
 @media(max-width:767px){
-
+.content-section-row .opportunities-content{margin-top:30px}
+.content-section-row .opportunities-content .video-box{margin-bottom:15px}
+.content-section-row .opportunities-content .video-box h4{font-size:14px}
+.content-section-row h4{line-height:normal}
 .paradise-valley-content time{left:15px}
 .paradise-valley-content h3{font-size:20px}
 .paradise-valley-content .left{padding-right:15px}
