@@ -159,12 +159,13 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .paradise-valley-content .img-box{margin:30px 0}
 .paradise-valley-content{text-align:justify}
 .paradise-valley-content .left{padding-right:45px}
+.paradise-valley-content .left p{font-size: 16px;color:#525252;margin-bottom:15px}
 .paradise-valley-content .right{padding-left:45px}
 .paradise-valley-content h2,
 .paradise-valley-content h4{margin-bottom:15px;text-align:center}
 .paradise-valley-content h3{font-size:22px;margin:0 0 25px 0;color:#727272;padding-left:70px}
-.paradise-valley-content ul{font-size:16px;list-style:none;margin:0 0 25px 0;padding-left:15px}
-.paradise-valley-content ul li{position:relative;padding-left:25px}
+.paradise-valley-content ul{font-size:16px;list-style:none;margin:0 0 25px 0;padding-left:15px;text-align:left}
+.paradise-valley-content ul li{position:relative;padding:0 0 5px 25px}
 .paradise-valley-content ul li:before{content:"";width:8px;height:8px;position:absolute;top:8.5px;left:0;border-radius:50%;background:#407cbb}
 .paradise-valley-content hr{margin-top:50px;margin-bottom:50px}
 .paradise-valley-content .img-box img{width:120px;height:120px;margin-bottom:10px;border-radius:100%}
