@@ -15,7 +15,7 @@ module HomeHelper
       when 'magazine'
         if properties
           'grey-bg bdr-top-btm'
-        else 
+        else
           'white-bg'
         end
       when 'feedback'
@@ -31,5 +31,9 @@ module HomeHelper
           'white-bg'
         end
     end
+  end
+
+  def cn_path
+    'https://tomwilsonproperties.sfchinesemedia.com'.freeze
   end
 end

@@ -1,5 +1,4 @@
 <ul class="nav navbar-nav navbar-right">
-  <li><%= link_to 'BACOMM', "http://bacomm.club", target: '_blank',class: 'text-bold' %></li>
   <li><%= link_to 'Properties', syndications_path %></li>
   <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Investor Education<span class="caret"></span></a>
@@ -16,6 +15,7 @@
       <li><%= link_to 'Resources', jassets_path %></li>
     </ul>
   </li>
+  <li><%= link_to 'BACOMM', "http://bacomm.club", target: '_blank',class: 'text-bold' %></li>
   <li><%= link_to 'Events', events_path %></li>
   <li><%= link_to 'Radio Show', radio_show_path %></li>
   <li class="dropdown">
@@ -40,7 +40,7 @@
     <% if I18n.locale == :cn %>
       <%= link_to 'EN', '/'%>
     <% else %>
-      <%= link_to '中文', cn_path %>
+      <%= link_to '中文', cn_path, target: '_blank' %>
         <%#= image_tag 'chinese-flag.gif', title: 'Chinese Investor', alt: 'Chinese Investor', class: 'img-responsive' %>
       <%# end %>
     <% end %>

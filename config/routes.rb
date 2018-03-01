@@ -116,7 +116,7 @@ Rails.application.routes.draw do
   end
 
   root 'home#index'
-  get 'cn' => 'home#index_cn'
+  get 'cn', to: redirect('https://tomwilsonproperties.sfchinesemedia.com', status: 301)
 
   if Rails.env.production?
     get '404',to: 'application#page_not_found'
