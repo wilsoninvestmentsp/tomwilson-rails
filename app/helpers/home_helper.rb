@@ -32,8 +32,4 @@ module HomeHelper
         end
     end
   end
-
-  def cn_path
-    'https://tomwilsonproperties.sfchinesemedia.com'.freeze
-  end
 end
