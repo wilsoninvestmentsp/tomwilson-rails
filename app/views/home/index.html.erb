@@ -15,74 +15,32 @@
 <section class="white-bg content-section-row">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 paradise-valley-content">
-        <div class="text-center">
-          <h2>Bay Area Commercial &amp; Multifamily</h2>
-          <h4>Thursday, April 19, 6:30 PM to 9:00 PM</h4>
-
-          <a href="https://www.google.com/maps/search/?api=1&amp;query=4500+Great+America+Parkway%2C+Third+Floor%2C+Santa+Clara%2C+CA%2C+us" target="_blank noreferrer noopener"><i class="fa fa-map-marker" aria-hidden="true"></i> 4500 Great America Parkway, 1st floor, Santa Clara</a>
-        </div>
-        <div class="row">
-          <div class="col-xs-12 col-sm-6  img-box">
-           <!--  <%= image_tag "steve-fithian.jpg" %>
-            <h5>Steve Fithian</h5>
-            <p>Steve is a 4-decade real estate investor, broker, CPA, CCIM, CPM</p> -->
-            <ul class="spk-img">
-              <li>
-                <%= image_tag "andrew-gi.png" %>
-                <h5>Andrew Gi</h5>
-                <p>Andrew, CCIM, MAI, has a strong analytical background and broad understanding of real estate economics and finance.</p>
-              </li>
-              
-            </ul>
-            <div class="spk-data left">
-                <p>Andrew Gi, CCIM, MAI, has a strong analytical background and broad understanding of real estate economics and finance.</p>
-                  <ul class="spk-points">
-                    <li>overview and terms used in underwriting.</li>
-                    <li>how assumptions are made in writing a proforma.</li>
-                    <li>differences in underwriting single tenant and multi-tenant real deals.</li>
-                    <li>when and when not to use leverage.</li>
-                  </ul>
-            </div>
+      <% if @meetup_event.present? %>
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 ">
+          <div class="text-center">
+            <h2><%= @meetup_event.title %></h2>
+            <%= link_to @meetup_event.url, target: "_blank" do %>
+              <%= image_tag @meetup_event.meetup_image.url, class: "img-responsive" %>
+            <% end %>
           </div>
-          
-
-          <div class="col-sm-6 col-xs-12 col-sm-6 img-box">
-            <ul class="spk-img">
-              <li>
-                <%= image_tag "katerina-cheok.png" %>
-                <h5>Katerina Cheok</h5>
-                <p>Katerina, is the Bay Area Market Analyst with CoStar Group, </p>
-              </li>
-            </ul>
-             <div class="spk-data left">
-                <p style="color: #525252;">Katerina Cheok is the Bay Area Market Analyst with CoStar Group, and her analysis covers California’s commercial real estate market and economy.</p>
-                 <ul class="spk-points">
-                  <li>What are the Bay Area economic drivers?</li>
-                  <li>Where are we in the market cycle?</li>
-                  <li>Bay Area market overview by asset class (office, apartment, industrial, retail).</li>
-                  <li>What are current investment trends?</li>
-                </ul>
-            </div>
+          <div class="meetup-info">
+            <%= raw(@meetup_event.description) %>
           </div>
-          <div class="col-sm-6 col-sm-offset-3 col-xs-12 event-data">
-            <time >
-              <span>19</span>
-              <span>Apr</span>
-            </time>
-            <h3>Market Research & Analysis and Underwriting for Commercial & Multifamily</h3>
-            <p><i class="fa fa-user" aria-hidden="true"></i>Hosted by: Tom K. W. and Jen Z.</p>
-            <p><i class="fa fa-calendar" aria-hidden="true"></i>Dated: Thursday, April 19, 2018
-              6:30 PM to 9:00 PM</p>
-            <a href="https://www.google.com/maps/search/?api=1&amp;query=4500+Great+America+Parkway%2C+Third+Floor%2C+Santa+Clara%2C+CA%2C+us" target="_blank noreferrer noopener"><i class="fa fa-map-marker" aria-hidden="true"></i>4500 Great America Parkway, 1st floor, Santa Clara</a>
-              </div>
+          <div class="text-center mar-top-15">
+            <%= link_to @meetup_event.url, class: "btn blue-btn btn-lg", target: "_blank" do %>
+              <i class="fa fa-check" aria-hidden="true"></i> RSVP Here
+            <% end %>
+          </div>
+          <div class="mar-top-15 text-center">
+            <% if current_user.present? && current_user.admin %>
+                <%= link_to edit_meetup_event_url(@meetup_event.id), class: "btn-edit" do %>
+                  <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+              <% end %>
+            <% end %>
+          </div>
+          <hr>
         </div>
-        <div class="mar-top-15 text-center">
-          <a href="https://www.meetup.com/BACOMM/events/sdqgmpyxgbjc/" target="_
-        " class="btn blue-btn btn-lg"><i class="fa fa-check" aria-hidden="true"></i> RSVP Here</a>
-        </div>
-        <hr>
-      </div>
+      <% end %>
       <div class="col-xs-12">
         <h2 class="text-center">Multifamily and Commercial Real Estate Syndications</h2>
         <h4 class="text-center">High Quality, Real Estate Investment Opportunities</h4>

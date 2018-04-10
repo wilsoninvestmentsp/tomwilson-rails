@@ -1,0 +1,42 @@
+<% set_meta_tags(title: "#{t('seo.meetup_event.index.title')} - #{t('seo.site_title')}", description: t('seo.index.index.description'), image: asset_url(t('seo.image_4')), twitter: {image: asset_url(t('seo.image_4'))}, og: {image: asset_url(t('seo.image_4'))}) %>
+<section class="main-body without-search-feature">
+  <div class="container" ng:controller="UsersCtrl">
+    <div class="row content-section">
+      <div class="col-xs-12">
+        <div class="box-shadow">
+          <ol class="breadcrumb">
+            <li><%= link_to 'Home',root_url %></li>
+            <li class="active"><%= link_to 'Meetup Events',meetup_events_url %></li>
+          </ol>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <h1>Meetup Event</h1>
+        <div class="list-group">
+          <div class="list-group-item active">
+            <h3 class="list-group-item-heading capitalize"><%= @meetup_event.title.titleize %></h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3 col-xs-12">
+            <%= image_tag 'loading.svg', 'data-src': @meetup_event.meetup_image.thumb.url, alt: @meetup_event.title, class: 'img-responsive' %>
+          </div>
+          <div class="col-sm-9 col-xs-12 profile">
+            <% if @meetup_event.description.present? %>
+              <%= raw(@meetup_event.description) %>
+            <% end %>
+            <%= link_to "RSVP", @meetup_event.url, target: '_blank' %><br />
+          </div>
+          <ul class="pager">
+            <li>
+              <%= link_to edit_meetup_event_url(@meetup_event.id) do %>
+                <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+              <% end %>
+            </li>
+          </ul>
+          <div class="col-xs-12"><hr></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  meetup_image: MyString
+  status: false
+
+two:
+  title: MyString
+  description: MyText
+  meetup_image: MyString
+  status: false

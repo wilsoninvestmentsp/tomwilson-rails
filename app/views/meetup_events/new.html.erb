@@ -1,0 +1,23 @@
+<% set_meta_tags(title: "#{t('seo.meetup_event.new')} - #{t('seo.site_title')}", description: t('seo.index.index.description'), image: asset_url(t('seo.image_4')), twitter: {image: asset_url(t('seo.image_4'))}, og: {image: asset_url(t('seo.image_4'))}) %>
+<%= render 'layouts/jumbtron' %>
+<section class="main-body without-search-feature gray-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="box-shadow">
+          <ol class="breadcrumb white">
+            <li><%= link_to 'Home',root_url %></li>
+            <li><%= link_to 'Meetup Events',meetup_events_url %></li>
+            <li class="active">New</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div class="fixed-admin-body">
+      <div class="col-xs-12 user-form">
+        <h1>New Meetup Event</h1>
+          <%= render 'form' %>
+      </div>
+    </div>
+  </div>
+</section>

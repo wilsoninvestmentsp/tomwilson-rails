@@ -1,0 +1,70 @@
+<div>
+  <%= form_for(@meetup_event) do |f| %>
+    <% if @meetup_event.errors.any? %>
+      <div class="alert alert-danger fade in alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+        <uib-alert type="danger">
+          <ul>
+            <% @meetup_event.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </uib-alert>
+      </div>
+    <% end %>
+    <div class="row mar-top-15">
+      <div class="col-md-6 col-sm-12 col-xs-12 left-col">
+        <div class="form-group">
+          <%= f.label :Heading, class: 'control-label' %>
+          <%= f.text_field :title,class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :Url, class: 'control-label' %>
+          <%= f.text_field :url,class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :meetup_image, class: 'control-label' %>
+          <%= image_tag @meetup_event.meetup_image.thumb.url,class: 'img-thumbnail' %>
+          <br>
+          <%= f.label :meetup_image, class: 'btn btn-default mar-top-15' do %>
+            <i class="fa fa-picture-o mar-right-6" aria-hidden="true"></i>
+            Upload Image
+            <%= f.file_field :meetup_image, style: "display:none;" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :description, class: 'control-label' %>
+        <%= f.text_area :description %>
+      </div>
+      <div class="form-group">
+        <div class="checkbox">
+          <label>
+            <%= f.check_box :status %>
+            <span class="cr"><i class="cr-icon fa fa-check"></i></span> Check as Active
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="row form-row mar-btm-30">
+      <div class="col-xs-12">
+        <%= button_tag type: 'Submit', class: 'btn blue-btn btn-lg' do %>
+          <i class="fa fa-check" aria-hidden="true"></i> Submit Event
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<script type="text/javascript">
+  $(document).on('ready page:load', function() {
+    setTimeout(function(){
+      try{tinyMCE.remove('#meetup_event_description');}catch(e){}
+      tinyMCE.init({
+        selector: '#meetup_event_description',
+        min_height: 300
+      });
+    },100);
+  });
+</script>

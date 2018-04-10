@@ -137,6 +137,16 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 
 .property-section .report-card{padding-top:0}
 
+.meetup-info {}
+.meetup-info h3 {margin-top:15px; margin-bottom:15px; font-family: 'AllerDisplay'; font-size: 24px; line-height: 1; color: #407cbb; text-align: left;}
+.meetup-info p{font-size: 16px; color: #525252; margin-bottom: 15px;}
+.meetup-info ul {list-style: none;}
+.meetup-info ul li {position:relative;padding:0 0 5px 25px}
+.meetup-info ul li:before {content:"";width:8px;height:8px;position:absolute;top:4.5px;left:3px;border-radius:50%;background:#407cbb; display: inline-block;}
+
+a.btn-edit {display: inline-block; padding: 8px 14px; background-color: #fff; border: 1px solid #ddd; border-radius: 15px;color: #23527c;}
+a.btn-edit:hover,a.btn-edit:focus  {text-decoration: none; background-color: #eee;color: #23527c; outline: 0;}
+
 .magazine-section{padding:50px 0 100px 0;font-family:'AllerRG'}
 .magazine-section h3{margin-top:0;margin-bottom:50px;font-size:30px;line-height:1;color:#525252}
 
@@ -685,6 +695,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .content-section-row .opportunities-content{margin-top:30px}
 .content-section-row .opportunities-content .video-box{margin-bottom:15px}
 .content-section-row .opportunities-content .video-box h4{font-size:14px}
+.meetup-info p {font-size: 14px;}
 .content-section-row h4{line-height:normal}
 .paradise-valley-content time{left:15px}
 .paradise-valley-content h3{font-size:20px}
