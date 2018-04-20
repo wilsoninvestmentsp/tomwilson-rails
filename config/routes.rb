@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :meetup_events
   resources :jassets,path: :resources
   get 'market-resources' => redirect('resources')
 
