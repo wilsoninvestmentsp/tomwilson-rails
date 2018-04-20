@@ -8,6 +8,7 @@ class MeetupEventsController < ApplicationController
   end
 
   def new
+    redirect_to edit_meetup_event_url(MeetupEvent.last) if MeetupEvent.last.present?
     @meetup_event = MeetupEvent.new
   end
 
