@@ -2,7 +2,7 @@ class HomeController < ApplicationController
   after_action :reset_locale, only: :index_cn
 
   def index
-    @testimonies = Testimony.order(:sort).limit(6)
+    @testimonies = Testimony.order(:sort).limit(8)
     properties = Property.active.for_sale_and_reserved.limit(6)
     @properties = Property.order_featured_properties(properties)
     @meetup_event = MeetupEvent.last
