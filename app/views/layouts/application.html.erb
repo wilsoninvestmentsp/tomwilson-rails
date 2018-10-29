@@ -13,6 +13,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body ng:controller="MainCtrl">
+  <%= render 'shared/facebook_chat_widget' %>
+
   <% if Rails.env.production? %>
     <div id="placeholder"></div>
     <!-- Google Tag Manager -->
