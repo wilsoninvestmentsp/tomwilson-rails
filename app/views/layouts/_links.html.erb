@@ -1,28 +1,28 @@
 <ul class="nav navbar-nav navbar-right">
-  <li><%= link_to 'Track Record', syndications_path %></li>
+  <li><%= link_to 'Track Record', syndications_path, 'data-no-turbolink' => true %></li>
   <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Investor Education<span class="caret"></span></a>
     <ul class="dropdown-menu">
     <% if current_user %>
-      <li><%= link_to 'Articles', blogs_path %></li>
-      <li><%= link_to 'New Article', new_blog_path %></li>
+      <li><%= link_to 'Articles', blogs_path, 'data-no-turbolink' => true %></li>
+      <li><%= link_to 'New Article', new_blog_path,'data-no-turbolink' => true  %></li>
     <% else %>
-      <li><%= link_to 'Articles', blogs_path %></li>
+      <li><%= link_to 'Articles', blogs_path, 'data-no-turbolink' => true  %></li>
     <% end %>
-      <li><%= link_to 'FAQ\'s', faq_path %></li>
+      <li><%= link_to 'FAQ\'s', faq_path, 'data-no-turbolink' => true  %></li>
       <li><%#= link_to 'Financing Investments', financing_investments_path %></li>
-      <li><%= link_to 'Events', events_path %></li>
+      <li><%= link_to 'Events', events_path, 'data-no-turbolink' => true  %></li>
       <li><%#= link_to 'Property Management', property_management_path %></li>
-      <li><%= link_to 'Resources', jassets_path %></li>
+      <li><%= link_to 'Resources', jassets_path, 'data-no-turbolink' => true  %></li>
     </ul>
   </li>
   <li><%= link_to 'BACOMM', "http://bacomm.club", target: '_blank',class: 'text-bold' %></li>
-  <li><%= link_to 'Radio Show', radio_show_path %></li>
+  <li><%= link_to 'Radio Show', radio_show_path, 'data-no-turbolink' => true  %></li>
   <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About Us<span class="caret"></span></a>
     <ul class="dropdown-menu">
-      <li><%= link_to 'Contact Us', contact_us_path, method: :get %></li>
-      <li><%= link_to 'Our Team',users_path %></li>
+      <li><%= link_to 'Contact Us', contact_us_path, method: :get, 'data-no-turbolink' => true  %></li>
+      <li><%= link_to 'Our Team',users_path, 'data-no-turbolink' => true  %></li>
       <li><%#= link_to 'Our Difference',our_difference_path %></li>
     </ul>
   </li>
@@ -39,9 +39,9 @@
   <% end %>
   <li class="flag-icon">
     <% if I18n.locale == :cn %>
-      <%= link_to 'EN', '/'%>
+      <%= link_to 'EN', '/', 'data-no-turbolink' => true %>
     <% else %>
-      <%= link_to '中文', cn_path, target: '_blank' %>
+      <%= link_to '中文', cn_path, target: '_blank', 'data-no-turbolink' => true  %>
         <%#= image_tag 'chinese-flag.gif', title: 'Chinese Investor', alt: 'Chinese Investor', class: 'img-responsive' %>
       <%# end %>
     <% end %>
