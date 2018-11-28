@@ -2,14 +2,12 @@ class ZendeskController < ApplicationController
 
 	before_action :set_zendesk
 
-	CONTACT_TYPE = 'investor'.freeze
-	CONTACT_METHOD = 'WIP Website'.freeze
-
 	def ticket
 
 		p = params.require(:inquiry)
-		investor_source = p[:pv_param].present? ? 'Web-Paradise Valley' : CONTACT_METHOD
-		ZohoNewsletter.signup(p.merge(investor_source: investor_source, contact_type: CONTACT_TYPE))
+		investor_source = p[:pv_param].present? ? 'Web-Paradise Valley' : 'Website'
+
+		ZohoNewsletter.signup(p.merge(investor_source: investor_source))
 
 		if p[:property].present?
 
