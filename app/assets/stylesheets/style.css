@@ -88,7 +88,7 @@ a:focus, a:active, .btn:focus, .btn:active{outline:none !important}
 .content-section-row .bullet-text span.first:before{display:none}
 .content-section-row .bullet-text span.first{padding-left:0}
 .content-section-row .btn-row{margin-top:30px}
-.content-section-row hr{margin-top:50px;margin-bottom:50px} 
+.content-section-row hr{margin-top:50px;margin-bottom:50px}
 
 .property-section{padding:50px 0;font-family:'AllerRG'}
 .property-section .feature-property-listing{padding-left:0;padding-right:0}
@@ -542,6 +542,22 @@ a.btn-edit:hover,a.btn-edit:focus  {text-decoration: none; background-color: #ee
 .header-banner{padding:0}
 .header-banner:before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background: rgba(0,0,0,.36)}
 .header-banner img{margin-top:70px}
+
+/* New Image for team*/
+@media all and (max-width: 1920px){
+.teampicNew{height: 700px; overflow: hidden;}
+.teampicNew img{margin-top: -60px;}
+}
+@media all and (max-width: 1366px){
+.teampicNew{height: 500px}
+.teampicNew img{margin-top: -30px;}
+}
+@media all and (max-width: 991px){
+.teampicNew{height: 350px}
+}
+@media all and (max-width: 576px){
+.teampicNew img{margin-top: 0px;}
+}
 
 @media(max-width:479px){
 .content-section-row video, .content-section-row iframe{min-height:220px}

@@ -120,34 +120,3 @@ footer .form-horizontal .btn:hover{border-color:#407cbb;background:#407cbb;color
   #newsletter .border-btn,
   #inquiry .border-btn{height:34px;font-size:13px;padding:8px;line-height:16px}
 }
-@media(min-width:320px) and (max-width:479px){
-  .twp-team{height:300px}
-}
-@media(min-width:480px) and (max-width:767px){
- .twp-team{height:300px}
-}
-@media(min-width:768px) and (max-width:991px){
-  .twp-team{height:350px}
-  .twp-team img{margin-top:-70px}
-}
-@media(min-width:992px) and (max-width:1199px){
-  .twp-team{height:350px}
-  .twp-team img{margin-top:-125px}
-}
-@media(min-width:1200px) and (max-width:1399px){
-  .twp-team{height:350px}
-  .twp-team img{margin-top:-150px}
-}
-@media(min-width:1400px) and (max-width:1599px){
-  .twp-team{height:450px}
-  .twp-team img{margin-top:-180px}
-}
-@media(min-width:1600px) and (max-width:1899px){
-  .twp-team{height:500px}
-  .twp-team img{margin-top:-210px}
-}
-@media(min-width:1900px){
-  .twp-team{height:500px}
-  .twp-team img{margin-top:-250px}
-}
-.twp-team{overflow:hidden}
