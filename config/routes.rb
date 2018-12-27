@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   get 'api/v1/map.png',to: 'map#index',as: 'map'
   get 'api/v1/map.js',to: 'map#js',as: 'js'
+  get '/thank-you',to: 'home#thank_you',as: 'after_contact'
 
   # ARTICLE LINKS
   # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:

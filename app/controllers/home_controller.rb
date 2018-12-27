@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   after_action :reset_locale, only: :index_cn
+  layout 'thank_you', only: [:thank_you]
 
   def index
     @testimonies = Testimony.order(:sort).limit(8)
@@ -7,6 +8,9 @@ class HomeController < ApplicationController
     @properties = Property.order_featured_properties(properties)
     @meetup_event = MeetupEvent.last
     @syndications = Syndication.where(status: ['active', 'currently_held']).order(:status).by_user(current_user).limit(4)
+  end
+
+  def thank_you
   end
 
   def index_cn
