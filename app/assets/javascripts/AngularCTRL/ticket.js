@@ -26,13 +26,14 @@ App.controller('TicketCtrl',['$scope','$interval','$upload','$routeParams','$htt
 			$('#home-contact').modal('hide');
 			$('#paradise-home-contact').modal('hide');
 			$('#inquiry-form').hide();
-			scope.openPopup('success', 'Thank You! Your ticket was successfully submitted!');
+			//scope.openPopup('success', 'Thank You! Your ticket was successfully submitted!');
 
 			//delete scope.show_form;
 			scope.inquiry = {};
 			scope.inquiry.hear_from_options = ['Where did you hear from us?', "Web Search", "Event", "Print Media",'Radio Show','Referral','Loopnet','Bigger Pockets','Social Media'];
   		scope.inquiry.hear_from = scope.inquiry.hear_from_options[0];
 			delete scope.loading;
+			window.location = "/thank-you"
 
 		},
 		function(response){

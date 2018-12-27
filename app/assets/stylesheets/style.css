@@ -182,6 +182,9 @@ a.btn-edit:hover,a.btn-edit:focus  {text-decoration: none; background-color: #ee
 .breadcrumb{padding:8px 15px !important;border-radius:0;font-size:12px;background:#f5f5f5;margin-bottom:0;margin-top:0;word-wrap:break-word}
 .breadcrumb a{text-decoration:none}
 .breadcrumb a:hover{color:#444}
+.mainContainer{position: relative; margin-top: 70px}
+.mainContainer .thank-you{text-align: center; margin: 100px 0; line-height: 40px; color: #5296d0}
+.mainContainer .thank-you span{display: block; font-weight: normal !important;}
 
 /* Property Listing Page CSS */
 .blue-bg{background:#407cbb;width:100%;display:table;padding:10px 0;height:65px}
@@ -554,6 +557,9 @@ a.btn-edit:hover,a.btn-edit:focus  {text-decoration: none; background-color: #ee
 }
 @media all and (max-width: 991px){
 .teampicNew{height: 350px}
+}
+@media all and (max-width: 767px){
+  .mainContainer .thank-you {margin: 50px 0;}
 }
 @media all and (max-width: 576px){
 .teampicNew img{margin-top: 0px;}
