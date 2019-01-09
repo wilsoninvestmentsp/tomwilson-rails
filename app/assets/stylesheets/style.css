@@ -167,12 +167,12 @@ a.btn-edit:hover,a.btn-edit:focus  {text-decoration: none; background-color: #ee
 .company-content ul,
 .company-content p{margin-bottom:20px}
 
-
+.iframe-container iframe{border: 0; height: 900px}
 
 
 /* Common Body CSS */
 .main-body{font-family:'AllerRG';margin-top:-136px;margin-bottom:65px}
-.main-body.without-search-feature{font-family:'AllerRG';margin-top:0;margin-bottom:60px}
+.main-body.without-search-feature{font-family:'AllerRG';margin-top:0;margin-bottom:60px};
 .main-body h1{font-size:30px;font-family:'AllerDisplay';margin-top:0;color:#fff;margin-bottom:30px}
 #PropertiesCtrl .main-body h1{text-shadow:2px 2px 4px #000;-webkit-text-shadow:2px 2px 4px #000;-moz-text-shadow:2px 2px 4px #000;-ms-text-shadow:2px 2px 4px #000;-o-text-shadow:2px 2px 4px #000}
 .main-body h1.common-title{text-shadow:none !important;-webkit-text-shadow:none;-moz-text-shadow:none;-ms-text-shadow:none;-o-text-shadow:none;color:#0288D1;margin-top:30px}

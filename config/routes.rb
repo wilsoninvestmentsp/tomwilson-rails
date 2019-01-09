@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get 'api/v1/map.png',to: 'map#index',as: 'map'
   get 'api/v1/map.js',to: 'map#js',as: 'js'
   get '/thank-you',to: 'home#thank_you',as: 'after_contact'
+  get '/investor/login',to: 'home#login_iframe',as: 'login_iframe'
 
   # ARTICLE LINKS
   # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
