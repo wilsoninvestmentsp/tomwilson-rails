@@ -66,54 +66,59 @@ Rails.application.configure do
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
     # the I18n.default_locale when a translation cannot be found).
-config.i18n.fallbacks = true
+  config.i18n.fallbacks = true
 
-# Send deprecation notices to registered listeners.
-config.active_support.deprecation = :notify
+  # Send deprecation notices to registered listeners.
+  config.active_support.deprecation = :notify
 
-# Use default logging formatter so that PID and timestamp are not suppressed.
-config.log_formatter = ::Logger::Formatter.new
+  # Use default logging formatter so that PID and timestamp are not suppressed.
+  config.log_formatter = ::Logger::Formatter.new
 
-# Do not dump schema after migrations.
-config.active_record.dump_schema_after_migration = false
+  # Do not dump schema after migrations.
+  config.active_record.dump_schema_after_migration = false
 
-config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
-config.assets.precompile += %w( .svg .eot .woff .ttf )
+  config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+  config.assets.precompile += %w( .svg .eot .woff .ttf )
 
-config.action_mailer.delivery_method = :mailgun
-config.action_mailer.mailgun_settings = {
-  api_key: ENV['MAILGUN_API_KEY'],
-  domain: ENV['MAILGUN_DOMAIN']
-}
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+    api_key: ENV['MAILGUN_API_KEY'],
+    domain: ENV['MAILGUN_DOMAIN']
+  }
 
-# MailChimp
-MAIL_CHIMP_API_KEY = ENV['MAIL_CHIMP_API_KEY']
-MAIL_CHIMP_NEWSLETTER_ID = ENV['MAIL_CHIMP_NEWSLETTER_ID']
+  config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
+    # Redirect everything from tomwilsonproperties.com to www.wilsoninvest.com with 301 Moved Permanently
+    r301 /.*/, 'http://www.wilsoninvest.com$&', host: 'tomwilsonproperties.com'
+  end
 
-#ZohoCRM
-ZOHO_API_KEY = ENV['ZOHO_API_KEY']
+  # MailChimp
+  MAIL_CHIMP_API_KEY = ENV['MAIL_CHIMP_API_KEY']
+  MAIL_CHIMP_NEWSLETTER_ID = ENV['MAIL_CHIMP_NEWSLETTER_ID']
 
-# Zendesk
-ZENDESK_DOMAIN = ENV['ZENDESK_DOMAIN']
-ZENDESK_USER = ENV['ZENDESK_USER']
-ZENDESK_API_KEY = ENV['ZENDESK_API_KEY']
-ZENDESK_SECTION_ID = ENV['ZENDESK_SECTION_ID']
+  #ZohoCRM
+  ZOHO_API_KEY = ENV['ZOHO_API_KEY']
 
-# GOOGLE
-GOOGLE_BROWSER_KEY = ENV['GOOGLE_BROWSER_KEY']
-GOOGLE_SERVER_KEY = ENV['GOOGLE_SERVER_KEY']
+  # Zendesk
+  ZENDESK_DOMAIN = ENV['ZENDESK_DOMAIN']
+  ZENDESK_USER = ENV['ZENDESK_USER']
+  ZENDESK_API_KEY = ENV['ZENDESK_API_KEY']
+  ZENDESK_SECTION_ID = ENV['ZENDESK_SECTION_ID']
 
-# MeetUp
-MEETUP_API_KEY = ENV['MEETUP_API_KEY']
+  # GOOGLE
+  GOOGLE_BROWSER_KEY = ENV['GOOGLE_BROWSER_KEY']
+  GOOGLE_SERVER_KEY = ENV['GOOGLE_SERVER_KEY']
 
-# Master Spreadsheet
-MASTER_SPREADSHEET_ID = ENV['MASTER_SPREADSHEET_ID']
+  # MeetUp
+  MEETUP_API_KEY = ENV['MEETUP_API_KEY']
 
-# Phone Number
-PHONE_NUMBER = ENV['PHONE_NUMBER']
-FAX_NUMBER = ENV['FAX_NUMBER']
+  # Master Spreadsheet
+  MASTER_SPREADSHEET_ID = ENV['MASTER_SPREADSHEET_ID']
 
-#Home Page Background Youtube Video
-HOMEPAGE_VIDEO_ID = ENV['HOMEPAGE_VIDEO_ID']
+  # Phone Number
+  PHONE_NUMBER = ENV['PHONE_NUMBER']
+  FAX_NUMBER = ENV['FAX_NUMBER']
+
+  #Home Page Background Youtube Video
+  HOMEPAGE_VIDEO_ID = ENV['HOMEPAGE_VIDEO_ID']
 
 end

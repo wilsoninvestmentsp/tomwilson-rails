@@ -160,6 +160,7 @@ GEM
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
+    rack-rewrite (1.5.1)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.6)
@@ -285,6 +286,7 @@ DEPENDENCIES
   pry-rails
   pry-stack_explorer
   puma
+  rack-rewrite
   rails (= 4.2.6)
   rails3_serve_static_assets!
   rails_12factor
@@ -306,4 +308,4 @@ RUBY VERSION
    ruby 2.2.4p230
 
 BUNDLED WITH
-   1.13.7
+   1.16.2
