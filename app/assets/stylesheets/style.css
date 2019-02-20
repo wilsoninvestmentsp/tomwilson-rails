@@ -11,8 +11,10 @@
 
 /* Background Video CSS */
 .background-video{background-position:top center;background-repeat:no-repeat;overflow:hidden;position:fixed;top:44px;right:0;bottom:0;left:0;z-index:-1}
-.background-video:before{content:"";position:absolute;top:0;left:0;background:rgba(0,0,0,.5);z-index:99;width:100%;height:100%}
+/*.background-video:before{content:"";position:absolute;top:0;left:0;background:rgba(0,0,0,.5);z-index:99;width:100%;height:100%} */
 #background-video video, #background-video source{bottom:0;left:0;min-height:100%;min-width:100%;position:absolute}
+.background-video{position: inherit; margin-top: 70px;}
+.background-video img{width: 100%}
 .loaded .ytplayer-container{display:block}
 .loaded .placeholder-image{opacity:0}
 .ytplayer-container{bottom:0;height:100%;left:0;min-width:100%;overflow:hidden;position:absolute;right:0;top:0;z-index:3}
@@ -20,6 +22,36 @@
 .ytplayer-shield{height:100%;left:0;position:absolute;top:0;width:100%;z-index:2}
 .ytplayer-player{position:absolute}
 
+.threeBut ul{
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex;
+  justify-content: center;
+}
+.threeBut ul li{
+  list-style: none;
+  text-align: center;
+  display: inline-block;
+  margin-right: 20px;
+}
+.threeBut ul li p{
+  color: #407cbb;
+  font-size:18px;
+}
+.threeBut ul li a{
+  background: #407cbb;
+  color: #fff;
+  font-size:15px;
+  padding: 10px;
+  min-width: 200px;
+  display: block;
+  margin-bottom: 5px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.threeBut ul li a:hover{
+  background: #33659a;
+}
 /* Common */
 .ds-tbl{display:table;height:100%}
 .ds-tbl-cel{display:table-cell;height:100%;vertical-align:middle}

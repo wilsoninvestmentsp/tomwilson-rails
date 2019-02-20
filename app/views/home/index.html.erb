@@ -1,19 +1,31 @@
 <% set_meta_tags(title: t('seo.home.title'), description: t('seo.home.description'), image: asset_url(t('seo.image_4')), twitter: {image: asset_url(t('seo.image_4'))}, og: {image: asset_url(t('seo.image_4'))}) %>
-<div id="background-video" class="background-video"></div>
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 first-section ds-tbl text-center">
-      <div class="ds-tbl-cel">
-        <div class="box-content">
-          <h1>Your Best Direct Source for Quality Commercial & Multifamily Investments</h1>
-          <p>Discover the world of exclusive institutional grade private investments for as little as $50k</p>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="background-video">
+  <%= image_tag("durham-boutique-retail.jpg") %>
+  <!-- <img src="durham-boutique-retail.png" alt=""> -->
 </div>
 <section class="white-bg content-section-row">
   <div class="container">
+    <div class="threeBut">
+      <div class="row">
+        <div class="col-xs-12">
+          <ul>
+            <li>
+              <a href="https://zoom.us/webinar/register/WN_yvwR9mGnRoq0S5-QzQyRcA"  target="_blank">Webinar</a>
+              <p>2/26 @ 12PM PST</p>
+            </li>
+            <li>
+              <a href="https://www.eventbrite.com/e/santa-clara-durham-boutique-retail-live-event-tickets-56659390763" target="_blank">Santa Clara</a>
+              <p>2/21 @ 7PM PST</p>
+            </li>
+            <li>
+              <a href="https://www.eventbrite.com/e/san-francisco-durham-boutique-retail-live-event-tickets-56658888260" target="_blank">San Francisco</a>
+              <p>2/26 @ 7PM PST</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <hr/>
     <div class="row">
       <% if @meetup_event.present? %>
         <div class="col-xs-12 col-sm-8 col-sm-offset-2 ">
@@ -317,11 +329,11 @@
     $('#syndication-slider').owlCarousel({autoPlay:auto_play_syndications,items:4 ,itemsDesktop:[1199,3],itemsDesktopSmall:[991,3],itemsTablet:[767,2],itemsMobile:[479,1],transitionStyle:'fade'});
     $('#testimonials-slider').owlCarousel({autoPlay:auto_play_testimonials,items:1,itemsDesktop:[1199,1],itemsDesktopSmall:[991,1],itemsTablet:[767,1],itemsMobile:[479,1],transitionStyle:'fade'});
   });
-  $(function(){
-    $('#background-video').YTPlayer({
-      fitToBackground:true,
-      videoId:'<%= HOMEPAGE_VIDEO_ID %>',
-      pauseOnScroll:false
-    });
-  })
+  // $(function(){
+  //   $('#background-video').YTPlayer({
+  //     fitToBackground:true,
+  //     videoId:'<%= HOMEPAGE_VIDEO_ID %>',
+  //     pauseOnScroll:false
+  //   });
+  // })
 </script>
