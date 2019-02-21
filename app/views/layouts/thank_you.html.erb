@@ -6,8 +6,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
   <meta name="google-site-verification" content="xbtmHRxBQAAtl0Yrb8iEy1jBzSXPX-WGS-7WWrk2kPU" />
   <meta name="msvalidate.01" content="885BF271D1E14544F847CD078735AC4A">
+  <meta name="robots" content="noindex,nofollow">
   <%= display_meta_tags twitter: { title: :title, description: :description }, og: { title: :title, description: :description } %>
   <link rel="shortcut icon" href="<%= asset_path "favicon-#{Rails.env}.png" %>">
+  <link rel="canonical" href="<%= request.url  %>">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true  %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true  %>
   <%= csrf_meta_tags %>
