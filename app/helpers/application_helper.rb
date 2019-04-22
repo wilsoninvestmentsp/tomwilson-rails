@@ -33,4 +33,8 @@ module ApplicationHelper
   def javascript_void
     'javascript:;'
   end
+
+  def canonical_url
+    request.url.sub('http', 'https')
+  end
 end

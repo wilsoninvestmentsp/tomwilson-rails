@@ -88,8 +88,8 @@ Rails.application.configure do
 
   config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
     # Redirect everything from tomwilsonproperties.com to www.wilsoninvest.com with 301 Moved Permanently
-    r301 /.*/, 'http://www.wilsoninvest.com$&', host: 'tomwilsonproperties.com'
-    r301 /.*/, 'http://www.wilsoninvest.com$&', host: 'www.tomwilsonproperties.com'
+    r301 /.*/, 'https://www.wilsoninvest.com$&', host: 'tomwilsonproperties.com'
+    r301 /.*/, 'https://www.wilsoninvest.com$&', host: 'www.tomwilsonproperties.com'
   end
 
   # MailChimp

@@ -1,4 +1,4 @@
-SitemapGenerator::Sitemap.default_host = 'http://www.wilsoninvest.com'
+SitemapGenerator::Sitemap.default_host = 'https://www.wilsoninvest.com'
 SitemapGenerator::Sitemap.compress = false
 SitemapGenerator::Sitemap.public_path = 'tmp/'
 SitemapGenerator::Sitemap.sitemaps_host = "http://res.cloudinary.com/#{ENV['CLOUDINARY_CLOUD_NAME']}"
