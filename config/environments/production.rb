@@ -90,6 +90,7 @@ Rails.application.configure do
     # Redirect everything from tomwilsonproperties.com to www.wilsoninvest.com with 301 Moved Permanently
     r301 /.*/, 'https://www.wilsoninvest.com$&', host: 'tomwilsonproperties.com'
     r301 /.*/, 'https://www.wilsoninvest.com$&', host: 'www.tomwilsonproperties.com'
+    r301 /.*/, 'https://www.wilsoninvest.com$&', host: 'wilsoninvest.com'
   end
 
   # MailChimp
