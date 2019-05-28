@@ -91,7 +91,7 @@ Rails.application.configure do
     r301 /.*/, 'https://www.wilsoninvest.com$&', host: 'tomwilsonproperties.com'
     r301 /.*/, 'https://www.wilsoninvest.com$&', host: 'www.tomwilsonproperties.com'
     r301 /.*/, 'https://www.wilsoninvest.com$&', host: 'wilsoninvest.com'
-    r301 /.*/, 'https://www.wilsoninvest.com$&', host: 'www.wilsoninvest.com'
+    #r301 /.*/, 'https://www.wilsoninvest.com$&', host: 'www.wilsoninvest.com'
   end
 
   # MailChimp
