@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   after_action :reset_locale, only: :index_cn
-  layout 'thank_you', only: [:thank_you]
+  layout 'thank_you', only: [:thank_you, :login_iframe]
 
   def index
     @testimonies = Testimony.order(:sort).limit(8)
@@ -11,6 +11,9 @@ class HomeController < ApplicationController
   end
 
   def thank_you
+  end
+
+  def login_iframe
   end
 
   def index_cn
