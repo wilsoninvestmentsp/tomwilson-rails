@@ -48,6 +48,12 @@ group :development do
   gem 'pry'
   gem 'pry-rails'
   gem 'pry-stack_explorer'
+
+end
+gem 'pg', '~> 0.20'
+
+group :production do
+  # gem 'mysql2','~> 0.3.18'
 end
 
 group :production,:staging,:beta do
@@ -59,7 +65,6 @@ group :production,:staging,:beta do
 
 end
 
-gem 'mysql2','~> 0.3.18'
 gem 'rmagick'
 gem 'carrierwave'
 gem 'cloudinary'

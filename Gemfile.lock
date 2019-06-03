@@ -142,10 +142,10 @@ GEM
     multi_json (1.12.1)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
-    mysql2 (0.3.21)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
+    pg (0.21.0)
     pkg-config (1.1.7)
     pry (0.10.4)
       coderay (~> 1.1.0)
@@ -281,7 +281,7 @@ DEPENDENCIES
   mailgun_rails
   meetup_client
   meta-tags
-  mysql2 (~> 0.3.18)
+  pg (~> 0.20)
   pry
   pry-rails
   pry-stack_explorer
@@ -308,4 +308,4 @@ RUBY VERSION
    ruby 2.2.4p230
 
 BUNDLED WITH
-   1.16.2
+   1.17.3

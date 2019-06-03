@@ -5,11 +5,11 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: mysql2
+  adapter: postgresql
   host: localhost
   database: wipmain
-  username: root
-  password:
+  username: dipak
+  password: rathod
 
 development:
   <<: *default

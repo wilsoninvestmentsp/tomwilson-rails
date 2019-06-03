@@ -1,0 +1,17 @@
+<div class="row mar-top-12">
+  <div class="col-md-6 col-sm-12 col-xs-12 left-col">
+    <div class="form-group">
+      <%= f.label :name, class: 'control-label' %>
+      <%= f.text_field :name, class: 'form-control', placeholder: '' %>
+      <p class="text-muted small">Job name will show as job anme and create job URL.</p>
+    </div>
+    <div class="form-group">
+      <%= f.label :description, class: 'control-label' %>
+      <%= f.text_field :description, class: 'form-control', placeholder: '' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :job_status, class: 'control-label' %>
+      <%= f.select :job_status, JobPosting.job_statuses.map { |key, value| [key.humanize, key] }, {}, class: 'selectpicker form-control' %>
+    </div>
+  </div>
+</div>

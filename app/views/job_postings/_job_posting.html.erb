@@ -1,0 +1,11 @@
+<% if job_postings.present? %>
+  <% job_postings.each do |job| %>
+  <article class="col-md-12 col-sm-12 col-xs-12">
+    <div class="listing-box clickable_div">
+      <h3><%= link_to job.name.truncate(Settings.truncate.job.name), job_posting_path(job) %></h3>
+      <p><%= job.description.truncate(Settings.truncate.job.description) %></p>
+      <h5><%= job.job_status.truncate(Settings.truncate.job.job_status) %></h5>
+    </div>
+  </article>
+  <% end %>
+<% end %>

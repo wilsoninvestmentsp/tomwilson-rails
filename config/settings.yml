@@ -8,11 +8,17 @@ pagination:
       mobile: 10
   syndication:
     per_page: 9
+  job_posting:
+    per_page: 10
 truncate:
   blog:
     title: 60
     summary: 370
     meta_description: 165
+  job:
+    name: 60
+    description: 370
+    job_status: 10
   property:
     title: 30
     listing_title: 42
