@@ -1,5 +1,4 @@
 class JobPostingsController < ApplicationController
-  before_action :authorize, except: [:index,:show]
   before_action :set_job, only: [:show, :edit, :update, :destroy]
 
   def new
@@ -46,7 +45,6 @@ class JobPostingsController < ApplicationController
   end
 
   def job_posting_params
-    binding.pry
-    params.require(:job_posting).permit(:name, :description, :job_status)
+    params.require(:job_posting).permit(:name, :description, :city, :job_status, :job_type)
   end
 end

@@ -17,8 +17,12 @@ truncate:
     meta_description: 165
   job:
     name: 60
-    description: 370
+    description: 350
+    city: 20
     job_status: 10
+    job_type: 10
+  job_application:
+    description: 100
   property:
     title: 30
     listing_title: 42

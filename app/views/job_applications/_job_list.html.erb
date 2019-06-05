@@ -1,14 +1,13 @@
-<% if job_postings.present? %>
-  <% job_postings.each do |job| %>
+<% if job_applications.present? %>
+  <% job_applications.each do |job| %>
     <article class="col-md-12 col-sm-12 col-xs-12">
       <div class="listing-box clickable_div">
         <div class="job-title-list">
           <%= link_to job.name.truncate(Settings.truncate.job.name), job_posting_path(job), class: 'job-title-heading' %>
+          <%= link_to 'Apply', apply_path(job), class: 'apply-btn job-title-button' %>
         </div>
-        <p><%= job.description.truncate(Settings.truncate.job.description).html_safe %></p>
         <div class="job-details">
           <span><%= job.city.truncate(Settings.truncate.job.city) %></span>
-          <span><%= job.job_status.truncate(Settings.truncate.job.job_status) %></span>
           <span><%= job.job_type.truncate(Settings.truncate.job.job_type) %></span>
         </div>
       </div>

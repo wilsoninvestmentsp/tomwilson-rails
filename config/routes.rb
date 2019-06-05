@@ -1,14 +1,7 @@
 Rails.application.routes.draw do
 
-  get 'job_postings/new'
-
-  get 'job_postings/index'
-
-  get 'job_postings/edit'
-
-  get 'job_postings/show'
-
-  resources :meetup_events, :job_postings
+  get 'job_application/:id/apply', to: 'job_applications#apply_job', as: 'apply'
+  resources :meetup_events, :job_postings, :job_applications
   resources :jassets,path: :resources
   get 'market-resources' => redirect('resources')
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190603113118) do
+ActiveRecord::Schema.define(version: 20190604051754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,12 +96,29 @@ ActiveRecord::Schema.define(version: 20190603113118) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "job_applications", force: :cascade do |t|
+    t.string   "resume"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "current_company"
+    t.string   "linkedin_url"
+    t.integer  "job_posting_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "job_applications", ["job_posting_id"], name: "index_job_applications_on_job_posting_id", using: :btree
+
   create_table "job_postings", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "job_status"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "job_type"
+    t.string   "city"
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -234,4 +251,5 @@ ActiveRecord::Schema.define(version: 20190603113118) do
     t.string   "team",            default: "california"
   end
 
+  add_foreign_key "job_applications", "job_postings"
 end

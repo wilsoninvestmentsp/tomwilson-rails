@@ -39,11 +39,12 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
-  config.action_mailer.delivery_method = :mailgun
-  config.action_mailer.mailgun_settings = {
-          api_key: ENV['MAILGUN_API_KEY'],
-          domain: ENV['MAILGUN_DOMAIN']
-  }
+  config.action_mailer.delivery_method = :letter_opener
+  # config.action_mailer.mailgun_settings = {
+  #         api_key: ENV['MAILGUN_API_KEY'],
+  #         domain: ENV['MAILGUN_DOMAIN']
+  # }
+  config.action_mailer.perform_deliveries = true
 
   # MailChimp
   MAIL_CHIMP_API_KEY = ENV['MAIL_CHIMP_API_KEY']

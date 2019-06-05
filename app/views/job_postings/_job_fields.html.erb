@@ -1,17 +1,25 @@
 <div class="row mar-top-12">
   <div class="col-md-6 col-sm-12 col-xs-12 left-col">
-    <div class="form-group">
-      <%= f.label :name, class: 'control-label' %>
-      <%= f.text_field :name, class: 'form-control', placeholder: '' %>
-      <p class="text-muted small">Job name will show as job anme and create job URL.</p>
+    <div class="form-group span-require">
+      <label class="control-label"><%= t("form.name") %><span class="text-danger"> *</span></label>
+      <%= f.text_field :name, class: 'form-control', placeholder: '', required: true %>
+      <p class="text-muted small">Job name will show as job name and create job URL.</p>
     </div>
     <div class="form-group">
-      <%= f.label :description, class: 'control-label' %>
-      <%= f.text_field :description, class: 'form-control', placeholder: '' %>
+      <label class="control-label"><%= t("form.description") %><span class="text-danger"> *</span></label>
+      <%= f.text_field :description, class: 'form-control', placeholder: '', required: true %>
     </div>
     <div class="form-group">
-      <%= f.label :job_status, class: 'control-label' %>
+      <label class="control-label"><%= t("form.city") %><span class="text-danger"> *</span></label>
+      <%= f.text_field :city, class: 'form-control', placeholder: '', required: true %>
+    </div>
+    <div class="form-group">
+      <label class="control-label"><%= t("form.job_status") %><span class="text-danger"> *</span></label>
       <%= f.select :job_status, JobPosting.job_statuses.map { |key, value| [key.humanize, key] }, {}, class: 'selectpicker form-control' %>
+    </div>
+    <div class="form-group">
+      <label class="control-label"><%= t("form.job_type") %><span class="text-danger"> *</span></label>
+      <%= f.select :job_type, JobPosting::JOB_TYPE.map { |key, value| [key.humanize, key] }, {}, class: 'selectpicker form-control' %>
     </div>
   </div>
 </div>

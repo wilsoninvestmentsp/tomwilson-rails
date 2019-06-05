@@ -1,4 +1,4 @@
-<% set_meta_tags(title: t('seo.job.index.title'), description: t('seo.job.index.description'), image: asset_url(t('seo.image_1')), twitter: {image: asset_url(t('seo.image_1'))}, og: {image: asset_url(t('seo.image_1'))}) %>
+<% set_meta_tags(title: t('seo.job_application.index.title'), description: t('seo.job_application.index.description'), image: asset_url(t('seo.image_1')), twitter: {image: asset_url(t('seo.image_1'))}, og: {image: asset_url(t('seo.image_1'))}) %>
 <%= render 'layouts/jumbtron' %>
 <section class="main-body without-search-feature pad-btm-55">
   <div class="container">
@@ -7,9 +7,9 @@
         <div class="box-shadow">
           <ol class="breadcrumb">
             <li><%= link_to 'Home', root_url %></li>
-            <li class="active">Jobs</li>
+            <li class="active">Job Application</li>
             <% if current_user %>
-              <li><%= link_to 'New', new_job_posting_path %></li>
+              <li><%= link_to 'New', new_job_application_path %></li>
             <% end %>
           </ol>
         </div>
@@ -17,10 +17,10 @@
     </div>
     <div class="row blog-content-section">
       <div class="col-xs-12">
-        <h1>Current Posted Jobs in Market</h1>
+        <h1>Newly Jobs Posted for you</h1>
         <div class="row">
-          <% if @job_postings.any? %>
-            <%= render partial: 'job_posting', locals: {job_postings: @job_postings} %>
+          <% if @job_applications.any? %>
+            <%= render partial: 'job_list', locals: {job_applications: @job_applications} %>
           <% else %>
             <div class="col-xs-12 msg-content text-center">
               <h3>No Jobs Found</h3>
@@ -29,5 +29,4 @@
         </div>
       </div>
     </div>
-  </div>
 </section>

@@ -1,4 +1,4 @@
-<% set_meta_tags(name: @job_posting.name, description: @job_posting.description, job_status: @job_posting.job_status) %>
+<% set_meta_tags(title: t('seo.job.show')) %>
 <div class="topfix">
   <%= render 'layouts/jumbtron' %>
 </div>
@@ -21,18 +21,20 @@
     </div>
   </div>
 </section>
-  <div class="container">
-    <div class="row">
-        <h2 class="text-center">Job Detail</h2>
-          <article class="col-md-12 col-sm-12 col-xs-12">
-            <div class="listing-box clickable_div">
-              <h3><%= @job_posting.name %></h3>
-              <p><%= @job_posting.description %></p>
-              <p><%= @job_posting.job_status %></p>
-            </div>
-          </article>
-        <div class="text-center">
-          <%= link_to job_postings_path, class: 'btn border-btn btn-lg mar-top-40' do %><i class="fa fa-th" aria-hidden="true"></i>View All Jobs<% end %>
-        </div>
-    </div>
+<div class="container">
+  <div class="row">
+      <div class="job-detail text-center"><%= t('seo.job.detail') %></div>
+        <article class="col-md-12 col-sm-12 col-xs-12">
+          <div class="listing-box clickable_div">
+            <h3><%= @job_posting.name %></h3>
+            <p><%= @job_posting.description.html_safe %></p>
+            <p><%= @job_posting.city %></p>
+            <h5><%= @job_posting.job_status %></h5>
+            <h5><%= @job_posting.job_type %></h5>
+          </div>
+        </article>
+      <div class="text-center">
+        <%= link_to job_postings_path, class: 'btn border-btn btn-lg mar-top-40' do %><i class="fa fa-th" aria-hidden="true"></i>View All Jobs<% end %>
+      </div>
   </div>
+</div>

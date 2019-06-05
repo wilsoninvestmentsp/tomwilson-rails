@@ -21,6 +21,7 @@
  *= require style
  *= require admin-pages
  *= require owl.carousel
+ *= require job_applications
  */
 
 .flash-message-container{position:fixed;z-index:1080;width:100%;top:0;padding:0 !important}

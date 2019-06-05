@@ -48,6 +48,7 @@ group :development do
   gem 'pry'
   gem 'pry-rails'
   gem 'pry-stack_explorer'
+  gem "letter_opener"
 
 end
 gem 'pg', '~> 0.20'
@@ -87,3 +88,4 @@ gem 'rubyzoho'
 gem 'sitemap_generator'
 gem 'blockuijs-rails',  :git => 'https://github.com/BoTreeConsultingTeam/blockuijs-rails.git'
 gem 'meetup_client'
+gem 'carrierwave-dropbox'
