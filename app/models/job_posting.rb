@@ -3,6 +3,5 @@ class JobPosting < ActiveRecord::Base
   JOB_TYPE = ['full time', 'part time']
 
   has_many :job_applications
-
   validates :name, :description, presence: true
 end

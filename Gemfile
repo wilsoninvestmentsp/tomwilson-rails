@@ -51,10 +51,10 @@ group :development do
   gem "letter_opener"
 
 end
-gem 'pg', '~> 0.20'
+gem 'pg', '~> 0.20'applyLoader
 
 group :production do
-  # gem 'mysql2','~> 0.3.18'
+  gem 'mysql2','~> 0.3.18'
 end
 
 group :production,:staging,:beta do
