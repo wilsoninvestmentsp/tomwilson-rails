@@ -1,4 +1,5 @@
 class JobPostingsController < ApplicationController
+  before_action :authorize
   before_action :set_job, only: [:show, :edit, :update, :destroy]
 
   def new

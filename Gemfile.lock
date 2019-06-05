@@ -203,10 +203,10 @@ GEM
     minitest (5.11.3)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
+    mysql2 (0.3.21)
     netrc (0.11.0)
     nokogiri (1.9.1)
       mini_portile2 (~> 2.4.0)
-    pg (0.21.0)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -265,7 +265,6 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    rmagick (2.16.0)
     roxml (4.0.0)
       activesupport (>= 4.0)
       nokogiri (>= 1.3.3)
@@ -352,7 +351,7 @@ DEPENDENCIES
   mailgun_rails
   meetup_client
   meta-tags
-  pg (~> 0.20)
+  mysql2 (~> 0.3.18)
   pry
   pry-rails
   pry-stack_explorer
@@ -363,7 +362,6 @@ DEPENDENCIES
   rails_12factor
   rails_log_stdout!
   responders (~> 2.0)
-  rmagick
   rubyzoho
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
@@ -379,4 +377,4 @@ RUBY VERSION
    ruby 2.2.4p230
 
 BUNDLED WITH
-   1.17.3
+   1.16.2

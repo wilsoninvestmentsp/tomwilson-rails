@@ -1,4 +1,4 @@
 
 CarrierWave.configure do |config|
-  config.dropbox_access_token = 'DfUwYaSItrAAAAAAAAADnbChphGQwy5rzi9UYP_KP6cd_CDmwNrJubCoOhn83VDa'
+  config.dropbox_access_token = ENV['DROPBOX_ACCESS_TOKEN']
 end

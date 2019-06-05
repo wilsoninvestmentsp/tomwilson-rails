@@ -18,7 +18,7 @@
   </li>
   <li><%= link_to 'BACOMM', "http://bacomm.club", target: '_blank',class: 'text-bold' %></li>
   <li><%= link_to 'Radio Show', radio_show_path, 'data-no-turbolink' => true  %></li>
-  <% if JobPosting.active %>
+  <% if JobPosting.active.present? %>
     <li><%= link_to 'Carriers', job_applications_path, 'data-no-turbolink' => true  %></li>
   <% end %>
   <li class="dropdown">

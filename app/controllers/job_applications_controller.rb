@@ -14,7 +14,7 @@ class JobApplicationsController < ApplicationController
     @job_application = JobApplication.new(job_application_params)
     if @job_application.save
       ResumeMailer.resume_mail(@job_application).deliver_now
-      redirect_to @job_application, flash: {success: "'#{@job_application.job_posting.name}' was successfully created!"}
+      redirect_to job_applications_path, flash: {success: "Your job application submitted successfully."}
     else
       render :new
     end
