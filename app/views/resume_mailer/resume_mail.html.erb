@@ -10,7 +10,6 @@
       Phone: <%= @job_application[:phone] %><br>
       current Company: <%= @job_application[:current_company] %><br>
       LinkdIn : <%= @job_application[:linkedin_url] %><br>
-      resume: <%= link_to 'resume', JobApplication.find_by(id: @job_application.id).resume.url %>
     </p>
   </body>
 </html>
