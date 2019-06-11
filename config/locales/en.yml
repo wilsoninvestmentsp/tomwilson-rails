@@ -46,6 +46,7 @@ en:
     image_3: bg-header-building.jpg
     image_4: bg-header-apartments.jpg
     session: Login
+    links: Links
     home:
       title: Real Estate Investment Company - Syndication, Crowdfunding & Rental Property Investing
       description: Looking for passive real estate investments? Wilson Investment Properties specializes in providing turnkey commercial & multifamily real estate syndications.
@@ -65,6 +66,21 @@ en:
         description: By our articles we guide how to invest in property and how investors can make profit through syndication of real estate.
       new: New Article
       edit: Edit Article
+    job:
+      index:
+        title: Job Posting
+        description: By our website we post defferent jobs and end user can apply for that.
+      show: Job Posting
+      new: New Job
+      edit: Edit Job
+      detail: Job Detail
+    job_application:
+      index:
+        title: Job Application
+        description: By our website people can apply for different type of jobs.
+      show: Job Application
+      new: New Job Application
+      edit: Edit Job Application
     faq:
       title: Real Estate Investment FAQs for Buyers, Sellers and Investors
       description: By our frequently asked questions (FAQs) about investing in real estate we help to get success in property investment for buyers, sellers and investors.
@@ -101,3 +117,16 @@ en:
         description: Get all performance details about of investment by our investor at TomWilson Investment Properties.
       new: New Track Record
       edit: Edit Track Record
+  form:
+    name: 'Name'
+    description: Description
+    city: City
+    job_type: Job Type
+    job_staus: Job Status
+    resume: Resume
+    first_name: First Name
+    last_name: Last Name
+    email: Email
+    phone: Phone
+    current_company: Current Company
+    linkedin_url: LinkdIm URL

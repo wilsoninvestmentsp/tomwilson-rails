@@ -1,0 +1,40 @@
+<% set_meta_tags(title: t('seo.job.show')) %>
+<div class="topfix">
+  <%= render 'layouts/jumbtron' %>
+</div>
+
+<section class="main-body only-bread-crumb <%= JobPosting.count > 1 ? '' : 'mar-btm-setting' %>">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="box-shadow">
+          <ol class="breadcrumb">
+            <li><%= link_to 'Home', root_url %></li>
+            <li><%= link_to 'Jobs', job_postings_path %></li>
+            <li class="active"><%= @job_posting.name %></li>
+            <% if current_user %>
+              <li><%= link_to 'Edit', edit_job_posting_path(@job_posting) %></li>
+            <% end %>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container">
+  <div class="row">
+      <div class="job-detail text-center"><%= t('seo.job.detail') %></div>
+        <article class="col-md-12 col-sm-12 col-xs-12">
+          <div class="listing-box clickable_div">
+            <h3><%= @job_posting.name %></h3>
+            <p><%= @job_posting.description.html_safe %></p>
+            <p><%= @job_posting.city %></p>
+            <h5><%= @job_posting.job_status %></h5>
+            <h5><%= @job_posting.job_type %></h5>
+          </div>
+        </article>
+      <div class="text-center">
+        <%= link_to job_postings_path, class: 'btn border-btn btn-lg mar-top-40' do %><i class="fa fa-th" aria-hidden="true"></i>View All Jobs<% end %>
+      </div>
+  </div>
+</div>

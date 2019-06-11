@@ -18,6 +18,9 @@
   </li>
   <li><%= link_to 'BACOMM', "http://bacomm.club", target: '_blank',class: 'text-bold' %></li>
   <li><%= link_to 'Radio Show', radio_show_path, 'data-no-turbolink' => true  %></li>
+  <% if JobPosting.active.present? %>
+    <li><%= link_to 'Carriers', job_applications_path, 'data-no-turbolink' => true  %></li>
+  <% end %>
   <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About Us<span class="caret"></span></a>
     <ul class="dropdown-menu">
@@ -31,6 +34,7 @@
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin<span class="caret"></span></a>
     <ul class="dropdown-menu">
       <li><%= link_to 'Import',import_path, method: :get %></li>
+      <li><%= link_to 'Job Posting',job_postings_path, method: :get %></li>
       <li><%= link_to 'My Account', edit_user_path(current_user) %></li>
       <li><%= link_to 'BACOMM Event', meetup_events_url %></li>
       <li><%= link_to 'Logout', logout_path %></li>

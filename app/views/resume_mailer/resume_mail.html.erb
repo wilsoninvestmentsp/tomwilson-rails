@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>
+      Applcant Name: <%= "#{@job_application[:first_name]} #{@job_application[:last_name]}" %><br>
+      Email: <%= @job_application[:email] %><br>
+      Phone: <%= @job_application[:phone] %><br>
+      current Company: <%= @job_application[:current_company] %><br>
+      LinkdIn : <%= @job_application[:linkedin_url] %><br>
+    </p>
+  </body>
+</html>

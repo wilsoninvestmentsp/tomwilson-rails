@@ -1,0 +1,40 @@
+<% set_meta_tags(title: t('seo.job_application.show')) %>
+<div class="topfix">
+  <%= render 'layouts/jumbtron' %>
+</div>
+<section class="main-body only-bread-crumb <%= JobPosting.count > 1 ? '' : 'mar-btm-setting' %>">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="box-shadow">
+          <ol class="breadcrumb">
+            <li><%= link_to 'Home', root_url %></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<main class="container">
+  <div class="row">
+  <div class="col-sm-12">
+    <div class="section posting-header">
+      <div class="posting-headline">
+        <h2><%= @job_application.name %></h2>
+        <div class="posting-categories">
+          <div class="posting-category"><%= @job_application.city %></div>
+          <div class="posting-category"><%= @job_application.job_type %></div>
+        </div>
+      </div>
+      <div class="postings-btn-wrapper">
+        <%= link_to 'Apply For The Job', new_job_application_path(job_posting_id: @job_application.id), class: 'apply-btn'%>
+      </div>
+    </div>
+    <div class="section">
+      <p><%= @job_application.description.html_safe %></p>
+      <div class="section last-section-apply">
+        <%= link_to 'Apply For The Job', new_job_application_path(job_posting_id: @job_application.id), class: 'apply-btn' %>
+      </div>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,113 @@
+body{
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.apply-btn {
+  background-color: #52c0e5; /* Green */
+  border: none;
+  color: white;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  min-width: 100px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 6px;
+  height: auto;
+  position: relative;
+  margin: 0;
+  font-weight: normal;
+  line-height: 1.33;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.apply-btn:link {
+  text-decoration: none;
+  color: none;
+}
+.apply-btn:hover {
+  color: none;
+}
+.apply-btn:visited {
+  color: #FFFFFF;
+}
+.job-apply {
+  padding: 10px 30px;
+}
+.job-title-list{
+  width: 100%;
+  float: left;
+}
+.job-title-heading{
+  font-size: 24px;
+  float: left;
+}
+.job-title-button{
+  float: right;
+  margin-top: 10px;
+}
+.listing-box{
+  margin-bottom: 40px;
+}
+.job-details > span{
+  margin-right: 20px;
+}
+@media (max-width:768px) and (orientation:portrait){
+  .job-title-heading{
+    width: 220px;
+    float: left;
+    word-wrap: break-word;
+    margin-right: 10px
+  }
+  .job-title-button{
+    margin-top: 10px;
+  }
+}
+@media (max-width:320px) and (orientation:portrait){
+  .job-title-heading{
+    width: 180px;
+    float: left;
+    word-wrap: break-word;
+    margin-right: 10px
+  }
+  .job-title-button{
+    margin-top: 10px;
+  }
+}
+
+.section {
+    padding: 20px 0px;
+    position: relative;
+}
+.posting-categories {
+    margin: 20px 0px;
+}
+@media screen and (min-width: 650px){
+ .posting-header .posting-headline {
+    display: table-cell;
+    width: 100%;
+  }
+  .posting-header .postings-btn-wrapper {
+    display: table-cell;
+    vertical-align: top;
+  }
+  .apply-btn{
+    margin-left: 30px;
+  }
+}
+.posting-header h2 {
+    margin-top: 0px;
+}
+.posting-header .posting-headline .posting-category {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.section.last-section-apply {
+    text-align: center;
+    margin-bottom: 80px;
+}
