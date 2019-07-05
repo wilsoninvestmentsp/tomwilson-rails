@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  if Rails.env.production?
+    # NOTE: We want to redirect users to www as the canonical URL in production
+    # If you want to test this, you can make hosts entries like:
+    # 127.0.0.1       localhost localhost.com www.localhost.com
+    # and remove the production conditional
+    constraints subdomain: false do
+      get ':any', to: redirect(subdomain: 'www', path: '/%{any}'), any: /.*/
+    end
+  end
+
   resources :meetup_events
   resources :jassets,path: :resources
   get 'market-resources' => redirect('resources')
