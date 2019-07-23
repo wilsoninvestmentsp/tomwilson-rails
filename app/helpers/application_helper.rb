@@ -35,6 +35,6 @@ module ApplicationHelper
   end
 
   def canonical_url
-    request.url.sub('http', 'https')
+    request.url
   end
 end
