@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  force_ssl if: :ssl_required?
+  #force_ssl if: :ssl_required?
 
     # require '/LIBS/gentools' if Rails.env.development?
 
