@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  force_ssl if: :ssl_required?
 
     # require '/LIBS/gentools' if Rails.env.development?
 
@@ -39,6 +40,10 @@ class ApplicationController < ActionController::Base
     # :-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
 
     private
+
+    def ssl_required?
+      request.host == 'wilsoninvest.com'
+    end
 
     def use_turbolinks?
 
