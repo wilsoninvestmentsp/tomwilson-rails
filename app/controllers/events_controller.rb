@@ -12,17 +12,19 @@ class EventsController < ApplicationController
   def get_events(params)
     @meetup_api = MeetupApi.new
     events = @meetup_api.events(params)
-    events(events)  
+    events(events)
   end
 
   def events(events)
-    if events['meta']['next'].present?
-      url = events['meta']['next']
-      uri = URI.parse(url)
-      url_params = CGI.parse(uri.query)
-      @next_page = url_params['offset'].first
+    if events.present? && events['meta'].present?
+      if events['meta']['next'].present?
+        url = events['meta']['next']
+        uri = URI.parse(url)
+        url_params = CGI.parse(uri.query)
+        @next_page = url_params['offset'].first
+      end
+      @events = events['results']
     end
-    @events = events['results']
   end
 
   private
@@ -31,8 +33,8 @@ class EventsController < ApplicationController
     @params = {
       group_urlname: Settings.meetup.group_urlname,
       scroll: 'future_or_past',
-      status: 'upcoming,past', 
-      format: 'json', 
+      status: 'upcoming,past',
+      format: 'json',
       page: Settings.meetup.per_page,
       desc: true,
       limited_events: true
