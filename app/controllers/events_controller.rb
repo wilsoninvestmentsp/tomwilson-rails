@@ -5,8 +5,20 @@ class EventsController < ApplicationController
   def index
     api_token = ApiToken.find_by(platform: 'meetup')
     begin
-      events = RestClient.get "https://api.meetup.com/#{Settings.meetup.group_urlname}/events?status=upcoming,past&desc=true", headers: { "Authorization" => "Bearer #{api_token.access_token}"} if api_token.present?
-      @events = JSON.parse(events) rescue []
+      if api_token.present?
+        if api_token.expire_on > Time.now
+          events = RestClient.get "https://api.meetup.com/#{Settings.meetup.group_urlname}/events?status=upcoming,past&desc=true", headers: { "Authorization" => "Bearer #{api_token.access_token}"}
+        else
+          # TODO fetch new access token using refresh token
+          access_response = RestClient.post Settings.meetup.OAuth_api_end_point, {client_id: MEETUP_API_KEY, client_secret: MEETUP_API_SECRET, grant_type: 'refresh_token', refresh_token: api_token.refresh_token}
+        end
+        events = JSON.parse(events) rescue []
+        @events = Kaminari.paginate_array(events).page(params[:page]).per(Settings.pagination.blogs.per_page)
+      end
+      respond_to do |format|
+        format.js
+        format.html
+      end
     rescue Exception => e
       Rails.logger.error "Error: #{e.message} - #{e.backtrace.join('\n')}"
       flash[:danger] = "Something went wrong. Please try after sometime"

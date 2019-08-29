@@ -2,7 +2,7 @@ class Oauth2Controller < ApplicationController
 
   def meetup_api
     begin
-      auth_response = RestClient.post Settings.meetup.OAuth_api_end_point, {client_id: MEETUP_API_KEY, client_secret: MEETUP_API_SECRET, grant_type: 'anonymous_code', redirect_uri: Settings.meetup.redirect_uri, code: params[:code]}
+      auth_response = RestClient.post Settings.meetup.OAuth_api_end_point, {client_id: MEETUP_API_KEY, client_secret: MEETUP_API_SECRET, grant_type: 'anonymous_code', redirect_uri: OAUTH_REDIRECT_URL, code: params[:code]}
 
         parsed_response = JSON.parse(auth_response)
         api_token = ApiToken.find_by(platform: 'meetup')

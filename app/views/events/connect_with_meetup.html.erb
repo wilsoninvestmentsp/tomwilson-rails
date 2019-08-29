@@ -1,4 +1,4 @@
-<% meetup_connection_url = "#{Settings.meetup.authorize_end_point}?client_id=#{MEETUP_API_KEY}&response_type=code&redirect_uri=#{Settings.meetup.redirect_uri}&scope=ageless+event_management" %>
+<% meetup_connection_url = "#{Settings.meetup.authorize_end_point}?client_id=#{MEETUP_API_KEY}&response_type=code&redirect_uri=#{OAUTH_REDIRECT_URL}&scope=ageless+event_management" %>
 <%= render 'layouts/jumbtron' %>
 <section class="main-body without-search-feature gray-bg">
   <div class="container">

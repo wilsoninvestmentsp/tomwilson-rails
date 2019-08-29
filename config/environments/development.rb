@@ -65,6 +65,7 @@ Rails.application.configure do
   # MeetUp
   MEETUP_API_KEY = 'giaq0j5r1t78o9cugmqdancpj1'
   MEETUP_API_SECRET = 'cjjos1pbspk64j7v2qu0euap5b'
+  OAUTH_REDIRECT_URL = 'https://f280fc35.ngrok.io/oauth2/meetup_api'
 
   # Master Spreadsheet
   MASTER_SPREADSHEET_ID = ENV['MASTER_SPREADSHEET_ID']
