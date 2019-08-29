@@ -113,6 +113,7 @@ Rails.application.configure do
 
   # MeetUp
   MEETUP_API_KEY = ENV['MEETUP_API_KEY']
+  MEETUP_API_SECRET = ENV['MEETUP_API_SECRET']
 
   # Master Spreadsheet
   MASTER_SPREADSHEET_ID = ENV['MASTER_SPREADSHEET_ID']

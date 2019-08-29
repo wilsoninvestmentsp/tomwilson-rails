@@ -1,7 +1,7 @@
 <% if events.present? %>
   <% events.each do |event| %>
     <div class='list-group-item event_list'>
-      <%= hidden_field_tag :event_url, event['event_url'] %> 
+      <%= hidden_field_tag :event_url, event['link'] %> 
       <h3><%= event['name'] %><br><small><%= event_time(event['time'], event['utc_offset']) %></small></h3>
       <div class="row">
         <% if event['venue'].present? %>

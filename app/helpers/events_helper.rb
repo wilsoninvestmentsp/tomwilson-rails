@@ -10,4 +10,9 @@ module EventsHelper
   def event_address(event_venue)
     "/api/v1/map.png?address=#{event_venue['address_1']},#{event_venue['city']},#{event_venue['state']}&width=600&height=300"
   end
+
+  def is_meetup_token_expired
+    meetup_api_token = ApiToken.find_by(platform: 'meetup')
+    meetup_api_token.expire_on < Time.now
+  end
 end

@@ -21,3 +21,7 @@ truncate:
 meetup:
   group_urlname: wilson-investment-properties-inc
   per_page: 10
+  OAuth_api_end_point: https://secure.meetup.com/oauth2/access
+  redirect_uri_develop: https://8dda133b.ngrok.io/oauth2/meetup_api
+  redirect_uri_production: https://www.wilsoninvest.com/oauth2/meetup_api
+  authorize_end_point: https://secure.meetup.com/oauth2/authorize
