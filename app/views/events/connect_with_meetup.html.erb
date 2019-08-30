@@ -1,4 +1,3 @@
-<% meetup_connection_url = "#{Settings.meetup.authorize_end_point}?client_id=#{MEETUP_API_KEY}&response_type=code&redirect_uri=#{OAUTH_REDIRECT_URL}&scope=ageless+event_management" %>
 <%= render 'layouts/jumbtron' %>
 <section class="main-body without-search-feature gray-bg">
   <div class="container">
@@ -17,9 +16,10 @@
   <h1>Connect With Meetup</h1>
   <div class="row mar-top-30 mar-btm-30 import-file">
     <div class="col-sm-6">
-      <%= link_to_if is_meetup_token_expired, 'Connect', meetup_connection_url, class: 'btn blue-btn btn-lg' %>
-      <% if !is_meetup_token_expired %>
-        <%= link_to 'Reconnect to Meetup', meetup_connection_url, class: 'btn btn-default btn-lg' %>        
+      <% label_txt = meetup_token_expired? ? 'Connect' : 'Connected' %>
+      <%= link_to_if meetup_token_expired?, label_txt, meetup_auth_url, class: 'btn blue-btn btn-lg' %>
+      <% if !meetup_token_expired? %>
+        <%= link_to 'Reconnect to Meetup', meetup_auth_url, class: 'btn btn-default btn-lg' %>
       <% end %>
     </div>
   </div>

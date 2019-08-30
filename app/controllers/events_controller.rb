@@ -1,5 +1,4 @@
 class EventsController < ApplicationController
-  before_action :authorize
   before_action :set_params, only: [:index, :more_events]
 
   def index
