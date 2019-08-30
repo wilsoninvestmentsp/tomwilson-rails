@@ -80,6 +80,9 @@ Rails.application.routes.draw do
 
     end
   end
+
+  get 'connect_with_meetup', to: 'events#connect_with_meetup', as: :connect_with_meetup
+  get '/oauth2/meetup_api', to: 'oauth2#meetup_api'
   get 'properties-search-results' => redirect('properties')
   get 'my-properties' => redirect('properties')
   get 'MyListings' => redirect('properties')

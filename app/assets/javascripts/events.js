@@ -16,6 +16,7 @@ TomWilson.Events = {
     });
   },
   documentOnReady: function(){
+    $('.pagination').css('display', 'block');
     this.loadMoreEvents();
     this.clickableEvent();
   },

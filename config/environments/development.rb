@@ -63,7 +63,10 @@ Rails.application.configure do
   GOOGLE_SERVER_KEY = ENV['GOOGLE_SERVER_KEY']
 
   # MeetUp
-  MEETUP_API_KEY = ENV['MEETUP_API_KEY']
+  MEETUP_API_KEY = 'giaq0j5r1t78o9cugmqdancpj1'
+  MEETUP_API_SECRET = 'cjjos1pbspk64j7v2qu0euap5b'
+  OAUTH_REDIRECT_URL = 'https://a4bd7345.ngrok.io/oauth2/meetup_api'
+
 
   # Master Spreadsheet
   MASTER_SPREADSHEET_ID = ENV['MASTER_SPREADSHEET_ID']
