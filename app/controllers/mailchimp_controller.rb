@@ -3,10 +3,13 @@ class MailchimpController < ApplicationController
   skip_before_action :verify_authenticity_token,only: [:zendesk]
 
   def signup
-    if ZohoNewsletter.signup(signup_params)
-      render json: 200
-      PropertyMailer.notify_subscriber(signup_params[:email]).deliver_later
-    end
+    render json: 200
+
+    # TODO: This is original code
+    # if ZohoNewsletter.signup(signup_params)
+    #   render json: 200
+    #   PropertyMailer.notify_subscriber(signup_params[:email]).deliver_later
+    # end
   end
 
   def zendesk
