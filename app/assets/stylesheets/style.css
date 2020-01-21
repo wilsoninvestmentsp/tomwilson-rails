@@ -546,6 +546,38 @@ a.btn-edit:hover,a.btn-edit:focus  {text-decoration: none; background-color: #ee
 .header-banner:before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background: rgba(0,0,0,.36)}
 .header-banner img{margin-top:70px}
 
+#investor_portal{
+  position: fixed;
+  right: 0;
+  top: 70px;
+  height: 344px;
+  margin-left: -3px;
+  margin-bottom: -3px;
+  z-index: 1000;
+  font-family: 'AllerRG';
+  max-width: 470px;
+}
+
+#investor_portal_tab{
+  position: absolute;
+  top: 430px;
+  left: -127px;
+  color: #fff;
+  font-size: 16px;
+  line-height: 50px;
+  cursor: pointer;
+  text-align: center;
+  width: 205px;
+  height: 50px;
+  background: #00b300;
+  border-radius: 3px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  transform: rotate(90deg);
+}
+
+#investor_portal_tab .fa{margin-right:4px}
+
 /* New Image for team*/
 @media all and (max-width: 1920px){
 .teampicNew{height: 700px; overflow: hidden;}
