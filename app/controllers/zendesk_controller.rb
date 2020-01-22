@@ -7,7 +7,8 @@ class ZendeskController < ApplicationController
 		p = params.require(:inquiry)
 		investor_source = p[:pv_param].present? ? 'Web-Paradise Valley' : 'Website'
 
-		ZohoNewsletter.signup(p.merge(investor_source: investor_source))
+		# TODO: Uncomment below code once resolve the issue
+		# ZohoNewsletter.signup(p.merge(investor_source: investor_source))
 
 		if p[:property].present?
 
