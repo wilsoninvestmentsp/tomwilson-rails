@@ -59,7 +59,7 @@ group :production,:staging,:beta do
 
 end
 
-gem 'mysql2','~> 0.3.18'
+gem 'mysql2'
 #gem 'rmagick'
 gem 'carrierwave'
 gem 'cloudinary'
