@@ -31,3 +31,4 @@
 /config_production.rb
 # Ignore SQL
 /SQL/*
+.ruby-gemset

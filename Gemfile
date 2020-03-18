@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-ruby '2.2.4'
+ruby '2.5.7'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.6'
+gem 'rails', '4.2.8'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -60,7 +60,7 @@ group :production,:staging,:beta do
 end
 
 gem 'mysql2','~> 0.3.18'
-gem 'rmagick'
+#gem 'rmagick'
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'friendly_id', '~> 5.1.0'
@@ -82,3 +82,4 @@ gem 'rubyzoho'
 gem 'sitemap_generator'
 gem 'blockuijs-rails',  :git => 'https://github.com/BoTreeConsultingTeam/blockuijs-rails.git'
 gem 'meetup_client'
+gem 'rest-client'
