@@ -25,6 +25,10 @@
               <dd><%= syndication.close_date.present? ? syndication.close_date.strftime('%d %b %Y') : 'N/A' %></dd>
             </dl>
             <dl>
+              <dt>Exit Date:</dt>
+              <dd><%= syndication.exit_date.present? ? syndication.exit_date.strftime('%d %b %Y') : 'N/A' %></dd>
+            </dl>
+            <dl>
               <dt>Purchase Price + Cap Ex:</dt>
               <dd><%= syndication.purchase_price.present? ? raw_price(syndication.purchase_price) : 'N/A' %></dd>
             </dl>
@@ -37,8 +41,12 @@
               <dd><%= syndication.price_per_share.present? ? raw_price(syndication.price_per_share) : 'N/A' %></dd>
             </dl>
             <dl>
-              <dt>Hold Period:</dt>
+              <dt>Projected Hold Period:</dt>
               <dd><%= syndication.hold_period.present? ? syndication.hold_period : 'N/A' %></dd>
+            </dl>
+            <dl>
+              <dt>Actual Hold Period:</dt>
+              <dd><%= syndication.actual_hold_period.present? ? syndication.actual_hold_period : 'N/A' %></dd>
             </dl>
             <dl>
               <dt>Preferred return:</dt>
@@ -49,8 +57,16 @@
               <dd><%= syndication.average_annual_return.present? ? "#{syndication.average_annual_return} %" : 'N/A' %></dd>
             </dl>
             <dl>
+              <dt>Actual Avg Annual Return:</dt>
+              <dd><%= syndication.actual_average_annual_return.present? ? "#{syndication.actual_average_annual_return} %" : 'N/A' %></dd>
+            </dl>
+            <dl>
               <dt>Projected IRR:</dt>
               <dd><%= syndication.irr.present? ? "#{syndication.irr} %" : 'N/A' %></dd>
+            </dl>
+            <dl>
+              <dt>Actual IRR:</dt>
+              <dd><%= syndication.actual_irr.present? ? "#{syndication.actual_irr} %" : 'N/A' %></dd>
             </dl>
             <dl>
               <dt>Loan Amount:</dt>

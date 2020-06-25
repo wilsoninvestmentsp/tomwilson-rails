@@ -30,6 +30,13 @@ Syndication = {
       autoclose: true,
       todayHighlight: true
     });
+
+    $('#syndication_exit_date').datepicker({
+      container: '.datepicker-main-exit-date',
+      dateFormat: 'mm/dd/yyyy',
+      autoclose: true,
+      todayHighlight: true
+    });
   },
   openTrackRecord: function(){
     $('#syndication-listing, #syndication-slider').on('click', '.open_track_record', function(){
