@@ -13,7 +13,8 @@ class SyndicationsController < ApplicationController
 
   def create
     close_date = Date.strptime(params[:syndication][:close_date], '%m/%d/%Y').to_date if params[:syndication][:close_date].present?
-    @syndication = Syndication.new(syndication_params.merge!(close_date: close_date))
+    exit_date = Date.strptime(params[:syndication][:exit_date], '%m/%d/%Y').to_date if params[:syndication][:exit_date].present?
+    @syndication = Syndication.new(syndication_params.merge!(close_date: close_date, exit_date: exit_date))
     if @syndication.save
       redirect_to syndications_path, flash: {success: "#{@syndication.title} was successfully created!"}
     else
@@ -32,7 +33,8 @@ class SyndicationsController < ApplicationController
 
   def update
     close_date = Date.strptime(params[:syndication][:close_date], '%m/%d/%Y').to_date if params[:syndication][:close_date].present?
-    if @syndication.update(syndication_params.merge!(close_date: close_date))
+    exit_date = Date.strptime(params[:syndication][:exit_date], '%m/%d/%Y').to_date if params[:syndication][:exit_date].present?
+    if @syndication.update(syndication_params.merge!(close_date: close_date,exit_date: exit_date))
       redirect_to syndications_path, flash: {success: "#{@syndication.title} was successfully updated!"}
     else
       render :edit
@@ -54,7 +56,7 @@ class SyndicationsController < ApplicationController
   def syndication_params
     params.require(:syndication).permit(:title, :status, :purchase_price, :raise_amount, :hold_period,
     :preferred_return, :average_annual_return, :irr, :price_per_share, :loan_amount,
-    :loan_rate, :year_built, :building_size, :lot_size, :number_of_buildings, :property_type, :number_of_tenants, :exit_date, :actual_average_annual_return, :actual_irr, :actual_hold_period,
+    :loan_rate, :year_built, :building_size, :lot_size, :number_of_buildings, :property_type, :number_of_tenants, :actual_average_annual_return, :actual_irr, :actual_hold_period,
     :image, :notes, :location, :active, annual_returns_attributes: [:year, :projected_annual_return, :actual_annual_return,
     :quarter_1, :quarter_2, :quarter_3, :quarter_4, :id, :_destroy])
   end
