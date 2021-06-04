@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+# ruby-2.6.6
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record
@@ -58,7 +58,7 @@ group :production,:staging,:beta do
 
 end
 
-gem 'mysql2','~> 0.3.18'
+gem 'mysql2','~> 0.3.21'
 gem 'rmagick'
 gem 'carrierwave'
 gem 'cloudinary'

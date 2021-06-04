@@ -344,7 +344,7 @@ DEPENDENCIES
   meetup_client
   meta-tags
   mimemagic!
-  mysql2 (~> 0.3.18)
+  mysql2 (~> 0.3.21)
   pry
   pry-rails
   pry-stack_explorer
