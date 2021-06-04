@@ -9,7 +9,7 @@ default: &default
   host: localhost
   database: wipmain
   username: root
-  password:
+  password: mysql123
 
 development:
   <<: *default
@@ -21,4 +21,4 @@ test:
   <<: *default
 
 production:
-  <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
