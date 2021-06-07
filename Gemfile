@@ -19,7 +19,9 @@ gem 'jquery-rails'
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
+
 gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
+
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
@@ -58,12 +60,12 @@ group :production,:staging,:beta do
 
 end
 
-gem 'mysql2','~> 0.3.21'
+gem 'mysql2'
 gem 'rmagick'
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'friendly_id', '~> 5.1.0'
-gem 'tinymce-rails'
+#gem 'tinymce-rails'
 gem 'kaminari'
 gem 'responders', '~> 2.0'
 gem 'active_model_serializers', '~> 0.8.3'
@@ -73,7 +75,7 @@ gem 'mailgun_rails'
 gem 'bootstrap-select-rails'
 gem 'font-awesome-rails'
 gem 'config'
-gem 'browser'
+#gem 'browser'
 gem "cocoon"
 gem 'bootstrap-datepicker-rails'
 gem 'meta-tags'
