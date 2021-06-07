@@ -92,7 +92,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    concurrent-ruby (1.1.8)
+    concurrent-ruby (1.1.9)
     config (1.7.2)
       activesupport (>= 3.0)
       deep_merge (~> 1.2, >= 1.2.1)
@@ -146,7 +146,7 @@ GEM
       mimemagic
       multipart-post
     http-accept (1.7.0)
-    http-cookie (1.0.3)
+    http-cookie (1.0.4)
       domain_name (~> 0.5)
     httparty (0.18.1)
       mime-types (~> 3.0)
@@ -172,7 +172,7 @@ GEM
       activerecord
       kaminari-core (= 1.2.1)
     kaminari-core (1.2.1)
-    loofah (2.9.1)
+    loofah (2.10.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
